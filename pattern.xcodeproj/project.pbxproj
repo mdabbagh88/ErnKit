@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F78B5BCA17254EC400DDEE61 /* ERNRoutingTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78B5BC917254EC400DDEE61 /* ERNRoutingTableViewManager.m */; };
+		F78B5BD61725667400DDEE61 /* ERNRoutingTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F78B5BD51725667400DDEE61 /* ERNRoutingTableViewCellFactory.m */; };
+		F790DDC517267ACC00A359BB /* ERNNullTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F790DDC417267ACC00A359BB /* ERNNullTableViewCellFactory.m */; };
+		F790DDC817267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F790DDC717267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.m */; };
+		F7DA701A171F0CBA0026D627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
+		F7DA701C171F0CBA0026D627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
+		F7DA701E171F0CBA0026D627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */; };
+		F7DA7024171F0CBA0026D627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7DA7022171F0CBA0026D627 /* InfoPlist.strings */; };
+		F7DA7026171F0CBA0026D627 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7025171F0CBA0026D627 /* main.m */; };
+		F7DA702A171F0CBA0026D627 /* ERNDemoApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7029171F0CBA0026D627 /* ERNDemoApplicationDelegate.m */; };
+		F7DA702C171F0CBA0026D627 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DA702B171F0CBA0026D627 /* Default.png */; };
+		F7DA702E171F0CBA0026D627 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DA702D171F0CBA0026D627 /* Default@2x.png */; };
+		F7DA7030171F0CBA0026D627 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DA702F171F0CBA0026D627 /* Default-568h@2x.png */; };
+		F7DA7039171F0CBA0026D627 /* ERNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7038171F0CBA0026D627 /* ERNDemoViewController.m */; };
+		F7DA7041171F0D3A0026D627 /* ERNTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7040171F0D3A0026D627 /* ERNTableViewDelegate.m */; };
+		F7DA7044171F0D490026D627 /* ERNTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7043171F0D490026D627 /* ERNTableViewDataSource.m */; };
+		F7DA70511724388F0026D627 /* ERNWindowViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA70501724388F0026D627 /* ERNWindowViewControllerTransitioner.m */; };
+		F7DA705417243A550026D627 /* ERNDemoApplicationConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA705317243A550026D627 /* ERNDemoApplicationConfigurator.m */; };
+		F7DA705717243ED40026D627 /* ERNViewControllerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA705617243ED40026D627 /* ERNViewControllerAction.m */; };
+		F7DA705A17243F400026D627 /* ERNMimeRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA705917243F400026D627 /* ERNMimeRoutingAction.m */; };
+		F7DA705D172442990026D627 /* ERNSchemeRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA705C172442990026D627 /* ERNSchemeRoutingAction.m */; };
+		F7DA7061172444440026D627 /* ERNActionSheetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7060172444440026D627 /* ERNActionSheetAction.m */; };
+		F7DA7066172447070026D627 /* ERNModalViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7065172447060026D627 /* ERNModalViewControllerTransitioner.m */; };
+		F7DA7069172448160026D627 /* ERNNavigationViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7068172448150026D627 /* ERNNavigationViewControllerTransitioner.m */; };
+		F7DA706E17244F8C0026D627 /* ERNDemoTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA706D17244F8B0026D627 /* ERNDemoTableViewManager.m */; };
+		F7DA707517253E410026D627 /* ERNExternalUrlAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA707417253E410026D627 /* ERNExternalUrlAction.m */; };
+		F7DA7078172542660026D627 /* ERNActionSheetViewTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DA7077172542660026D627 /* ERNActionSheetViewTransitioner.m */; };
+		F7EC4F311726814B00749D4A /* ERNDemoStringAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F301726814B00749D4A /* ERNDemoStringAsyncItemsRepository.m */; };
+		F7EC4F361726850800749D4A /* ERNBaseAsyncRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F351726850800749D4A /* ERNBaseAsyncRepository.m */; };
+		F7EC4F3B17268B8A00749D4A /* ERNRoutingUrlMimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F3A17268B8A00749D4A /* ERNRoutingUrlMimeFactory.m */; };
+		F7EC4F3F17268EEC00749D4A /* ERNDemoObjectUrlMimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F3E17268EEB00749D4A /* ERNDemoObjectUrlMimeFactory.m */; };
+		F7EC4F4117269CE800749D4A /* ERNDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7EC4F4017269CE800749D4A /* ERNDemoViewController.xib */; };
+		F7EC4F6D1726A0C400749D4A /* ERNDemoFirstScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F6C1726A0C300749D4A /* ERNDemoFirstScreenConfigurator.m */; };
+		F7EC4F701726A0D600749D4A /* ERNDemoSecondScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F6F1726A0D600749D4A /* ERNDemoSecondScreenConfigurator.m */; };
+		F7EC4F731726AC5500749D4A /* ERNDemoObjectAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F721726AC5500749D4A /* ERNDemoObjectAsyncItemsRepository.m */; };
+		F7EC4F771726ACA300749D4A /* ERNDemoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F761726ACA300749D4A /* ERNDemoObject.m */; };
+		F7EC4F7A1726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC4F791726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F78B5BC817254EC400DDEE61 /* ERNRoutingTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingTableViewManager.h; sourceTree = "<group>"; };
+		F78B5BC917254EC400DDEE61 /* ERNRoutingTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingTableViewManager.m; sourceTree = "<group>"; };
+		F78B5BD01725633400DDEE61 /* ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F78B5BD1172564A300DDEE61 /* ERNAsyncItemRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemRepository.h; sourceTree = "<group>"; };
+		F78B5BD21725656C00DDEE61 /* ERNAsyncRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAsyncRepository.h; sourceTree = "<group>"; };
+		F78B5BD31725661900DDEE61 /* ERNTableViewCellFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNTableViewCellFactory.h; sourceTree = "<group>"; };
+		F78B5BD41725667400DDEE61 /* ERNRoutingTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingTableViewCellFactory.h; sourceTree = "<group>"; };
+		F78B5BD51725667400DDEE61 /* ERNRoutingTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingTableViewCellFactory.m; sourceTree = "<group>"; };
+		F790DDC317267ACC00A359BB /* ERNNullTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewCellFactory.h; sourceTree = "<group>"; };
+		F790DDC417267ACC00A359BB /* ERNNullTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactory.m; sourceTree = "<group>"; };
+		F790DDC617267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepositoryTableViewManager.h; sourceTree = "<group>"; };
+		F790DDC717267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNAsyncItemsRepositoryTableViewManager.m; sourceTree = "<group>"; };
+		F7DA7016171F0CBA0026D627 /* pattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F7DA7021171F0CBA0026D627 /* pattern-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pattern-Info.plist"; sourceTree = "<group>"; };
+		F7DA7023171F0CBA0026D627 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7DA7025171F0CBA0026D627 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F7DA7027171F0CBA0026D627 /* pattern-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pattern-Prefix.pch"; sourceTree = "<group>"; };
+		F7DA7028171F0CBA0026D627 /* ERNDemoApplicationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNDemoApplicationDelegate.h; sourceTree = "<group>"; };
+		F7DA7029171F0CBA0026D627 /* ERNDemoApplicationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDemoApplicationDelegate.m; sourceTree = "<group>"; };
+		F7DA702B171F0CBA0026D627 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F7DA702D171F0CBA0026D627 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F7DA702F171F0CBA0026D627 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F7DA7037171F0CBA0026D627 /* ERNDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNDemoViewController.h; sourceTree = "<group>"; };
+		F7DA7038171F0CBA0026D627 /* ERNDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDemoViewController.m; sourceTree = "<group>"; };
+		F7DA703F171F0D3A0026D627 /* ERNTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewDelegate.h; sourceTree = "<group>"; };
+		F7DA7040171F0D3A0026D627 /* ERNTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDelegate.m; sourceTree = "<group>"; };
+		F7DA7042171F0D490026D627 /* ERNTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewDataSource.h; sourceTree = "<group>"; };
+		F7DA7043171F0D490026D627 /* ERNTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDataSource.m; sourceTree = "<group>"; };
+		F7DA7045171F116D0026D627 /* ERNTableViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNTableViewManager.h; sourceTree = "<group>"; };
+		F7DA704C172435E40026D627 /* ERNAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ERNAction.h; path = pattern/ERNAction.h; sourceTree = "<group>"; };
+		F7DA704D172437A40026D627 /* ERNViewControllerTransitioner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNViewControllerTransitioner.h; sourceTree = "<group>"; };
+		F7DA704E172438100026D627 /* ERNViewControllerConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNViewControllerConfigurator.h; sourceTree = "<group>"; };
+		F7DA704F1724388F0026D627 /* ERNWindowViewControllerTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNWindowViewControllerTransitioner.h; sourceTree = "<group>"; };
+		F7DA70501724388F0026D627 /* ERNWindowViewControllerTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNWindowViewControllerTransitioner.m; sourceTree = "<group>"; };
+		F7DA705217243A550026D627 /* ERNDemoApplicationConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoApplicationConfigurator.h; sourceTree = "<group>"; };
+		F7DA705317243A550026D627 /* ERNDemoApplicationConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoApplicationConfigurator.m; sourceTree = "<group>"; };
+		F7DA705517243ED40026D627 /* ERNViewControllerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ERNViewControllerAction.h; path = pattern/ERNViewControllerAction.h; sourceTree = "<group>"; };
+		F7DA705617243ED40026D627 /* ERNViewControllerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ERNViewControllerAction.m; path = pattern/ERNViewControllerAction.m; sourceTree = "<group>"; };
+		F7DA705817243F400026D627 /* ERNMimeRoutingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMimeRoutingAction.h; sourceTree = "<group>"; };
+		F7DA705917243F400026D627 /* ERNMimeRoutingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMimeRoutingAction.m; sourceTree = "<group>"; };
+		F7DA705B172442990026D627 /* ERNSchemeRoutingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSchemeRoutingAction.h; sourceTree = "<group>"; };
+		F7DA705C172442990026D627 /* ERNSchemeRoutingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSchemeRoutingAction.m; sourceTree = "<group>"; };
+		F7DA705F172444430026D627 /* ERNActionSheetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionSheetAction.h; sourceTree = "<group>"; };
+		F7DA7060172444440026D627 /* ERNActionSheetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionSheetAction.m; sourceTree = "<group>"; };
+		F7DA7062172446080026D627 /* ERNActionSheetTransitioner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNActionSheetTransitioner.h; sourceTree = "<group>"; };
+		F7DA7063172446140026D627 /* ERNActionSheetConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNActionSheetConfigurator.h; sourceTree = "<group>"; };
+		F7DA7064172447060026D627 /* ERNModalViewControllerTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNModalViewControllerTransitioner.h; sourceTree = "<group>"; };
+		F7DA7065172447060026D627 /* ERNModalViewControllerTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNModalViewControllerTransitioner.m; sourceTree = "<group>"; };
+		F7DA7067172448150026D627 /* ERNNavigationViewControllerTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNavigationViewControllerTransitioner.h; sourceTree = "<group>"; };
+		F7DA7068172448150026D627 /* ERNNavigationViewControllerTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNavigationViewControllerTransitioner.m; sourceTree = "<group>"; };
+		F7DA706C17244F8A0026D627 /* ERNDemoTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTableViewManager.h; sourceTree = "<group>"; };
+		F7DA706D17244F8B0026D627 /* ERNDemoTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTableViewManager.m; sourceTree = "<group>"; };
+		F7DA707317253E410026D627 /* ERNExternalUrlAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNExternalUrlAction.h; sourceTree = "<group>"; };
+		F7DA707417253E410026D627 /* ERNExternalUrlAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNExternalUrlAction.m; sourceTree = "<group>"; };
+		F7DA7076172542660026D627 /* ERNActionSheetViewTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionSheetViewTransitioner.h; sourceTree = "<group>"; };
+		F7DA7077172542660026D627 /* ERNActionSheetViewTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionSheetViewTransitioner.m; sourceTree = "<group>"; };
+		F7EC4F2F1726814B00749D4A /* ERNDemoStringAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoStringAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F7EC4F301726814B00749D4A /* ERNDemoStringAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoStringAsyncItemsRepository.m; sourceTree = "<group>"; };
+		F7EC4F341726850800749D4A /* ERNBaseAsyncRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBaseAsyncRepository.h; sourceTree = "<group>"; };
+		F7EC4F351726850800749D4A /* ERNBaseAsyncRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBaseAsyncRepository.m; sourceTree = "<group>"; };
+		F7EC4F3717268A9500749D4A /* ERNUrlMimeFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNUrlMimeFactory.h; sourceTree = "<group>"; };
+		F7EC4F3917268B8A00749D4A /* ERNRoutingUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingUrlMimeFactory.h; sourceTree = "<group>"; };
+		F7EC4F3A17268B8A00749D4A /* ERNRoutingUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingUrlMimeFactory.m; sourceTree = "<group>"; };
+		F7EC4F3D17268EEB00749D4A /* ERNDemoObjectUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoObjectUrlMimeFactory.h; sourceTree = "<group>"; };
+		F7EC4F3E17268EEB00749D4A /* ERNDemoObjectUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoObjectUrlMimeFactory.m; sourceTree = "<group>"; };
+		F7EC4F4017269CE800749D4A /* ERNDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ERNDemoViewController.xib; sourceTree = "<group>"; };
+		F7EC4F6B1726A0C300749D4A /* ERNDemoFirstScreenConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoFirstScreenConfigurator.h; sourceTree = "<group>"; };
+		F7EC4F6C1726A0C300749D4A /* ERNDemoFirstScreenConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoFirstScreenConfigurator.m; sourceTree = "<group>"; };
+		F7EC4F6E1726A0D600749D4A /* ERNDemoSecondScreenConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoSecondScreenConfigurator.h; sourceTree = "<group>"; };
+		F7EC4F6F1726A0D600749D4A /* ERNDemoSecondScreenConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoSecondScreenConfigurator.m; sourceTree = "<group>"; };
+		F7EC4F711726AC5400749D4A /* ERNDemoObjectAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoObjectAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F7EC4F721726AC5500749D4A /* ERNDemoObjectAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoObjectAsyncItemsRepository.m; sourceTree = "<group>"; };
+		F7EC4F751726ACA300749D4A /* ERNDemoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoObject.h; sourceTree = "<group>"; };
+		F7EC4F761726ACA300749D4A /* ERNDemoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoObject.m; sourceTree = "<group>"; };
+		F7EC4F781726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoDemoObjectTableViewCellFactory.h; sourceTree = "<group>"; };
+		F7EC4F791726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoDemoObjectTableViewCellFactory.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7DA7013171F0CBA0026D627 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7DA701A171F0CBA0026D627 /* UIKit.framework in Frameworks */,
+				F7DA701C171F0CBA0026D627 /* Foundation.framework in Frameworks */,
+				F7DA701E171F0CBA0026D627 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F78B5BCB172560B000DDEE61 /* TableViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA703F171F0D3A0026D627 /* ERNTableViewDelegate.h */,
+				F7DA7040171F0D3A0026D627 /* ERNTableViewDelegate.m */,
+				F7DA7042171F0D490026D627 /* ERNTableViewDataSource.h */,
+				F7DA7043171F0D490026D627 /* ERNTableViewDataSource.m */,
+				F7DA7045171F116D0026D627 /* ERNTableViewManager.h */,
+				F78B5BC817254EC400DDEE61 /* ERNRoutingTableViewManager.h */,
+				F78B5BC917254EC400DDEE61 /* ERNRoutingTableViewManager.m */,
+				F78B5BD31725661900DDEE61 /* ERNTableViewCellFactory.h */,
+				F78B5BD41725667400DDEE61 /* ERNRoutingTableViewCellFactory.h */,
+				F78B5BD51725667400DDEE61 /* ERNRoutingTableViewCellFactory.m */,
+				F790DDC317267ACC00A359BB /* ERNNullTableViewCellFactory.h */,
+				F790DDC417267ACC00A359BB /* ERNNullTableViewCellFactory.m */,
+				F790DDC617267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.h */,
+				F790DDC717267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.m */,
+			);
+			name = TableViewHelpers;
+			sourceTree = "<group>";
+		};
+		F78B5BCC172560EC00DDEE61 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA7028171F0CBA0026D627 /* ERNDemoApplicationDelegate.h */,
+				F7DA7029171F0CBA0026D627 /* ERNDemoApplicationDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		F78B5BCD1725611A00DDEE61 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F741726AC9600749D4A /* Model */,
+				F7EC4F3C17268ECD00749D4A /* UrlMime */,
+				F7EC4F2E1726812300749D4A /* Repositories */,
+				F78B5BCC172560EC00DDEE61 /* Application */,
+				F78B5BCE1725613200DDEE61 /* Configurators */,
+				F7DA707017253DB70026D627 /* Controllers */,
+				F78B5BCF1725614F00DDEE61 /* TableViewHelper */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		F78B5BCE1725613200DDEE61 /* Configurators */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA705217243A550026D627 /* ERNDemoApplicationConfigurator.h */,
+				F7DA705317243A550026D627 /* ERNDemoApplicationConfigurator.m */,
+				F7EC4F6B1726A0C300749D4A /* ERNDemoFirstScreenConfigurator.h */,
+				F7EC4F6C1726A0C300749D4A /* ERNDemoFirstScreenConfigurator.m */,
+				F7EC4F6E1726A0D600749D4A /* ERNDemoSecondScreenConfigurator.h */,
+				F7EC4F6F1726A0D600749D4A /* ERNDemoSecondScreenConfigurator.m */,
+			);
+			name = Configurators;
+			sourceTree = "<group>";
+		};
+		F78B5BCF1725614F00DDEE61 /* TableViewHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA706C17244F8A0026D627 /* ERNDemoTableViewManager.h */,
+				F7DA706D17244F8B0026D627 /* ERNDemoTableViewManager.m */,
+				F7EC4F781726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.h */,
+				F7EC4F791726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.m */,
+			);
+			name = TableViewHelper;
+			sourceTree = "<group>";
+		};
+		F7DA700D171F0CBA0026D627 = {
+			isa = PBXGroup;
+			children = (
+				F7DA701F171F0CBA0026D627 /* Source */,
+				F7DA7018171F0CBA0026D627 /* Frameworks */,
+				F7DA7017171F0CBA0026D627 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7DA7017171F0CBA0026D627 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA7016171F0CBA0026D627 /* pattern.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7DA7018171F0CBA0026D627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA7019171F0CBA0026D627 /* UIKit.framework */,
+				F7DA701B171F0CBA0026D627 /* Foundation.framework */,
+				F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7DA701F171F0CBA0026D627 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F32172684CC00749D4A /* ERNFramework */,
+				F78B5BCD1725611A00DDEE61 /* Demo */,
+				F7DA7020171F0CBA0026D627 /* Supporting Files */,
+			);
+			name = Source;
+			path = pattern;
+			sourceTree = "<group>";
+		};
+		F7DA7020171F0CBA0026D627 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA7022171F0CBA0026D627 /* InfoPlist.strings */,
+				F7DA7021171F0CBA0026D627 /* pattern-Info.plist */,
+				F7DA7025171F0CBA0026D627 /* main.m */,
+				F7DA7027171F0CBA0026D627 /* pattern-Prefix.pch */,
+				F7DA702B171F0CBA0026D627 /* Default.png */,
+				F7DA702D171F0CBA0026D627 /* Default@2x.png */,
+				F7DA702F171F0CBA0026D627 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7DA705E1724432D0026D627 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA704C172435E40026D627 /* ERNAction.h */,
+				F7DA705517243ED40026D627 /* ERNViewControllerAction.h */,
+				F7DA705617243ED40026D627 /* ERNViewControllerAction.m */,
+				F7DA705B172442990026D627 /* ERNSchemeRoutingAction.h */,
+				F7DA705C172442990026D627 /* ERNSchemeRoutingAction.m */,
+				F7DA705817243F400026D627 /* ERNMimeRoutingAction.h */,
+				F7DA705917243F400026D627 /* ERNMimeRoutingAction.m */,
+				F7DA705F172444430026D627 /* ERNActionSheetAction.h */,
+				F7DA7060172444440026D627 /* ERNActionSheetAction.m */,
+				F7DA707317253E410026D627 /* ERNExternalUrlAction.h */,
+				F7DA707417253E410026D627 /* ERNExternalUrlAction.m */,
+			);
+			name = Actions;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F7DA706F17253D8C0026D627 /* Transitioners */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA704D172437A40026D627 /* ERNViewControllerTransitioner.h */,
+				F7DA704F1724388F0026D627 /* ERNWindowViewControllerTransitioner.h */,
+				F7DA70501724388F0026D627 /* ERNWindowViewControllerTransitioner.m */,
+				F7DA7064172447060026D627 /* ERNModalViewControllerTransitioner.h */,
+				F7DA7065172447060026D627 /* ERNModalViewControllerTransitioner.m */,
+				F7DA7067172448150026D627 /* ERNNavigationViewControllerTransitioner.h */,
+				F7DA7068172448150026D627 /* ERNNavigationViewControllerTransitioner.m */,
+				F7DA7062172446080026D627 /* ERNActionSheetTransitioner.h */,
+				F7DA7076172542660026D627 /* ERNActionSheetViewTransitioner.h */,
+				F7DA7077172542660026D627 /* ERNActionSheetViewTransitioner.m */,
+			);
+			name = Transitioners;
+			sourceTree = "<group>";
+		};
+		F7DA707017253DB70026D627 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA7037171F0CBA0026D627 /* ERNDemoViewController.h */,
+				F7DA7038171F0CBA0026D627 /* ERNDemoViewController.m */,
+				F7EC4F4017269CE800749D4A /* ERNDemoViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F7DA707217253DDE0026D627 /* Configurators */ = {
+			isa = PBXGroup;
+			children = (
+				F7DA704E172438100026D627 /* ERNViewControllerConfigurator.h */,
+				F7DA7063172446140026D627 /* ERNActionSheetConfigurator.h */,
+			);
+			name = Configurators;
+			sourceTree = "<group>";
+		};
+		F7EC4F2E1726812300749D4A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F2F1726814B00749D4A /* ERNDemoStringAsyncItemsRepository.h */,
+				F7EC4F301726814B00749D4A /* ERNDemoStringAsyncItemsRepository.m */,
+				F7EC4F711726AC5400749D4A /* ERNDemoObjectAsyncItemsRepository.h */,
+				F7EC4F721726AC5500749D4A /* ERNDemoObjectAsyncItemsRepository.m */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		F7EC4F32172684CC00749D4A /* ERNFramework */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F33172684ED00749D4A /* Repositories */,
+				F7DA705E1724432D0026D627 /* Actions */,
+				F7DA707217253DDE0026D627 /* Configurators */,
+				F78B5BCB172560B000DDEE61 /* TableViewHelpers */,
+				F7DA706F17253D8C0026D627 /* Transitioners */,
+				F7EC4F3817268B1300749D4A /* UrlMime */,
+			);
+			name = ERNFramework;
+			sourceTree = "<group>";
+		};
+		F7EC4F33172684ED00749D4A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F78B5BD01725633400DDEE61 /* ERNAsyncItemsRepository.h */,
+				F78B5BD1172564A300DDEE61 /* ERNAsyncItemRepository.h */,
+				F78B5BD21725656C00DDEE61 /* ERNAsyncRepository.h */,
+				F7EC4F341726850800749D4A /* ERNBaseAsyncRepository.h */,
+				F7EC4F351726850800749D4A /* ERNBaseAsyncRepository.m */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		F7EC4F3817268B1300749D4A /* UrlMime */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F3717268A9500749D4A /* ERNUrlMimeFactory.h */,
+				F7EC4F3917268B8A00749D4A /* ERNRoutingUrlMimeFactory.h */,
+				F7EC4F3A17268B8A00749D4A /* ERNRoutingUrlMimeFactory.m */,
+			);
+			name = UrlMime;
+			sourceTree = "<group>";
+		};
+		F7EC4F3C17268ECD00749D4A /* UrlMime */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F3D17268EEB00749D4A /* ERNDemoObjectUrlMimeFactory.h */,
+				F7EC4F3E17268EEB00749D4A /* ERNDemoObjectUrlMimeFactory.m */,
+			);
+			name = UrlMime;
+			sourceTree = "<group>";
+		};
+		F7EC4F741726AC9600749D4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7EC4F751726ACA300749D4A /* ERNDemoObject.h */,
+				F7EC4F761726ACA300749D4A /* ERNDemoObject.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7DA7015171F0CBA0026D627 /* pattern */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7DA703C171F0CBA0026D627 /* Build configuration list for PBXNativeTarget "pattern" */;
+			buildPhases = (
+				F7DA7012171F0CBA0026D627 /* Sources */,
+				F7DA7013171F0CBA0026D627 /* Frameworks */,
+				F7DA7014171F0CBA0026D627 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pattern;
+			productName = pattern;
+			productReference = F7DA7016171F0CBA0026D627 /* pattern.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7DA700E171F0CBA0026D627 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ERN;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Ernstsson.net;
+			};
+			buildConfigurationList = F7DA7011171F0CBA0026D627 /* Build configuration list for PBXProject "pattern" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F7DA700D171F0CBA0026D627;
+			productRefGroup = F7DA7017171F0CBA0026D627 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7DA7015171F0CBA0026D627 /* pattern */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7DA7014171F0CBA0026D627 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7DA7024171F0CBA0026D627 /* InfoPlist.strings in Resources */,
+				F7DA702C171F0CBA0026D627 /* Default.png in Resources */,
+				F7DA702E171F0CBA0026D627 /* Default@2x.png in Resources */,
+				F7DA7030171F0CBA0026D627 /* Default-568h@2x.png in Resources */,
+				F7EC4F4117269CE800749D4A /* ERNDemoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7DA7012171F0CBA0026D627 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7DA7026171F0CBA0026D627 /* main.m in Sources */,
+				F7DA702A171F0CBA0026D627 /* ERNDemoApplicationDelegate.m in Sources */,
+				F7DA7039171F0CBA0026D627 /* ERNDemoViewController.m in Sources */,
+				F7DA7041171F0D3A0026D627 /* ERNTableViewDelegate.m in Sources */,
+				F7DA7044171F0D490026D627 /* ERNTableViewDataSource.m in Sources */,
+				F7DA70511724388F0026D627 /* ERNWindowViewControllerTransitioner.m in Sources */,
+				F7DA705417243A550026D627 /* ERNDemoApplicationConfigurator.m in Sources */,
+				F7DA705717243ED40026D627 /* ERNViewControllerAction.m in Sources */,
+				F7DA705A17243F400026D627 /* ERNMimeRoutingAction.m in Sources */,
+				F7DA705D172442990026D627 /* ERNSchemeRoutingAction.m in Sources */,
+				F7DA7061172444440026D627 /* ERNActionSheetAction.m in Sources */,
+				F7DA7066172447070026D627 /* ERNModalViewControllerTransitioner.m in Sources */,
+				F7DA7069172448160026D627 /* ERNNavigationViewControllerTransitioner.m in Sources */,
+				F7DA706E17244F8C0026D627 /* ERNDemoTableViewManager.m in Sources */,
+				F7DA707517253E410026D627 /* ERNExternalUrlAction.m in Sources */,
+				F7DA7078172542660026D627 /* ERNActionSheetViewTransitioner.m in Sources */,
+				F78B5BCA17254EC400DDEE61 /* ERNRoutingTableViewManager.m in Sources */,
+				F78B5BD61725667400DDEE61 /* ERNRoutingTableViewCellFactory.m in Sources */,
+				F790DDC517267ACC00A359BB /* ERNNullTableViewCellFactory.m in Sources */,
+				F790DDC817267E3E00A359BB /* ERNAsyncItemsRepositoryTableViewManager.m in Sources */,
+				F7EC4F311726814B00749D4A /* ERNDemoStringAsyncItemsRepository.m in Sources */,
+				F7EC4F361726850800749D4A /* ERNBaseAsyncRepository.m in Sources */,
+				F7EC4F3B17268B8A00749D4A /* ERNRoutingUrlMimeFactory.m in Sources */,
+				F7EC4F3F17268EEC00749D4A /* ERNDemoObjectUrlMimeFactory.m in Sources */,
+				F7EC4F6D1726A0C400749D4A /* ERNDemoFirstScreenConfigurator.m in Sources */,
+				F7EC4F701726A0D600749D4A /* ERNDemoSecondScreenConfigurator.m in Sources */,
+				F7EC4F731726AC5500749D4A /* ERNDemoObjectAsyncItemsRepository.m in Sources */,
+				F7EC4F771726ACA300749D4A /* ERNDemoObject.m in Sources */,
+				F7EC4F7A1726AD6900749D4A /* ERNDemoDemoObjectTableViewCellFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7DA7022171F0CBA0026D627 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7DA7023171F0CBA0026D627 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7DA703A171F0CBA0026D627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7DA703B171F0CBA0026D627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7DA703D171F0CBA0026D627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pattern/pattern-Prefix.pch";
+				INFOPLIST_FILE = "pattern/pattern-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F7DA703E171F0CBA0026D627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pattern/pattern-Prefix.pch";
+				INFOPLIST_FILE = "pattern/pattern-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7DA7011171F0CBA0026D627 /* Build configuration list for PBXProject "pattern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7DA703A171F0CBA0026D627 /* Debug */,
+				F7DA703B171F0CBA0026D627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7DA703C171F0CBA0026D627 /* Build configuration list for PBXNativeTarget "pattern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7DA703D171F0CBA0026D627 /* Debug */,
+				F7DA703E171F0CBA0026D627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7DA700E171F0CBA0026D627 /* Project object */;
+}
