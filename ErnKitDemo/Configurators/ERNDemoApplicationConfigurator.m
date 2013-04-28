@@ -3,11 +3,13 @@
 #import "ERNDemoSecondScreenConfigurator.h"
 #import "ERNDemoThirdScreenConfigurator.h"
 #import "ERNDemoFourthScreenConfigurator.h"
+#import "ERNDemoFifthScreenConfigurator.h"
 #import "ERNNavigationViewControllerTransitioner.h"
 #import "ERNViewControllerAction.h"
 #import "ERNMimeRoutingAction.h"
 #import "ERNExternalUrlAction.h"
 #import "ERNDemoObjectUrlMimeFactory.h"
+#import "ERNDemoObject2UrlMimeFactory.h"
 #import "ERNRoutingUrlMimeFactory.h"
 #import "ERNURLUrlMimeFactory.h"
 #import "ERNDemoObject.h"
@@ -42,12 +44,17 @@ static NSArray *gArray;
     id<ERNAction> fourthAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
                                                                    configurator:fourthScreenConfigurator];
 
+    ERNDemoFifthScreenConfigurator *fifthScreenConfigurator = [ERNDemoFifthScreenConfigurator configurator];
+    id<ERNAction> fifthAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
+                                                                   configurator:fifthScreenConfigurator];
+
     id<ERNAction> externalUrlAction = [ERNExternalUrlAction actionWithApplication:[UIApplication sharedApplication]];
 
     NSDictionary *mimeActionMappings = @{[ERNDemoObjectUrlMimeFactory mime]: externalUrlAction,
                                          [ERNURLUrlMimeFactory mime] : externalUrlAction,
                                          [ERNNumberUrlMimeFactory mime] : thirdAction,
                                          [ERNStringUrlMimeFactory mime] :fourthAction,
+                                         [ERNDemoObject2UrlMimeFactory mime] :fifthAction,
                                          @"": secondAction};
 
     id<ERNActionHandler> actionHandler = [self actionHandler:mimeActionMappings];
@@ -79,7 +86,8 @@ static NSArray *gArray;
     return @{NSStringFromClass([ERNDemoObject class]) : [ERNDemoObjectUrlMimeFactory urlMimeFactory],
              NSStringFromClass([NSURL class]) : [ERNURLUrlMimeFactory urlMimeFactory],
              @"__NSCFNumber" : [ERNNumberUrlMimeFactory urlMimeFactory],
-             @"__NSCFConstantString" : [ERNStringUrlMimeFactory urlMimeFactory]};
+             @"__NSCFConstantString" : [ERNStringUrlMimeFactory urlMimeFactory],
+             NSStringFromClass([ERNDemoObject2 class]) : [ERNDemoObject2UrlMimeFactory urlMimeFactory]};
 }
 
 +(instancetype)configurator
