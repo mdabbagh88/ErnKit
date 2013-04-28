@@ -17,50 +17,63 @@
 
 -(NSInteger)rowsInSection:(NSInteger)section
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
-    NSInteger routedSection = [self routedSection:section];
-    return [routedTableViewManager rowsInSection:routedSection];
+    return [[self routedTableViewManagerForSection:section] rowsInSection:[self routedSection:section]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
               cellForIndexPath:(NSIndexPath *)indexPath
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:[indexPath section]];
-    NSIndexPath *routedIndexPath = [self routedIndexPathForIndexPath:indexPath];
-    return [routedTableViewManager tableView:tableView
-                            cellForIndexPath:routedIndexPath];
+    return [[self routedTableViewManagerForSection:[indexPath section]] tableView:tableView
+                                                                 cellForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
-
 
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
-    id routedTableViewManager = [self routedTableViewManagerForSection:[indexPath section]];
-    NSIndexPath *routedIndexPath = [self routedIndexPathForIndexPath:indexPath];
-    [[routedTableViewManager guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:routedIndexPath];
+    [[(id)[self routedTableViewManagerForSection:[indexPath section]] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
 
 -(NSString *)titleForFooterInSection:(NSInteger)section
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
+    return [self titleForFooterInRoutedSection:[self routedSection:section]
+                        routedTableViewManager:[self routedTableViewManagerForSection:section]];
+}
+
+-(NSString *)titleForFooterInRoutedSection:(NSInteger)routedSection
+                    routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(titleForFooterInSection:)] ?
-    [routedTableViewManager titleForFooterInSection:[self routedSection:section]] :
+    [routedTableViewManager titleForFooterInSection:routedSection] :
     @"";
 }
 
 -(NSString *)titleForHeaderInSection:(NSInteger)section
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
+    return [self titleForHeaderInRoutedSection:[self routedSection:section]
+                        routedTableViewManager:[self routedTableViewManagerForSection:section]];
+}
+
+-(NSString *)titleForHeaderInRoutedSection:(NSInteger)routedSection
+                    routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(titleForHeaderInSection:)] ?
-    [routedTableViewManager titleForHeaderInSection:[self routedSection:section]] :
+    [routedTableViewManager titleForHeaderInSection:routedSection] :
     @"";
 }
 
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
                     defaultHeight:(CGFloat)defaultHeight
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:[indexPath section]];
+    return [self heightForRowAtRoutedIndexPath:[self routedIndexPathForIndexPath:indexPath]
+                                 defaultHeight:defaultHeight
+                        routedTableViewManager:[self routedTableViewManagerForSection:[indexPath section]]];
+}
+
+-(CGFloat)heightForRowAtRoutedIndexPath:(NSIndexPath *)routedIndexPath
+                          defaultHeight:(CGFloat)defaultHeight
+                 routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)] ?
-    [routedTableViewManager heightForRowAtIndexPath:[self routedIndexPathForIndexPath:indexPath]
+    [routedTableViewManager heightForRowAtIndexPath:routedIndexPath
                                       defaultHeight:defaultHeight] :
     defaultHeight;
 }
@@ -68,9 +81,17 @@
 -(CGFloat)heightForHeaderInSection:(NSInteger)section
                      defaultHeight:(CGFloat)defaultHeight
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
+    return [self heightForHeaderInRoutedSection:[self routedSection:section]
+                                  defaultHeight:defaultHeight
+                         routedTableViewManager:[self routedTableViewManagerForSection:section]];
+}
+
+-(CGFloat)heightForHeaderInRoutedSection:(NSInteger)routedSection
+                           defaultHeight:(CGFloat)defaultHeight
+                  routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)] ?
-    [routedTableViewManager heightForHeaderInSection:[self routedSection:section]
+    [routedTableViewManager heightForHeaderInSection:routedSection
                                        defaultHeight:defaultHeight] :
     defaultHeight;
 }
@@ -78,26 +99,46 @@
 -(CGFloat)heightForFooterInSection:(NSInteger)section
                      defaultHeight:(CGFloat)defaultHeight
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
+    return [self heightForFooterInRoutedSection:[self routedSection:section]
+                                  defaultHeight:defaultHeight
+                         routedTableViewManager:[self routedTableViewManagerForSection:section]];
+}
+
+-(CGFloat)heightForFooterInRoutedSection:(NSInteger)routedSection
+                           defaultHeight:(CGFloat)defaultHeight
+                  routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)] ?
-    [routedTableViewManager heightForFooterInSection:[self routedSection:section]
+    [routedTableViewManager heightForFooterInSection:routedSection
                                        defaultHeight:defaultHeight] :
     defaultHeight;
 }
 
 -(UIView *)viewForHeaderInSection:(NSInteger)section
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
+    return [self viewForHeaderInRoutedSection:[self routedSection:section]
+                       routedTableViewManager:[self routedTableViewManagerForSection:section]];
+}
+
+-(UIView *)viewForHeaderInRoutedSection:(NSInteger)routedSection
+                 routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(viewForHeaderInSection:)] ?
-    [routedTableViewManager viewForHeaderInSection:[self routedSection:section]] :
+    [routedTableViewManager viewForHeaderInSection:routedSection] :
     nil;
 }
 
 -(UIView *)viewForFooterInSection:(NSInteger)section
 {
-    id<ERNTableViewManager> routedTableViewManager = [self routedTableViewManagerForSection:section];
+    return [self viewForFooterInRoutedSection:[self routedSection:section]
+                       routedTableViewManager:[self routedTableViewManagerForSection:section]];
+}
+
+-(UIView *)viewForFooterInRoutedSection:(NSInteger)routedSection
+                 routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
+{
     return [routedTableViewManager respondsToSelector:@selector(viewForFooterInSection:)] ?
-    [routedTableViewManager viewForFooterInSection:[self routedSection:section]] :
+    [routedTableViewManager viewForFooterInSection:routedSection] :
     nil;
 }
 

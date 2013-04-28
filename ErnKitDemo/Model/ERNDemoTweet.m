@@ -5,21 +5,29 @@
 
 -(CLLocationCoordinate2D)coordinate
 {
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(0, 0);
-    if ([[self coordinates] count] == 2) {
-        double longitude = [[self coordinates][0] doubleValue];
-        double latitude = [[self coordinates][1] doubleValue];
-        coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    }
-    return coordinate;
+    return [self hasCoordinates] ? [self createCoordinate] : CLLocationCoordinate2DMake(0, 0);
+}
+
+-(CLLocationCoordinate2D)createCoordinate
+{
+    double longitude = [[self coordinates][0] doubleValue];
+    double latitude = [[self coordinates][1] doubleValue];
+    return CLLocationCoordinate2DMake(latitude, longitude);
 }
 
 -(BOOL)conformsToProtocol:(Protocol *)protocol
 {
-    if ([protocol isEqual:@protocol(MKAnnotation)] && [[self coordinates] count] != 2) {
-        return NO;
-    }
-    return[super conformsToProtocol:protocol];
+    return [self isInvalidAnnotation:protocol] ? NO : [super conformsToProtocol:protocol];
+}
+
+-(BOOL)isInvalidAnnotation:(Protocol *)protocol
+{
+    return [protocol isEqual:@protocol(MKAnnotation)] && ![self hasCoordinates];
+}
+
+-(BOOL)hasCoordinates
+{
+    return [[self coordinates] count] == 2;
 }
 
 -(NSString *)title

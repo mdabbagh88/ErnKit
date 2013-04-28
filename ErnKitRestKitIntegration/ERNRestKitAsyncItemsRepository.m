@@ -47,24 +47,38 @@
 -(void)refresh
 {
     [[self currentOperation] cancel];
+    [self setCurrentOperation:[self setupCompletionBlocksForOperation:[self requestOperation]]];
+    [[self operationQueue] addOperation:[self currentOperation]];
+}
+
+-(RKObjectRequestOperation *)requestOperation
+{
+    return [[RKObjectRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[self url]]
+                                         responseDescriptors:@[[self responseDescriptor]]];
+}
+
+-(RKObjectRequestOperation *)setupCompletionBlocksForOperation:(RKObjectRequestOperation *)operation
+{
     NSOperationQueue *clientOperationQueue = [NSOperationQueue currentQueue];
     __weak ERNRestKitAsyncItemsRepository *blockSelf = self;
-    RKObjectRequestOperation *objectRequestOperation = [[RKObjectRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[self url]]
-                                                                                     responseDescriptors:@[[self responseDescriptor]]];
-    [objectRequestOperation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-         [clientOperationQueue addOperationWithBlock:^{
+
+    [operation setCompletionBlockWithSuccess:
+     ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+         [clientOperationQueue addOperationWithBlock:
+          ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
               [localBlockSelf refreshedWithItems:[mappingResult array]];
           }];
      }
-                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
-         [clientOperationQueue addOperationWithBlock:^{
+                                                  failure:
+     ^(RKObjectRequestOperation *operation, NSError *error) {
+         [clientOperationQueue addOperationWithBlock:
+          ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
               [localBlockSelf refreshedWithError:error];
           }];
      }];
-    [self setCurrentOperation:objectRequestOperation];
-    [[self operationQueue] addOperation:[self currentOperation]];
+    return operation;
 }
 
 -(void)refreshedWithItems:(NSArray *)items
