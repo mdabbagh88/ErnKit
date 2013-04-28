@@ -19,6 +19,7 @@
 		F792BEAD172D57E300B097C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */; };
 		F79AE85F172D84BB001F8F23 /* ERNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE85D172D84BB001F8F23 /* ERNDemoViewController.m */; };
 		F79AE860172D84BB001F8F23 /* ERNDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79AE85E172D84BB001F8F23 /* ERNDemoViewController.xib */; };
+		F79AE863172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE862172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
 		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -132,6 +133,8 @@
 		F79AE85C172D84BB001F8F23 /* ERNDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoViewController.h; sourceTree = "<group>"; };
 		F79AE85D172D84BB001F8F23 /* ERNDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoViewController.m; sourceTree = "<group>"; };
 		F79AE85E172D84BB001F8F23 /* ERNDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ERNDemoViewController.xib; sourceTree = "<group>"; };
+		F79AE861172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweetMapViewAnnotationViewFactory.h; sourceTree = "<group>"; };
+		F79AE862172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -832,6 +835,8 @@
 				F7F06B03172D0C5700CA5FC4 /* ERNDemoObjectMapViewAnnotationViewFactory.m */,
 				F7F06B04172D0C5700CA5FC4 /* ERNDemoObjectTableViewCellFactory.h */,
 				F7F06B05172D0C5700CA5FC4 /* ERNDemoObjectTableViewCellFactory.m */,
+				F79AE861172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */,
+				F79AE862172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -1176,6 +1181,7 @@
 				F772518C172D798D000D9486 /* ERNDemoTweet.m in Sources */,
 				F7725190172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m in Sources */,
 				F79AE85F172D84BB001F8F23 /* ERNDemoViewController.m in Sources */,
+				F79AE863172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

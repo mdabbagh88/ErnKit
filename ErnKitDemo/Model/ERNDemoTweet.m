@@ -37,7 +37,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ (ID: %@)", [self text], [self statusID]];
+    return [self text];
 }
 
 @end

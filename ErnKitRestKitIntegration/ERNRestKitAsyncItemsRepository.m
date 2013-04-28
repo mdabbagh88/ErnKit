@@ -47,7 +47,8 @@
 -(void)refresh
 {
     [[self currentOperation] cancel];
-    [self setCurrentOperation:[self setupCompletionBlocksForOperation:[self requestOperation]]];
+    [self setCurrentOperation:[self setupCompletionBlocksForOperation:[self requestOperation]
+                                               responseOperationsQueue:[NSOperationQueue currentQueue]]];
     [[self operationQueue] addOperation:[self currentOperation]];
 }
 
@@ -58,13 +59,13 @@
 }
 
 -(RKObjectRequestOperation *)setupCompletionBlocksForOperation:(RKObjectRequestOperation *)operation
+                                       responseOperationsQueue:(NSOperationQueue *)responseOperationQueue
 {
-    NSOperationQueue *clientOperationQueue = [NSOperationQueue currentQueue];
     __weak ERNRestKitAsyncItemsRepository *blockSelf = self;
 
     [operation setCompletionBlockWithSuccess:
      ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-         [clientOperationQueue addOperationWithBlock:
+         [responseOperationQueue addOperationWithBlock:
           ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
               [localBlockSelf refreshedWithItems:[mappingResult array]];
@@ -72,7 +73,7 @@
      }
                                                   failure:
      ^(RKObjectRequestOperation *operation, NSError *error) {
-         [clientOperationQueue addOperationWithBlock:
+         [responseOperationQueue addOperationWithBlock:
           ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
               [localBlockSelf refreshedWithError:error];

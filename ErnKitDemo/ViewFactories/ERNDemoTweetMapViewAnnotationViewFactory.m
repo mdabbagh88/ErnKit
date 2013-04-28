@@ -1,21 +1,27 @@
-#import "ERNDemoObjectMapViewAnnotationViewFactory.h"
+#import "ERNDemoTweetMapViewAnnotationViewFactory.h"
+#import "ERNDemoTweet.h"
 #import "MKAnnotationView+ERNHelper.h"
-#import "ERNDemoObject.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
-@implementation ERNDemoObjectMapViewAnnotationViewFactory
+@implementation ERNDemoTweetMapViewAnnotationViewFactory
 
 -(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
-                               fromAnnotation:(ERNDemoObject *)annotation
+                               fromAnnotation:(ERNDemoTweet *)annotation
 {
     return [self setupView:[MKAnnotationView viewForMapView:mapView
                                                  annotation:annotation
-                                                 identifier:NSStringFromClass([annotation class])]];
+                                                 identifier:NSStringFromClass([annotation class])]
+                annotation:annotation];
 }
 
 -(MKAnnotationView *)setupView:(MKAnnotationView *)view
+                    annotation:(ERNDemoTweet *)annotation
 {
-    [view setImage:[self createImage]];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [imageView setImageWithURL:[annotation imageUrl]];
+    [view setBounds:[imageView bounds]];
     [view setCanShowCallout:YES];
+    [view addSubview:imageView];
     return view;
 }
 

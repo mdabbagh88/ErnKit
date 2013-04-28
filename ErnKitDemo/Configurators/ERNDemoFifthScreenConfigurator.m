@@ -1,5 +1,7 @@
 #import "ERNDemoFifthScreenConfigurator.h"
 #import "ERNRestKitAsyncItemsRepository.h"
+#import "ERNRoutingMapViewAnnotationViewFactory.h"
+#import "ERNDemoTweetMapViewAnnotationViewFactory.h"
 #import "ERNMapViewController.h"
 #import "ERNDemoTweet.h"
 
@@ -7,24 +9,22 @@
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    NSURL *twitterUrl = [NSURL URLWithString:@"https://twitter.com/status/user_timeline/ernstsson?format=json"];
+    NSURL *twitterUrl = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline/ernstsson.json?count=100"];
     RKObjectMapping *statusMapping = [RKObjectMapping mappingForClass:[ERNDemoTweet class]];
     [statusMapping addAttributeMappingsFromDictionary:@{
-     @"id" : @"statusID",
-     @"created_at" : @"createdAt",
      @"text" : @"text",
-     @"url" : @"urlString",
-     @"in_reply_to_screen_name" : @"inReplyToScreenName",
-     @"favorited" : @"isFavorited",
-     @"coordinates.coordinates" :@"coordinates"
+     @"coordinates.coordinates" : @"coordinates",
+     @"user.profile_image_url" : @"imageUrl"
      }];
 
     id<ERNAsyncItemsRepository> repository = [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:twitterUrl
-                                                                                                 keyPath:nil
+                                                                                                 keyPath:@""
                                                                                                  mapping:statusMapping
                                                                                              statusCodes:[NSIndexSet indexSetWithIndex:200]];
     [repository refresh];
-    return [self setupViewController:[ERNMapViewController autoZoomingViewControllerWithRepository:repository]];
+    return [self setupViewController:[ERNMapViewController autoZoomingViewControllerWithRepository:repository
+                                      actionHandler:nil
+                                                                                       viewFactory:[ERNRoutingMapViewAnnotationViewFactory factoryWithMappings:@{NSStringFromClass([ERNDemoTweet class]) : [ERNDemoTweetMapViewAnnotationViewFactory annotationViewFactory]}]]];
 }
 
 -(UIViewController *)setupViewController:(ERNMapViewController *)viewController
