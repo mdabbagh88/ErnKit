@@ -1,11 +1,18 @@
 platform :ios, '5.0'
 
-target :ErnKitRestKitIntegration do
+target :ErnKitDemo do
+    pod 'ErnKit', :local => 'ErnKit/'
+    pod 'ErnKitRestKitIntegration', :local => 'ErnKitRestKitIntegration/'
+    pod 'RestKit'
+end
+
+target :ErnKitTestApp do
+    pod 'ErnKit', :local => 'ErnKit/'
+    pod 'ErnKitRestKitIntegration', :local => 'ErnKitRestKitIntegration/'
     pod 'RestKit'
 end
 
 target :UnitTests do
-    pod 'RestKit'
     pod 'OCMock'
     pod 'OCHamcrest'
 end
