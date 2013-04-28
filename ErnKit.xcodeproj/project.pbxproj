@@ -10,6 +10,7 @@
 		139EB4D1C2524EC283368727 /* libPods-ErnKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3732BB21DE3498C8AA85019 /* libPods-ErnKitDemo.a */; };
 		A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */; };
 		E41C1E5EAC114E09BA729552 /* libPods-ErnKitTestApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */; };
+		F08E453358B245959142843A /* libPods-ErnKitRestKitIntegrationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD94E503F6D49219E519702 /* libPods-ErnKitRestKitIntegrationDemo.a */; };
 		F7725189172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7725188172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m */; };
 		F772518C172D798D000D9486 /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518B172D798D000D9486 /* ERNDemoTweet.m */; };
 		F7725190172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518F172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m */; };
@@ -20,6 +21,20 @@
 		F79AE85F172D84BB001F8F23 /* ERNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE85D172D84BB001F8F23 /* ERNDemoViewController.m */; };
 		F79AE860172D84BB001F8F23 /* ERNDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79AE85E172D84BB001F8F23 /* ERNDemoViewController.xib */; };
 		F79AE863172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE862172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
+		F79AE86D172DCA8F001F8F23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
+		F79AE86E172DCA8F001F8F23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
+		F79AE86F172DCA8F001F8F23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */; };
+		F79AE875172DCA90001F8F23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F79AE873172DCA90001F8F23 /* InfoPlist.strings */; };
+		F79AE877172DCA90001F8F23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE876172DCA90001F8F23 /* main.m */; };
+		F79AE87B172DCA90001F8F23 /* ERNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE87A172DCA90001F8F23 /* ERNAppDelegate.m */; };
+		F79AE87D172DCA90001F8F23 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE87C172DCA90001F8F23 /* Default.png */; };
+		F79AE87F172DCA90001F8F23 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE87E172DCA90001F8F23 /* Default@2x.png */; };
+		F79AE881172DCA90001F8F23 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE880172DCA90001F8F23 /* Default-568h@2x.png */; };
+		F79AE888172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE887172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.m */; };
+		F79AE88B172DCC74001F8F23 /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE88A172DCC74001F8F23 /* ERNDemoTweet.m */; };
+		F79AE88E172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
+		F79AE88F172DCDF1001F8F23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC15172BD3FA00F09332 /* CoreLocation.framework */; };
+		F79AE890172DCDF7001F8F23 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC02172B207600F09332 /* MapKit.framework */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
 		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -104,10 +119,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CD94E503F6D49219E519702 /* libPods-ErnKitRestKitIntegrationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegrationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		275E7F5AB652485EB411A783 /* libPods-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		348A48856B2346C6B129F03B /* Pods-ErnKitTestApp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitTestApp.xcconfig"; path = "Pods/Pods-ErnKitTestApp.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3D290441A7D14751BCE87F00 /* libPods-ErnKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F64B70518145DABC8F1E99 /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitRestKitIntegrationDemo.xcconfig"; path = "Pods/Pods-ErnKitRestKitIntegrationDemo.xcconfig"; sourceTree = SOURCE_ROOT; };
 		6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.xcconfig"; path = "Pods/Pods-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3732BB21DE3498C8AA85019 /* libPods-ErnKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +152,22 @@
 		F79AE85E172D84BB001F8F23 /* ERNDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ERNDemoViewController.xib; sourceTree = "<group>"; };
 		F79AE861172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweetMapViewAnnotationViewFactory.h; sourceTree = "<group>"; };
 		F79AE862172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
+		F79AE86C172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ErnKitRestKitIntegrationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F79AE872172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ErnKitRestKitIntegrationDemo-Info.plist"; sourceTree = "<group>"; };
+		F79AE874172DCA90001F8F23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F79AE876172DCA90001F8F23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F79AE878172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ErnKitRestKitIntegrationDemo-Prefix.pch"; sourceTree = "<group>"; };
+		F79AE879172DCA90001F8F23 /* ERNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAppDelegate.h; sourceTree = "<group>"; };
+		F79AE87A172DCA90001F8F23 /* ERNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNAppDelegate.m; sourceTree = "<group>"; };
+		F79AE87C172DCA90001F8F23 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F79AE87E172DCA90001F8F23 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F79AE880172DCA90001F8F23 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F79AE886172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoRestKitApplicationConfigurator.h; sourceTree = "<group>"; };
+		F79AE887172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoRestKitApplicationConfigurator.m; sourceTree = "<group>"; };
+		F79AE889172DCC74001F8F23 /* ERNDemoTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweet.h; sourceTree = "<group>"; };
+		F79AE88A172DCC74001F8F23 /* ERNDemoTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweet.m; sourceTree = "<group>"; };
+		F79AE88C172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweetMapViewAnnotationViewFactory.h; sourceTree = "<group>"; };
+		F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -340,6 +373,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F79AE869172DCA8F001F8F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F79AE890172DCDF7001F8F23 /* MapKit.framework in Frameworks */,
+				F79AE88F172DCDF1001F8F23 /* CoreLocation.framework in Frameworks */,
+				F79AE86D172DCA8F001F8F23 /* UIKit.framework in Frameworks */,
+				F79AE86E172DCA8F001F8F23 /* Foundation.framework in Frameworks */,
+				F79AE86F172DCA8F001F8F23 /* CoreGraphics.framework in Frameworks */,
+				F08E453358B245959142843A /* libPods-ErnKitRestKitIntegrationDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7F069A1172C992000CA5FC4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,6 +431,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F79AE870172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F79AE871172DCA90001F8F23 /* Supporting Files */,
+				F79AE879172DCA90001F8F23 /* ERNAppDelegate.h */,
+				F79AE87A172DCA90001F8F23 /* ERNAppDelegate.m */,
+				F79AE886172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.h */,
+				F79AE887172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.m */,
+				F79AE88C172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */,
+				F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */,
+				F79AE889172DCC74001F8F23 /* ERNDemoTweet.h */,
+				F79AE88A172DCC74001F8F23 /* ERNDemoTweet.m */,
+			);
+			path = ErnKitRestKitIntegrationDemo;
+			sourceTree = "<group>";
+		};
+		F79AE871172DCA90001F8F23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F79AE872172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Info.plist */,
+				F79AE873172DCA90001F8F23 /* InfoPlist.strings */,
+				F79AE876172DCA90001F8F23 /* main.m */,
+				F79AE878172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Prefix.pch */,
+				F79AE87C172DCA90001F8F23 /* Default.png */,
+				F79AE87E172DCA90001F8F23 /* Default@2x.png */,
+				F79AE880172DCA90001F8F23 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F7DA700D171F0CBA0026D627 = {
 			isa = PBXGroup;
 			children = (
@@ -393,11 +469,13 @@
 				F7F06ACF172D0B4400CA5FC4 /* ErnKitDemo */,
 				F7F06B25172D0D8000CA5FC4 /* ErnKitTestApp */,
 				F7F069AA172C992000CA5FC4 /* UnitTests */,
+				F79AE870172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo */,
 				F7DA7018171F0CBA0026D627 /* Frameworks */,
 				F7DA7017171F0CBA0026D627 /* Products */,
 				EAF3E4ED8D394A96A445B9CF /* Pods-ErnKitDemo.xcconfig */,
 				348A48856B2346C6B129F03B /* Pods-ErnKitTestApp.xcconfig */,
 				6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */,
+				68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -407,6 +485,7 @@
 				F7F069A5172C992000CA5FC4 /* UnitTests.octest */,
 				F7F06ACB172D0B4400CA5FC4 /* ErnKitDemo.app */,
 				F7F06B21172D0D8000CA5FC4 /* ErnKitTestApp.app */,
+				F79AE86C172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,6 +509,7 @@
 				A3732BB21DE3498C8AA85019 /* libPods-ErnKitDemo.a */,
 				E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */,
 				71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */,
+				1CD94E503F6D49219E519702 /* libPods-ErnKitRestKitIntegrationDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -875,6 +955,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F79AE86B172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F79AE882172DCA90001F8F23 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegrationDemo" */;
+			buildPhases = (
+				C3537E5D0E3140639E1D69F8 /* Check Pods Manifest.lock */,
+				F79AE868172DCA8F001F8F23 /* Sources */,
+				F79AE869172DCA8F001F8F23 /* Frameworks */,
+				F79AE86A172DCA8F001F8F23 /* Resources */,
+				C446C608340143EF88AF5DB4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ErnKitRestKitIntegrationDemo;
+			productName = ErnKitRestKitIntegrationDemo;
+			productReference = F79AE86C172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F7F069A4172C992000CA5FC4 /* UnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7F069B4172C992200CA5FC4 /* Build configuration list for PBXNativeTarget "UnitTests" */;
@@ -960,11 +1059,23 @@
 				F7F069A4172C992000CA5FC4 /* UnitTests */,
 				F7F06B20172D0D8000CA5FC4 /* ErnKitTestApp */,
 				F7F06ACA172D0B4400CA5FC4 /* ErnKitDemo */,
+				F79AE86B172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F79AE86A172DCA8F001F8F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F79AE875172DCA90001F8F23 /* InfoPlist.strings in Resources */,
+				F79AE87D172DCA90001F8F23 /* Default.png in Resources */,
+				F79AE87F172DCA90001F8F23 /* Default@2x.png in Resources */,
+				F79AE881172DCA90001F8F23 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7F06AC9172D0B4400CA5FC4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1087,6 +1198,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-ErnKitDemo-resources.sh\"\n";
 		};
+		C3537E5D0E3140639E1D69F8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		C446C608340143EF88AF5DB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ErnKitRestKitIntegrationDemo-resources.sh\"\n";
+		};
 		EFC8BFBAB44A4A72A710278D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1117,6 +1256,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F79AE868172DCA8F001F8F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F79AE877172DCA90001F8F23 /* main.m in Sources */,
+				F79AE87B172DCA90001F8F23 /* ERNAppDelegate.m in Sources */,
+				F79AE888172DCB7D001F8F23 /* ERNDemoRestKitApplicationConfigurator.m in Sources */,
+				F79AE88B172DCC74001F8F23 /* ERNDemoTweet.m in Sources */,
+				F79AE88E172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7F069A0172C992000CA5FC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1204,7 +1355,57 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		F79AE873172DCA90001F8F23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F79AE874172DCA90001F8F23 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		F79AE883172DCA90001F8F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Prefix.pch";
+				INFOPLIST_FILE = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F79AE884172DCA90001F8F23 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Prefix.pch";
+				INFOPLIST_FILE = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Coverage;
+		};
+		F79AE885172DCA90001F8F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Prefix.pch";
+				INFOPLIST_FILE = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		F7DA703A171F0CBA0026D627 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1527,6 +1728,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F79AE882172DCA90001F8F23 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegrationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F79AE883172DCA90001F8F23 /* Debug */,
+				F79AE884172DCA90001F8F23 /* Coverage */,
+				F79AE885172DCA90001F8F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F7DA7011171F0CBA0026D627 /* Build configuration list for PBXProject "ErnKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

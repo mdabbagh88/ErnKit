@@ -26,27 +26,31 @@ static NSArray *gArray;
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    UINavigationController *navigationController = [[UINavigationController alloc] init];
+    return [self setupNavigationController:[self createNavigationController]
+                                       url:url
+                                      mime:mime];
+}
 
-    id<ERNViewControllerTransitioner> navigationTransitioner = [ERNNavigationViewControllerTransitioner transitionerWithNavigationController:navigationController];
+-(UINavigationController *)createNavigationController
+{
+    return [[UINavigationController alloc] init];
+}
+
+-(UINavigationController *)setupNavigationController:(UINavigationController *)navigationController
+                                                 url:(NSURL *)url
+                                                mime:(NSString *)mime
+{
+    id<ERNViewControllerTransitioner> transitioner = [ERNNavigationViewControllerTransitioner transitionerWithNavigationController:navigationController];
 
     id<ERNAsyncItemsRepository> repository = [ERNArrayAsyncItemsRepository asyncItemsRepositoryWithArray:gArray];
-    
-    id<ERNViewControllerConfigurator> secondScreenConfigurator = [ERNDemoSecondScreenConfigurator configurator];
-    id<ERNAction> secondAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
-                                                                   configurator:secondScreenConfigurator];
 
     ERNDemoThirdScreenConfigurator *thirdScreenConfigurator = [ERNDemoThirdScreenConfigurator configurator];
-    id<ERNAction> thirdAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
+    id<ERNAction> thirdAction = [ERNViewControllerAction actionWithTransitioner:transitioner
                                                                    configurator:thirdScreenConfigurator];
 
     ERNDemoFourthScreenConfigurator *fourthScreenConfigurator = [ERNDemoFourthScreenConfigurator configuratorWithRepository:repository];
-    id<ERNAction> fourthAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
-                                                                   configurator:fourthScreenConfigurator];
-
-    ERNDemoFifthScreenConfigurator *fifthScreenConfigurator = [ERNDemoFifthScreenConfigurator configurator];
-    id<ERNAction> fifthAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
-                                                                   configurator:fifthScreenConfigurator];
+    id<ERNAction> fourthAction = [ERNViewControllerAction actionWithTransitioner:transitioner
+                                                                    configurator:fourthScreenConfigurator];
 
     id<ERNAction> externalUrlAction = [ERNExternalUrlAction actionWithApplication:[UIApplication sharedApplication]];
 
@@ -54,20 +58,48 @@ static NSArray *gArray;
                                          [ERNURLUrlMimeFactory mime] : externalUrlAction,
                                          [ERNNumberUrlMimeFactory mime] : thirdAction,
                                          [ERNStringUrlMimeFactory mime] :fourthAction,
-                                         [ERNDemoObject2UrlMimeFactory mime] :fifthAction,
-                                         @"": secondAction};
+                                         [ERNDemoObject2UrlMimeFactory mime] :[self createFifthAction:transitioner],
+                                         @"": [self createSecondActionWithTransitioner:transitioner]};
 
     id<ERNActionHandler> actionHandler = [self actionHandler:mimeActionMappings];
 
     [thirdScreenConfigurator setActionHandler:actionHandler];
     [fourthScreenConfigurator setActionHandler:actionHandler];
-    id<ERNViewControllerConfigurator> firstScreenConfigurator = [ERNDemoFirstScreenConfigurator configuratorWithItemActionHandler:actionHandler
-                                                                 repository:repository];
-    id<ERNAction> firstAction = [ERNViewControllerAction actionWithTransitioner:navigationTransitioner
-                                                                   configurator:firstScreenConfigurator];
-    [firstAction actionForUrl:url
-                         mime:mime];
+    [self setupFirstAction:[self createFirstActionWithRepository:repository
+                                                   actionHandler:actionHandler
+                                                    transitioner:transitioner]
+                       url:url
+                      mime:mime];
     return navigationController;
+}
+
+-(id<ERNAction>)createFirstActionWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                  actionHandler:(id<ERNActionHandler>)actionHandler
+                                   transitioner:(id<ERNViewControllerTransitioner>)transitioner
+{
+    return [ERNViewControllerAction actionWithTransitioner:transitioner
+                                              configurator:[ERNDemoFirstScreenConfigurator configuratorWithItemActionHandler:actionHandler
+                                                                                                                  repository:repository]];
+}
+
+-(void)setupFirstAction:(id<ERNAction>)action
+                    url:(NSURL *)url
+                   mime:(NSString *)mime
+{
+    [action actionForUrl:url
+                    mime:mime];
+}
+
+-(id<ERNAction>)createSecondActionWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
+{
+    return [ERNViewControllerAction actionWithTransitioner:transitioner
+                                              configurator:[ERNDemoSecondScreenConfigurator configurator]];
+}
+
+- (id<ERNAction>)createFifthAction:(id<ERNViewControllerTransitioner>)transitioner
+{
+    return [ERNViewControllerAction actionWithTransitioner:transitioner
+                                              configurator:[ERNDemoFifthScreenConfigurator configurator]];
 }
 
 -(id<ERNActionHandler>)actionHandler:(NSDictionary *)mimeActionMappings
