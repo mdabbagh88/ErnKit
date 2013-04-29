@@ -2,6 +2,7 @@
 #import "ERNWindowViewControllerTransitioner.h"
 #import "ERNDemoRestKitApplicationConfigurator.h"
 #import "ERNViewControllerAction.h"
+#import "NSURL+ERNHelper.h"
 
 @implementation ERNAppDelegate
 
@@ -10,7 +11,7 @@
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     [[ERNViewControllerAction actionWithTransitioner:[ERNWindowViewControllerTransitioner transitionerWithWindow:[self window]]
                                         configurator:[ERNDemoRestKitApplicationConfigurator configurator]]
-     actionForUrl:[NSURL URLWithString:@""] mime:@""];
+     actionForUrl:[NSURL nullURL] mime:@""];
     [[self window] makeKeyAndVisible];
     return YES;
 }

@@ -1,6 +1,7 @@
 #import "ERNRoutingUrlMimeFactory.h"
 #import "ERNNullUrlMimeFactory.h"
 #import "NSObject+ERNHelper.h"
+#import "NSURL+ERNHelper.h"
 
 @interface ERNRoutingUrlMimeFactory ()
 @property (nonatomic, readonly, copy) NSDictionary *mappings;
@@ -17,7 +18,7 @@
 
 -(NSURL *)validUrlForObject:(NSURL *)url
 {
-    return url ? url : [NSURL URLWithString:@""];
+    return url ? url : [NSURL nullURL];
 }
 
 -(NSString *)mimeForObject:(id<NSObject>)object

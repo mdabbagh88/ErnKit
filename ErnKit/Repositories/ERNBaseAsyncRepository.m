@@ -1,4 +1,5 @@
 #import "ERNBaseAsyncRepository.h"
+#import "NSObject+ERNHelper.h"
 
 @interface ERNBaseAsyncRepository ()
 @property (nonatomic, readonly) NSNotificationCenter *notificationCenter;
@@ -28,6 +29,8 @@
 -(void)addObserver:(id)observer
           selector:(SEL)selector
 {
+    ERNCheckNil(observer);
+    ERNCheckNil(selector);
     [[self notificationCenter] addObserver:observer
                                   selector:selector
                                       name:[self notificationName]
@@ -36,6 +39,7 @@
 
 -(void)removeObserver:(id)observer
 {
+    ERNCheckNil(observer);
     [[self notificationCenter] removeObserver:observer
                                          name:[self notificationName]
                                        object:self];

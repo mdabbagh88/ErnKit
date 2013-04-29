@@ -9,6 +9,7 @@
 
 -(void)transitionToViewController:(UIViewController *)destinationViewController
 {
+    ERNCheckNil(destinationViewController);
     [[self navigationController] pushViewController:destinationViewController
                                            animated:YES];
 }

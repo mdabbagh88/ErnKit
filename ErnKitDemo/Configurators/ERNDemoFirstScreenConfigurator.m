@@ -50,9 +50,9 @@
                                                                                                                                                                             restTableViewManager:lastTableViewManager]];
     id<UITableViewDataSource> tableViewDataSource = [ERNTableViewDataSource tableViewDataSourceWithTableViewManager:routedTableViewManager];
     id<UITableViewDelegate> tableViewDelegate = [ERNTableViewDelegate tableViewDelegateWithTableViewManager:routedTableViewManager];
-    return [ERNDemoViewController viewControllerWithTableViewDelegate:tableViewDelegate
+    return [self setupViewController:[ERNDemoViewController viewControllerWithTableViewDelegate:tableViewDelegate
                                                   tableViewDataSource:tableViewDataSource
-                                                           repository:firstAsyncItemsRepository];
+                                                                                     repository:firstAsyncItemsRepository]];
 }
 
 -(UIViewController *)setupViewController:(ERNDemoViewController *)viewController

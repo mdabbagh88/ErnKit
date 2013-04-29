@@ -9,6 +9,7 @@
 
 -(void)transitionToActionSheet:(UIActionSheet *)actionSheet
 {
+    ERNCheckNil([self view]);
     [actionSheet showInView:[self view]];
 }
 

@@ -10,13 +10,16 @@
 -(void)addObserver:(id)observer
           selector:(SEL)selector
 {
+    ERNCheckNil(observer);
+    ERNCheckNil(selector);
     [[self repository] addObserver:observer
                           selector:selector];
 }
 
 -(void)removeObserver:(id)observer
 {
-    [self removeObserver:observer];
+    ERNCheckNil(observer);
+    [[self repository] removeObserver:observer];
 }
 
 -(void)refresh

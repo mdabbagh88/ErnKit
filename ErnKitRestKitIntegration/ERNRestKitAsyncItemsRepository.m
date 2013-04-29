@@ -1,5 +1,6 @@
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "NSObject+ERNHelper.h"
+#import "NSURL+ERNHelper.h"
 #import <RestKit/RestKit.h>
 
 @interface ERNRestKitAsyncItemsRepository ()
@@ -17,7 +18,7 @@
 
 -(NSURL *)url
 {
-    _url = _url ? _url : [NSURL URLWithString:@""];
+    _url = _url ? _url : [NSURL nullURL];
     return _url;
 }
 

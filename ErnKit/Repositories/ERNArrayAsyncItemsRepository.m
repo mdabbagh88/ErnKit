@@ -19,11 +19,13 @@
 
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
 {
+    ERNCheckNil(block);
     [[self array] enumerateObjectsUsingBlock:block];
 }
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
+    ERNCheckNilAndReturn(predicate, [self array]);
     return [[self array] filteredArrayUsingPredicate:predicate];
 }
 
@@ -34,7 +36,12 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self array][index];
+    return [self validIndex:index] ? [self array][index] : [NSNull null];
+}
+
+-(BOOL)validIndex:(NSUInteger)index
+{
+    return index < [[self array] count];
 }
 
 -(id)initWithArray:(NSArray *)array

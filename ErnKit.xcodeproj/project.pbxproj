@@ -133,6 +133,8 @@
 		EAF3E4ED8D394A96A445B9CF /* Pods-ErnKitDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitDemo.xcconfig"; path = "Pods/Pods-ErnKitDemo.xcconfig"; sourceTree = SOURCE_ROOT; };
 		F726A661172E5341006520AF /* ERNNullAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAnnotation.h; sourceTree = "<group>"; };
 		F726A662172E5341006520AF /* ERNNullAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAnnotation.m; sourceTree = "<group>"; };
+		F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ERNHelper.h"; sourceTree = "<group>"; };
+		F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ERNHelper.m"; sourceTree = "<group>"; };
 		F7358A45172D47D6000204DC /* ERNRestKitAsyncItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRestKitAsyncItemsRepositoryTest.h; sourceTree = "<group>"; };
 		F7358A46172D47D6000204DC /* ERNRestKitAsyncItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRestKitAsyncItemsRepositoryTest.m; sourceTree = "<group>"; };
 		F7358A48172D488F000204DC /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -812,6 +814,8 @@
 			children = (
 				F7F06AA2172D0A9900CA5FC4 /* NSObject+ERNHelper.h */,
 				F7F06AA3172D0A9900CA5FC4 /* NSObject+ERNHelper.m */,
+				F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */,
+				F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

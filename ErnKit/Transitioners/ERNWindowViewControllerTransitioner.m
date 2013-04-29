@@ -9,6 +9,7 @@
 
 -(void)transitionToViewController:(UIViewController *)viewController
 {
+    ERNCheckNil(viewController);
     [[self window] setRootViewController:viewController];
 }
 

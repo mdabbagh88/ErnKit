@@ -1,4 +1,5 @@
 #import "ERNNullUrlMimeFactory.h"
+#import "NSURL+ERNHelper.h"
 
 @implementation ERNNullUrlMimeFactory
 
@@ -6,7 +7,7 @@ static ERNNullUrlMimeFactory *factory;
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
-    return [NSURL URLWithString:@""];
+    return [NSURL nullURL];
 }
 
 -(NSString *)mimeForObject:(id<NSObject>)object

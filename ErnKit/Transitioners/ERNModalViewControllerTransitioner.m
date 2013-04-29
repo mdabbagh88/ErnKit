@@ -9,6 +9,7 @@
 
 -(void)transitionToViewController:(UIViewController *)destinationViewController
 {
+    ERNCheckNil(destinationViewController);
     [[self sourceViewController] presentViewController:destinationViewController
                                               animated:YES
                                             completion:nil];

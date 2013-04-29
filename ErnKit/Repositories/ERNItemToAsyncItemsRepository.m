@@ -10,17 +10,24 @@
 
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
 {
+    ERNCheckNil(block);
     [[self itemToArray] enumerateObjectsUsingBlock:block];
 }
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
+    ERNCheckNilAndReturn(predicate, [self itemToArray]);
     return [[self itemToArray] filteredArrayUsingPredicate:predicate];
 }
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [[self repository] item];
+    return [self validIndex:index] ? [[self repository] item] : [NSNull null];
+}
+
+-(BOOL)validIndex:(NSUInteger)index
+{
+    return index == 0;
 }
 
 -(NSArray *)itemToArray
