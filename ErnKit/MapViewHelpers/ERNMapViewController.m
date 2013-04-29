@@ -3,6 +3,7 @@
 #import "ERNMapViewDelegate.h"
 #import "ERNAsyncItemsRepositoryMapViewManager.h"
 #import "ERNAsyncItemsRepository.h"
+#import "ERNNullAsyncItemsRepository.h"
 #import "NSObject+ERNHelper.h"
 
 @interface ERNMapViewController ()
@@ -56,6 +57,11 @@
     return [[MKMapView alloc] init];
 }
 
+id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository>repository)
+{
+    return repository ? repository : [ERNNullAsyncItemsRepository repository];
+}
+
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     self = [self init];
@@ -64,7 +70,7 @@
         return [ERNMapViewDelegate delegate];
     };
     _createMapViewManager = ^(MKMapView *mapView) {
-        return [ERNAsyncItemsRepositoryMapViewManager mapViewManagerWithRepository:repository
+        return [ERNAsyncItemsRepositoryMapViewManager mapViewManagerWithRepository:validateRepository(repository)
                                                                            mapView:mapView];
     };
     return self;
@@ -106,7 +112,7 @@
 -(void)setupZoomingMapViewManagerConstructor:(id<ERNAsyncItemsRepository>)repository
 {
     _createMapViewManager = ^(MKMapView *mapView) {
-        return [ERNAsyncItemsRepositoryMapViewManager autoZoomingMapViewManagerWithRepository:repository
+        return [ERNAsyncItemsRepositoryMapViewManager autoZoomingMapViewManagerWithRepository:validateRepository(repository)
                                                                                       mapView:mapView];
     };
 }

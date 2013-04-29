@@ -1,4 +1,6 @@
 #import "MKAnnotationView+ERNHelper.h"
+#import "NSObject+ERNHelper.h"
+#import "ERNNullAnnotation.h"
 
 @implementation MKAnnotationView (ERNHelper)
 
@@ -7,9 +9,14 @@
                    identifier:(NSString *)identifier
 {
     return [self createAnnotationView:[mapView dequeueReusableAnnotationViewWithIdentifier:identifier]
-                           annotation:annotation
+                           annotation:[self validateAnnotation:annotation]
                            identifier:identifier];
 
+}
+
++(id<MKAnnotation>)validateAnnotation:(id<MKAnnotation>)annotation
+{
+    return annotation ? annotation : [ERNNullAnnotation annotation];
 }
 
 +(instancetype)createAnnotationView:(MKAnnotationView *)view

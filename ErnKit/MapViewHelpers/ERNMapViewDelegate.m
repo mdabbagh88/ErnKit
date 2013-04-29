@@ -13,12 +13,20 @@
 -(void)mapView:(MKMapView *)mapView
 didSelectAnnotationView:(MKAnnotationView *)view
 {
-    [[self actionHandler] actionForObject:[view annotation]];
+    [self didSelectAnnotation:[view annotation]];
+}
+
+-(void)didSelectAnnotation:(id<MKAnnotation>)annotation
+{
+    ERNCheckNil(annotation);
+    [[self actionHandler] actionForObject:annotation];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView
            viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    ERNCheckNil(mapView);
+    ERNCheckNil(annotation);
     return [[self viewFactory] annotationViewForMapView:mapView
                                          fromAnnotation:annotation];
 }

@@ -1,5 +1,6 @@
 #import "ERNActionHandlerImpl.h"
 #import "ERNUrlMimeFactory.h"
+#import "ERNNullUrlMimeFactory.h"
 #import "ERNAction.h"
 #import "NSObject+ERNHelper.h"
 
@@ -10,6 +11,14 @@
 
 @implementation ERNActionHandlerImpl
 
+@synthesize urlMimeFactory = _urlMimeFactory;
+
+-(id<ERNUrlMimeFactory>)urlMimeFactory
+{
+    _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory factory];
+    return _urlMimeFactory;
+}
+
 -(void)actionForObject:(id<NSObject>)object
 {
     [[self action] actionForUrl:[[self urlMimeFactory] urlForObject:object]
@@ -19,10 +28,17 @@
 -(id)initWithAction:(id<ERNAction>)action
      urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
 {
+    self = [self initWithAction:action];
+    ERNCheckNil(self);
+    _urlMimeFactory = urlMimeFactory;
+    return self;
+}
+
+-(id)initWithAction:(id<ERNAction>)action
+{
     self = [self init];
     ERNCheckNil(self);
     _action = action;
-    _urlMimeFactory = urlMimeFactory;
     return self;
 }
 
@@ -31,6 +47,11 @@
 {
     return [[self alloc] initWithAction:action
                          urlMimeFactory:urlMimeFactory];
+}
+
++(instancetype)actionHandlerWithAction:(id<ERNAction>)action
+{
+    return [[self alloc] initWithAction:action];
 }
 
 @end

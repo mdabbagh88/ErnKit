@@ -2,6 +2,8 @@
 
 @implementation ERNNumberUrlMimeFactory
 
+static ERNNumberUrlMimeFactory *factory;
+
 +(NSString *)forClass
 {
     return NSStringFromClass([@0 class]);
@@ -24,7 +26,12 @@
 
 +(instancetype)urlMimeFactory
 {
-    return [[self alloc] init];
+    return factory;
+}
+
++(void)initialize
+{
+    factory = [[self alloc] init];
 }
 
 @end

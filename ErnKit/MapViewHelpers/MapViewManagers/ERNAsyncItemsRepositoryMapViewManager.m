@@ -14,8 +14,14 @@
 
 -(void)reload
 {
+    [self reloadWithAnnotations:[self annotationsInRepository]];
+}
+
+-(void)reloadWithAnnotations:(NSArray *)annotations
+{
     [[self mapView] removeAnnotations:[[self mapView] annotations]];
-    [[self mapView] addAnnotations:[self annotationsInRepository]];
+    ERNCheckNil(annotations);
+    [[self mapView] addAnnotations:annotations];
     [self annotationZoomer]([self mapView]);
 }
 

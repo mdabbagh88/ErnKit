@@ -4,7 +4,7 @@
 
 -(void)zoomToFitMapAnnotations
 {
-    [self setRegion:[self adjustRegion:[self regionThatFits:[self calculateZoomRegion:[self annotations]]]]
+    [self setRegion:[self adjustRegion:[self regionThatFits:[self calculateZoomRegion]]]
            animated:YES];
 }
 
@@ -15,11 +15,11 @@
                                                        fmin(360, region.span.longitudeDelta)));
 }
 
--(MKCoordinateRegion)calculateZoomRegion:(NSArray *)annotations
+-(MKCoordinateRegion)calculateZoomRegion
 {
     __block CLLocationCoordinate2D topLeftCoord = CLLocationCoordinate2DMake(-90, 180);
     __block CLLocationCoordinate2D bottomRightCoord = CLLocationCoordinate2DMake(90, -180);
-    [annotations enumerateObjectsUsingBlock:^(id<MKAnnotation> annotation, NSUInteger index, BOOL *stop) {
+    [[self annotations] enumerateObjectsUsingBlock:^(id<MKAnnotation> annotation, NSUInteger index, BOOL *stop) {
         CLLocationCoordinate2D coordinate = [annotation coordinate];
         topLeftCoord.longitude = fmin(topLeftCoord.longitude,
                                       coordinate.longitude);

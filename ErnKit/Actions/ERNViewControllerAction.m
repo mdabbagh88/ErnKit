@@ -14,6 +14,9 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
+    ERNCheckNil([self configurator]);
+    ERNCheckNil(mime);
+    ERNCheckNil(url);
     [[self transitioner] transitionToViewController:[[self configurator] createViewControllerForUrl:url
                                                                                                mime:mime]];
 }

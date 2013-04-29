@@ -11,6 +11,8 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
+    ERNCheckNil(url);
+    ERNCheckNil(mime);
     [[[self actions][[self urlRouter](url)] guaranteeProtocolConformance:@protocol(ERNAction)] actionForUrl:url
                                                                                                        mime:mime];
 }

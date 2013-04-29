@@ -10,7 +10,7 @@
 
 -(id<NSObject>)item
 {
-    return [[self repository] count] ? [[self repository] itemAtIndex:0] : nil;
+    return [[self repository] count] ? [[self repository] itemAtIndex:0] : [NSNull null];
 }
 
 -(id)initWithItemsRepository:(id<ERNAsyncItemsRepository>)repository

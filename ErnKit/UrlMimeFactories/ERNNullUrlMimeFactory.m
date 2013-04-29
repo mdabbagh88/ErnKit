@@ -2,6 +2,8 @@
 
 @implementation ERNNullUrlMimeFactory
 
+static ERNNullUrlMimeFactory *factory;
+
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
     return [NSURL URLWithString:@""];
@@ -14,7 +16,12 @@
 
 +(instancetype)factory
 {
-    return [[self alloc] init];
+    return factory;
+}
+
++(void)initialize
+{
+    factory = [[self alloc] init];
 }
 
 @end

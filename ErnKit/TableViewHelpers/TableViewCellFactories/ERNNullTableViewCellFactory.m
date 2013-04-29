@@ -4,6 +4,8 @@
 
 @implementation ERNNullTableViewCellFactory
 
+static ERNNullTableViewCellFactory *factory;
+
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
@@ -27,7 +29,12 @@
 
 +(instancetype)tableViewCellFactory
 {
-    return [[self alloc] init];
+    return factory;
+}
+
++(void)initialize
+{
+    factory = [[self alloc] init];
 }
 
 @end

@@ -131,6 +131,8 @@
 		B7107104DA5048F3BB5C84DD /* libPods-ErnKitTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF3E4ED8D394A96A445B9CF /* Pods-ErnKitDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitDemo.xcconfig"; path = "Pods/Pods-ErnKitDemo.xcconfig"; sourceTree = SOURCE_ROOT; };
+		F726A661172E5341006520AF /* ERNNullAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAnnotation.h; sourceTree = "<group>"; };
+		F726A662172E5341006520AF /* ERNNullAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAnnotation.m; sourceTree = "<group>"; };
 		F7358A45172D47D6000204DC /* ERNRestKitAsyncItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRestKitAsyncItemsRepositoryTest.h; sourceTree = "<group>"; };
 		F7358A46172D47D6000204DC /* ERNRestKitAsyncItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRestKitAsyncItemsRepositoryTest.m; sourceTree = "<group>"; };
 		F7358A48172D488F000204DC /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -168,6 +170,8 @@
 		F79AE88A172DCC74001F8F23 /* ERNDemoTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweet.m; sourceTree = "<group>"; };
 		F79AE88C172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweetMapViewAnnotationViewFactory.h; sourceTree = "<group>"; };
 		F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
+		F79AE891172E49E5001F8F23 /* ERNNullAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F79AE892172E49E7001F8F23 /* ERNNullAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemsRepository.m; sourceTree = "<group>"; };
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -679,6 +683,8 @@
 				F7F06A64172D0A9900CA5FC4 /* MKAnnotationView+ERNHelper.m */,
 				F7F06A65172D0A9900CA5FC4 /* MKMapView+ERNHelper.h */,
 				F7F06A66172D0A9900CA5FC4 /* MKMapView+ERNHelper.m */,
+				F726A661172E5341006520AF /* ERNNullAnnotation.h */,
+				F726A662172E5341006520AF /* ERNNullAnnotation.m */,
 			);
 			path = MapViewHelpers;
 			sourceTree = "<group>";
@@ -719,6 +725,8 @@
 				F7F06A72172D0A9900CA5FC4 /* ERNItemsToAsyncItemRepository.m */,
 				F7F06A73172D0A9900CA5FC4 /* ERNItemToAsyncItemsRepository.h */,
 				F7F06A74172D0A9900CA5FC4 /* ERNItemToAsyncItemsRepository.m */,
+				F79AE891172E49E5001F8F23 /* ERNNullAsyncItemsRepository.h */,
+				F79AE892172E49E7001F8F23 /* ERNNullAsyncItemsRepository.m */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";

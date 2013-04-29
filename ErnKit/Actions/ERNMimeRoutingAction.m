@@ -10,6 +10,8 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
+    ERNCheckNil(mime);
+    ERNCheckNil(url);
     [[[self actions][mime] guaranteeProtocolConformance:@protocol(ERNAction)] actionForUrl:url
                                                                                       mime:mime];
 }

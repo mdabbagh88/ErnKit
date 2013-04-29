@@ -2,6 +2,8 @@
 
 @implementation ERNStringUrlMimeFactory
 
+static ERNStringUrlMimeFactory *factory;
+
 +(NSString *)mime
 {
     return @"application/x-ern-string";
@@ -19,7 +21,12 @@
 
 +(instancetype)urlMimeFactory
 {
-    return [[self alloc] init];
+    return factory;
+}
+
++(void)initialize
+{
+    factory = [[self alloc] init];
 }
 
 @end

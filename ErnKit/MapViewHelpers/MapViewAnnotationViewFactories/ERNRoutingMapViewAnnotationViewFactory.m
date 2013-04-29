@@ -13,6 +13,8 @@
 -(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
                                fromAnnotation:(id<MKAnnotation>)annotation
 {
+    ERNCheckNil(mapView);
+    ERNCheckNil(annotation);
     return [[self factoryForAnnotation:annotation] annotationViewForMapView:mapView
                                                              fromAnnotation:annotation];
 }
@@ -24,7 +26,7 @@
 
 -(id<ERNMapViewAnnotationViewFactory>)validFactory:(id<ERNMapViewAnnotationViewFactory>)factory
 {
-    return[self factoryIsValid:factory] ? factory : [self defaultFactory];
+    return [self factoryIsValid:factory] ? factory : [self defaultFactory];
 }
 
 -(BOOL)factoryIsValid:(id<ERNMapViewAnnotationViewFactory>)factory

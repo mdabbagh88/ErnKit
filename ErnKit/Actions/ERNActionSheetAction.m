@@ -13,6 +13,9 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
+    ERNCheckNil([self configurator]);
+    ERNCheckNil(url);
+    ERNCheckNil(mime);
     [[self transitioner] transitionToActionSheet:[[self configurator] createActionSheetForUrl:url
                                                                                          mime:mime]];
 }

@@ -10,6 +10,7 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
+    ERNCheckNil(url);
     [[self application] openURL:url];
 }
 
