@@ -1,6 +1,7 @@
 #import "ERNRoutingTableViewCellFactory.h"
 #import "ERNNullTableViewCellFactory.h"
 #import "NSObject+ERNHelper.h"
+#import "ERNDummyTableViewCell.h"
 
 @interface ERNRoutingTableViewCellFactory ()
 @property (nonatomic, readonly, copy) NSDictionary *mappings;
@@ -15,6 +16,8 @@
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell dummyCell]);
     return [[self factoryForObject:object] cellForTableView:tableView
                                                  fromObject:object];
 }
@@ -22,6 +25,7 @@
 -(CGFloat)cellHeightForObject:(id<NSObject>)object
                 defaultHeight:(CGFloat)defaultHeight
 {
+    ERNCheckNilAndReturn(object, defaultHeight);
     return [[self factoryForObject:object] cellHeightForObject:object
                                                  defaultHeight:defaultHeight];
 }

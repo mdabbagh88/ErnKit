@@ -146,6 +146,8 @@
 		F772518D172D7ED8000D9486 /* ErnKitDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ErnKitDemo-Prefix.pch"; sourceTree = "<group>"; };
 		F772518E172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoObject2UrlMimeFactory.h; sourceTree = "<group>"; };
 		F772518F172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoObject2UrlMimeFactory.m; sourceTree = "<group>"; };
+		F7848CA7172FA7BB001AD787 /* ERNDummyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNDummyTableViewCell.h; sourceTree = "<group>"; };
+		F7848CA8172FA7BC001AD787 /* ERNDummyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDummyTableViewCell.m; sourceTree = "<group>"; };
 		F78CBC02172B207600F09332 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F78CBC15172BD3FA00F09332 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F792BEA8172D57BD00B097C1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -736,16 +738,18 @@
 		F7F06A75172D0A9900CA5FC4 /* TableViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				F7F06A7C172D0A9900CA5FC4 /* TableViewCellFactories */,
+				F7F06A82172D0A9900CA5FC4 /* TableViewManagers */,
 				F7F06A76172D0A9900CA5FC4 /* ERNTableViewController.h */,
 				F7F06A77172D0A9900CA5FC4 /* ERNTableViewController.m */,
 				F7F06A78172D0A9900CA5FC4 /* ERNTableViewDataSource.h */,
 				F7F06A79172D0A9900CA5FC4 /* ERNTableViewDataSource.m */,
 				F7F06A7A172D0A9900CA5FC4 /* ERNTableViewDelegate.h */,
 				F7F06A7B172D0A9900CA5FC4 /* ERNTableViewDelegate.m */,
-				F7F06A7C172D0A9900CA5FC4 /* TableViewCellFactories */,
-				F7F06A82172D0A9900CA5FC4 /* TableViewManagers */,
 				F7F06A88172D0A9900CA5FC4 /* UITableViewCell+ERNHelper.h */,
 				F7F06A89172D0A9900CA5FC4 /* UITableViewCell+ERNHelper.m */,
+				F7848CA7172FA7BB001AD787 /* ERNDummyTableViewCell.h */,
+				F7848CA8172FA7BC001AD787 /* ERNDummyTableViewCell.m */,
 			);
 			path = TableViewHelpers;
 			sourceTree = "<group>";
@@ -753,11 +757,11 @@
 		F7F06A7C172D0A9900CA5FC4 /* TableViewCellFactories */ = {
 			isa = PBXGroup;
 			children = (
+				F7F06A81172D0A9900CA5FC4 /* ERNTableViewCellFactory.h */,
 				F7F06A7D172D0A9900CA5FC4 /* ERNNullTableViewCellFactory.h */,
 				F7F06A7E172D0A9900CA5FC4 /* ERNNullTableViewCellFactory.m */,
 				F7F06A7F172D0A9900CA5FC4 /* ERNRoutingTableViewCellFactory.h */,
 				F7F06A80172D0A9900CA5FC4 /* ERNRoutingTableViewCellFactory.m */,
-				F7F06A81172D0A9900CA5FC4 /* ERNTableViewCellFactory.h */,
 			);
 			path = TableViewCellFactories;
 			sourceTree = "<group>";
@@ -765,11 +769,11 @@
 		F7F06A82172D0A9900CA5FC4 /* TableViewManagers */ = {
 			isa = PBXGroup;
 			children = (
+				F7F06A87172D0A9900CA5FC4 /* ERNTableViewManager.h */,
 				F7F06A83172D0A9900CA5FC4 /* ERNAsyncItemsRepositoryTableViewManager.h */,
 				F7F06A84172D0A9900CA5FC4 /* ERNAsyncItemsRepositoryTableViewManager.m */,
 				F7F06A85172D0A9900CA5FC4 /* ERNRoutingTableViewManager.h */,
 				F7F06A86172D0A9900CA5FC4 /* ERNRoutingTableViewManager.m */,
-				F7F06A87172D0A9900CA5FC4 /* ERNTableViewManager.h */,
 			);
 			path = TableViewManagers;
 			sourceTree = "<group>";

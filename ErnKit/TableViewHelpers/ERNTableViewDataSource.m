@@ -1,6 +1,8 @@
 #import "ERNTableViewDataSource.h"
 #import "ERNTableViewManager.h"
 #import "NSObject+ERNHelper.h"
+#import "UITableViewCell+ERNHelper.h"
+#import "ERNDummyTableViewCell.h"
 
 @interface ERNTableViewDataSource ()
 @property (nonatomic, readonly) id<ERNTableViewManager> tableViewManager;
@@ -11,6 +13,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell dummyCell]);
     return [[self tableViewManager] tableView:tableView
                              cellForIndexPath:indexPath];
 }

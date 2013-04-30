@@ -11,15 +11,14 @@
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self tableView:tableView
-   heightForRowAtIndexPath:indexPath
-             defaultHeight:[tableView rowHeight]];
+    return [self heightForRowAtIndexPath:indexPath
+                           defaultHeight:[tableView rowHeight]];
 }
 
--(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
-      defaultHeight:(CGFloat)height
+-(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
+                    defaultHeight:(CGFloat)height
 {
+    ERNCheckNilAndReturn(indexPath, height);
     return [self canHandleHeightForRowAtIndexPath] ?
     [[self tableViewManager] heightForRowAtIndexPath:indexPath
                                        defaultHeight:height] :
@@ -31,18 +30,15 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     return [[self tableViewManager] respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)];
 }
 
-
 -(CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section
 {
-    return [self tableView:tableView
-  heightForHeaderInSection:section
-             defaultHeight:0];
+    return [self heightForHeaderInSection:section
+                            defaultHeight:0];
 }
 
--(CGFloat)tableView:(UITableView *)tableView
-heightForHeaderInSection:(NSInteger)section
-      defaultHeight:(CGFloat)height
+-(CGFloat)heightForHeaderInSection:(NSInteger)section
+                     defaultHeight:(CGFloat)height
 {
     return [self canHandleHeightForHeaderInSection] ?
     [[self tableViewManager] heightForHeaderInSection:section
@@ -58,14 +54,12 @@ heightForHeaderInSection:(NSInteger)section
 -(CGFloat)tableView:(UITableView *)tableView
 heightForFooterInSection:(NSInteger)section
 {
-    return [self tableView:tableView
-  heightForFooterInSection:section
-             defaultHeight:0];
+    return [self heightForFooterInSection:section
+                            defaultHeight:0];
 }
 
--(CGFloat)tableView:(UITableView *)tableView
-heightForFooterInSection:(NSInteger)section
-      defaultHeight:(CGFloat)height
+-(CGFloat)heightForFooterInSection:(NSInteger)section
+                     defaultHeight:(CGFloat)height
 {
     return [self canHandleHeightForFooterInSection] ?
     [[self tableViewManager] heightForFooterInSection:section
@@ -107,9 +101,10 @@ viewForFooterInSection:(NSInteger)section
 -(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ERNCheckNil(indexPath);
+    [[(id)[self tableViewManager] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
-    [[(id)[self tableViewManager] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:indexPath];
 }
 
 -(id)initWithTableViewManager:(id<ERNTableViewManager>)tableViewManager

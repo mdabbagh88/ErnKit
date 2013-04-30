@@ -2,6 +2,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "ERNRoutingTableViewManager.h"
 #import "NSObject+ERNHelper.h"
+#import "ERNDummyTableViewCell.h"
 
 @interface ERNRoutingTableViewManager ()
 @property (nonatomic, readonly) id<ERNTableViewManager> firstTableViewManager;
@@ -23,12 +24,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
               cellForIndexPath:(NSIndexPath *)indexPath
 {
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell dummyCell]);
     return [[self routedTableViewManagerForSection:[indexPath section]] tableView:tableView
                                                                  cellForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
 
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
+    ERNCheckNil(indexPath);
     [[(id)[self routedTableViewManagerForSection:[indexPath section]] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
 
@@ -63,6 +67,7 @@
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
                     defaultHeight:(CGFloat)defaultHeight
 {
+    ERNCheckNilAndReturn(indexPath, defaultHeight);
     return [self heightForRowAtRoutedIndexPath:[self routedIndexPathForIndexPath:indexPath]
                                  defaultHeight:defaultHeight
                         routedTableViewManager:[self routedTableViewManagerForSection:[indexPath section]]];

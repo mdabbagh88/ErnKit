@@ -13,6 +13,7 @@
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
+    ERNCheckNilAndReturn(object, [NSURL nullURL]);
     return [self validUrlForObject:[[self factoryForObject:object] urlForObject:object]];
 }
 
@@ -23,6 +24,7 @@
 
 -(NSString *)mimeForObject:(id<NSObject>)object
 {
+    ERNCheckNilAndReturn(object, @"");
     return [self validMimeForObject:[[self factoryForObject:object] mimeForObject:object]];
 }
 

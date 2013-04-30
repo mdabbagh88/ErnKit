@@ -1,4 +1,6 @@
 #import "ERNNumberUrlMimeFactory.h"
+#import "NSObject+ERNHelper.h"
+#import "NSURL+ERNHelper.h"
 
 @implementation ERNNumberUrlMimeFactory
 
@@ -16,6 +18,7 @@ static ERNNumberUrlMimeFactory *factory;
 
 -(NSURL *)urlForObject:(NSNumber *)number
 {
+    ERNCheckNilAndReturn(number, [NSURL nullURL]);
     return [NSURL URLWithString:[NSString stringWithFormat:@"number:%@", number]];
 }
 

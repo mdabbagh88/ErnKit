@@ -24,6 +24,7 @@
 
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
+    ERNCheckNil(indexPath);
     [[self actionHandler] actionForObject:[[self repository] itemAtIndex:(NSUInteger)[indexPath row]]];
 }
 
