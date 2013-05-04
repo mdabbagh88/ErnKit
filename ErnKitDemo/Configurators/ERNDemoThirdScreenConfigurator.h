@@ -4,6 +4,6 @@
 @protocol ERNActionHandler;
 
 @interface ERNDemoThirdScreenConfigurator : NSObject <ERNViewControllerConfigurator>
-@property (nonatomic, readwrite) id<ERNActionHandler> actionHandler;
+@property (nonatomic, readwrite, weak) id<ERNActionHandler> actionHandler;
 +(instancetype)configurator;
 @end

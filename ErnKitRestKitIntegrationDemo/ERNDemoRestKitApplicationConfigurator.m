@@ -4,79 +4,73 @@
 #import "ERNRoutingMapViewAnnotationViewFactory.h"
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
 #import "ERNMapViewController.h"
+#import "ERNAction.h"
+#import "ERNRefreshAsyncRepositoryAction.h"
+#import "ERNBarButtonItem.h"
 #import <RestKit/RestKit.h>
-
-static NSURL *gTwitterUrl;
-static NSDictionary *gTwitterMapping;
 
 @implementation ERNDemoRestKitApplicationConfigurator
 
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    id<ERNAsyncItemsRepository> repository = [self setupRepository:[self createRepository]];
-    return [self setupViewController:[self createViewControllerWithRepository:repository]];
-}
+    // REST url
+    NSURL *twitterUrl = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline/ernstsson.json?count=100"];
 
--(id<ERNAsyncItemsRepository>)createRepository
-{
-    RKObjectMapping *objectMapping = [self setupObjectMapping:[self createObjectMapping]];
-    return [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:gTwitterUrl
-                                                               keyPath:@""
-                                                               mapping:objectMapping
-                                                           statusCodes:[NSIndexSet indexSetWithIndex:200]];
-}
+    // RestKit object mapping
+    NSDictionary *twitterMapping = @{
+                                     @"text" : @"text",
+                                     @"coordinates.coordinates" : @"coordinates",
+                                     @"user.profile_image_url" : @"imageUrl"
+                                     };
+    RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[ERNDemoTweet class]];
+    [objectMapping addAttributeMappingsFromDictionary:twitterMapping];
 
--(RKObjectMapping *)createObjectMapping
-{
-    return [RKObjectMapping mappingForClass:[ERNDemoTweet class]];
-}
+    // RestKit status codes
+    NSIndexSet *statusCodes = [NSIndexSet indexSetWithIndex:200];
 
--(RKObjectMapping *)setupObjectMapping:(RKObjectMapping *)objectMapping
-{
-    [objectMapping addAttributeMappingsFromDictionary:gTwitterMapping];
-    return objectMapping;
-}
+    // Setup an async repository with RestKit data
+    id<ERNAsyncItemsRepository> repository = [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:twitterUrl
+                                                                                                 keyPath:@""
+                                                                                                 mapping:objectMapping
+                                                                                             statusCodes:statusCodes];
 
--(id<ERNAsyncItemsRepository>)setupRepository:(id<ERNAsyncItemsRepository>)repository
-{
+    // Refresh repository to ensure data when the view controller is loaded
     [repository refresh];
-    return repository;
-}
 
--(ERNMapViewController *)createViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    return [ERNMapViewController autoZoomingViewControllerWithRepository:repository
-                                                           actionHandler:nil
-                                                             viewFactory:[ERNRoutingMapViewAnnotationViewFactory factoryWithMappings:[self annotationViewFactoryMapping]]];
-}
+    // Setup an annotation view factory creating map annotations for the map view controller
+    id<ERNMapViewAnnotationViewFactory> annotationViewFactory = [ERNDemoTweetMapViewAnnotationViewFactory annotationViewFactory];
 
--(NSDictionary *)annotationViewFactoryMapping
-{
-    return @{
-             NSStringFromClass([ERNDemoTweet class]) :
-                 [ERNDemoTweetMapViewAnnotationViewFactory annotationViewFactory]};
-}
-
--(UIViewController *)setupViewController:(ERNMapViewController *)viewController
-{
+    // Setup the map view controller with the RestKit repository and the annotation view factory
+    UIViewController *viewController = [ERNMapViewController autoZoomingViewControllerWithRepository:repository
+                                                                                       actionHandler:nil
+                                                                                         viewFactory:annotationViewFactory];
     [viewController setTitle:@"Twitter Map"];
-    return viewController;
+
+    // Setup a refresh action for the screen
+    id<ERNAction> refreshAction = [ERNRefreshAsyncRepositoryAction actionWithRepository:repository];
+
+
+    // Setup a button for the toolbar and wire it up with the refresh action
+    ERNBarButtonItem *refreshButton = [ERNBarButtonItem barButtonItemWithSystemItem:UIBarButtonSystemItemRefresh
+                                                                             action:refreshAction
+                                                                                url:url
+                                                                               mime:mime];
+    [viewController setToolbarItems:@[refreshButton]];
+    ERNBarButtonItem *refreshButton2 = [ERNBarButtonItem barButtonItemWithSystemItem:UIBarButtonSystemItemRefresh
+                                                                              action:refreshAction
+                                                                                 url:url
+                                                                                mime:mime];
+    [[viewController navigationItem] setRightBarButtonItem:refreshButton2];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [navigationController setToolbarHidden:NO];
+    return navigationController;
 }
 
 +(instancetype)configurator
 {
     return [[self alloc] init];
-}
-
-+(void)initialize
-{
-    gTwitterUrl = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline/ernstsson.json?count=100"];
-    gTwitterMapping = @{
-                        @"text" : @"text",
-                        @"coordinates.coordinates" : @"coordinates",
-                        @"user.profile_image_url" : @"imageUrl"
-                        };
 }
 
 @end

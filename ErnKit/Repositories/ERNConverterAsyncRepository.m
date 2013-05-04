@@ -1,31 +1,14 @@
 #import "ERNConverterAsyncRepository.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNConverterAsyncRepository ()
 @property (nonatomic, readonly) id<ERNAsyncRepository>repository;
 @end
 
-@implementation ERNConverterAsyncRepository
-
--(void)addObserver:(id)observer
-          selector:(SEL)selector
-{
-    ERNCheckNil(observer);
-    ERNCheckNil(selector);
-    [[self repository] addObserver:observer
-                          selector:selector];
+@implementation ERNConverterAsyncRepository {
 }
 
--(void)removeObserver:(id)observer
-{
-    ERNCheckNil(observer);
-    [[self repository] removeObserver:observer];
-}
-
--(void)refresh
-{
-    [[self repository] refresh];
-}
+#pragma mark - public - initializers
 
 -(id)initWithRepository:(id<ERNAsyncRepository>)repository
 {
@@ -33,6 +16,28 @@
     ERNCheckNil(self);
     _repository = repository;
     return self;
+}
+
+#pragma mark - ERNAsyncRepository
+
+-(void)addObserver:(id)observer
+          selector:(SEL)selector
+{
+    ERNCheckNilNoReturn(observer);
+    ERNCheckNilNoReturn(selector);
+    [[self repository] addObserver:observer
+                          selector:selector];
+}
+
+-(void)removeObserver:(id)observer
+{
+    ERNCheckNilNoReturn(observer);
+    [[self repository] removeObserver:observer];
+}
+
+-(void)refresh
+{
+    [[self repository] refresh];
 }
 
 @end

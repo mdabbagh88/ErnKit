@@ -1,6 +1,6 @@
 #import "ERNDemoViewController.h"
 #import "ERNAsyncItemsRepository.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNDemoViewController ()
 @property (nonatomic) IBOutlet UITableView *tableView;
@@ -20,6 +20,11 @@
     [self refreshRepository];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+}
+
 -(void)refreshRepository
 {
     [[self repository] refresh];
@@ -35,7 +40,7 @@
 
 -(void)dealloc
 {
-    [[self repository] removeObserver:self];
+    [_repository removeObserver:self];
 }
 
 -(id)initWithTableViewDelegate:(id<UITableViewDelegate>)tableViewDelegate

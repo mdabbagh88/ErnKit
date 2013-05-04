@@ -1,9 +1,23 @@
 #import "ERNArrayAsyncItemsRepository.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
-@implementation ERNArrayAsyncItemsRepository
+@implementation ERNArrayAsyncItemsRepository {
+    NSArray *_array;
+}
 
-@synthesize array = _array;
+#pragma mark - public - constructors
+
++(instancetype)asyncItemsRepository
+{
+    return [[self alloc] init];
+}
+
++(instancetype)asyncItemsRepositoryWithArray:(NSArray *)array
+{
+    return [[self alloc] initWithArray:array];
+}
+
+#pragma mark - public - accessors
 
 -(NSArray *)array
 {
@@ -17,9 +31,11 @@
     [self notifyObservers];
 }
 
+#pragma mark - ERNAsyncItemsRepository
+
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
 {
-    ERNCheckNil(block);
+    ERNCheckNilNoReturn(block);
     [[self array] enumerateObjectsUsingBlock:block];
 }
 
@@ -39,10 +55,14 @@
     return [self validIndex:index] ? [self array][index] : [NSNull null];
 }
 
+#pragma mark - private
+
 -(BOOL)validIndex:(NSUInteger)index
 {
     return index < [[self array] count];
 }
+
+#pragma mark - private - initializers
 
 -(id)initWithArray:(NSArray *)array
 {
@@ -50,16 +70,6 @@
     ERNCheckNil(self);
     _array = array;
     return self;
-}
-
-+(instancetype)asyncItemsRepositoryWithArray:(NSArray *)array
-{
-    return [[self alloc] initWithArray:array];
-}
-
-+(instancetype)asyncItemsRepository
-{
-    return [[self alloc] init];
 }
 
 @end

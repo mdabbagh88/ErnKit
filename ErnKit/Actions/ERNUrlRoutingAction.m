@@ -1,34 +1,39 @@
 #import "ERNUrlRoutingAction.h"
 #import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNUrlRoutingAction ()
 @property (nonatomic, readonly) NSDictionary *actions;
 @property (nonatomic, readonly, copy) NSString *(^urlRouter)(NSURL *);
 @end
 
-@implementation ERNUrlRoutingAction
+@implementation ERNUrlRoutingAction {
+}
+
+#pragma mark - public - constructors
+
++(instancetype)actionWithActionsForHosts:(NSDictionary *)actions
+{
+    return [[self alloc] initWithActionsForHosts:actions];
+}
+
++(instancetype)actionWithActionsForSchemes:(NSDictionary *)actions
+{
+    return [[self alloc] initWithActionsForSchemes:actions];
+}
+
+#pragma mark - ERNAction
 
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
-    ERNCheckNil(url);
-    ERNCheckNil(mime);
+    ERNCheckNilNoReturn(url);
+    ERNCheckNilNoReturn(mime);
     [[[self actions][[self urlRouter](url)] guaranteeProtocolConformance:@protocol(ERNAction)] actionForUrl:url
                                                                                                        mime:mime];
 }
 
--(BOOL)validAction:(id<ERNAction>)action
-{
-    return [action conformsToProtocol:@protocol(ERNAction)];
-}
-
--(id)initWithActions:(NSDictionary *)actions
-{
-    self = [self init];
-    ERNCheckNil(self);
-    _actions = actions;
-    return self;
-}
+#pragma mark - private - initializers
 
 -(id)initWithActionsForHosts:(NSDictionary *)actions
 {
@@ -50,14 +55,12 @@
     return self;
 }
 
-+(instancetype)actionWithActionsForHosts:(NSDictionary *)actions
+-(id)initWithActions:(NSDictionary *)actions
 {
-    return [[self alloc] initWithActionsForHosts:actions];
-}
-
-+(instancetype)actionWithActionsForSchemes:(NSDictionary *)actions
-{
-    return [[self alloc] initWithActionsForSchemes:actions];
+    self = [self init];
+    ERNCheckNil(self);
+    _actions = actions;
+    return self;
 }
 
 @end

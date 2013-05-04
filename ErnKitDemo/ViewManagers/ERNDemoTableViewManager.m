@@ -1,5 +1,6 @@
+#import <UIKit/UIKit.h>
 #import "ERNDemoTableViewManager.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNDemoTableViewManager ()
 @property (nonatomic, readonly, copy) NSString *text;

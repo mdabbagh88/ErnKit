@@ -2,11 +2,16 @@
 
 @implementation NSURL (ERNHelper)
 
-static id nullURL = nil;
+#pragma mark - public - constructors
 
 +(instancetype)nullURL
 {
-    return nullURL ? nullURL : [self URLWithString:@""];
+    static NSURL *nullURL;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        nullURL = [self URLWithString:@""];
+    });
+    return nullURL;
 }
 
 @end

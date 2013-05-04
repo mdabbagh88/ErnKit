@@ -17,4 +17,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return YES;
 }
 
+-(void)applicationDidEnterBackground:(UIApplication *)application
+{
+    UINavigationController *nav = (UINavigationController *)[[self window] rootViewController];
+    UIViewController *vc = [[UIViewController alloc] init];
+    [nav setViewControllers:@[vc]];
+}
+
+-(void)applicationWillEnterForeground:(UIApplication *)application
+{
+    [[ERNViewControllerAction actionWithTransitioner:[ERNWindowViewControllerTransitioner transitionerWithWindow:[self window]]
+                                        configurator:[ERNDemoApplicationConfigurator configurator]]
+     actionForUrl:[NSURL nullURL] mime:@""];
+}
+
 @end

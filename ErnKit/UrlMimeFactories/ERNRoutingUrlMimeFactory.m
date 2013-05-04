@@ -1,15 +1,24 @@
 #import "ERNRoutingUrlMimeFactory.h"
 #import "ERNNullUrlMimeFactory.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
 @interface ERNRoutingUrlMimeFactory ()
-@property (nonatomic, readonly, copy) NSDictionary *mappings;
+@property (nonatomic, readonly) NSDictionary *mappings;
 @end
 
-@implementation ERNRoutingUrlMimeFactory
+@implementation ERNRoutingUrlMimeFactory {
+    NSDictionary *_mappings;
+}
 
-@synthesize mappings = _mappings;
+#pragma mark - public - constructors
+
++(instancetype)urlMimeFactoryWithMappings:(NSDictionary *)mappings
+{
+    return [[self alloc] initWithMappings:mappings];
+}
+
+#pragma mark - ERNUrlMimeFactory
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
@@ -17,15 +26,17 @@
     return [self validUrlForObject:[[self factoryForObject:object] urlForObject:object]];
 }
 
--(NSURL *)validUrlForObject:(NSURL *)url
-{
-    return url ? url : [NSURL nullURL];
-}
-
 -(NSString *)mimeForObject:(id<NSObject>)object
 {
     ERNCheckNilAndReturn(object, @"");
     return [self validMimeForObject:[[self factoryForObject:object] mimeForObject:object]];
+}
+
+#pragma mark - private
+
+-(NSURL *)validUrlForObject:(NSURL *)url
+{
+    return url ? url : [NSURL nullURL];
 }
 
 -(NSString *)validMimeForObject:(NSString *)mime
@@ -48,11 +59,15 @@
     return [factory conformsToProtocol:@protocol(ERNUrlMimeFactory)];
 }
 
+#pragma mark - private - accessors
+
 -(NSDictionary *)mappings
 {
     _mappings = _mappings ? _mappings : @{};
     return _mappings;
 }
+
+#pragma mark - private - initializers
 
 -(id)initWithMappings:(NSDictionary *)mappings
 {
@@ -60,11 +75,6 @@
     ERNCheckNil(self);
     _mappings = mappings;
     return self;
-}
-
-+(instancetype)urlMimeFactoryWithMappings:(NSDictionary *)mappings
-{
-    return [[self alloc] initWithMappings:mappings];
 }
 
 @end

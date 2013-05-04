@@ -1,24 +1,15 @@
 #import "ERNBaseAsyncRepository.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNBaseAsyncRepository ()
 @property (nonatomic, readonly) NSNotificationCenter *notificationCenter;
 @end
 
-@implementation ERNBaseAsyncRepository
-
-@synthesize notificationCenter = _notificationCenter;
-
--(NSNotificationCenter *)notificationCenter
-{
-    _notificationCenter = _notificationCenter ? _notificationCenter : [NSNotificationCenter defaultCenter];
-    return _notificationCenter;
+@implementation ERNBaseAsyncRepository {
+    NSNotificationCenter *_notificationCenter;
 }
 
--(void)refresh
-{
-    [self notifyObservers];
-}
+#pragma mark - public
 
 -(void)notifyObservers
 {
@@ -26,11 +17,18 @@
                                              object:self];
 }
 
+#pragma mark - ERNAsyncRepository
+
+-(void)refresh
+{
+    [self notifyObservers];
+}
+
 -(void)addObserver:(id)observer
           selector:(SEL)selector
 {
-    ERNCheckNil(observer);
-    ERNCheckNil(selector);
+    ERNCheckNilNoReturn(observer);
+    ERNCheckNilNoReturn(selector);
     [[self notificationCenter] addObserver:observer
                                   selector:selector
                                       name:[self notificationName]
@@ -39,15 +37,25 @@
 
 -(void)removeObserver:(id)observer
 {
-    ERNCheckNil(observer);
+    ERNCheckNilNoReturn(observer);
     [[self notificationCenter] removeObserver:observer
                                          name:[self notificationName]
                                        object:self];
 }
 
+#pragma mark - private
+
 -(NSString *)notificationName
 {
     return NSStringFromClass([self class]);
+}
+
+#pragma mark - private - accessors
+
+-(NSNotificationCenter *)notificationCenter
+{
+    _notificationCenter = _notificationCenter ? _notificationCenter : [NSNotificationCenter defaultCenter];
+    return _notificationCenter;
 }
 
 @end

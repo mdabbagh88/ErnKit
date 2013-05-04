@@ -1,20 +1,27 @@
 #import "ERNNumberUrlMimeFactory.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
-
-@implementation ERNNumberUrlMimeFactory
 
 static ERNNumberUrlMimeFactory *factory;
 
-+(NSString *)forClass
-{
-    return NSStringFromClass([@0 class]);
+@implementation ERNNumberUrlMimeFactory {
 }
+
+#pragma mark - public
 
 +(NSString *)mime
 {
     return @"application/x-ern-number";
 }
+
+#pragma mark - public - constructors
+
++(instancetype)urlMimeFactory
+{
+    return factory;
+}
+
+#pragma mark - ERNUrlMimeFactory
 
 -(NSURL *)urlForObject:(NSNumber *)number
 {
@@ -27,10 +34,7 @@ static ERNNumberUrlMimeFactory *factory;
     return [[self class] mime];
 }
 
-+(instancetype)urlMimeFactory
-{
-    return factory;
-}
+#pragma mark - NSObject
 
 +(void)initialize
 {

@@ -20,9 +20,8 @@
 #import "ERNDemoObjectUrlMimeFactory.h"
 #import "ERNNumberUrlMimeFactory.h"
 
-#import "ERNActionHandlerImpl.h"
-
-#import "NSObject+ERNHelper.h"
+#import "ERNDefaultActionHandler.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNDemoFirstScreenConfigurator ()
 @property (nonatomic, readonly) id<ERNActionHandler>actionHandler;

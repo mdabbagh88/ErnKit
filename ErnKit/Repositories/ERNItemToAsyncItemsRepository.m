@@ -1,16 +1,26 @@
 #import "ERNItemToAsyncItemsRepository.h"
 #import "ERNAsyncItemRepository.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNItemToAsyncItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncItemRepository>repository;
 @end
 
-@implementation ERNItemToAsyncItemsRepository
+@implementation ERNItemToAsyncItemsRepository {
+}
+
+#pragma mark - public - constructors
+
++(instancetype)asyncItemsRepositoryWithRepository:(id<ERNAsyncItemRepository>)repository
+{
+    return [[self alloc] initWithItemRepository:repository];
+}
+
+#pragma mark - ERNAsyncItemsRepository
 
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
 {
-    ERNCheckNil(block);
+    ERNCheckNilNoReturn(block);
     [[self itemToArray] enumerateObjectsUsingBlock:block];
 }
 
@@ -25,6 +35,13 @@
     return [self validIndex:index] ? [[self repository] item] : [NSNull null];
 }
 
+-(NSUInteger)count
+{
+    return (NSUInteger)[self hasItem];
+}
+
+#pragma mark - private
+
 -(BOOL)validIndex:(NSUInteger)index
 {
     return index == 0;
@@ -35,15 +52,12 @@
     return [self hasItem] ? @[[[self repository] item]] : @[];
 }
 
--(NSUInteger)count
-{
-    return (NSUInteger)[self hasItem];
-}
-
 -(BOOL)hasItem
 {
     return (BOOL)[[self repository] item];
 }
+
+#pragma mark - private - initializers
 
 -(id)initWithItemRepository:(id<ERNAsyncItemRepository>)repository
 {
@@ -51,11 +65,6 @@
     ERNCheckNil(self);
     _repository = repository;
     return self;
-}
-
-+(instancetype)asyncItemsRepositoryWithRepository:(id<ERNAsyncItemRepository>)repository
-{
-    return [[self alloc] initWithItemRepository:repository];
 }
 
 @end

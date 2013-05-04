@@ -1,12 +1,12 @@
 #import "ERNDemoFourthScreenConfigurator.h"
 #import "ERNArrayAsyncItemsRepository.h"
 #import "ERNMapViewController.h"
-#import "ERNActionHandlerImpl.h"
+#import "ERNDefaultActionHandler.h"
 #import "ERNRoutingMapViewAnnotationViewFactory.h"
 #import "ERNDemoObjectMapViewAnnotationViewFactory.h"
 #import "ERNDemoObject.h"
 #import "ERNDemoObject2.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNDemoFourthScreenConfigurator ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository>repository;

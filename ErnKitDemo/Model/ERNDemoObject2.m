@@ -1,5 +1,5 @@
 #import "ERNDemoObject2.h"
-#import "NSObject+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @implementation ERNDemoObject2
 

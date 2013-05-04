@@ -2,6 +2,8 @@
 
 @implementation NSObject (ERNHelper)
 
+#pragma mark - public
+
 -(instancetype)guaranteeProtocolConformance:(Protocol *)protocol
 {
     return [self conformsToProtocol:protocol] ? self : nil;

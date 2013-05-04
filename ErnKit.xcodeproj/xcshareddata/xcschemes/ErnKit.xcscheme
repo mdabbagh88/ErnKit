@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F06A36172D083B00CA5FC4"
+               BlueprintIdentifier = "F7ABC238173510C20035B164"
                BuildableName = "libErnKit.a"
                BlueprintName = "ErnKit"
+               ReferencedContainer = "container:ErnKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
+               BuildableName = "ErnKitDemo.app"
+               BlueprintName = "ErnKitDemo"
                ReferencedContainer = "container:ErnKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -39,15 +53,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
-            BuildableName = "ErnKitDemo.app"
-            BlueprintName = "ErnKitDemo"
-            ReferencedContainer = "container:ErnKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -58,15 +63,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
-            BuildableName = "ErnKitDemo.app"
-            BlueprintName = "ErnKitDemo"
-            ReferencedContainer = "container:ErnKit.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

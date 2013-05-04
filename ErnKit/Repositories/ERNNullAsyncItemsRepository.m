@@ -1,8 +1,18 @@
 #import "ERNNullAsyncItemsRepository.h"
 
-@implementation ERNNullAsyncItemsRepository
-
 static ERNNullAsyncItemsRepository *repository;
+
+@implementation ERNNullAsyncItemsRepository {
+}
+
+#pragma mark - public - constructors
+
++(instancetype)repository
+{
+    return repository;
+}
+
+#pragma mark - ERNAsyncItemsRepository
 
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
 {
@@ -23,10 +33,7 @@ static ERNNullAsyncItemsRepository *repository;
     return [NSNull null];
 }
 
-+(instancetype)repository
-{
-    return repository;
-}
+#pragma mark - NSObject
 
 +(void)initialize
 {

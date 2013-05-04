@@ -16,10 +16,8 @@
 #import "ERNDemoObject2.h"
 #import "ERNNumberUrlMimeFactory.h"
 #import "ERNStringUrlMimeFactory.h"
-#import "ERNActionHandlerImpl.h"
+#import "ERNDefaultActionHandler.h"
 #import "ERNArrayAsyncItemsRepository.h"
-
-static NSArray *gArray;
 
 @implementation ERNDemoApplicationConfigurator
 
@@ -42,7 +40,7 @@ static NSArray *gArray;
 {
     id<ERNViewControllerTransitioner> transitioner = [ERNNavigationViewControllerTransitioner transitionerWithNavigationController:navigationController];
 
-    id<ERNAsyncItemsRepository> repository = [ERNArrayAsyncItemsRepository asyncItemsRepositoryWithArray:gArray];
+    id<ERNAsyncItemsRepository> repository = [ERNArrayAsyncItemsRepository asyncItemsRepositoryWithArray:[self itemArray]];
 
     ERNDemoThirdScreenConfigurator *thirdScreenConfigurator = [ERNDemoThirdScreenConfigurator configurator];
     id<ERNAction> thirdAction = [ERNViewControllerAction actionWithTransitioner:transitioner
@@ -104,7 +102,7 @@ static NSArray *gArray;
 
 -(id<ERNActionHandler>)actionHandler:(NSDictionary *)mimeActionMappings
 {
-    return [ERNActionHandlerImpl actionHandlerWithAction:[ERNMimeRoutingAction actionWithActionsForMimes:mimeActionMappings]
+    return [ERNDefaultActionHandler actionHandlerWithAction:[ERNMimeRoutingAction actionWithActionsForMimes:mimeActionMappings]
                                           urlMimeFactory:[self routingUrlMimeFactory]];
 }
 
@@ -122,31 +120,31 @@ static NSArray *gArray;
              NSStringFromClass([ERNDemoObject2 class]) : [ERNDemoObject2UrlMimeFactory urlMimeFactory]};
 }
 
+-(NSArray *)itemArray
+{
+    return @[
+             [ERNDemoObject objectWithTitle:@"Ernstsson.net"
+                                       info:@"Blog on software"
+                                        url:[NSURL URLWithString:@"http://ernstsson.net"]
+                                 coordinate:CLLocationCoordinate2DMake(51.5045, -0.0865)],
+             @"String amongst demo objects",
+             [ERNDemoObject doubleHeightObjectWithTitle:@"ThoughtWorks"
+                                                   info:@"Software company"
+                                                    url:[NSURL URLWithString:@"http://thoughtworks.com"]
+                                             coordinate:CLLocationCoordinate2DMake(51.515731, -0.125307)],
+             [NSURL URLWithString:@"http://bing.com"],
+             [ERNDemoObject2 objectWithTitle:@"Location"
+                                  coordinate:CLLocationCoordinate2DMake(51.50, -0.1)],
+             @123,
+             @YES,
+             @1.3f,
+             @[@"arrayitem1", @"arrayitem2"],
+             @{@"key":@"value"}];
+}
+
 +(instancetype)configurator
 {
     return [[self alloc] init];
-}
-
-+(void)initialize
-{
-    gArray = @[
-               [ERNDemoObject objectWithTitle:@"Ernstsson.net"
-                                         info:@"Blog on software"
-                                          url:[NSURL URLWithString:@"http://ernstsson.net"]
-                                   coordinate:CLLocationCoordinate2DMake(51.5045, -0.0865)],
-               @"String amongst demo objects",
-               [ERNDemoObject doubleHeightObjectWithTitle:@"ThoughtWorks"
-                                                     info:@"Software company"
-                                                      url:[NSURL URLWithString:@"http://thoughtworks.com"]
-                                               coordinate:CLLocationCoordinate2DMake(51.515731, -0.125307)],
-               [NSURL URLWithString:@"http://bing.com"],
-               [ERNDemoObject2 objectWithTitle:@"Location"
-                                    coordinate:CLLocationCoordinate2DMake(51.50, -0.1)],
-               @123,
-               @YES,
-               @1.3f,
-               @[@"arrayitem1", @"arrayitem2"],
-               @{@"key":@"value"}];
 }
 
 @end

@@ -1,9 +1,19 @@
 #import "ERNNullUrlMimeFactory.h"
 #import "NSURL+ERNHelper.h"
 
-@implementation ERNNullUrlMimeFactory
-
 static ERNNullUrlMimeFactory *factory;
+
+@implementation ERNNullUrlMimeFactory {
+}
+
+#pragma mark - public - constructors
+
++(instancetype)factory
+{
+    return factory;
+}
+
+#pragma mark - ERNUrlMimeFactory
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
@@ -15,10 +25,7 @@ static ERNNullUrlMimeFactory *factory;
     return @"";
 }
 
-+(instancetype)factory
-{
-    return factory;
-}
+#pragma mark - NSObject
 
 +(void)initialize
 {
