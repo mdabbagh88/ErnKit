@@ -45,8 +45,7 @@
 
 -(NSMapTable *)repositories
 {
-    _repositories = _repositories ? _repositories : [self createRepositories];
-    return _repositories;
+    return _repositories = _repositories ? _repositories : [self createRepositories];
 }
 
 @end

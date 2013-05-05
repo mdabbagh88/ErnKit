@@ -129,14 +129,12 @@
 
 -(NSURL *)url
 {
-    _url = _url ? _url : [NSURL nullURL];
-    return _url;
+    return _url = _url ? _url : [NSURL nullURL];
 }
 
 -(NSOperationQueue *)operationQueue
 {
-    _operationQueue = _operationQueue ? _operationQueue : [self createOperationQueue];
-    return _operationQueue;
+    return _operationQueue = _operationQueue ? _operationQueue : [self createOperationQueue];
 }
 
 #pragma mark - private - initializers

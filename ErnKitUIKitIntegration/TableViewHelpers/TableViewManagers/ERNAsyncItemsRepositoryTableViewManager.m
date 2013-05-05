@@ -75,8 +75,9 @@
 
 -(id<ERNTableViewCellFactory>)cellFactory
 {
-    _cellFactory = _cellFactory ? _cellFactory : [ERNNullTableViewCellFactory tableViewCellFactory];
-    return _cellFactory;
+    return _cellFactory = _cellFactory ?
+    _cellFactory :
+    [ERNNullTableViewCellFactory tableViewCellFactory];
 }
 
 #pragma mark - private - initializers

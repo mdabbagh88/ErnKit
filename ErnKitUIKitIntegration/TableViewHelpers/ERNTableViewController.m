@@ -112,22 +112,23 @@
 
 -(id<ERNTableViewManager>)tableViewManager
 {
-    _tableViewManager = _tableViewManager ? _tableViewManager : [self createTableViewManager]();
-    return _tableViewManager;
+    return _tableViewManager = _tableViewManager ?
+    _tableViewManager :
+    [self createTableViewManager]();
 }
 
 -(id<UITableViewDataSource>)dataSource
 {
-    _dataSource = _dataSource ? _dataSource :
+    return _dataSource = _dataSource ?
+    _dataSource :
     [ERNTableViewDataSource tableViewDataSourceWithTableViewManager:[self tableViewManager]];
-    return _dataSource;
 }
 
 -(id<UITableViewDelegate>)delegate
 {
-    _delegate = _delegate ? _delegate :
+    return _delegate = _delegate ?
+    _delegate :
     [ERNTableViewDelegate tableViewDelegateWithTableViewManager:[self tableViewManager]];
-    return _delegate;
 }
 
 #pragma mark - private - initializers

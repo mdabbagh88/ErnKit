@@ -21,8 +21,7 @@
 
 -(NSArray *)array
 {
-    _array = _array ? _array : @[];
-    return _array;
+    return _array = _array ? _array : @[];
 }
 
 -(void)setArray:(NSArray *)array

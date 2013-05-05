@@ -16,8 +16,7 @@
 
 -(id<NSObject>)item
 {
-    _item = _item ? _item : [NSNull null];
-    return _item;
+    return _item = _item ? _item : [NSNull null];
 }
 
 #pragma mark - private - initializers

@@ -61,8 +61,7 @@
 
 -(id<ERNUrlMimeFactory>)urlMimeFactory
 {
-    _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory factory];
-    return _urlMimeFactory;
+    return _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory factory];
 }
 
 #pragma mark - private - initializers

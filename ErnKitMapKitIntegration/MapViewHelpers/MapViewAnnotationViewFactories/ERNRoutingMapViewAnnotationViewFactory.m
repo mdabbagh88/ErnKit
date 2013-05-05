@@ -62,8 +62,7 @@
 
 -(NSDictionary *)mappings
 {
-    _mappings = _mappings ? _mappings : @{};
-    return _mappings;
+    return _mappings = _mappings ? _mappings : @{};
 }
 
 #pragma mark - private - initializers

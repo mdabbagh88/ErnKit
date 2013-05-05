@@ -64,20 +64,17 @@
 
 -(NSURL *)url
 {
-    _url = _url ? _url : [NSURL nullURL];
-    return _url;
+    return _url = _url ? _url : [NSURL nullURL];
 }
 
 -(NSString *)mime
 {
-    _mime = _mime ? _mime : @"";
-    return _mime;
+    return _mime = _mime ? _mime : @"";
 }
 
 -(NSArray *)actions
 {
-    _actions = _actions ? _actions : @[];
-    return _actions;
+    return _actions = _actions ? _actions : @[];
 }
 
 #pragma mark - private - initializers

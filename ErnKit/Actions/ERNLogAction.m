@@ -28,8 +28,7 @@
 
 -(NSString *)string
 {
-    _string = _string ? _string : @"ERNLogAction";
-    return _string;
+    return _string = _string ? _string : @"ERNLogAction";
 }
 
 #pragma mark - private - initializers

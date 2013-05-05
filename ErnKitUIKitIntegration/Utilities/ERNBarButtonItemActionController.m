@@ -40,14 +40,12 @@
 
 -(NSURL *)url
 {
-    _url = _url ? _url : [NSURL nullURL];
-    return _url;
+    return _url = _url ? _url : [NSURL nullURL];
 }
 
 -(NSString *)mime
 {
-    _mime = _mime ? _mime : @"";
-    return _mime;
+    return _mime = _mime ? _mime : @"";
 }
 
 #pragma mark - private - initializer

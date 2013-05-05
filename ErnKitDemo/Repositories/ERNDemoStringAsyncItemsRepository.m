@@ -19,8 +19,7 @@ static NSArray *gItems2;
 
 -(NSArray *)items
 {
-    _items = _items ? _items : gItems1;
-    return _items;
+    return _items = _items ? _items : gItems1;
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block

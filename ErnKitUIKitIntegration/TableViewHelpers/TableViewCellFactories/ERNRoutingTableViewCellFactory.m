@@ -72,14 +72,14 @@
 
 -(id<ERNTableViewCellFactory>)defaultFactory
 {
-    _defaultFactory = _defaultFactory ? _defaultFactory : [ERNNullTableViewCellFactory tableViewCellFactory];
-    return _defaultFactory;
+    return _defaultFactory = _defaultFactory ?
+    _defaultFactory :
+    [ERNNullTableViewCellFactory tableViewCellFactory];
 }
 
 -(NSDictionary *)mappings
 {
-    _mappings = _mappings ? _mappings : @{};
-    return _mappings;
+    return _mappings = _mappings ? _mappings : @{};
 }
 
 #pragma mark - private - initializers

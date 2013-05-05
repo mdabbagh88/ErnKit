@@ -99,22 +99,19 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 -(id<ERNMapViewManager>)mapViewManager
 {
-    _mapViewManager = _mapViewManager ?
+    return _mapViewManager = _mapViewManager ?
     _mapViewManager :
     [self createMapViewManager]([self mapView]);
-    return _mapViewManager;
 }
 
 -(id<MKMapViewDelegate>)delegate
 {
-    _delegate = _delegate ? _delegate : [self createDelegate]();
-    return _delegate;
+    return _delegate = _delegate ? _delegate : [self createDelegate]();
 }
 
 -(MKMapView *)mapView
 {
-    _mapView = _mapView ? _mapView : [self createMapView];
-    return _mapView;
+    return _mapView = _mapView ? _mapView : [self createMapView];
 }
 
 #pragma mark - private - initializers
