@@ -3,44 +3,44 @@
 #import "MKAnnotationView+ERNHelper.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
-@implementation ERNDemoTweetMapViewAnnotationViewFactory
-
--(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
-                               fromAnnotation:(ERNDemoTweet *)annotation
-{
-    return [self setupView:[MKAnnotationView viewForMapView:mapView
-                                                 annotation:annotation
-                                                 identifier:NSStringFromClass([annotation class])]
-                    bounds:CGRectMake(0, 0, 50, 50)
-                annotation:annotation];
+// An ERNMapViewAnnotationViewFactory, creating MKAnnotationViews based on ERNDemoTweet objects
+@implementation ERNDemoTweetMapViewAnnotationViewFactory {
 }
 
--(MKAnnotationView *)setupView:(MKAnnotationView *)view
-                        bounds:(CGRect)bounds
-                    annotation:(ERNDemoTweet *)annotation
-{
-    [view setCanShowCallout:YES];
-    [view addSubview:[self setupImageView:[self createImageViewWithFrame:bounds]
-                               annotation:annotation]];
-    [view setBounds:bounds];
-    return view;
-}
-
--(UIImageView *)createImageViewWithFrame:(CGRect)frame
-{
-    return [[UIImageView alloc] initWithFrame:frame];
-}
-
--(UIImageView *)setupImageView:(UIImageView *)imageView
-                    annotation:(ERNDemoTweet *)annotation
-{
-    [imageView setImageWithURL:[annotation imageUrl]];
-    return imageView;
-}
+#pragma mark - public - constructors
 
 +(instancetype)annotationViewFactory
 {
     return [[self alloc] init];
+}
+
+#pragma mark - ERNMapViewAnnotationViewFactory
+
+-(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
+                               fromAnnotation:(ERNDemoTweet *)annotation
+{
+    // Setup the size for the image on the map
+    CGRect bounds = CGRectMake(0, 0, 50, 50);
+
+    // Setup the reuse identifier
+    NSString *identifier = NSStringFromClass([annotation class]);
+
+    // Setup an image view, using the image url from the ERNDemoTweet class
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:bounds];
+    [imageView setImageWithURL:[annotation imageUrl]];
+
+    // Setup and annotation view, reusing current annotations from the map if possible
+    MKAnnotationView *annotationView = [MKAnnotationView viewForMapView:mapView
+                                                             annotation:annotation
+                                                             identifier:identifier];
+
+    // Customize the annotation view and add the image view as a subview
+    [annotationView setCanShowCallout:YES];
+    [annotationView addSubview:imageView];
+    [annotationView setBounds:bounds];
+
+    // Return the annotation view with the added image to the system to be shown on the map
+    return annotationView;
 }
 
 @end
