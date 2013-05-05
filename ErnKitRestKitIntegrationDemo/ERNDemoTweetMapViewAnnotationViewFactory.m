@@ -4,6 +4,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 // An ERNMapViewAnnotationViewFactory, creating MKAnnotationViews based on ERNDemoTweet objects
+
 @implementation ERNDemoTweetMapViewAnnotationViewFactory {
 }
 
