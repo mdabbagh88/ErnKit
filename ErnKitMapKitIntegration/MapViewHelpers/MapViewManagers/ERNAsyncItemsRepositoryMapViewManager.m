@@ -55,9 +55,14 @@
 
 -(NSArray *)annotationsInRepository
 {
-    return [[self repository] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+    return [[self repository] filteredArrayUsingPredicate:[self annotationFilterPredicate]];
+}
+
+-(NSPredicate *)annotationFilterPredicate
+{
+    return [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return [evaluatedObject conformsToProtocol:@protocol(MKAnnotation)];
-    }]];
+    }];
 }
 
 #pragma mark - private - initializers

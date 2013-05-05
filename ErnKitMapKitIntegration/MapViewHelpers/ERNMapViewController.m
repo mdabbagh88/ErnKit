@@ -1,3 +1,4 @@
+#import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "ERNMapViewController.h"
 #import "ERNMapViewDelegate.h"
@@ -67,7 +68,9 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 {
     [[self mapView] setDelegate:[self delegate]];
     [[self mapView] setFrame:[[self view] bounds]];
-    [[self mapView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [[self mapView] setAutoresizingMask:
+     UIViewAutoresizingFlexibleWidth |
+     UIViewAutoresizingFlexibleHeight];
     [[self view] addSubview:[self mapView]];
 }
 
@@ -86,8 +89,9 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 -(void)setupZoomingMapViewManagerConstructor:(id<ERNAsyncItemsRepository>)repository
 {
     _createMapViewManager = ^(MKMapView *mapView) {
-        return [ERNAsyncItemsRepositoryMapViewManager autoZoomingMapViewManagerWithRepository:validateRepository(repository)
-                                                                                      mapView:mapView];
+        return [ERNAsyncItemsRepositoryMapViewManager
+                autoZoomingMapViewManagerWithRepository:validateRepository(repository)
+                mapView:mapView];
     };
 }
 
@@ -95,7 +99,9 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 -(id<ERNMapViewManager>)mapViewManager
 {
-    _mapViewManager = _mapViewManager ? _mapViewManager : [self createMapViewManager]([self mapView]);
+    _mapViewManager = _mapViewManager ?
+    _mapViewManager :
+    [self createMapViewManager]([self mapView]);
     return _mapViewManager;
 }
 
@@ -155,8 +161,9 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
         return [ERNMapViewDelegate delegate];
     };
     _createMapViewManager = ^(MKMapView *mapView) {
-        return [ERNAsyncItemsRepositoryMapViewManager mapViewManagerWithRepository:validateRepository(repository)
-                                                                           mapView:mapView];
+        return [ERNAsyncItemsRepositoryMapViewManager
+                mapViewManagerWithRepository:validateRepository(repository)
+                mapView:mapView];
     };
     return self;
 }

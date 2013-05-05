@@ -4,6 +4,6 @@
 #else
 #define ERNNilParamErrorLog
 #endif
-#define ERNCheckNil(object) do {ERNCheckNilAndReturn(object, nil) } while (0)
-#define ERNCheckNilAndReturn(object, returnObject) if (!object){ERNNilParamErrorLog;return returnObject;}
-#define ERNCheckNilNoReturn(object) if (!object){ERNNilParamErrorLog;return;}
+#define ERNCheckNil(obj) do {ERNCheckNilAndReturn(obj, nil) } while (0)
+#define ERNCheckNilAndReturn(obj, retObj) if (!obj){ERNNilParamErrorLog;return retObj;}
+#define ERNCheckNilNoReturn(obj) if (!obj){ERNNilParamErrorLog;return;}

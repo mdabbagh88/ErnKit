@@ -18,7 +18,7 @@
 
 #pragma mark - ERNAsyncItemsRepository
 
--(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
+-(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
     ERNCheckNilNoReturn(block);
     [[self itemToArray] enumerateObjectsUsingBlock:block];

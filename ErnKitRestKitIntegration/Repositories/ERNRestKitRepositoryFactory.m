@@ -6,10 +6,12 @@
 @property (nonatomic, readonly) RKObjectManager *objectManager;
 @end
 
-@implementation ERNRestKitRepositoryFactory
+@implementation ERNRestKitRepositoryFactory {
+}
 
 -(id<ERNAsyncItemRepository>)repositoryForUrl:(NSURL *)url
 {
+    return nil;
 }
 
 @end

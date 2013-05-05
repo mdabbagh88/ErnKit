@@ -54,7 +54,9 @@
 
 -(NSNotificationCenter *)notificationCenter
 {
-    _notificationCenter = _notificationCenter ? _notificationCenter : [NSNotificationCenter defaultCenter];
+    _notificationCenter = _notificationCenter ?
+    _notificationCenter :
+    [NSNotificationCenter defaultCenter];
     return _notificationCenter;
 }
 

@@ -47,8 +47,8 @@
 -(void)refresh
 {
     [[self currentOperation] cancel];
-    [self setCurrentOperation:[self setupCompletionBlocksForOperation:[self requestOperation]
-                                              responseOperationsQueue:[NSOperationQueue currentQueue]]];
+    [self setCurrentOperation:[self setupCompletionForOperation:[self requestOperation]
+                                        responseOperationsQueue:[self responseQueue]]];
     [[self operationQueue] addOperation:[self currentOperation]];
 }
 
@@ -60,6 +60,11 @@
 }
 
 #pragma mark - private
+
+-(NSOperationQueue *)responseQueue
+{
+    return [NSOperationQueue currentQueue];
+}
 
 -(NSOperationQueue *)createOperationQueue
 {
@@ -74,17 +79,24 @@
 
 -(RKObjectRequestOperation *)requestOperation
 {
-    return [[RKObjectRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[self url]]
-                                         responseDescriptors:@[[self responseDescriptor]]];
+    return [self requestOperationWithRequest:[NSURLRequest requestWithURL:[self url]]
+                          responseDescriptor:[self responseDescriptor]];
 }
 
--(RKObjectRequestOperation *)setupCompletionBlocksForOperation:(RKObjectRequestOperation *)operation
-                                       responseOperationsQueue:(NSOperationQueue *)responseOperationQueue
+-(RKObjectRequestOperation *)requestOperationWithRequest:(NSURLRequest *)request
+                                      responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+{
+    return [[RKObjectRequestOperation alloc] initWithRequest:request
+                                         responseDescriptors:@[responseDescriptor]];
+}
+
+-(RKObjectRequestOperation *)setupCompletionForOperation:(RKObjectRequestOperation *)operation
+                                 responseOperationsQueue:(NSOperationQueue *)responseOperationQueue
 {
     __weak ERNRestKitAsyncItemsRepository *blockSelf = self;
 
     [operation setCompletionBlockWithSuccess:
-     ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+     ^(RKObjectRequestOperation *completionOperation, RKMappingResult *mappingResult) {
          [responseOperationQueue addOperationWithBlock:
           ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
@@ -92,7 +104,7 @@
           }];
      }
                                                   failure:
-     ^(RKObjectRequestOperation *operation, NSError *error) {
+     ^(RKObjectRequestOperation *completionOperation, NSError *error) {
          [responseOperationQueue addOperationWithBlock:
           ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;

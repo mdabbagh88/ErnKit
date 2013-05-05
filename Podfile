@@ -1,26 +1,31 @@
 platform :ios, '5.0'
 
+target :ErnKitRestKitIntegration do
+    pod 'ErnKit', :path => 'ErnKit/'
+    pod 'RestKit'
+end
+
 target :ErnKitRestKitIntegrationDemo do
-    pod 'ErnKit', :local => 'ErnKit/'
-    pod 'ErnKitRestKitIntegration', :local => 'ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :local => 'ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :local => 'ErnKitUIKitIntegration/'
+    pod 'ErnKit', :path => 'ErnKit/'
+    pod 'ErnKitRestKitIntegration', :path => 'ErnKitRestKitIntegration/'
+    pod 'ErnKitMapKitIntegration', :path => 'ErnKitMapKitIntegration/'
+    pod 'ErnKitUIKitIntegration', :path => 'ErnKitUIKitIntegration/'
     pod 'RestKit'
 end
 
 target :ErnKitDemo do
-    pod 'ErnKit', :local => 'ErnKit/'
-    pod 'ErnKitRestKitIntegration', :local => 'ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :local => 'ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :local => 'ErnKitUIKitIntegration/'
+    pod 'ErnKit', :path => 'ErnKit/'
+    pod 'ErnKitRestKitIntegration', :path => 'ErnKitRestKitIntegration/'
+    pod 'ErnKitMapKitIntegration', :path => 'ErnKitMapKitIntegration/'
+    pod 'ErnKitUIKitIntegration', :path => 'ErnKitUIKitIntegration/'
     pod 'RestKit'
 end
 
 target :ErnKitTestApp do
-    pod 'ErnKit', :local => 'ErnKit/'
-    pod 'ErnKitRestKitIntegration', :local => 'ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :local => 'ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :local => 'ErnKitUIKitIntegration/'
+    pod 'ErnKit', :path => 'ErnKit/'
+    pod 'ErnKitRestKitIntegration', :path => 'ErnKitRestKitIntegration/'
+    pod 'ErnKitMapKitIntegration', :path => 'ErnKitMapKitIntegration/'
+    pod 'ErnKitUIKitIntegration', :path => 'ErnKitUIKitIntegration/'
     pod 'RestKit'
 end
 

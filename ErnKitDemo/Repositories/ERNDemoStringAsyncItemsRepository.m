@@ -23,7 +23,7 @@ static NSArray *gItems2;
     return _items;
 }
 
--(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
+-(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
     [[self items] enumerateObjectsUsingBlock:block];
 }

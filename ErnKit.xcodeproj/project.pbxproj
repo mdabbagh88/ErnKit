@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		139EB4D1C2524EC283368727 /* libPods-ErnKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3732BB21DE3498C8AA85019 /* libPods-ErnKitDemo.a */; };
+		5A3FC65CBBD940FA92B9BB31 /* libPods-ErnKitRestKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */; };
 		A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */; };
 		E41C1E5EAC114E09BA729552 /* libPods-ErnKitTestApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */; };
 		F08E453358B245959142843A /* libPods-ErnKitRestKitIntegrationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD94E503F6D49219E519702 /* libPods-ErnKitRestKitIntegrationDemo.a */; };
@@ -18,6 +19,20 @@
 		F792BEA9172D57BD00B097C1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEA8172D57BD00B097C1 /* CoreData.framework */; };
 		F792BEAB172D57CF00B097C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */; };
 		F792BEAD172D57E300B097C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */; };
+		F796D61217356641001A6891 /* ERNDualAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61117356641001A6891 /* ERNDualAction.m */; };
+		F796D615173567C5001A6891 /* ERNNullAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D614173567C4001A6891 /* ERNNullAction.m */; };
+		F796D61817356896001A6891 /* ERNLogAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61717356896001A6891 /* ERNLogAction.m */; };
+		F796D61B173568CD001A6891 /* ERNTraceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61A173568CC001A6891 /* ERNTraceAction.m */; };
+		F796D61E1735705F001A6891 /* ERNRoutingAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61D1735705F001A6891 /* ERNRoutingAsyncItemsRepository.m */; };
+		F796D62117358E76001A6891 /* ERNTogglingRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D62017358E76001A6891 /* ERNTogglingRepository.m */; };
+		F796D62A1735B98A001A6891 /* ERNBarButtonItemActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D6291735B98A001A6891 /* ERNBarButtonItemActionController.m */; };
+		F796D62D17365FF9001A6891 /* ERNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D62C17365FF8001A6891 /* ERNViewController.m */; };
+		F796D630173661A0001A6891 /* ERNSegmentedControlActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */; };
+		F796D63B173675FF001A6891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
+		F796D64217367696001A6891 /* ERNRestKitAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2C117351D020035B164 /* ERNRestKitAsyncItemsRepository.m */; };
+		F796D64317367696001A6891 /* ERNRestKitRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2C317351D020035B164 /* ERNRestKitRepositoryFactory.m */; };
+		F796D64917368500001A6891 /* ERNSegmentedControlTogglerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */; };
+		F796D64D173692C9001A6891 /* ERNActionTogglerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */; };
 		F79AE85F172D84BB001F8F23 /* ERNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE85D172D84BB001F8F23 /* ERNDemoViewController.m */; };
 		F79AE860172D84BB001F8F23 /* ERNDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79AE85E172D84BB001F8F23 /* ERNDemoViewController.xib */; };
 		F79AE863172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE862172D9279001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
@@ -80,7 +95,6 @@
 		F7ABC32A17351F890035B164 /* ERNModalViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31417351F890035B164 /* ERNModalViewControllerTransitioner.m */; };
 		F7ABC32B17351F890035B164 /* ERNNavigationViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31617351F890035B164 /* ERNNavigationViewControllerTransitioner.m */; };
 		F7ABC32C17351F890035B164 /* ERNWindowViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31917351F890035B164 /* ERNWindowViewControllerTransitioner.m */; };
-		F7ABC32D17351F890035B164 /* ERNBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31C17351F890035B164 /* ERNBarButtonItem.m */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
 		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -165,6 +179,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F796D63C173675FF001A6891 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7ABC237173510C20035B164 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +230,7 @@
 		B7107104DA5048F3BB5C84DD /* libPods-ErnKitTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF3E4ED8D394A96A445B9CF /* Pods-ErnKitDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitDemo.xcconfig"; path = "Pods/Pods-ErnKitDemo.xcconfig"; sourceTree = SOURCE_ROOT; };
+		F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ERNHelper.h"; sourceTree = "<group>"; };
 		F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ERNHelper.m"; sourceTree = "<group>"; };
 		F733BADE173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshAsyncRepositoryAction.h; sourceTree = "<group>"; };
@@ -235,6 +259,30 @@
 		F792BEA8172D57BD00B097C1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F796D61017356641001A6891 /* ERNDualAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDualAction.h; sourceTree = "<group>"; };
+		F796D61117356641001A6891 /* ERNDualAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDualAction.m; sourceTree = "<group>"; };
+		F796D613173567C4001A6891 /* ERNNullAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAction.h; sourceTree = "<group>"; };
+		F796D614173567C4001A6891 /* ERNNullAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAction.m; sourceTree = "<group>"; };
+		F796D61617356895001A6891 /* ERNLogAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNLogAction.h; sourceTree = "<group>"; };
+		F796D61717356896001A6891 /* ERNLogAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNLogAction.m; sourceTree = "<group>"; };
+		F796D619173568CC001A6891 /* ERNTraceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTraceAction.h; sourceTree = "<group>"; };
+		F796D61A173568CC001A6891 /* ERNTraceAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTraceAction.m; sourceTree = "<group>"; };
+		F796D61C1735705F001A6891 /* ERNRoutingAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F796D61D1735705F001A6891 /* ERNRoutingAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingAsyncItemsRepository.m; sourceTree = "<group>"; };
+		F796D61F17358E75001A6891 /* ERNTogglingRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingRepository.h; sourceTree = "<group>"; };
+		F796D62017358E76001A6891 /* ERNTogglingRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTogglingRepository.m; sourceTree = "<group>"; };
+		F796D6281735B98A001A6891 /* ERNBarButtonItemActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionController.h; sourceTree = "<group>"; };
+		F796D6291735B98A001A6891 /* ERNBarButtonItemActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionController.m; sourceTree = "<group>"; };
+		F796D62B17365FF8001A6891 /* ERNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNViewController.h; sourceTree = "<group>"; };
+		F796D62C17365FF8001A6891 /* ERNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNViewController.m; sourceTree = "<group>"; };
+		F796D62E173661A0001A6891 /* ERNSegmentedControlActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlActionController.h; sourceTree = "<group>"; };
+		F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlActionController.m; sourceTree = "<group>"; };
+		F796D641173675FF001A6891 /* libErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKitRestKitIntegration.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F796D64717368500001A6891 /* ERNSegmentedControlTogglerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlTogglerController.h; sourceTree = "<group>"; };
+		F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlTogglerController.m; sourceTree = "<group>"; };
+		F796D64A17368F98001A6891 /* ERNToggler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNToggler.h; sourceTree = "<group>"; };
+		F796D64B173692C9001A6891 /* ERNActionTogglerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionTogglerAction.h; sourceTree = "<group>"; };
+		F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionTogglerAction.m; sourceTree = "<group>"; };
 		F79AE85C172D84BB001F8F23 /* ERNDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoViewController.h; sourceTree = "<group>"; };
 		F79AE85D172D84BB001F8F23 /* ERNDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoViewController.m; sourceTree = "<group>"; };
 		F79AE85E172D84BB001F8F23 /* ERNDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ERNDemoViewController.xib; sourceTree = "<group>"; };
@@ -260,7 +308,7 @@
 		F79AE892172E49E7001F8F23 /* ERNNullAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemsRepository.m; sourceTree = "<group>"; };
 		F7ABC239173510C20035B164 /* libErnKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ABC272173518440035B164 /* ERNErrorHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNErrorHandler.h; sourceTree = "<group>"; };
-		F7ABC2A117351C220035B164 /* libErnKit copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libErnKit copy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7ABC2A117351C220035B164 /* libErnKitMapKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKitMapKitIntegration.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ABC2A617351CBF0035B164 /* ERNMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewController.h; sourceTree = "<group>"; };
 		F7ABC2A717351CBF0035B164 /* ERNMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewController.m; sourceTree = "<group>"; };
 		F7ABC2A817351CBF0035B164 /* ERNMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewDelegate.h; sourceTree = "<group>"; };
@@ -281,7 +329,7 @@
 		F7ABC2C117351D020035B164 /* ERNRestKitAsyncItemsRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNRestKitAsyncItemsRepository.m; sourceTree = "<group>"; };
 		F7ABC2C217351D020035B164 /* ERNRestKitRepositoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNRestKitRepositoryFactory.h; sourceTree = "<group>"; };
 		F7ABC2C317351D020035B164 /* ERNRestKitRepositoryFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNRestKitRepositoryFactory.m; sourceTree = "<group>"; };
-		F7ABC2E517351D9B0035B164 /* libErnKitMapKitIntegration copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libErnKitMapKitIntegration copy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7ABC2E517351D9B0035B164 /* libErnKitUIKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKitUIKitIntegration.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ABC2EE17351F890035B164 /* ERNActionSheetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionSheetAction.h; sourceTree = "<group>"; };
 		F7ABC2EF17351F890035B164 /* ERNActionSheetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionSheetAction.m; sourceTree = "<group>"; };
 		F7ABC2F017351F890035B164 /* ERNExternalUrlAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNExternalUrlAction.h; sourceTree = "<group>"; };
@@ -320,8 +368,6 @@
 		F7ABC31717351F890035B164 /* ERNViewControllerTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNViewControllerTransitioner.h; sourceTree = "<group>"; };
 		F7ABC31817351F890035B164 /* ERNWindowViewControllerTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNWindowViewControllerTransitioner.h; sourceTree = "<group>"; };
 		F7ABC31917351F890035B164 /* ERNWindowViewControllerTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNWindowViewControllerTransitioner.m; sourceTree = "<group>"; };
-		F7ABC31B17351F890035B164 /* ERNBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItem.h; sourceTree = "<group>"; };
-		F7ABC31C17351F890035B164 /* ERNBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItem.m; sourceTree = "<group>"; };
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -472,9 +518,19 @@
 		F7F06B31172D0D8100CA5FC4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F7F06B33172D0D8100CA5FC4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F7F06B35172D0D8100CA5FC4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitRestKitIntegration.xcconfig"; path = "Pods/Pods-ErnKitRestKitIntegration.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F796D63A173675FF001A6891 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F796D63B173675FF001A6891 /* Foundation.framework in Frameworks */,
+				5A3FC65CBBD940FA92B9BB31 /* libPods-ErnKitRestKitIntegration.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F79AE869172DCA8F001F8F23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -741,8 +797,14 @@
 		F7ABC31A17351F890035B164 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F7ABC31B17351F890035B164 /* ERNBarButtonItem.h */,
-				F7ABC31C17351F890035B164 /* ERNBarButtonItem.m */,
+				F796D6281735B98A001A6891 /* ERNBarButtonItemActionController.h */,
+				F796D6291735B98A001A6891 /* ERNBarButtonItemActionController.m */,
+				F796D62B17365FF8001A6891 /* ERNViewController.h */,
+				F796D62C17365FF8001A6891 /* ERNViewController.m */,
+				F796D62E173661A0001A6891 /* ERNSegmentedControlActionController.h */,
+				F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */,
+				F796D64717368500001A6891 /* ERNSegmentedControlTogglerController.h */,
+				F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -764,6 +826,7 @@
 				348A48856B2346C6B129F03B /* Pods-ErnKitTestApp.xcconfig */,
 				6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */,
 				68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */,
+				FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -775,8 +838,9 @@
 				F7F06B21172D0D8000CA5FC4 /* ErnKitTestApp.app */,
 				F79AE86C172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo.app */,
 				F7ABC239173510C20035B164 /* libErnKit.a */,
-				F7ABC2A117351C220035B164 /* libErnKit copy.a */,
-				F7ABC2E517351D9B0035B164 /* libErnKitMapKitIntegration copy.a */,
+				F7ABC2A117351C220035B164 /* libErnKitMapKitIntegration.a */,
+				F7ABC2E517351D9B0035B164 /* libErnKitUIKitIntegration.a */,
+				F796D641173675FF001A6891 /* libErnKitRestKitIntegration.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -801,6 +865,7 @@
 				E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */,
 				71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */,
 				1CD94E503F6D49219E519702 /* libPods-ErnKitRestKitIntegrationDemo.a */,
+				F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -935,6 +1000,16 @@
 				F7F06A50172D0A9900CA5FC4 /* ERNUrlRoutingAction.m */,
 				F733BADE173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.h */,
 				F733BADF173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.m */,
+				F796D61017356641001A6891 /* ERNDualAction.h */,
+				F796D61117356641001A6891 /* ERNDualAction.m */,
+				F796D613173567C4001A6891 /* ERNNullAction.h */,
+				F796D614173567C4001A6891 /* ERNNullAction.m */,
+				F796D61617356895001A6891 /* ERNLogAction.h */,
+				F796D61717356896001A6891 /* ERNLogAction.m */,
+				F796D619173568CC001A6891 /* ERNTraceAction.h */,
+				F796D61A173568CC001A6891 /* ERNTraceAction.m */,
+				F796D64B173692C9001A6891 /* ERNActionTogglerAction.h */,
+				F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -942,13 +1017,13 @@
 		F7F06A67172D0A9900CA5FC4 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				F7F06A68172D0A9900CA5FC4 /* ERNArrayAsyncItemsRepository.h */,
-				F7F06A69172D0A9900CA5FC4 /* ERNArrayAsyncItemsRepository.m */,
+				F7F06A6C172D0A9900CA5FC4 /* ERNAsyncRepository.h */,
 				F7F06A6A172D0A9900CA5FC4 /* ERNAsyncItemRepository.h */,
 				F7F06A6B172D0A9900CA5FC4 /* ERNAsyncItemsRepository.h */,
-				F7F06A6C172D0A9900CA5FC4 /* ERNAsyncRepository.h */,
 				F7F06A6D172D0A9900CA5FC4 /* ERNBaseAsyncRepository.h */,
 				F7F06A6E172D0A9900CA5FC4 /* ERNBaseAsyncRepository.m */,
+				F7F06A68172D0A9900CA5FC4 /* ERNArrayAsyncItemsRepository.h */,
+				F7F06A69172D0A9900CA5FC4 /* ERNArrayAsyncItemsRepository.m */,
 				F7F06A6F172D0A9900CA5FC4 /* ERNConverterAsyncRepository.h */,
 				F7F06A70172D0A9900CA5FC4 /* ERNConverterAsyncRepository.m */,
 				F7F06A71172D0A9900CA5FC4 /* ERNItemsToAsyncItemRepository.h */,
@@ -959,12 +1034,16 @@
 				F79AE892172E49E7001F8F23 /* ERNNullAsyncItemsRepository.m */,
 				F733BAF41730F83600BE50CA /* ERNObjectAsyncItemRepository.h */,
 				F733BAF51730F83600BE50CA /* ERNObjectAsyncItemRepository.m */,
+				F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */,
+				F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */,
+				F796D61C1735705F001A6891 /* ERNRoutingAsyncItemsRepository.h */,
+				F796D61D1735705F001A6891 /* ERNRoutingAsyncItemsRepository.m */,
+				F796D61F17358E75001A6891 /* ERNTogglingRepository.h */,
+				F796D62017358E76001A6891 /* ERNTogglingRepository.m */,
 				F781C0201731C82100CED541 /* ERNRepositoryFactory.h */,
 				F733BAF71730F86600BE50CA /* ERNRepositoryStore.h */,
 				F733BAF81730FA4900BE50CA /* ERNDefaultRepositoryStore.h */,
 				F733BAF91730FA4A00BE50CA /* ERNDefaultRepositoryStore.m */,
-				F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */,
-				F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -995,6 +1074,7 @@
 				F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */,
 				F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */,
 				F7ABC272173518440035B164 /* ERNErrorHandler.h */,
+				F796D64A17368F98001A6891 /* ERNToggler.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1146,6 +1226,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F796D631173675FF001A6891 /* ErnKitRestKitIntegration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F796D63D173675FF001A6891 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegration" */;
+			buildPhases = (
+				A16A1A78A08D493CB9861706 /* Check Pods Manifest.lock */,
+				F796D632173675FF001A6891 /* Sources */,
+				F796D63A173675FF001A6891 /* Frameworks */,
+				F796D63C173675FF001A6891 /* CopyFiles */,
+				6B75732794FB4557A6E35B8F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ErnKitRestKitIntegration;
+			productName = ErnKit;
+			productReference = F796D641173675FF001A6891 /* libErnKitRestKitIntegration.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		F79AE86B172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F79AE882172DCA90001F8F23 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegrationDemo" */;
@@ -1196,7 +1295,7 @@
 			);
 			name = ErnKitMapKitIntegration;
 			productName = ErnKit;
-			productReference = F7ABC2A117351C220035B164 /* libErnKit copy.a */;
+			productReference = F7ABC2A117351C220035B164 /* libErnKitMapKitIntegration.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F7ABC2D517351D9B0035B164 /* ErnKitUIKitIntegration */ = {
@@ -1213,7 +1312,7 @@
 			);
 			name = ErnKitUIKitIntegration;
 			productName = ErnKit;
-			productReference = F7ABC2E517351D9B0035B164 /* libErnKitMapKitIntegration copy.a */;
+			productReference = F7ABC2E517351D9B0035B164 /* libErnKitUIKitIntegration.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F7F069A4172C992000CA5FC4 /* UnitTests */ = {
@@ -1302,6 +1401,7 @@
 				F7ABC238173510C20035B164 /* ErnKit */,
 				F7ABC2D517351D9B0035B164 /* ErnKitUIKitIntegration */,
 				F7ABC27317351C220035B164 /* ErnKitMapKitIntegration */,
+				F796D631173675FF001A6891 /* ErnKitRestKitIntegration */,
 				F7F06B20172D0D8000CA5FC4 /* ErnKitTestApp */,
 				F7F06ACA172D0B4400CA5FC4 /* ErnKitDemo */,
 				F79AE86B172DCA8F001F8F23 /* ErnKitRestKitIntegrationDemo */,
@@ -1373,6 +1473,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-ErnKitTestApp-resources.sh\"\n";
 		};
+		6B75732794FB4557A6E35B8F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ErnKitRestKitIntegration-resources.sh\"\n";
+		};
 		74D70B1E87DD4F54AEBE3407 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1414,6 +1528,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-UnitTests-resources.sh\"\n";
+		};
+		A16A1A78A08D493CB9861706 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
 		B795C19E783742B18E4F1DFC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1501,6 +1629,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F796D632173675FF001A6891 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F796D64217367696001A6891 /* ERNRestKitAsyncItemsRepository.m in Sources */,
+				F796D64317367696001A6891 /* ERNRestKitRepositoryFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F79AE868172DCA8F001F8F23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1537,6 +1674,13 @@
 				F7ABC26E173511170035B164 /* ERNURLUrlMimeFactory.m in Sources */,
 				F7ABC26F173511170035B164 /* NSObject+ERNHelper.m in Sources */,
 				F7ABC270173511170035B164 /* NSURL+ERNHelper.m in Sources */,
+				F796D61217356641001A6891 /* ERNDualAction.m in Sources */,
+				F796D615173567C5001A6891 /* ERNNullAction.m in Sources */,
+				F796D61817356896001A6891 /* ERNLogAction.m in Sources */,
+				F796D61B173568CD001A6891 /* ERNTraceAction.m in Sources */,
+				F796D61E1735705F001A6891 /* ERNRoutingAsyncItemsRepository.m in Sources */,
+				F796D62117358E76001A6891 /* ERNTogglingRepository.m in Sources */,
+				F796D64D173692C9001A6891 /* ERNActionTogglerAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1574,7 +1718,10 @@
 				F7ABC32A17351F890035B164 /* ERNModalViewControllerTransitioner.m in Sources */,
 				F7ABC32B17351F890035B164 /* ERNNavigationViewControllerTransitioner.m in Sources */,
 				F7ABC32C17351F890035B164 /* ERNWindowViewControllerTransitioner.m in Sources */,
-				F7ABC32D17351F890035B164 /* ERNBarButtonItem.m in Sources */,
+				F796D62A1735B98A001A6891 /* ERNBarButtonItemActionController.m in Sources */,
+				F796D62D17365FF9001A6891 /* ERNViewController.m in Sources */,
+				F796D630173661A0001A6891 /* ERNSegmentedControlActionController.m in Sources */,
+				F796D64917368500001A6891 /* ERNSegmentedControlTogglerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1677,6 +1824,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F796D63E173675FF001A6891 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/ErnKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "ErnKitRestKitIntegration/ErnKitRestKitIntegration-Prefix.pch";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = ErnKitRestKitIntegration;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F796D63F173675FF001A6891 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/ErnKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "ErnKitRestKitIntegration/ErnKitRestKitIntegration-Prefix.pch";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = ErnKitRestKitIntegration;
+				SKIP_INSTALL = YES;
+			};
+			name = Coverage;
+		};
+		F796D640173675FF001A6891 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/ErnKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "ErnKitRestKitIntegration/ErnKitRestKitIntegration-Prefix.pch";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = ErnKitRestKitIntegration;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		F79AE883172DCA90001F8F23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
@@ -1759,7 +1945,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ErnKit copy";
+				PRODUCT_NAME = ErnKitMapKitIntegration;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1771,7 +1957,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ErnKit copy";
+				PRODUCT_NAME = ErnKitMapKitIntegration;
 				SKIP_INSTALL = YES;
 			};
 			name = Coverage;
@@ -1783,7 +1969,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ErnKit copy";
+				PRODUCT_NAME = ErnKitMapKitIntegration;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1795,7 +1981,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ErnKitMapKitIntegration copy";
+				PRODUCT_NAME = ErnKitUIKitIntegration;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1807,7 +1993,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ErnKitMapKitIntegration copy";
+				PRODUCT_NAME = ErnKitUIKitIntegration;
 				SKIP_INSTALL = YES;
 			};
 			name = Coverage;
@@ -1819,7 +2005,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ErnKitMapKitIntegration copy";
+				PRODUCT_NAME = ErnKitUIKitIntegration;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -2146,6 +2332,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F796D63D173675FF001A6891 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F796D63E173675FF001A6891 /* Debug */,
+				F796D63F173675FF001A6891 /* Coverage */,
+				F796D640173675FF001A6891 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F79AE882172DCA90001F8F23 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegrationDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

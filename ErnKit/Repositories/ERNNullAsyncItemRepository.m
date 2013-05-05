@@ -1,5 +1,7 @@
 #import "ERNNullAsyncItemRepository.h"
 
+static ERNNullAsyncItemRepository *repository;
+
 @implementation ERNNullAsyncItemRepository {
 }
 
@@ -7,7 +9,7 @@
 
 +(instancetype)repository
 {
-    return [[self alloc] init];
+    return repository;
 }
 
 #pragma mark - ERNAsyncItemRepository
@@ -15,6 +17,13 @@
 -(id<NSObject>)item
 {
     return [NSNull null];
+}
+
+#pragma mark - NSObject
+
++(void)initialize
+{
+    repository = [[self alloc] init];
 }
 
 @end

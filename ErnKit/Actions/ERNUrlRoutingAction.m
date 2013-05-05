@@ -29,8 +29,15 @@
 {
     ERNCheckNilNoReturn(url);
     ERNCheckNilNoReturn(mime);
-    [[[self actions][[self urlRouter](url)] guaranteeProtocolConformance:@protocol(ERNAction)] actionForUrl:url
-                                                                                                       mime:mime];
+    [[self getActionForRouting:[self urlRouter](url)] actionForUrl:url
+                                                              mime:mime];
+}
+
+#pragma mark - private
+
+-(id<ERNAction>)getActionForRouting:(NSString *)routing
+{
+    return [[self actions][routing] guaranteeProtocolConformance:@protocol(ERNAction)];
 }
 
 #pragma mark - private - initializers

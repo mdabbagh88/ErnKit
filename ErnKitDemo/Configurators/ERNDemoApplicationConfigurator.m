@@ -18,6 +18,7 @@
 #import "ERNStringUrlMimeFactory.h"
 #import "ERNDefaultActionHandler.h"
 #import "ERNArrayAsyncItemsRepository.h"
+#import "ERNTraceAction.h"
 
 @implementation ERNDemoApplicationConfigurator
 
@@ -96,8 +97,8 @@
 
 - (id<ERNAction>)createFifthAction:(id<ERNViewControllerTransitioner>)transitioner
 {
-    return [ERNViewControllerAction actionWithTransitioner:transitioner
-                                              configurator:[ERNDemoFifthScreenConfigurator configurator]];
+    return [ERNTraceAction actionWithAction:[ERNViewControllerAction actionWithTransitioner:transitioner
+                                              configurator:[ERNDemoFifthScreenConfigurator configurator]]];
 }
 
 -(id<ERNActionHandler>)actionHandler:(NSDictionary *)mimeActionMappings

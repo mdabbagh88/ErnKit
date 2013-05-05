@@ -14,7 +14,7 @@ static ERNNullAsyncItemsRepository *repository;
 
 #pragma mark - ERNAsyncItemsRepository
 
--(void)enumerateItemsUsingBlock:(void (^)(id<NSObject>, NSUInteger, BOOL *))block
+-(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
 }
 

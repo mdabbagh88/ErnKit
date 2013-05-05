@@ -5,6 +5,7 @@
 @protocol ERNActionHandler;
 
 @interface ERNTableViewController : UITableViewController
+@property (nonatomic, readwrite) NSArray *subControllers;
 +(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository;
 +(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
                                 cellFactory:(id<ERNTableViewCellFactory>)cellFactory;
