@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F796D631173675FF001A6891"
-               BuildableName = "libErnKitMapKitIntegration copy.a"
+               BuildableName = "libErnKitRestKitIntegration.a"
                BlueprintName = "ErnKitRestKitIntegration"
                ReferencedContainer = "container:ErnKit.xcodeproj">
             </BuildableReference>
