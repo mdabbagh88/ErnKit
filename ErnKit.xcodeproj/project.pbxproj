@@ -1868,7 +1868,7 @@
 			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Prefix.pch";
 				INFOPLIST_FILE = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1881,7 +1881,7 @@
 			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Prefix.pch";
 				INFOPLIST_FILE = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1894,7 +1894,7 @@
 			baseConfigurationReference = 68CB99DDA34B4A0BA46B0770 /* Pods-ErnKitRestKitIntegrationDemo.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Prefix.pch";
 				INFOPLIST_FILE = "ErnKitRestKitIntegrationDemo/ErnKitRestKitIntegrationDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
