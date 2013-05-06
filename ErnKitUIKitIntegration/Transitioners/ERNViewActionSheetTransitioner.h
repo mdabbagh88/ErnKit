@@ -3,6 +3,6 @@
 
 @class UIView;
 
-@interface ERNActionSheetViewTransitioner : NSObject <ERNActionSheetTransitioner>
+@interface ERNViewActionSheetTransitioner : NSObject <ERNActionSheetTransitioner>
 +(instancetype)transitionerWithView:(UIView *)view;
 @end

@@ -10,7 +10,7 @@
 #import "ERNRoutingAsyncItemsRepository.h"
 
 // Toggling repository, redirecting repository requests between sub-repositories, based on state
-#import "ERNTogglingRepository.h"
+#import "ERNTogglingAsyncItemsRepository.h"
 
 // Map view annotation view factory, creating annotation views for the map based on tweet objects
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
@@ -89,8 +89,8 @@ static NSString *url2 = @"http://api.twitter.com/1/statuses/user_timeline/jgumbl
 
     // Setup a toggling repository that can toggle between both, first and second
     NSArray *repositories = @[repositoryBothFeeds, repositoryFirstFeed, repositorySecondFeed];
-    ERNTogglingRepository *repository =
-    [ERNTogglingRepository repositoryWithRepositories:repositories];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository repositoryWithRepositories:repositories];
 
 
     // Refresh repository to ensure data when the view controller is loaded

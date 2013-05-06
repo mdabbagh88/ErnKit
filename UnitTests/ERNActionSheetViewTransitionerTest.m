@@ -2,13 +2,13 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import "ERNActionSheetViewTransitionerTest.h"
-#import "ERNActionSheetViewTransitioner.h"
+#import "ERNViewActionSheetTransitioner.h"
 
 @implementation ERNActionSheetViewTransitionerTest
 
 -(void)testConstructor
 {
-    [ERNActionSheetViewTransitioner transitionerWithView:nil];
+    [ERNViewActionSheetTransitioner transitionerWithView:nil];
 }
 
 @end

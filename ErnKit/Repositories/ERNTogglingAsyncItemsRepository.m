@@ -1,14 +1,14 @@
-#import "ERNTogglingRepository.h"
+#import "ERNTogglingAsyncItemsRepository.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullAsyncItemsRepository.h"
 
-@interface ERNTogglingRepository ()
+@interface ERNTogglingAsyncItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository>currentRepository;
 @property (nonatomic, readonly) NSArray *repositories;
 @end
 
-@implementation ERNTogglingRepository {
+@implementation ERNTogglingAsyncItemsRepository {
 }
 
 #pragma mark - public - constructor
@@ -17,6 +17,8 @@
 {
     return [[self alloc] initWithRepositories:repositories];
 }
+
+#pragma mark - ERNToggler
 
 -(void)toggleToIndex:(NSUInteger)index
 {

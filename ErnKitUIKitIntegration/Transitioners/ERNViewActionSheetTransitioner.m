@@ -1,12 +1,12 @@
 #import <UIKit/UIKit.h>
-#import "ERNActionSheetViewTransitioner.h"
+#import "ERNViewActionSheetTransitioner.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNActionSheetViewTransitioner ()
+@interface ERNViewActionSheetTransitioner ()
 @property (nonatomic, readonly) UIView *view;
 @end
 
-@implementation ERNActionSheetViewTransitioner {
+@implementation ERNViewActionSheetTransitioner {
 }
 
 #pragma mark - public - constructors
