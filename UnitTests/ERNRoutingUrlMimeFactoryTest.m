@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNRoutingUrlMimeFactory urlMimeFactoryWithMappings:nil];
+    [ERNRoutingUrlMimeFactory createWithMappings:nil];
 }
 
 @end

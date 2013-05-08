@@ -7,7 +7,7 @@ static ERNNullAction *action;
 
 #pragma mark - public - constructors
 
-+(instancetype)action
++(instancetype)create
 {
     return action;
 }

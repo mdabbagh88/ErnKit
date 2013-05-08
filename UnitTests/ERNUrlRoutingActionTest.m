@@ -8,7 +8,7 @@
 
 -(void)testHostsConstructor
 {
-    [ERNUrlRoutingAction actionWithActionsForHosts:nil];
+    [ERNUrlRoutingAction createWithActionsForHosts:nil];
 }
 
 -(void)testSchmesConstructor

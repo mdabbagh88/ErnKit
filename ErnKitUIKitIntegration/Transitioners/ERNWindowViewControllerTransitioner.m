@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)transitionerWithWindow:(UIWindow *)window
++(instancetype)createWithWindow:(UIWindow *)window
 {
     return [[self alloc] initWithWindow:window];
 }

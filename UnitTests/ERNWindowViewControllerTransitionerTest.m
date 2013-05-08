@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNWindowViewControllerTransitioner transitionerWithWindow:nil];
+    [ERNWindowViewControllerTransitioner createWithWindow:nil];
 }
 
 @end

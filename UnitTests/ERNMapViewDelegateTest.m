@@ -8,12 +8,12 @@
 
 -(void)testConstructor
 {
-    [ERNMapViewDelegate delegate];
+    [ERNMapViewDelegate create];
 }
 
 -(void)testActionHandlerViewFactoryConstructor
 {
-    [ERNMapViewDelegate delegateWithActionHandler:nil
+    [ERNMapViewDelegate createWithActionHandler:nil
                                       viewFactory:nil];
 }
 

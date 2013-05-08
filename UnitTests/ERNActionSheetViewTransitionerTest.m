@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNViewActionSheetTransitioner transitionerWithView:nil];
+    [ERNViewActionSheetTransitioner createWithView:nil];
 }
 
 @end

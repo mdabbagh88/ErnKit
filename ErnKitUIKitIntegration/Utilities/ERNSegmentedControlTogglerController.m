@@ -15,10 +15,10 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)controllerWithSegmentedControl:(UISegmentedControl *)segmentedControl
-                                      toggler:(id<ERNToggler>)toggler
-                                          url:(NSURL *)url
-                                         mime:(NSString *)mime
++(instancetype)createWithSegmentedControl:(UISegmentedControl *)segmentedControl
+                                  toggler:(id<ERNToggler>)toggler
+                                      url:(NSURL *)url
+                                     mime:(NSString *)mime
 {
     return [[self alloc] initWithSegmentedControl:segmentedControl
                                           toggler:toggler
@@ -37,7 +37,7 @@
 
 -(NSURL *)url
 {
-   return _url = _url ? _url : [NSURL nullURL];
+    return _url = _url ? _url : [NSURL createNull];
 }
 
 -(NSString *)mime

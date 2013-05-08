@@ -6,7 +6,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)dummyCell
++(instancetype)create
 {
     return [self new];
 }

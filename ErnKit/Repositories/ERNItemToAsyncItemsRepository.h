@@ -4,5 +4,5 @@
 @protocol ERNAsyncItemRepository;
 
 @interface ERNItemToAsyncItemsRepository : ERNConverterAsyncRepository <ERNAsyncItemsRepository>
-+(instancetype)asyncItemsRepositoryWithRepository:(id<ERNAsyncItemRepository>)repository;
++(instancetype)createWithRepository:(id<ERNAsyncItemRepository>)repository;
 @end

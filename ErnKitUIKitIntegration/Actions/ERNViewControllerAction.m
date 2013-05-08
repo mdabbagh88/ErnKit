@@ -14,7 +14,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
++(instancetype)createWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
                          configurator:(id<ERNViewControllerConfigurator>)configurator
 {
     return [[self alloc] initWithTransitioner:transitioner

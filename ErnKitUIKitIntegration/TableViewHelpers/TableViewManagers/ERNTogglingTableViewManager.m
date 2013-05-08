@@ -14,8 +14,8 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)tableViewManagerWithTableViewManagers:(NSArray *)tableViewManagers
-                                           tableView:(UITableView *)tableView
++(instancetype)createWithTableViewManagers:(NSArray *)tableViewManagers
+                                 tableView:(UITableView *)tableView
 {
     return [[self alloc] initWithTableViewManagers:tableViewManagers
                                          tableView:tableView];
@@ -36,8 +36,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell dummyCell]);
-    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
     return [[self currentTableViewManager] tableView:tableView
                                     cellForIndexPath:indexPath];
 }
@@ -131,7 +131,7 @@
 
 -(id<ERNTableViewManager>)nullTableViewManagerIfNil:(id<ERNTableViewManager>)tableViewManager
 {
-    return tableViewManager ? tableViewManager : [ERNNullTableViewManager nullTableViewManager];
+    return tableViewManager ? tableViewManager : [ERNNullTableViewManager create];
 }
 
 -(id<ERNTableViewManager>)validTableViewManager:(id)tableViewManager

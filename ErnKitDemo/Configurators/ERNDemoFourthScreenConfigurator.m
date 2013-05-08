@@ -16,10 +16,10 @@
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    return [self setupViewController:[ERNMapViewController autoZoomingViewControllerWithRepository:[self repository]
-                                                                                                       actionHandler:[self actionHandler]
-                                                                                                         viewFactory:[ERNRoutingMapViewAnnotationViewFactory factoryWithMappings:@{
-                                                                                                                      NSStringFromClass([ERNDemoObject class]) : [ERNDemoObjectMapViewAnnotationViewFactory annotationViewFactory]}]]];
+    return [self setupViewController:[ERNMapViewController createAutoZoomingWithRepository:[self repository]
+                                                                             actionHandler:[self actionHandler]
+                                                                               viewFactory:[ERNRoutingMapViewAnnotationViewFactory createWithMappings:@{
+                                                                                            NSStringFromClass([ERNDemoObject class]) : [ERNDemoObjectMapViewAnnotationViewFactory annotationViewFactory]}]]];
 }
 
 -(UIViewController *)setupViewController:(ERNMapViewController *)viewController

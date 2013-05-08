@@ -7,9 +7,9 @@
 -(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
                                fromAnnotation:(ERNDemoObject *)annotation
 {
-    return [self setupView:[MKAnnotationView viewForMapView:mapView
-                                                 annotation:annotation
-                                                 identifier:NSStringFromClass([annotation class])]];
+    return [self setupView:[MKAnnotationView createForMapView:mapView
+                                                   annotation:annotation
+                                                   identifier:NSStringFromClass([annotation class])]];
 }
 
 -(MKAnnotationView *)setupView:(MKAnnotationView *)view

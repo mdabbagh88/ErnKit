@@ -9,7 +9,7 @@ static ERNNullAnnotation *annotation;
 
 #pragma mark - public - constructors
 
-+(instancetype)annotation
++(instancetype)create
 {
     return annotation;
 }

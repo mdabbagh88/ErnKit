@@ -18,13 +18,13 @@
     return [self new];
 }
 
-+(instancetype)factoryWithMappings:(NSDictionary *)mappings
++(instancetype)createWithMappings:(NSDictionary *)mappings
 {
     return [[self alloc] initWithMappings:mappings];
 }
 
-+(instancetype)factoryWithMappings:(NSDictionary *)mappings
-                    defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
++(instancetype)createWithMappings:(NSDictionary *)mappings
+                   defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
 {
     return [[self alloc] initWithMappings:mappings
                            defaultFactory:defaultFactory];

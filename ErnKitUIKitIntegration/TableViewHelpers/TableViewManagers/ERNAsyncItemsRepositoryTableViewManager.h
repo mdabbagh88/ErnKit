@@ -6,10 +6,10 @@
 @protocol ERNActionHandler;
 
 @interface ERNAsyncItemsRepositoryTableViewManager : NSObject <ERNTableViewManager>
-+(instancetype)tableViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository;
-+(instancetype)tableViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                  cellFactory:(id<ERNTableViewCellFactory>)cellFactory;
-+(instancetype)tableViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                  cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                                actionHandler:(id<ERNActionHandler>)actionHandler;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+                      actionHandler:(id<ERNActionHandler>)actionHandler;
 @end

@@ -8,7 +8,7 @@ static ERNNullUrlMimeFactory *factory;
 
 #pragma mark - public - constructors
 
-+(instancetype)factory
++(instancetype)create
 {
     return factory;
 }
@@ -17,7 +17,7 @@ static ERNNullUrlMimeFactory *factory;
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
-    return [NSURL nullURL];
+    return [NSURL createNull];
 }
 
 -(NSString *)mimeForObject:(id<NSObject>)object

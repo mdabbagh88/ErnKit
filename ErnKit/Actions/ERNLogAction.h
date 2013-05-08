@@ -2,5 +2,5 @@
 #import "ERNAction.h"
 
 @interface ERNLogAction : NSObject <ERNAction>
-+(instancetype)actionWithLogString:(NSString *)string;
++(instancetype)createWithLogString:(NSString *)string;
 @end

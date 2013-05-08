@@ -13,7 +13,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)tableViewDataSourceWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
++(instancetype)createWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
     return [[self alloc] initWithTableViewManager:tableViewManager];
 }
@@ -23,8 +23,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell dummyCell]);
-    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
     return [[self tableViewManager] tableView:tableView
                              cellForIndexPath:indexPath];
 }

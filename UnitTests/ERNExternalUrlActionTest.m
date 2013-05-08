@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    assertThat([ERNExternalUrlAction actionWithApplication:nil], notNilValue());
+    assertThat([ERNExternalUrlAction createWithApplication:nil], notNilValue());
 }
 
 @end

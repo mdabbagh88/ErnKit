@@ -3,5 +3,5 @@
 #import "ERNToggler.h"
 
 @interface ERNTogglingAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncItemsRepository, ERNToggler>
-+(instancetype)repositoryWithRepositories:(NSArray *)repositories;
++(instancetype)createWithRepositories:(NSArray *)repositories;
 @end

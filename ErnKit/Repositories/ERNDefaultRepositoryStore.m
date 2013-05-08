@@ -14,7 +14,7 @@
 #pragma mark - ERNRepositoryStore
 
 -(void)storeUrl:(NSURL *)url
-      forItem:(id<NSObject>)object
+        forItem:(id<NSObject>)object
 {
     [[self repositories] setObject:object
                             forKey:url];
@@ -24,7 +24,7 @@
 
 -(id<ERNAsyncItemRepository>)repositoryForUrl:(NSURL *)url
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncItemRepository repository]);
+    ERNCheckNilAndReturn(url, [ERNNullAsyncItemRepository create]);
     return [self validRepository:[[self repositories] objectForKey:url]];
 }
 
@@ -38,7 +38,7 @@
 
 -(id<ERNAsyncItemRepository>)validRepository:(id<ERNAsyncItemRepository>)repository
 {
-    return repository ? repository : [ERNNullAsyncItemRepository repository];
+    return repository ? repository : [ERNNullAsyncItemRepository create];
 }
 
 #pragma mark - private - accessors

@@ -3,7 +3,7 @@
 
 @interface ERNRoutingMapViewAnnotationViewFactory : NSObject <ERNMapViewAnnotationViewFactory>
 +(instancetype)factory;
-+(instancetype)factoryWithMappings:(NSDictionary *)mappings;
-+(instancetype)factoryWithMappings:(NSDictionary *)mappings
-                    defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory;
++(instancetype)createWithMappings:(NSDictionary *)mappings;
++(instancetype)createWithMappings:(NSDictionary *)mappings
+                   defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory;
 @end

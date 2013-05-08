@@ -2,5 +2,5 @@
 #import "ERNTableViewCellFactory.h"
 
 @interface ERNNullTableViewCellFactory : NSObject <ERNTableViewCellFactory>
-+(instancetype)tableViewCellFactory;
++(instancetype)create;
 @end

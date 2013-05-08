@@ -13,7 +13,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithActions:(NSArray *)actions
++(instancetype)createWithActions:(NSArray *)actions
 {
     return [[self alloc] initWithActions:actions];
 }
@@ -38,7 +38,7 @@
 
 -(id<ERNAction>)validActionForIndex:(NSUInteger)index
 {
-    return [self validIndex:index] ? [self actions][index] : [ERNNullAction action];
+    return [self validIndex:index] ? [self actions][index] : [ERNNullAction create];
 }
 
 -(BOOL)validIndex:(NSUInteger)index

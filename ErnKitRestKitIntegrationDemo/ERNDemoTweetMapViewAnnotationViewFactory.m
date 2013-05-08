@@ -10,7 +10,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)annotationViewFactory
++(instancetype)create
 {
     return [self new];
 }
@@ -31,9 +31,9 @@
     [imageView setImageWithURL:[annotation imageUrl]];
 
     // Setup and annotation view, reusing current annotations from the map if possible
-    MKAnnotationView *annotationView = [MKAnnotationView viewForMapView:mapView
-                                                             annotation:annotation
-                                                             identifier:identifier];
+    MKAnnotationView *annotationView = [MKAnnotationView createForMapView:mapView
+                                                               annotation:annotation
+                                                               identifier:identifier];
 
     // Customize the annotation view and add the image view as a subview
     [annotationView setCanShowCallout:YES];

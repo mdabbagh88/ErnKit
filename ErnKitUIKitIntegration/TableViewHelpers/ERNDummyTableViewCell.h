@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ERNDummyTableViewCell : UITableViewCell
-+(instancetype)dummyCell;
++(instancetype)create;
 @end

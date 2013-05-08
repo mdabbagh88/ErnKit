@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithLogString:(NSString *)string
++(instancetype)createWithLogString:(NSString *)string
 {
     return [[self alloc] initWithLogString:string];
 }

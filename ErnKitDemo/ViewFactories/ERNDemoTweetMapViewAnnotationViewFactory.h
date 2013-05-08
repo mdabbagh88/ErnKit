@@ -2,5 +2,5 @@
 #import "ERNMapViewAnnotationViewFactory.h"
 
 @interface ERNDemoTweetMapViewAnnotationViewFactory : NSObject <ERNMapViewAnnotationViewFactory>
-+(instancetype)annotationViewFactory;
++(instancetype)create;
 @end

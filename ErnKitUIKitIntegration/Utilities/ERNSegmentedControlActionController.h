@@ -3,8 +3,8 @@
 @class UISegmentedControl;
 
 @interface ERNSegmentedControlActionController : NSObject
-+(instancetype)controllerWithSegmentedControl:(UISegmentedControl *)segmentedControl
-                                      actions:(NSArray *)actions
-                                          url:(NSURL *)url
-                                         mime:(NSString *)mime;
++(instancetype)createWithSegmentedControl:(UISegmentedControl *)segmentedControl
+                                  actions:(NSArray *)actions
+                                      url:(NSURL *)url
+                                     mime:(NSString *)mime;
 @end

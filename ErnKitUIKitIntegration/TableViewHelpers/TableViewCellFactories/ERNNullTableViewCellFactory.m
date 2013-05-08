@@ -10,7 +10,7 @@ static ERNNullTableViewCellFactory *factory;
 
 #pragma mark - public - constructors
 
-+(instancetype)tableViewCellFactory
++(instancetype)create
 {
     return factory;
 }
@@ -20,7 +20,7 @@ static ERNNullTableViewCellFactory *factory;
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell create]);
     ERNCheckNilAndReturn(tableView, [self createTableViewCellFromObject:object]);
     return [self createTableViewCellForTableView:tableView
                                       fromObject:object];
@@ -51,9 +51,9 @@ static ERNNullTableViewCellFactory *factory;
 -(UITableViewCell *)createTableViewCellForTableView:(UITableView *)tableView
                                          fromObject:(id<NSObject>)object
 {
-    return [self setupCell:[UITableViewCell cellForTableView:tableView
-                                                  identifier:NSStringFromClass([object class])
-                                                       style:UITableViewCellStyleDefault]
+    return [self setupCell:[UITableViewCell createForTableView:tableView
+                                                    identifier:NSStringFromClass([object class])
+                                                         style:UITableViewCellStyleDefault]
                     object:object];
 }
 

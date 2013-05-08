@@ -7,7 +7,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)repositoryWithItem:(id<NSObject>)item
++(instancetype)createWithItem:(id<NSObject>)item
 {
     return [[self alloc] initWithItem:item];
 }

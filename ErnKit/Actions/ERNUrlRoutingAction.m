@@ -12,7 +12,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithActionsForHosts:(NSDictionary *)actions
++(instancetype)createWithActionsForHosts:(NSDictionary *)actions
 {
     return [[self alloc] initWithActionsForHosts:actions];
 }

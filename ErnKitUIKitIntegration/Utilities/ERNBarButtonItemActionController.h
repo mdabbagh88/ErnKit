@@ -4,8 +4,8 @@
 @protocol ERNAction;
 
 @interface ERNBarButtonItemActionController : NSObject
-+(instancetype)controllerWithBarButtonItem:(UIBarButtonItem *)barButtonItem
-                                    action:(id<ERNAction>)action
-                                       url:(NSURL *)url
-                                      mime:(NSString *)mime;
++(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem
+                                action:(id<ERNAction>)action
+                                   url:(NSURL *)url
+                                  mime:(NSString *)mime;
 @end

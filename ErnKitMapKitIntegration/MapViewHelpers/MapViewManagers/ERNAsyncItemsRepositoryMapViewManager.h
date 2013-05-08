@@ -5,8 +5,8 @@
 @class MKMapView;
 
 @interface ERNAsyncItemsRepositoryMapViewManager : NSObject <ERNMapViewManager>
-+(instancetype)mapViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                    mapView:(MKMapView *)mapView;
-+(instancetype)autoZoomingMapViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                               mapView:(MKMapView *)mapView;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                            mapView:(MKMapView *)mapView;
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                       mapView:(MKMapView *)mapView;
 @end

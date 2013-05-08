@@ -17,10 +17,10 @@
 
 #pragma mark - public - constructor
 
-+(instancetype)controllerWithBarButtonItem:(UIBarButtonItem *)barButtonItem
-                                    action:(id<ERNAction>)action
-                                       url:(NSURL *)url
-                                      mime:(NSString *)mime
++(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem
+                                action:(id<ERNAction>)action
+                                   url:(NSURL *)url
+                                  mime:(NSString *)mime
 {
     return [[self alloc] initWithBarButtonItem:barButtonItem
                                         action:action
@@ -40,7 +40,7 @@
 
 -(NSURL *)url
 {
-    return _url = _url ? _url : [NSURL nullURL];
+    return _url = _url ? _url : [NSURL createNull];
 }
 
 -(NSString *)mime

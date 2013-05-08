@@ -5,8 +5,8 @@
 
 @interface ERNSegmentedControlTogglerController : NSObject
 
-+(instancetype)controllerWithSegmentedControl:(UISegmentedControl *)segmentedControl
-                                      toggler:(id<ERNToggler>)toggler
-                                          url:(NSURL *)url
-                                         mime:(NSString *)mime;
++(instancetype)createWithSegmentedControl:(UISegmentedControl *)segmentedControl
+                                  toggler:(id<ERNToggler>)toggler
+                                      url:(NSURL *)url
+                                     mime:(NSString *)mime;
 @end

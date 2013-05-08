@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNMimeRoutingAction actionWithActionsForMimes:nil];
+    [ERNMimeRoutingAction createWithActionsForMimes:nil];
 }
 
 @end

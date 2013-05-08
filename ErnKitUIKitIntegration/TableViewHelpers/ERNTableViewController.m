@@ -24,21 +24,21 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithRepository:repository];
 }
 
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                cellFactory:(id<ERNTableViewCellFactory>)cellFactory
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initWithRepository:repository
                                 cellFactory:cellFactory];
 }
 
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                              actionHandler:(id<ERNActionHandler>)actionHandler
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+                      actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initWithRepository:repository
                                 cellFactory:cellFactory
@@ -50,16 +50,16 @@
     return [[self alloc] initRefreshableWithRepository:repository];
 }
 
-+(instancetype)refreshableViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                           cellFactory:(id<ERNTableViewCellFactory>)cellFactory
++(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                   cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initRefreshableWithRepository:repository
                                            cellFactory:cellFactory];
 }
 
-+(instancetype)refreshableViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                           cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                                         actionHandler:(id<ERNActionHandler>)actionHandler
++(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                   cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+                                 actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initRefreshableWithRepository:repository
                                            cellFactory:cellFactory
@@ -121,14 +121,14 @@
 {
     return _dataSource = _dataSource ?
     _dataSource :
-    [ERNTableViewDataSource tableViewDataSourceWithTableViewManager:[self tableViewManager]];
+    [ERNTableViewDataSource createWithTableViewManager:[self tableViewManager]];
 }
 
 -(id<UITableViewDelegate>)delegate
 {
     return _delegate = _delegate ?
     _delegate :
-    [ERNTableViewDelegate tableViewDelegateWithTableViewManager:[self tableViewManager]];
+    [ERNTableViewDelegate createWithTableViewManager:[self tableViewManager]];
 }
 
 #pragma mark - private - initializers
@@ -139,7 +139,7 @@
     ERNCheckNil(self);
     _repository = repository;
     _createTableViewManager = ^(){
-        return [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:repository];
+        return [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository];
     };
     _createRefresh = ^(){
         return (UIRefreshControl *)nil;
@@ -153,8 +153,8 @@
     self = [self initWithRepository:repository];
     ERNCheckNil(self);
     _createTableViewManager = ^(){
-        return [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:repository
-                                                                           cellFactory:cellFactory];
+        return [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
+                                                                 cellFactory:cellFactory];
     };
     return self;
 }
@@ -167,9 +167,9 @@
                         cellFactory:cellFactory];
     ERNCheckNil(self);
     _createTableViewManager = ^(){
-        return [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:repository
-                                                                           cellFactory:cellFactory
-                                                                         actionHandler:actionHandler];
+        return [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
+                                                                 cellFactory:cellFactory
+                                                               actionHandler:actionHandler];
     };
     return self;
 }

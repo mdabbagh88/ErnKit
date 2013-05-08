@@ -11,8 +11,8 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)repositoryWithFirstRepository:(id<ERNAsyncItemsRepository>)firstRepository
-                              restRepository:(id<ERNAsyncItemsRepository>)restRepository
++(instancetype)createWithFirstRepository:(id<ERNAsyncItemsRepository>)firstRepository
+                          restRepository:(id<ERNAsyncItemsRepository>)restRepository
 {
     return [[self alloc] initWithFirstRepository:firstRepository
                                   restRepository:restRepository];

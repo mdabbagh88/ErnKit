@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNTableViewDataSource tableViewDataSourceWithTableViewManager:nil];
+    [ERNTableViewDataSource createWithTableViewManager:nil];
 }
 
 @end

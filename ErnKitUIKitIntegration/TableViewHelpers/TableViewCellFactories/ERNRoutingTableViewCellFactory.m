@@ -15,18 +15,18 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)tableViewCellFactory
++(instancetype)create
 {
     return [self new];
 }
 
-+(instancetype)tableViewCellFactoryWithMappings:(NSDictionary *)mappings
++(instancetype)createWithMappings:(NSDictionary *)mappings
 {
     return [[self alloc] initWithMappings:mappings];
 }
 
-+(instancetype)tableViewCellFactoryWithMappings:(NSDictionary *)mappings
-                                 defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory
++(instancetype)createWithMappings:(NSDictionary *)mappings
+                   defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory
 {
     return [[self alloc] initWithMappings:mappings
                            defaultFactory:defaultFactory];
@@ -37,8 +37,8 @@
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell dummyCell]);
-    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell dummyCell]);
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell create]);
     return [[self factoryForObject:object] cellForTableView:tableView
                                                  fromObject:object];
 }
@@ -74,7 +74,7 @@
 {
     return _defaultFactory = _defaultFactory ?
     _defaultFactory :
-    [ERNNullTableViewCellFactory tableViewCellFactory];
+    [ERNNullTableViewCellFactory create];
 }
 
 -(NSDictionary *)mappings

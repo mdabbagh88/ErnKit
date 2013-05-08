@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNNullTableViewCellFactory tableViewCellFactory];
+    [ERNNullTableViewCellFactory create];
 }
 
 @end

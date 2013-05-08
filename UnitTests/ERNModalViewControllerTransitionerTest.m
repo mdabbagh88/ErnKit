@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNModalViewControllerTransitioner transitionerWithSourceViewController:nil];
+    [ERNModalViewControllerTransitioner createWithSourceViewController:nil];
 }
 
 @end

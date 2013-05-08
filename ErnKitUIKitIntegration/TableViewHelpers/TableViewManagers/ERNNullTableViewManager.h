@@ -2,5 +2,5 @@
 #import "ERNTableViewManager.h"
 
 @interface ERNNullTableViewManager : NSObject <ERNTableViewManager>
-+(instancetype)nullTableViewManager;
++(instancetype)create;
 @end

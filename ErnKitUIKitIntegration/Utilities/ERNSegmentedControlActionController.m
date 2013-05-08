@@ -20,10 +20,10 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)controllerWithSegmentedControl:(UISegmentedControl *)segmentedControl
-                                      actions:(NSArray *)actions
-                                          url:(NSURL *)url
-                                         mime:(NSString *)mime
++(instancetype)createWithSegmentedControl:(UISegmentedControl *)segmentedControl
+                                  actions:(NSArray *)actions
+                                      url:(NSURL *)url
+                                     mime:(NSString *)mime
 {
     return [[self alloc] initWithSegmentedControl:segmentedControl
                                           actions:actions
@@ -45,7 +45,7 @@
 
 -(id<ERNAction>)validActionForIndex:(NSUInteger)index
 {
-    return [self validIndex:index] ? [self actions][index] : [ERNNullAction action];
+    return [self validIndex:index] ? [self actions][index] : [ERNNullAction create];
 }
 
 -(BOOL)validIndex:(NSUInteger)index
@@ -64,7 +64,7 @@
 
 -(NSURL *)url
 {
-    return _url = _url ? _url : [NSURL nullURL];
+    return _url = _url ? _url : [NSURL createNull];
 }
 
 -(NSString *)mime

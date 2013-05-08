@@ -10,7 +10,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithRepository:(id<ERNAsyncRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncRepository>)repository
 {
     return [[self alloc] initWithRepository:repository];
 }

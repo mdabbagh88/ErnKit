@@ -4,7 +4,7 @@
 @protocol ERNMapViewAnnotationViewFactory;
 
 @interface ERNMapViewDelegate : NSObject <MKMapViewDelegate>
-+(instancetype)delegateWithActionHandler:(id<ERNActionHandler>)actionHandler
-                             viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
-+(instancetype)delegate;
++(instancetype)createWithActionHandler:(id<ERNActionHandler>)actionHandler
+                           viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
++(instancetype)create;
 @end

@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNNavigationViewControllerTransitioner transitionerWithNavigationController:nil];
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
 }
 
 @end

@@ -12,7 +12,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)tableViewDelegateWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
++(instancetype)createWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
     return [[self alloc] initWithTableViewManager:tableViewManager];
 }

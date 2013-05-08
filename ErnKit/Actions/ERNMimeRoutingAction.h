@@ -2,5 +2,5 @@
 #import "ERNAction.h"
 
 @interface ERNMimeRoutingAction : NSObject <ERNAction>
-+(instancetype)actionWithActionsForMimes:(NSDictionary *)actions;
++(instancetype)createWithActionsForMimes:(NSDictionary *)actions;
 @end

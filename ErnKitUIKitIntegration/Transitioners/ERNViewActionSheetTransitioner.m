@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)transitionerWithView:(UIView *)view
++(instancetype)createWithView:(UIView *)view
 {
     return [[self alloc] initWithView:view];
 }

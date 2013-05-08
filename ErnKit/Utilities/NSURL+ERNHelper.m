@@ -4,7 +4,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)nullURL
++(instancetype)createNull
 {
     static NSURL *nullURL;
     static dispatch_once_t pred;

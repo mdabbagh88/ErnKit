@@ -13,7 +13,7 @@
 
 #pragma mark - public - constructor
 
-+(instancetype)repositoryWithRepositories:(NSArray *)repositories
++(instancetype)createWithRepositories:(NSArray *)repositories
 {
     return [[self alloc] initWithRepositories:repositories];
 }
@@ -85,7 +85,7 @@
 
 -(id<ERNAsyncItemsRepository>)nullRepositoryIfNil:(id<ERNAsyncItemsRepository>)repository
 {
-    return repository ? repository : [ERNNullAsyncItemsRepository repository];
+    return repository ? repository : [ERNNullAsyncItemsRepository create];
 }
 
 -(id<ERNAsyncItemsRepository>)validRepository:(id)repository

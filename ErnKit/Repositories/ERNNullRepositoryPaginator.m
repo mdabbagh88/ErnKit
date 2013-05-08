@@ -10,7 +10,7 @@ static ERNNullRepositoryPaginator *paginator;
 
 #pragma mark - public - constructors
 
-+(instancetype)paginator
++(instancetype)create
 {
     return paginator;
 }
@@ -24,12 +24,12 @@ static ERNNullRepositoryPaginator *paginator;
 
 -(NSURL *)nextPage
 {
-    return _nextPage = _nextPage ? _nextPage : [NSURL nullURL];
+    return _nextPage = _nextPage ? _nextPage : [NSURL createNull];
 }
 
 -(NSURL *)previousPage
 {
-    return _previousPage = _previousPage ? _previousPage : [NSURL nullURL];
+    return _previousPage = _previousPage ? _previousPage : [NSURL createNull];
 }
 
 -(NSArray *)items

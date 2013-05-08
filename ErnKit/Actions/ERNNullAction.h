@@ -2,5 +2,5 @@
 #import "ERNAction.h"
 
 @interface ERNNullAction : NSObject <ERNAction>
-+(instancetype)action;
++(instancetype)create;
 @end

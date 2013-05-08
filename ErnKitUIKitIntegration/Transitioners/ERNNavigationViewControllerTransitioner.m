@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)transitionerWithNavigationController:(UINavigationController *)navigationController
++(instancetype)createWithNavigationController:(UINavigationController *)navigationController
 {
     return [[self alloc] initWithNavigationController:navigationController];
 }

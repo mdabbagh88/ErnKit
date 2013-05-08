@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [UITableViewCell cellForTableView:nil
+    [UITableViewCell createForTableView:nil
                            identifier:nil
                                 style:UITableViewCellStyleDefault];
 }

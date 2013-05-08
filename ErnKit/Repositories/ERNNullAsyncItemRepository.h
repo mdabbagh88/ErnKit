@@ -3,5 +3,5 @@
 #import "ERNBaseAsyncRepository.h"
 
 @interface ERNNullAsyncItemRepository : ERNBaseAsyncRepository <ERNAsyncItemRepository>
-+(instancetype)repository;
++(instancetype)create;
 @end

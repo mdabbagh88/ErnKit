@@ -4,5 +4,5 @@
 @class UIWindow;
 
 @interface ERNWindowViewControllerTransitioner : NSObject <ERNViewControllerTransitioner>
-+(instancetype)transitionerWithWindow:(UIWindow *)window;
++(instancetype)createWithWindow:(UIWindow *)window;
 @end

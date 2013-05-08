@@ -39,29 +39,29 @@
                                                  url:(NSURL *)url
                                                 mime:(NSString *)mime
 {
-    id<ERNViewControllerTransitioner> transitioner = [ERNNavigationViewControllerTransitioner transitionerWithNavigationController:navigationController];
-
-    id<ERNAsyncItemsRepository> repository = [ERNArrayAsyncItemsRepository asyncItemsRepositoryWithArray:[self itemArray]];
-
+    id<ERNViewControllerTransitioner> transitioner = [ERNNavigationViewControllerTransitioner createWithNavigationController:navigationController];
+    
+    id<ERNAsyncItemsRepository> repository = [ERNArrayAsyncItemsRepository createWithArray:[self itemArray]];
+    
     ERNDemoThirdScreenConfigurator *thirdScreenConfigurator = [ERNDemoThirdScreenConfigurator configurator];
-    id<ERNAction> thirdAction = [ERNViewControllerAction actionWithTransitioner:transitioner
+    id<ERNAction> thirdAction = [ERNViewControllerAction createWithTransitioner:transitioner
                                                                    configurator:thirdScreenConfigurator];
-
+    
     ERNDemoFourthScreenConfigurator *fourthScreenConfigurator = [ERNDemoFourthScreenConfigurator configuratorWithRepository:repository];
-    id<ERNAction> fourthAction = [ERNViewControllerAction actionWithTransitioner:transitioner
+    id<ERNAction> fourthAction = [ERNViewControllerAction createWithTransitioner:transitioner
                                                                     configurator:fourthScreenConfigurator];
-
-    id<ERNAction> externalUrlAction = [ERNExternalUrlAction actionWithApplication:[UIApplication sharedApplication]];
-
+    
+    id<ERNAction> externalUrlAction = [ERNExternalUrlAction createWithApplication:[UIApplication sharedApplication]];
+    
     NSDictionary *mimeActionMappings = @{[ERNDemoObjectUrlMimeFactory mime]: externalUrlAction,
                                          [ERNURLUrlMimeFactory mime] : externalUrlAction,
                                          [ERNNumberUrlMimeFactory mime] : thirdAction,
                                          [ERNStringUrlMimeFactory mime] :fourthAction,
                                          [ERNDemoObject2UrlMimeFactory mime] :[self createFifthAction:transitioner],
                                          @"": [self createSecondActionWithTransitioner:transitioner]};
-
+    
     id<ERNActionHandler> actionHandler = [self actionHandler:mimeActionMappings];
-
+    
     [thirdScreenConfigurator setActionHandler:actionHandler];
     [fourthScreenConfigurator setActionHandler:actionHandler];
     [self setupFirstAction:[self createFirstActionWithRepository:repository
@@ -76,7 +76,7 @@
                                   actionHandler:(id<ERNActionHandler>)actionHandler
                                    transitioner:(id<ERNViewControllerTransitioner>)transitioner
 {
-    return [ERNViewControllerAction actionWithTransitioner:transitioner
+    return [ERNViewControllerAction createWithTransitioner:transitioner
                                               configurator:[ERNDemoFirstScreenConfigurator configuratorWithItemActionHandler:actionHandler
                                                                                                                   repository:repository]];
 }
@@ -91,33 +91,33 @@
 
 -(id<ERNAction>)createSecondActionWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
 {
-    return [ERNViewControllerAction actionWithTransitioner:transitioner
+    return [ERNViewControllerAction createWithTransitioner:transitioner
                                               configurator:[ERNDemoSecondScreenConfigurator configurator]];
 }
 
 - (id<ERNAction>)createFifthAction:(id<ERNViewControllerTransitioner>)transitioner
 {
-    return [ERNTraceAction actionWithAction:[ERNViewControllerAction actionWithTransitioner:transitioner
-                                              configurator:[ERNDemoFifthScreenConfigurator configurator]]];
+    return [ERNTraceAction createWithAction:[ERNViewControllerAction createWithTransitioner:transitioner
+                                                                               configurator:[ERNDemoFifthScreenConfigurator configurator]]];
 }
 
 -(id<ERNActionHandler>)actionHandler:(NSDictionary *)mimeActionMappings
 {
-    return [ERNDefaultActionHandler actionHandlerWithAction:[ERNMimeRoutingAction actionWithActionsForMimes:mimeActionMappings]
-                                          urlMimeFactory:[self routingUrlMimeFactory]];
+    return [ERNDefaultActionHandler createWithAction:[ERNMimeRoutingAction createWithActionsForMimes:mimeActionMappings]
+                                      urlMimeFactory:[self routingUrlMimeFactory]];
 }
 
 -(id<ERNUrlMimeFactory>)routingUrlMimeFactory
 {
-    return [ERNRoutingUrlMimeFactory urlMimeFactoryWithMappings:[self mimeUrlFactoryMappings]];
+    return [ERNRoutingUrlMimeFactory createWithMappings:[self mimeUrlFactoryMappings]];
 }
 
 -(NSDictionary *)mimeUrlFactoryMappings
 {
     return @{NSStringFromClass([ERNDemoObject class]) : [ERNDemoObjectUrlMimeFactory urlMimeFactory],
-             NSStringFromClass([NSURL class]) : [ERNURLUrlMimeFactory urlMimeFactory],
-             @"__NSCFNumber" : [ERNNumberUrlMimeFactory urlMimeFactory],
-             @"__NSCFConstantString" : [ERNStringUrlMimeFactory urlMimeFactory],
+             NSStringFromClass([NSURL class]) : [ERNURLUrlMimeFactory create],
+             @"__NSCFNumber" : [ERNNumberUrlMimeFactory create],
+             @"__NSCFConstantString" : [ERNStringUrlMimeFactory create],
              NSStringFromClass([ERNDemoObject2 class]) : [ERNDemoObject2UrlMimeFactory urlMimeFactory]};
 }
 

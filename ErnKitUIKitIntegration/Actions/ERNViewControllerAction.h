@@ -5,6 +5,6 @@
 @protocol ERNViewControllerTransitioner;
 
 @interface ERNViewControllerAction : NSObject <ERNAction>
-+(instancetype)actionWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
++(instancetype)createWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
                          configurator:(id<ERNViewControllerConfigurator>)configurator;
 @end

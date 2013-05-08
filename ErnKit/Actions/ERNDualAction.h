@@ -2,6 +2,6 @@
 #import "ERNAction.h"
 
 @interface ERNDualAction : NSObject <ERNAction>
-+(instancetype)actionWithFirstAction:(id<ERNAction>)firstAction
++(instancetype)createWithFirstAction:(id<ERNAction>)firstAction
                         secondAction:(id<ERNAction>)secondAction;
 @end

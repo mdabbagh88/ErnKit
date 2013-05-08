@@ -4,5 +4,5 @@
 
 @protocol ERNViewControllerConfigurator <NSObject>
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
-                                          mime:(NSString *)mime;
+                                           mime:(NSString *)mime;
 @end

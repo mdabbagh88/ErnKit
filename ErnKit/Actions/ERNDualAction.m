@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithFirstAction:(id<ERNAction>)firstAction
++(instancetype)createWithFirstAction:(id<ERNAction>)firstAction
                         secondAction:(id<ERNAction>)secondAction
 {
     return [[self alloc] initWithFirstAction:firstAction

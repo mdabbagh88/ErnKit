@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithActionsForMimes:(NSDictionary *)actions
++(instancetype)createWithActionsForMimes:(NSDictionary *)actions
 {
     return [[self alloc] initWithActionsForMimes:actions];
 }

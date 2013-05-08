@@ -25,9 +25,9 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 #pragma mark - public - constructors
 
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                              actionHandler:(id<ERNActionHandler>)actionHandler
-                                viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                      actionHandler:(id<ERNActionHandler>)actionHandler
+                        viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
     return [[self alloc] initWithRepository:repository
                               actionHandler:actionHandler
@@ -35,14 +35,14 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 }
 
 
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithRepository:repository];
 }
 
-+(instancetype)autoZoomingViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                         actionHandler:(id<ERNActionHandler>)actionHandler
-                                           viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                 actionHandler:(id<ERNActionHandler>)actionHandler
+                                   viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
     return [[self alloc] initAutoZoomingWithRepository:repository
                                          actionHandler:actionHandler
@@ -50,7 +50,7 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 }
 
 
-+(instancetype)autoZoomingViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initAutoZoomingWithRepository:repository];
 }
@@ -78,14 +78,14 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository>repository)
 {
-    return repository ? repository : [ERNNullAsyncItemsRepository repository];
+    return repository ? repository : [ERNNullAsyncItemsRepository create];
 }
 
 -(void)setupZoomingMapViewManagerConstructor:(id<ERNAsyncItemsRepository>)repository
 {
     _createMapViewManager = ^(MKMapView *mapView) {
         return [ERNAsyncItemsRepositoryMapViewManager
-                autoZoomingMapViewManagerWithRepository:validateRepository(repository)
+                createAutoZoomingWithRepository:validateRepository(repository)
                 mapView:mapView];
     };
 }
@@ -138,8 +138,8 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
     self = [self initWithRepository:repository];
     ERNCheckNil(self);
     _createDelegate = ^(){
-        return [ERNMapViewDelegate delegateWithActionHandler:actionHandler
-                                                 viewFactory:viewFactory];
+        return [ERNMapViewDelegate createWithActionHandler:actionHandler
+                                               viewFactory:viewFactory];
     };
     return self;
 }
@@ -150,11 +150,11 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
     ERNCheckNil(self);
     _repository = validateRepository(repository);
     _createDelegate = ^(){
-        return [ERNMapViewDelegate delegate];
+        return [ERNMapViewDelegate create];
     };
     _createMapViewManager = ^(MKMapView *mapView) {
         return [ERNAsyncItemsRepositoryMapViewManager
-                mapViewManagerWithRepository:validateRepository(repository)
+                createWithRepository:validateRepository(repository)
                 mapView:mapView];
     };
     return self;

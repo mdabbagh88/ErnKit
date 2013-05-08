@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNActionSheetAction actionWithTransitioner:nil
+    [ERNActionSheetAction createWithTransitioner:nil
                                     configurator:nil];
 }
 

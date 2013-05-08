@@ -3,5 +3,5 @@
 @protocol ERNTableViewManager;
 
 @interface ERNTableViewDataSource : NSObject <UITableViewDataSource>
-+(instancetype)tableViewDataSourceWithTableViewManager:(id<ERNTableViewManager>)tableViewManager;
++(instancetype)createWithTableViewManager:(id<ERNTableViewManager>)tableViewManager;
 @end

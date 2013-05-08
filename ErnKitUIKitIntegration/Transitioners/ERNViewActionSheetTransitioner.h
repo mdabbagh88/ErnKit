@@ -4,5 +4,5 @@
 @class UIView;
 
 @interface ERNViewActionSheetTransitioner : NSObject <ERNActionSheetTransitioner>
-+(instancetype)transitionerWithView:(UIView *)view;
++(instancetype)createWithView:(UIView *)view;
 @end

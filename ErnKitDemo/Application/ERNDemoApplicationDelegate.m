@@ -10,9 +10,9 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
-    [[ERNViewControllerAction actionWithTransitioner:[ERNWindowViewControllerTransitioner transitionerWithWindow:[self window]]
+    [[ERNViewControllerAction createWithTransitioner:[ERNWindowViewControllerTransitioner createWithWindow:[self window]]
                                         configurator:[ERNDemoApplicationConfigurator configurator]]
-     actionForUrl:[NSURL nullURL] mime:@""];
+     actionForUrl:[NSURL createNull] mime:@""];
     [[self window] makeKeyAndVisible];
     return YES;
 }
@@ -26,9 +26,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 -(void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[ERNViewControllerAction actionWithTransitioner:[ERNWindowViewControllerTransitioner transitionerWithWindow:[self window]]
+    [[ERNViewControllerAction createWithTransitioner:[ERNWindowViewControllerTransitioner createWithWindow:[self window]]
                                         configurator:[ERNDemoApplicationConfigurator configurator]]
-     actionForUrl:[NSURL nullURL] mime:@""];
+     actionForUrl:[NSURL createNull] mime:@""];
 }
 
 @end

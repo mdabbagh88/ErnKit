@@ -6,26 +6,26 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)viewForMapView:(MKMapView *)mapView
-                   annotation:(id<MKAnnotation>)annotation
-                   identifier:(NSString *)identifier
++(instancetype)createForMapView:(MKMapView *)mapView
+                     annotation:(id<MKAnnotation>)annotation
+                     identifier:(NSString *)identifier
 {
     return [self createAnnotationView:[mapView dequeueReusableAnnotationViewWithIdentifier:identifier]
                            annotation:[self validateAnnotation:annotation]
                            identifier:identifier];
-
+    
 }
 
 #pragma mark - private
 
 +(id<MKAnnotation>)validateAnnotation:(id<MKAnnotation>)annotation
 {
-    return annotation ? annotation : [ERNNullAnnotation annotation];
+    return annotation ? annotation : [ERNNullAnnotation create];
 }
 
 +(instancetype)createAnnotationView:(MKAnnotationView *)view
-                   annotation:(id<MKAnnotation>)annotation
-                   identifier:(NSString *)identifier
+                         annotation:(id<MKAnnotation>)annotation
+                         identifier:(NSString *)identifier
 {
     return view ? [view setupAnnotation:annotation] : [[self alloc] initWithAnnotation:annotation
                                                                        reuseIdentifier:identifier];

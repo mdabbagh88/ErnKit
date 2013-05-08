@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)asyncItemRepositoryWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithItemsRepository:repository];
 }

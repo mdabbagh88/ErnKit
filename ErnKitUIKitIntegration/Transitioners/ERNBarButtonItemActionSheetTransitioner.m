@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)transitionerWithBarButtonItem:(UIBarButtonItem *)barButtonItem;
++(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem;
 {
     return [[self alloc] initWithBarButtonItem:barButtonItem];
 }

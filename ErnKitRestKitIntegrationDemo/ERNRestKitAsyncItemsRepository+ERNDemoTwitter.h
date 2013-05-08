@@ -1,5 +1,5 @@
 #import "ERNRestKitAsyncItemsRepository.h"
 
 @interface ERNRestKitAsyncItemsRepository (ERNDemoTwitter)
-+(instancetype)twitterStatusesRepositoryForUser:(NSString *)user;
++(instancetype)createTwitterStatusesForUser:(NSString *)user;
 @end

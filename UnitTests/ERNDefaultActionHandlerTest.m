@@ -8,8 +8,8 @@
 
 -(void)testConstructor
 {
-    [ERNDefaultActionHandler actionHandlerWithAction:nil
-                                      urlMimeFactory:nil];
+    [ERNDefaultActionHandler createWithAction:nil
+                               urlMimeFactory:nil];
 }
 
 @end

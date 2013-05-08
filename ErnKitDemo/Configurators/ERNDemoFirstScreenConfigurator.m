@@ -34,23 +34,23 @@
                                            mime:(NSString *)mime
 {
     NSDictionary *cellMappings = @{NSStringFromClass([ERNDemoObject class]) : [ERNDemoObjectTableViewCellFactory tableViewCellFactory]};
-    id<ERNTableViewCellFactory> cellFactory = [ERNRoutingTableViewCellFactory tableViewCellFactoryWithMappings:cellMappings];
+    id<ERNTableViewCellFactory> cellFactory = [ERNRoutingTableViewCellFactory createWithMappings:cellMappings];
     id<ERNAsyncItemsRepository> firstAsyncItemsRepository = [ERNDemoStringAsyncItemsRepository asyncItemsRepository];
-    id<ERNTableViewManager> togglingTableViewManager = [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:firstAsyncItemsRepository
-                                                                                                                cellFactory:cellFactory
-                                                                                                              actionHandler:[self actionHandler]];
+    id<ERNTableViewManager> togglingTableViewManager = [ERNAsyncItemsRepositoryTableViewManager createWithRepository:firstAsyncItemsRepository
+                                                                                                         cellFactory:cellFactory
+                                                                                                       actionHandler:[self actionHandler]];
     id<ERNTableViewManager> lastTableViewManager = [ERNDemoTableViewManager tableViewManagerWithText:@"last"];
-    id<ERNTableViewManager> itemTableViewManager = [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:[self repository]
-                                                                                                                cellFactory:cellFactory
-                                                                                                              actionHandler:[self actionHandler]];
-
-    id<ERNTableViewManager> routedTableViewManager = [ERNMergingTableViewManager tableViewManagerWithFirstTableViewManager:itemTableViewManager
-                                                                                                      restTableViewManager:[ERNMergingTableViewManager tableViewManagerWithFirstTableViewManager:togglingTableViewManager
-                                                                                                                                                                            restTableViewManager:lastTableViewManager]];
-    id<UITableViewDataSource> tableViewDataSource = [ERNTableViewDataSource tableViewDataSourceWithTableViewManager:routedTableViewManager];
-    id<UITableViewDelegate> tableViewDelegate = [ERNTableViewDelegate tableViewDelegateWithTableViewManager:routedTableViewManager];
+    id<ERNTableViewManager> itemTableViewManager = [ERNAsyncItemsRepositoryTableViewManager createWithRepository:[self repository]
+                                                                                                     cellFactory:cellFactory
+                                                                                                   actionHandler:[self actionHandler]];
+    
+    id<ERNTableViewManager> routedTableViewManager = [ERNMergingTableViewManager createWithFirstTableViewManager:itemTableViewManager
+                                                                                            restTableViewManager:[ERNMergingTableViewManager createWithFirstTableViewManager:togglingTableViewManager
+                                                                                                                                                        restTableViewManager:lastTableViewManager]];
+    id<UITableViewDataSource> tableViewDataSource = [ERNTableViewDataSource createWithTableViewManager:routedTableViewManager];
+    id<UITableViewDelegate> tableViewDelegate = [ERNTableViewDelegate createWithTableViewManager:routedTableViewManager];
     return [self setupViewController:[ERNDemoViewController viewControllerWithTableViewDelegate:tableViewDelegate
-                                                  tableViewDataSource:tableViewDataSource
+                                                                            tableViewDataSource:tableViewDataSource
                                                                                      repository:firstAsyncItemsRepository]];
 }
 

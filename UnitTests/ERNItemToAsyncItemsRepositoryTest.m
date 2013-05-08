@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNItemToAsyncItemsRepository asyncItemsRepositoryWithRepository:nil];
+    [ERNItemToAsyncItemsRepository createWithRepository:nil];
 }
 
 @end

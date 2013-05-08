@@ -4,7 +4,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)cellForTableView:(UITableView *)tableView
++(instancetype)createForTableView:(UITableView *)tableView
                      identifier:(NSString *)identifier
                           style:(UITableViewCellStyle)style
 {

@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNMergingTableViewManager tableViewManagerWithFirstTableViewManager:nil
+    [ERNMergingTableViewManager createWithFirstTableViewManager:nil
                                                      restTableViewManager:nil];
 }
 

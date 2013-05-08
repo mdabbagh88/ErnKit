@@ -4,5 +4,5 @@
 @class UIViewController;
 
 @interface ERNModalViewControllerTransitioner : NSObject <ERNViewControllerTransitioner>
-+(instancetype)transitionerWithSourceViewController:(UIViewController *)sourceViewController;
++(instancetype)createWithSourceViewController:(UIViewController *)sourceViewController;
 @end

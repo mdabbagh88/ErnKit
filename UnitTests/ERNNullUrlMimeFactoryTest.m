@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNNullUrlMimeFactory factory];
+    [ERNNullUrlMimeFactory create];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)twitterStatusesRepositoryForUser:(NSString *)user
++(instancetype)createTwitterStatusesForUser:(NSString *)user
 {
     // Setup a url for accessing twitter statuses
     NSString *urlFormat = @"http://api.twitter.com/1/statuses/user_timeline/%@.json?count=100";
@@ -30,10 +30,10 @@
     NSIndexSet *statusCodes = [NSIndexSet indexSetWithIndex:200];
     
     // Setup an async repository with the RestKit mapping for twitter
-    return [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:url
-                                                               keyPath:@""
-                                                               mapping:objectMapping
-                                                           statusCodes:statusCodes];
+    return [ERNRestKitAsyncItemsRepository createWithUrl:url
+                                                 keyPath:@""
+                                                 mapping:objectMapping
+                                             statusCodes:statusCodes];
 }
 
 @end

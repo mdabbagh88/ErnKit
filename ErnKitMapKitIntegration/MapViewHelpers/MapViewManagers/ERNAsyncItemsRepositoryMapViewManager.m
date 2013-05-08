@@ -15,15 +15,15 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)autoZoomingMapViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                               mapView:(MKMapView *)mapView
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                       mapView:(MKMapView *)mapView
 {
     return [[self alloc] initAutoZoomingWithRepository:repository
                                                mapView:mapView];
 }
 
-+(instancetype)mapViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                    mapView:(MKMapView *)mapView
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                            mapView:(MKMapView *)mapView
 {
     return [[self alloc] initWithRepository:repository
                                     mapView:mapView];

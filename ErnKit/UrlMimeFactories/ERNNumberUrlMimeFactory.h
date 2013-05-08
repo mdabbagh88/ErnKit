@@ -3,5 +3,5 @@
 
 @interface ERNNumberUrlMimeFactory : NSObject <ERNUrlMimeFactory>
 +(NSString *)mime;
-+(instancetype)urlMimeFactory;
++(instancetype)create;
 @end

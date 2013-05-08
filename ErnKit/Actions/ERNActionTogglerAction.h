@@ -3,5 +3,5 @@
 #import "ERNAction.h"
 
 @interface ERNActionTogglerAction : NSObject <ERNToggler, ERNAction>
-
++(instancetype)createWithActions:(NSArray *)actions;
 @end

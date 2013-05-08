@@ -7,12 +7,12 @@
 
 @interface ERNMapViewController : ERNViewController
 @property (nonatomic, readonly) MKMapView *mapView;
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                              actionHandler:(id<ERNActionHandler>)actionHandler
-                                viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
-+(instancetype)viewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository;
-+(instancetype)autoZoomingViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                         actionHandler:(id<ERNActionHandler>)actionHandler
-                                           viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
-+(instancetype)autoZoomingViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                      actionHandler:(id<ERNActionHandler>)actionHandler
+                        viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository;
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                 actionHandler:(id<ERNActionHandler>)actionHandler
+                                   viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository;
 @end

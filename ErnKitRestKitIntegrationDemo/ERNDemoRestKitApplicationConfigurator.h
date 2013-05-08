@@ -2,5 +2,5 @@
 #import "ERNViewControllerConfigurator.h"
 
 @interface ERNDemoRestKitApplicationConfigurator : NSObject <ERNViewControllerConfigurator>
-+(instancetype)configurator;
++(instancetype)create;
 @end

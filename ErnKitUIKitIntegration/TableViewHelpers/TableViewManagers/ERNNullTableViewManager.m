@@ -8,7 +8,7 @@ static ERNNullTableViewManager *tableViewManager;
 
 #pragma mark - public - constructors
 
-+(instancetype)nullTableViewManager
++(instancetype)create
 {
     return tableViewManager;
 }
@@ -18,7 +18,7 @@ static ERNNullTableViewManager *tableViewManager;
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
-    return [ERNDummyTableViewCell dummyCell];
+    return [ERNDummyTableViewCell create];
 }
 
 -(NSInteger)sections

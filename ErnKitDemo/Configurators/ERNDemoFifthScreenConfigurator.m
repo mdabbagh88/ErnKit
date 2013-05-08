@@ -17,15 +17,15 @@
      @"coordinates.coordinates" : @"coordinates",
      @"user.profile_image_url" : @"imageUrl"
      }];
-
-    id<ERNAsyncItemsRepository> repository = [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:twitterUrl
-                                                                                                 keyPath:@""
-                                                                                                 mapping:statusMapping
-                                                                                             statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    id<ERNAsyncItemsRepository> repository = [ERNRestKitAsyncItemsRepository createWithUrl:twitterUrl
+                                                                                   keyPath:@""
+                                                                                   mapping:statusMapping
+                                                                               statusCodes:[NSIndexSet indexSetWithIndex:200]];
     [repository refresh];
-    return [self setupViewController:[ERNMapViewController autoZoomingViewControllerWithRepository:repository
-                                      actionHandler:nil
-                                                                                       viewFactory:[ERNRoutingMapViewAnnotationViewFactory factoryWithMappings:@{NSStringFromClass([ERNDemoTweet class]) : [ERNDemoTweetMapViewAnnotationViewFactory annotationViewFactory]}]]];
+    return [self setupViewController:[ERNMapViewController createAutoZoomingWithRepository:repository
+                                                                             actionHandler:nil
+                                                                               viewFactory:[ERNRoutingMapViewAnnotationViewFactory createWithMappings:@{NSStringFromClass([ERNDemoTweet class]) : [ERNDemoTweetMapViewAnnotationViewFactory create]}]]];
 }
 
 -(UIViewController *)setupViewController:(ERNMapViewController *)viewController

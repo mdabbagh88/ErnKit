@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)transitionerWithSourceViewController:(UIViewController *)sourceViewController
++(instancetype)createWithSourceViewController:(UIViewController *)sourceViewController
 {
     return [[self alloc] initWithViewController:sourceViewController];
 }

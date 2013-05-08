@@ -25,10 +25,10 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)asyncItemsRepositoryWithUrl:(NSURL *)url
-                                   keyPath:(NSString *)keyPath
-                                   mapping:(RKObjectMapping *)mapping
-                               statusCodes:(NSIndexSet *)statusCodes
++(instancetype)createWithUrl:(NSURL *)url
+                     keyPath:(NSString *)keyPath
+                     mapping:(RKObjectMapping *)mapping
+                 statusCodes:(NSIndexSet *)statusCodes
 {
     return [[self alloc] initWithUrl:url
                              keyPath:keyPath
@@ -36,11 +36,11 @@
                          statusCodes:statusCodes];
 }
 
-+(instancetype)asyncItemsRepositoryWithUrl:(NSURL *)url
-                                   keyPath:(NSString *)keyPath
-                               pathPattern:(NSString *)pathPattern
-                                   mapping:(RKObjectMapping *)mapping
-                               statusCodes:(NSIndexSet *)statusCodes
++(instancetype)createWithUrl:(NSURL *)url
+                     keyPath:(NSString *)keyPath
+                 pathPattern:(NSString *)pathPattern
+                     mapping:(RKObjectMapping *)mapping
+                 statusCodes:(NSIndexSet *)statusCodes
 {
     return [[self alloc] initWithUrl:url
                              keyPath:keyPath
@@ -55,11 +55,11 @@
 {
     [[self repository] removeObserver:self];
     [self setRepository:[ERNItemsToAsyncItemRepository
-                         asyncItemRepositoryWithRepository:[ERNRestKitAsyncItemsRepository
-                                                            asyncItemsRepositoryWithUrl:[self url]
-                                                            keyPath:[self keyPath]
-                                                            mapping:[self mapping]
-                                                            statusCodes:[self statusCodes]]]];
+                         createWithRepository:[ERNRestKitAsyncItemsRepository
+                                               createWithUrl:[self url]
+                                               keyPath:[self keyPath]
+                                               mapping:[self mapping]
+                                               statusCodes:[self statusCodes]]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
 }
@@ -99,9 +99,9 @@
 {
     [[self repository] removeObserver:self];
     [self setRepository:[ERNItemsToAsyncItemRepository
-                         asyncItemRepositoryWithRepository:
+                         createWithRepository:
                          [ERNRestKitAsyncItemsRepository
-                          asyncItemsRepositoryWithUrl:[[self paginator] nextPage]
+                          createWithUrl:[[self paginator] nextPage]
                           keyPath:[self keyPath]
                           mapping:[self mapping]
                           statusCodes:[self statusCodes]]]];
@@ -131,12 +131,12 @@
 
 -(NSURL *)url
 {
-    return _url = _url ? _url : [NSURL nullURL];
+    return _url = _url ? _url : [NSURL createNull];
 }
 
 -(id<ERNRepositoryPaginator>)paginator
 {
-    return _paginator = _paginator ? _paginator : [ERNNullRepositoryPaginator paginator];
+    return _paginator = _paginator ? _paginator : [ERNNullRepositoryPaginator create];
 }
 
 #pragma mark - private - initializers

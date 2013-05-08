@@ -8,24 +8,24 @@
 
 -(void)testConstructor
 {
-    [ERNMapViewController viewControllerWithRepository:nil];
+    [ERNMapViewController createWithRepository:nil];
 }
 
 -(void)testRepositoryActionHandlerViewFactoryConstructor
 {
-    [ERNMapViewController viewControllerWithRepository:nil
+    [ERNMapViewController createWithRepository:nil
                                          actionHandler:nil
                                            viewFactory:nil];
 }
 
 -(void)testAutoZoomingConstructor
 {
-    [ERNMapViewController autoZoomingViewControllerWithRepository:nil];
+    [ERNMapViewController createAutoZoomingWithRepository:nil];
 }
 
 -(void)testAutoZoomingRepositoryActionHandlerViewFactoryConstructor
 {
-    [ERNMapViewController autoZoomingViewControllerWithRepository:nil
+    [ERNMapViewController createAutoZoomingWithRepository:nil
                                                     actionHandler:nil
                                                       viewFactory:nil];
 }

@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNTableViewDelegate tableViewDelegateWithTableViewManager:nil];
+    [ERNTableViewDelegate createWithTableViewManager:nil];
 }
 
 @end

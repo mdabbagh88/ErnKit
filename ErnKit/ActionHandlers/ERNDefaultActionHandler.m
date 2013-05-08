@@ -17,23 +17,23 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionHandlerWithAction:(id<ERNAction>)action
-                        urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
-                       repositoryStore:(id<ERNRepositoryStore>)repositoryStore
++(instancetype)createWithAction:(id<ERNAction>)action
+                 urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
+                repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
     return [[self alloc] initWithAction:action
                          urlMimeFactory:urlMimeFactory
                         repositoryStore:repositoryStore];
 }
 
-+(instancetype)actionHandlerWithAction:(id<ERNAction>)action
-                        urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
++(instancetype)createWithAction:(id<ERNAction>)action
+                 urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
 {
     return [[self alloc] initWithAction:action
                          urlMimeFactory:urlMimeFactory];
 }
 
-+(instancetype)actionHandlerWithAction:(id<ERNAction>)action
++(instancetype)createWithAction:(id<ERNAction>)action
 {
     return [[self alloc] initWithAction:action];
 }
@@ -61,7 +61,7 @@
 
 -(id<ERNUrlMimeFactory>)urlMimeFactory
 {
-    return _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory factory];
+    return _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory create];
 }
 
 #pragma mark - private - initializers

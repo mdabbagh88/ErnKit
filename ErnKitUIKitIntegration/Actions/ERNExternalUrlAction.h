@@ -4,5 +4,5 @@
 @class UIApplication;
 
 @interface ERNExternalUrlAction : NSObject <ERNAction>
-+(instancetype)actionWithApplication:(UIApplication *)application;
++(instancetype)createWithApplication:(UIApplication *)application;
 @end

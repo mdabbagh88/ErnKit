@@ -2,5 +2,5 @@
 #import "ERNUrlMimeFactory.h"
 
 @interface ERNNullUrlMimeFactory : NSObject <ERNUrlMimeFactory>
-+(instancetype)factory;
++(instancetype)create;
 @end

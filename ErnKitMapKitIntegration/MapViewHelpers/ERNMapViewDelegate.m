@@ -13,13 +13,13 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)delegate
++(instancetype)create
 {
     return [self new];
 }
 
-+(instancetype)delegateWithActionHandler:(id<ERNActionHandler>)actionHandler
-                             viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
++(instancetype)createWithActionHandler:(id<ERNActionHandler>)actionHandler
+                           viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
     return [[self alloc] initWithActionHandler:actionHandler
                                    viewFactory:viewFactory];

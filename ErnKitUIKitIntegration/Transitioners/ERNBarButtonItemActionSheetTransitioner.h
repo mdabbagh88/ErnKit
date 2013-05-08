@@ -4,5 +4,5 @@
 @class UIBarButtonItem;
 
 @interface ERNBarButtonItemActionSheetTransitioner : NSObject <ERNActionSheetTransitioner>
-+(instancetype)transitionerWithBarButtonItem:(UIBarButtonItem *)barButtonItem;
++(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem;
 @end

@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNRoutingMapViewAnnotationViewFactory factoryWithMappings:nil];
+    [ERNRoutingMapViewAnnotationViewFactory createWithMappings:nil];
 }
 
 @end

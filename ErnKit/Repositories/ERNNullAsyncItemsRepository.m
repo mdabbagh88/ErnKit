@@ -7,7 +7,7 @@ static ERNNullAsyncItemsRepository *repository;
 
 #pragma mark - public - constructors
 
-+(instancetype)repository
++(instancetype)create
 {
     return repository;
 }

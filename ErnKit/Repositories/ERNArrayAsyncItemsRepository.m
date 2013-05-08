@@ -7,12 +7,12 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)asyncItemsRepository
++(instancetype)create
 {
     return [self new];
 }
 
-+(instancetype)asyncItemsRepositoryWithArray:(NSArray *)array
++(instancetype)createWithArray:(NSArray *)array
 {
     return [[self alloc] initWithArray:array];
 }

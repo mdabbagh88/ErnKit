@@ -18,23 +18,23 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)tableViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                  cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                                actionHandler:(id<ERNActionHandler>)actionHandler
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+                      actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initWithRepository:repository
                                 cellFactory:cellFactory
                               actionHandler:actionHandler];
 }
 
-+(instancetype)tableViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                  cellFactory:(id<ERNTableViewCellFactory>)cellFactory
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initWithRepository:repository
                                 cellFactory:cellFactory];
 }
 
-+(instancetype)tableViewManagerWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithRepository:repository];
 }
@@ -77,7 +77,7 @@
 {
     return _cellFactory = _cellFactory ?
     _cellFactory :
-    [ERNNullTableViewCellFactory tableViewCellFactory];
+    [ERNNullTableViewCellFactory create];
 }
 
 #pragma mark - private - initializers

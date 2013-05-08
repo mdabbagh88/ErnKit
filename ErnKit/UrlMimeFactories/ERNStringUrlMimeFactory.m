@@ -16,7 +16,7 @@ static ERNStringUrlMimeFactory *factory;
 
 #pragma mark - public - constructors
 
-+(instancetype)urlMimeFactory
++(instancetype)create
 {
     return factory;
 }
@@ -25,7 +25,7 @@ static ERNStringUrlMimeFactory *factory;
 
 -(NSURL *)urlForObject:(NSString *)string
 {
-    ERNCheckNilAndReturn(string, [NSURL nullURL]);
+    ERNCheckNilAndReturn(string, [NSURL createNull]);
     return [NSURL URLWithString:[NSString stringWithFormat:@"string:%@", string]];
 }
 

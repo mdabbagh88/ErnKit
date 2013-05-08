@@ -5,6 +5,6 @@
 @protocol ERNActionSheetConfigurator;
 
 @interface ERNActionSheetAction : NSObject <ERNAction>
-+(instancetype)actionWithTransitioner:(id<ERNActionSheetTransitioner>)transitioner
++(instancetype)createWithTransitioner:(id<ERNActionSheetTransitioner>)transitioner
                          configurator:(id<ERNActionSheetConfigurator>)configurator;
 @end

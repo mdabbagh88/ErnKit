@@ -3,5 +3,5 @@
 #import "ERNBaseAsyncRepository.h"
 
 @interface ERNObjectAsyncItemRepository : ERNBaseAsyncRepository <ERNAsyncItemRepository>
-+(instancetype)repositoryWithItem:(id<NSObject>)item;
++(instancetype)createWithItem:(id<NSObject>)item;
 @end

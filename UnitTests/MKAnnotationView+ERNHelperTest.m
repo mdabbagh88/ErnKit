@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [MKAnnotationView viewForMapView:nil
+    [MKAnnotationView createForMapView:nil
                           annotation:nil
                           identifier:nil];
 }

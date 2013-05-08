@@ -8,12 +8,12 @@
                                            mime:(NSString *)mime
 {
     return [self setupViewController:[ERNTableViewController
-                                      viewControllerWithRepository:[ERNArrayAsyncItemsRepository
-                                                                    asyncItemsRepositoryWithArray:@[
+                                      createWithRepository:[ERNArrayAsyncItemsRepository
+                                                                    createWithArray:@[
                                                                     @"second screen item",
                                                                     @"...and another one"]]
                                       cellFactory:[ERNNullTableViewCellFactory
-                                                   tableViewCellFactory]]];
+                                                   create]]];
 }
 
 -(UIViewController *)setupViewController:(UITableViewController *)viewController

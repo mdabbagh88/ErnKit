@@ -8,15 +8,15 @@
 
 -(void)testConstructor
 {
-    [ERNAsyncItemsRepositoryMapViewManager mapViewManagerWithRepository:nil
-                                                                mapView:nil];
+    [ERNAsyncItemsRepositoryMapViewManager createWithRepository:nil
+                                                        mapView:nil];
 }
 
 
 -(void)testAutoZoomingConstructor
 {
-    [ERNAsyncItemsRepositoryMapViewManager autoZoomingMapViewManagerWithRepository:nil
-                                                                           mapView:nil];
+    [ERNAsyncItemsRepositoryMapViewManager createAutoZoomingWithRepository:nil
+                                                                   mapView:nil];
 }
 
 @end

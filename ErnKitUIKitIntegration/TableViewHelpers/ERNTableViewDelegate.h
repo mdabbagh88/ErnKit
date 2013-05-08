@@ -3,5 +3,5 @@
 @protocol ERNTableViewManager;
 
 @interface ERNTableViewDelegate : NSObject <UITableViewDelegate>
-+(instancetype)tableViewDelegateWithTableViewManager:(id<ERNTableViewManager>)tableViewManager;
++(instancetype)createWithTableViewManager:(id<ERNTableViewManager>)tableViewManager;
 @end

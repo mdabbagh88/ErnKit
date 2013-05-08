@@ -8,13 +8,13 @@
 
 -(void)testConstructor
 {
-    [ERNTableViewController viewControllerWithRepository:nil
+    [ERNTableViewController createWithRepository:nil
                                              cellFactory:nil];
 }
 
 -(void)testActionHandlerConstructor
 {
-    [ERNTableViewController viewControllerWithRepository:nil
+    [ERNTableViewController createWithRepository:nil
                                              cellFactory:nil
                                            actionHandler:nil];
 }

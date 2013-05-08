@@ -2,5 +2,5 @@
 #import "ERNUrlMimeFactory.h"
 
 @interface ERNRoutingUrlMimeFactory : NSObject <ERNUrlMimeFactory>
-+(instancetype)urlMimeFactoryWithMappings:(NSDictionary *)mappings;
++(instancetype)createWithMappings:(NSDictionary *)mappings;
 @end

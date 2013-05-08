@@ -13,7 +13,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithTransitioner:(id<ERNActionSheetTransitioner>)transitioner
++(instancetype)createWithTransitioner:(id<ERNActionSheetTransitioner>)transitioner
                          configurator:(id<ERNActionSheetConfigurator>)configurator
 {
     return [[self alloc] initWithTransitioner:transitioner

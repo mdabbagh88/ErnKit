@@ -4,5 +4,5 @@
 
 @interface ERNArrayAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncItemsRepository>
 @property (nonatomic, copy) NSArray *array;
-+(instancetype)asyncItemsRepositoryWithArray:(NSArray *)array;
++(instancetype)createWithArray:(NSArray *)array;
 @end

@@ -8,9 +8,9 @@
 -(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
                                fromAnnotation:(ERNDemoTweet *)annotation
 {
-    return [self setupView:[MKAnnotationView viewForMapView:mapView
-                                                 annotation:annotation
-                                                 identifier:NSStringFromClass([annotation class])]
+    return [self setupView:[MKAnnotationView createForMapView:mapView
+                                                   annotation:annotation
+                                                   identifier:NSStringFromClass([annotation class])]
                 annotation:annotation];
 }
 
@@ -35,7 +35,7 @@
     return image;
 }
 
-+(instancetype)annotationViewFactory
++(instancetype)create
 {
     return [self new];
 }

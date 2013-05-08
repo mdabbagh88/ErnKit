@@ -8,20 +8,20 @@
 
 -(void)testConstructor
 {
-    [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil];
 }
 
 -(void)testCellFactoryConstructor
 {
-    [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:nil
-                                                                cellFactory:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                      cellFactory:nil];
 }
 
 -(void)testCellFactoryActionHandlerConstructor
 {
-    [ERNAsyncItemsRepositoryTableViewManager tableViewManagerWithRepository:nil
-                                                                cellFactory:nil
-                                                              actionHandler:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                      cellFactory:nil
+                                                    actionHandler:nil];
 }
 
 @end

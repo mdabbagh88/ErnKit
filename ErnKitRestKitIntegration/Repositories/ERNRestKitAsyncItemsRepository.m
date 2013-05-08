@@ -18,10 +18,10 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)asyncItemsRepositoryWithUrl:(NSURL *)url
-                                   keyPath:(NSString *)keyPath
-                                   mapping:(RKObjectMapping *)mapping
-                               statusCodes:(NSIndexSet *)statusCodes
++(instancetype)createWithUrl:(NSURL *)url
+                     keyPath:(NSString *)keyPath
+                     mapping:(RKObjectMapping *)mapping
+                 statusCodes:(NSIndexSet *)statusCodes
 {
     return [[self alloc] initWithUrl:url
                              keyPath:keyPath
@@ -29,11 +29,11 @@
                          statusCodes:statusCodes];
 }
 
-+(instancetype)asyncItemsRepositoryWithUrl:(NSURL *)url
-                                   keyPath:(NSString *)keyPath
-                               pathPattern:(NSString *)pathPattern
-                                   mapping:(RKObjectMapping *)mapping
-                               statusCodes:(NSIndexSet *)statusCodes
++(instancetype)createWithUrl:(NSURL *)url
+                     keyPath:(NSString *)keyPath
+                 pathPattern:(NSString *)pathPattern
+                     mapping:(RKObjectMapping *)mapping
+                 statusCodes:(NSIndexSet *)statusCodes
 {
     return [[self alloc] initWithUrl:url
                              keyPath:keyPath
@@ -129,7 +129,7 @@
 
 -(NSURL *)url
 {
-    return _url = _url ? _url : [NSURL nullURL];
+    return _url = _url ? _url : [NSURL createNull];
 }
 
 -(NSOperationQueue *)operationQueue

@@ -33,7 +33,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)configurator
++(instancetype)create
 {
     return [self new];
 }
@@ -45,69 +45,69 @@
 {
     // First feed
     id<ERNAsyncItemsRepository> repositoryFirstFeed =
-    [ERNRestKitAsyncItemsRepository twitterStatusesRepositoryForUser:@"ernstsson"];
+    [ERNRestKitAsyncItemsRepository createTwitterStatusesForUser:@"ernstsson"];
     // Second feed
     id<ERNAsyncItemsRepository> repositorySecondFeed =
-    [ERNRestKitAsyncItemsRepository twitterStatusesRepositoryForUser:@"jgumbley"];
-
+    [ERNRestKitAsyncItemsRepository createTwitterStatusesForUser:@"jgumbley"];
+    
     // Setup an async repository containing both of the feeds
     id<ERNAsyncItemsRepository> repositoryBothFeeds =
-    [ERNMergingAsyncItemsRepository repositoryWithFirstRepository:repositoryFirstFeed
-                                                   restRepository:repositorySecondFeed];
-
+    [ERNMergingAsyncItemsRepository createWithFirstRepository:repositoryFirstFeed
+                                               restRepository:repositorySecondFeed];
+    
     // Setup a toggling repository that can toggle between both, first and second
     NSArray *repositories = @[repositoryBothFeeds, repositoryFirstFeed, repositorySecondFeed];
     ERNTogglingAsyncItemsRepository *repository =
-    [ERNTogglingAsyncItemsRepository repositoryWithRepositories:repositories];
-
-
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+    
+    
     // Refresh repository to ensure data when the view controller is loaded
     [repository refresh];
-
+    
     // Setup an annotation view factory creating map annotations for the map view controller
     id<ERNMapViewAnnotationViewFactory> annotationViewFactory =
-    [ERNDemoTweetMapViewAnnotationViewFactory annotationViewFactory];
-
+    [ERNDemoTweetMapViewAnnotationViewFactory create];
+    
     // Setup the map view controller with the RestKit repository and the annotation view factory
     ERNViewController *viewController =
-    [ERNMapViewController autoZoomingViewControllerWithRepository:repository
-                                                    actionHandler:nil
-                                                      viewFactory:annotationViewFactory];
-
+    [ERNMapViewController createAutoZoomingWithRepository:repository
+                                            actionHandler:nil
+                                              viewFactory:annotationViewFactory];
+    
     // Set a title on the view controller
     [viewController setTitle:@"Twitter Map"];
-
+    
     // Setup a refresh action
-    id<ERNAction> refreshAction = [ERNRefreshAsyncRepositoryAction actionWithRepository:repository];
-
-
+    id<ERNAction> refreshAction = [ERNRefreshAsyncRepositoryAction createWithRepository:repository];
+    
+    
     // Setup a refresh button for the toolbar and wire it up with the refresh action
     UIBarButtonItem *refreshButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                   target:nil
                                                   action:nil];
-
+    
     // Wire the refresh action with the refresh button using a bar button action controller
     ERNBarButtonItemActionController *refreshController =
-    [ERNBarButtonItemActionController controllerWithBarButtonItem:refreshButton
-                                                           action:refreshAction
-                                                              url:url
-                                                             mime:mime];
-
+    [ERNBarButtonItemActionController createWithBarButtonItem:refreshButton
+                                                       action:refreshAction
+                                                          url:url
+                                                         mime:mime];
+    
     // Setup a segmented control used to select what feed to show
     UISegmentedControl *feedSegmentedControl =
     [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Magnus", @"Jim"]];
     [feedSegmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
     [feedSegmentedControl setSelectedSegmentIndex:0];
-
+    
     // Wire the toggling repository with the segmented control using a segmented control toggler
     // controller
     ERNSegmentedControlTogglerController *feedController =
-    [ERNSegmentedControlTogglerController controllerWithSegmentedControl:feedSegmentedControl
-                                                                 toggler:repository
-                                                                     url:url
-                                                                    mime:mime];
-
+    [ERNSegmentedControlTogglerController createWithSegmentedControl:feedSegmentedControl
+                                                             toggler:repository
+                                                                 url:url
+                                                                mime:mime];
+    
     // Setup the needed bar button items for the toolbar, with left and right spacing to center the
     // segmented control, as well as the segmented control itself
     // Left spacing
@@ -115,33 +115,33 @@
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                   target:nil
                                                   action:nil];
-
+    
     // Right spacing
     UIBarButtonItem *rightSpace =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                   target:nil
                                                   action:nil];
-
+    
     // The centered segmented control button
     UIBarButtonItem *segmentedButtonItem =
     [[UIBarButtonItem alloc] initWithCustomView:feedSegmentedControl];
-
+    
     // Setup the toolbar in the view controller, left space, segmented control, right space
     [viewController setToolbarItems:@[leftSpace, segmentedButtonItem, rightSpace]];
-
+    
     // Setup the navigation bar in the view controller, the refresh button
     [[viewController navigationItem] setRightBarButtonItem:refreshButton];
-
+    
     // Save the refresh and feed toggler controllers to the view controller so that they are
     // appropriately retained and released by ARC
     [viewController setSubControllers:@[refreshController, feedController]];
-
+    
     // Setup a navigation controller with our view controller as root view controller
     // so that the navigation bar and toolbar is visible
     UINavigationController *navigationController =
     [[UINavigationController alloc] initWithRootViewController:viewController];
     [navigationController setToolbarHidden:NO];
-
+    
     // Return the navigation controller to the system for transitioning
     return navigationController;
 }

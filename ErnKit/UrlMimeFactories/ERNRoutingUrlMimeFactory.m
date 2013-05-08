@@ -13,7 +13,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)urlMimeFactoryWithMappings:(NSDictionary *)mappings
++(instancetype)createWithMappings:(NSDictionary *)mappings
 {
     return [[self alloc] initWithMappings:mappings];
 }
@@ -22,7 +22,7 @@
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(object, [NSURL nullURL]);
+    ERNCheckNilAndReturn(object, [NSURL createNull]);
     return [self validUrlForObject:[[self factoryForObject:object] urlForObject:object]];
 }
 
@@ -36,7 +36,7 @@
 
 -(NSURL *)validUrlForObject:(NSURL *)url
 {
-    return url ? url : [NSURL nullURL];
+    return url ? url : [NSURL createNull];
 }
 
 -(NSString *)validMimeForObject:(NSString *)mime
@@ -51,7 +51,7 @@
 
 -(id<ERNUrlMimeFactory>)validFactory:(id<ERNUrlMimeFactory>)factory
 {
-    return [self factoryIsValid:factory] ? factory : [ERNNullUrlMimeFactory factory];
+    return [self factoryIsValid:factory] ? factory : [ERNNullUrlMimeFactory create];
 }
 
 -(BOOL)factoryIsValid:(id<ERNUrlMimeFactory>)factory

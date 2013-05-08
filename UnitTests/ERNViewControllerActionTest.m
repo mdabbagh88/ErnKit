@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    [ERNViewControllerAction actionWithTransitioner:nil
+    [ERNViewControllerAction createWithTransitioner:nil
                                        configurator:nil];
 }
 

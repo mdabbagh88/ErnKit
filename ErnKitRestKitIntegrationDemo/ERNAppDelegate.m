@@ -18,18 +18,18 @@
 
     // Create the app transitioner, that will push the view controller to the window
     id<ERNViewControllerTransitioner> transitioner =
-    [ERNWindowViewControllerTransitioner transitionerWithWindow:window];
+    [ERNWindowViewControllerTransitioner createWithWindow:window];
 
     // Create the app configurator
     id<ERNViewControllerConfigurator> configurator =
-    [ERNDemoRestKitApplicationConfigurator configurator];
+    [ERNDemoRestKitApplicationConfigurator create];
 
     // Create the first action, with the transitioner and configurator
-    id<ERNAction> action = [ERNViewControllerAction actionWithTransitioner:transitioner
+    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:transitioner
                                                               configurator:configurator];
 
     // Run the application action, creating the app root view controller, pushing it to the window
-    [action actionForUrl:[NSURL nullURL]
+    [action actionForUrl:[NSURL createNull]
                     mime:@""];
 
     // Show the window

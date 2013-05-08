@@ -3,6 +3,6 @@
 #import "ERNToggler.h"
 
 @interface ERNTogglingTableViewManager : NSObject <ERNTableViewManager, ERNToggler>
-+(instancetype)tableViewManagerWithTableViewManagers:(NSArray *)tableViewManagers
-                                           tableView:(UITableView *)tableView;
++(instancetype)createWithTableViewManagers:(NSArray *)tableViewManagers
+                                 tableView:(UITableView *)tableView;
 @end

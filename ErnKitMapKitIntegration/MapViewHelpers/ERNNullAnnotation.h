@@ -2,5 +2,5 @@
 #import <MapKit/MapKit.h>
 
 @interface ERNNullAnnotation : NSObject <MKAnnotation>
-+(instancetype)annotation;
++(instancetype)create;
 @end

@@ -7,7 +7,7 @@
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(ERNDemoObject *)demoObject
 {
-    return [self setupCell:[UITableViewCell cellForTableView:tableView
+    return [self setupCell:[UITableViewCell createForTableView:tableView
                                                   identifier:NSStringFromClass([demoObject class])
                                                        style:UITableViewCellStyleSubtitle]
                 fromObject:demoObject];

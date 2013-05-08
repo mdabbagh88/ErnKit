@@ -8,17 +8,17 @@
 
 -(void)testConstructor
 {
-    [ERNRoutingTableViewCellFactory tableViewCellFactory];
+    [ERNRoutingTableViewCellFactory create];
 }
 
 -(void)testMappingsConstructor
 {
-    [ERNRoutingTableViewCellFactory tableViewCellFactoryWithMappings:nil];
+    [ERNRoutingTableViewCellFactory createWithMappings:nil];
 }
 
 -(void)testMappingsDefaultFactoryConstructor
 {
-    [ERNRoutingTableViewCellFactory tableViewCellFactoryWithMappings:nil
+    [ERNRoutingTableViewCellFactory createWithMappings:nil
                                                       defaultFactory:nil];
 }
 

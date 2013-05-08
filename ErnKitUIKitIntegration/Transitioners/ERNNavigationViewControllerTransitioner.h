@@ -4,5 +4,5 @@
 @class UINavigationController;
 
 @interface ERNNavigationViewControllerTransitioner : NSObject <ERNViewControllerTransitioner>
-+(instancetype)transitionerWithNavigationController:(UINavigationController *)navigationController;
++(instancetype)createWithNavigationController:(UINavigationController *)navigationController;
 @end

@@ -11,7 +11,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithApplication:(UIApplication *)application
++(instancetype)createWithApplication:(UIApplication *)application
 {
     return [[self alloc] initWithApplication:application];
 }

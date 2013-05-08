@@ -12,7 +12,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)actionWithAction:(id<ERNAction>)action
++(instancetype)createWithAction:(id<ERNAction>)action
 {
     return [[self alloc] initWithAction:action];
 }
@@ -28,7 +28,7 @@
 
 -(id<ERNAction>)logActionForAction:(id<ERNAction>)action
 {
-    return [ERNLogAction actionWithLogString:NSStringFromClass([action class])];
+    return [ERNLogAction createWithLogString:NSStringFromClass([action class])];
 }
 
 #pragma mark - private - initializers
@@ -37,7 +37,7 @@
 {
     self = [self init];
     ERNCheckNil(self);
-    _action = [ERNDualAction actionWithFirstAction:[self logActionForAction:action]
+    _action = [ERNDualAction createWithFirstAction:[self logActionForAction:action]
                                       secondAction:action];
     return self;
 }

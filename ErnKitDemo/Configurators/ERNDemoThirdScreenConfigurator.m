@@ -8,8 +8,8 @@
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    return [self setupViewController:[ERNTableViewController refreshableViewControllerWithRepository:[ERNDemoStringAsyncItemsRepository asyncItemsRepository]
-                                                                                         cellFactory:[ERNNullTableViewCellFactory tableViewCellFactory]
+    return [self setupViewController:[ERNTableViewController createRefreshableWithRepository:[ERNDemoStringAsyncItemsRepository asyncItemsRepository]
+                                                                                         cellFactory:[ERNNullTableViewCellFactory create]
                                                                                        actionHandler:[self actionHandler]]];
 }
 
