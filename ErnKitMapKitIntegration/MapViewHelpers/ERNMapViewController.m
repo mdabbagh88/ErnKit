@@ -2,6 +2,7 @@
 #import <MapKit/MapKit.h>
 #import "ERNMapViewController.h"
 #import "ERNMapViewDelegate.h"
+#import "ERNNullMapViewDelegate.h"
 #import "ERNAsyncItemsRepositoryMapViewManager.h"
 #import "ERNAsyncItemsRepository.h"
 #import "ERNNullAsyncItemsRepository.h"
@@ -150,7 +151,7 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
     ERNCheckNil(self);
     _repository = validateRepository(repository);
     _createDelegate = ^(){
-        return [ERNMapViewDelegate create];
+        return [ERNNullMapViewDelegate create];
     };
     _createMapViewManager = ^(MKMapView *mapView) {
         return [ERNAsyncItemsRepositoryMapViewManager

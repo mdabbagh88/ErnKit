@@ -15,11 +15,6 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)create
-{
-    return [self new];
-}
-
 +(instancetype)createWithMappings:(NSDictionary *)mappings
 {
     return [[self alloc] initWithMappings:mappings];

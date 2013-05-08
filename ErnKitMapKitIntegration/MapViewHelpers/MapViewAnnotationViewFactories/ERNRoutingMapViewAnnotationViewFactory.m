@@ -13,11 +13,6 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)factory
-{
-    return [self new];
-}
-
 +(instancetype)createWithMappings:(NSDictionary *)mappings
 {
     return [[self alloc] initWithMappings:mappings];

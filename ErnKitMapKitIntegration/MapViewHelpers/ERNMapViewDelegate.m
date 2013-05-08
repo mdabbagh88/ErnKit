@@ -13,11 +13,6 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)create
-{
-    return [self new];
-}
-
 +(instancetype)createWithActionHandler:(id<ERNActionHandler>)actionHandler
                            viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {

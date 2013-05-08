@@ -7,11 +7,6 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)create
-{
-    return [self new];
-}
-
 +(instancetype)createWithArray:(NSArray *)array
 {
     return [[self alloc] initWithArray:array];

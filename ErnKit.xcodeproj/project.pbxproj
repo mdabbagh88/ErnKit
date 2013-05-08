@@ -22,6 +22,7 @@
 		F71B9377173B010E00F80B0F /* ERNRoutingUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9376173B010E00F80B0F /* ERNRoutingUrlMimeFactoryTest.m */; };
 		F71B937A173B011A00F80B0F /* ERNStringUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9379173B011A00F80B0F /* ERNStringUrlMimeFactoryTest.m */; };
 		F71B937D173B012B00F80B0F /* ERNURLUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B937C173B012B00F80B0F /* ERNURLUrlMimeFactoryTest.m */; };
+		F74388AB173B12FA00676477 /* ERNNullMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388AA173B12FA00676477 /* ERNNullMapViewDelegate.m */; };
 		F7725189172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7725188172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m */; };
 		F772518C172D798D000D9486 /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518B172D798D000D9486 /* ERNDemoTweet.m */; };
 		F7725190172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518F172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m */; };
@@ -283,6 +284,8 @@
 		F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemRepository.h; sourceTree = "<group>"; };
 		F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemRepository.m; sourceTree = "<group>"; };
 		F7358A48172D488F000204DC /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		F74388A9173B12FA00676477 /* ERNNullMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullMapViewDelegate.h; sourceTree = "<group>"; };
+		F74388AA173B12FA00676477 /* ERNNullMapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullMapViewDelegate.m; sourceTree = "<group>"; };
 		F75C2C52172D36D6008C3B82 /* ErnKitRestKitIntegration-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ErnKitRestKitIntegration-Prefix.pch"; sourceTree = "<group>"; };
 		F7725187172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoFifthScreenConfigurator.h; sourceTree = "<group>"; };
 		F7725188172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoFifthScreenConfigurator.m; sourceTree = "<group>"; };
@@ -674,6 +677,8 @@
 				F7ABC2A717351CBF0035B164 /* ERNMapViewController.m */,
 				F7ABC2A817351CBF0035B164 /* ERNMapViewDelegate.h */,
 				F7ABC2A917351CBF0035B164 /* ERNMapViewDelegate.m */,
+				F74388A9173B12FA00676477 /* ERNNullMapViewDelegate.h */,
+				F74388AA173B12FA00676477 /* ERNNullMapViewDelegate.m */,
 				F7ABC2AA17351CBF0035B164 /* ERNNullAnnotation.h */,
 				F7ABC2AB17351CBF0035B164 /* ERNNullAnnotation.m */,
 				F7ABC2B417351CBF0035B164 /* MKAnnotationView+ERNHelper.h */,
@@ -1684,6 +1689,7 @@
 				F7ABC2BC17351CBF0035B164 /* ERNAsyncItemsRepositoryMapViewManager.m in Sources */,
 				F7ABC2BD17351CBF0035B164 /* MKAnnotationView+ERNHelper.m in Sources */,
 				F7ABC2BE17351CBF0035B164 /* MKMapView+ERNHelper.m in Sources */,
+				F74388AB173B12FA00676477 /* ERNNullMapViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
