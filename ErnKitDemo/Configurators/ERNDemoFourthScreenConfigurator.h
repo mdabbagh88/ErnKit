@@ -5,6 +5,6 @@
 @protocol ERNAsyncItemsRepository;
 
 @interface ERNDemoFourthScreenConfigurator : NSObject <ERNViewControllerConfigurator>
-@property (nonatomic, readwrite, weak) id<ERNActionHandler> actionHandler;
+@property (nonatomic, weak) id<ERNActionHandler> actionHandler;
 +(instancetype)configuratorWithRepository:(id<ERNAsyncItemsRepository>)repository;
 @end

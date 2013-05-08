@@ -7,7 +7,7 @@
 @interface ERNTogglingTableViewManager ()
 @property (nonatomic, readonly, copy) NSArray *tableViewManagers;
 @property (nonatomic, readonly, weak) UITableView *tableView;
-@property (nonatomic, readwrite) id<ERNTableViewManager> currentTableViewManager;
+@property (nonatomic) id<ERNTableViewManager> currentTableViewManager;
 @end
 
 @implementation ERNTogglingTableViewManager

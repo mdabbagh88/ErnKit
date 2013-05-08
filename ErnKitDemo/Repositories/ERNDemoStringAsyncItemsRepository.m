@@ -1,7 +1,7 @@
 #import "ERNDemoStringAsyncItemsRepository.h"
 
 @interface ERNDemoStringAsyncItemsRepository ()
-@property (nonatomic, readwrite, copy) NSArray *items;
+@property (nonatomic, copy) NSArray *items;
 @end
 
 @implementation ERNDemoStringAsyncItemsRepository
@@ -37,6 +37,16 @@ static NSArray *gItems2;
     return [[self items] count];
 }
 
+-(NSUInteger)limit
+{
+    return [self count];
+}
+
+-(NSUInteger)offset
+{
+    return 0;
+}
+
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
     return [self items][index];
@@ -44,7 +54,7 @@ static NSArray *gItems2;
 
 +(instancetype)asyncItemsRepository
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 +(void)initialize

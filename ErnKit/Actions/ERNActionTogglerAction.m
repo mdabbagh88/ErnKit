@@ -6,7 +6,7 @@
 
 @interface ERNActionTogglerAction ()
 @property (nonatomic, readonly, copy) NSArray *actions;
-@property (nonatomic, readwrite) id<ERNAction> currentAction;
+@property (nonatomic) id<ERNAction> currentAction;
 @end
 
 @implementation ERNActionTogglerAction

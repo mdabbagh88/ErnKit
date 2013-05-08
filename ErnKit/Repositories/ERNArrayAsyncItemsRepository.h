@@ -3,6 +3,6 @@
 #import "ERNBaseAsyncRepository.h"
 
 @interface ERNArrayAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncItemsRepository>
-@property (nonatomic, readwrite, copy) NSArray *array;
+@property (nonatomic, copy) NSArray *array;
 +(instancetype)asyncItemsRepositoryWithArray:(NSArray *)array;
 @end
