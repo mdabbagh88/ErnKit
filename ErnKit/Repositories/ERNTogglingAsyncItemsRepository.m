@@ -35,6 +35,16 @@
     return [[self currentRepository] count];
 }
 
+-(NSUInteger)limit
+{
+    return [[self currentRepository] limit];
+}
+
+-(NSUInteger)offset
+{
+    return [[self currentRepository] offset];
+}
+
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
     return [self currentRepository][index];

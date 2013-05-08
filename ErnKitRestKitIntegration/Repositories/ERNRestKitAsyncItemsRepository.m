@@ -103,7 +103,7 @@
               [localBlockSelf refreshedWithItems:[mappingResult array]];
           }];
      }
-                                                  failure:
+                                     failure:
      ^(RKObjectRequestOperation *completionOperation, NSError *error) {
          [responseOperationQueue addOperationWithBlock:
           ^(){
@@ -154,7 +154,7 @@
 
 -(id)initWithUrl:(NSURL *)url
          keyPath:(NSString *)keyPath
-         pathPattern:(NSString *)pathPattern
+     pathPattern:(NSString *)pathPattern
          mapping:(RKObjectMapping *)mapping
      statusCodes:(NSIndexSet *)statusCodes
 {

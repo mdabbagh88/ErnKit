@@ -4,7 +4,7 @@
 #import "ERNTableViewDelegate.h"
 
 #import "ERNDemoTableViewManager.h"
-#import "ERNRoutingTableViewManager.h"
+#import "ERNMergingTableViewManager.h"
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
 
 #import "ERNDemoStringAsyncItemsRepository.h"
@@ -44,8 +44,8 @@
                                                                                                                 cellFactory:cellFactory
                                                                                                               actionHandler:[self actionHandler]];
 
-    id<ERNTableViewManager> routedTableViewManager = [ERNRoutingTableViewManager tableViewManagerWithFirstTableViewManager:itemTableViewManager
-                                                                                                      restTableViewManager:[ERNRoutingTableViewManager tableViewManagerWithFirstTableViewManager:togglingTableViewManager
+    id<ERNTableViewManager> routedTableViewManager = [ERNMergingTableViewManager tableViewManagerWithFirstTableViewManager:itemTableViewManager
+                                                                                                      restTableViewManager:[ERNMergingTableViewManager tableViewManagerWithFirstTableViewManager:togglingTableViewManager
                                                                                                                                                                             restTableViewManager:lastTableViewManager]];
     id<UITableViewDataSource> tableViewDataSource = [ERNTableViewDataSource tableViewDataSourceWithTableViewManager:routedTableViewManager];
     id<UITableViewDelegate> tableViewDelegate = [ERNTableViewDelegate tableViewDelegateWithTableViewManager:routedTableViewManager];

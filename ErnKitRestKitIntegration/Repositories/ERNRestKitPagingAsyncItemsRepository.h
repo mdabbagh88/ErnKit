@@ -1,8 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "ERNArrayAsyncItemsRepository.h"
-#import <RestKit/RestKit.h>
 
-@interface ERNRestKitAsyncItemsRepository : ERNArrayAsyncItemsRepository <ERNAsyncItemsRepository>
+@class RKObjectMapping;
+
+@interface ERNRestKitPagingAsyncItemsRepository : ERNArrayAsyncItemsRepository
 +(instancetype)asyncItemsRepositoryWithUrl:(NSURL *)url
                                    keyPath:(NSString *)keyPath
                                    mapping:(RKObjectMapping *)mapping

@@ -28,6 +28,16 @@ static ERNNullAsyncItemsRepository *repository;
     return 0;
 }
 
+-(NSUInteger)limit
+{
+    return [self count];
+}
+
+-(NSUInteger)offset
+{
+    return 0;
+}
+
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
     return [NSNull null];

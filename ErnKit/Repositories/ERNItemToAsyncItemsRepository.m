@@ -40,6 +40,16 @@
     return (NSUInteger)[self hasItem];
 }
 
+-(NSUInteger)limit
+{
+    return [self count];
+}
+
+-(NSUInteger)offset
+{
+    return 0;
+}
+
 #pragma mark - private
 
 -(BOOL)validIndex:(NSUInteger)index

@@ -1,12 +1,12 @@
-#import "ERNRoutingAsyncItemsRepository.h"
+#import "ERNMergingAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNRoutingAsyncItemsRepository ()
+@interface ERNMergingAsyncItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> firstRepository;
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> restRepository;
 @end
 
-@implementation ERNRoutingAsyncItemsRepository {
+@implementation ERNMergingAsyncItemsRepository {
 }
 
 #pragma mark - public - constructors
@@ -25,11 +25,22 @@
     return [[self firstRepository] count] + [[self restRepository] count];
 }
 
+-(NSUInteger)limit
+{
+    return [self limitWithRestOffset:[[self restRepository] offset]
+                           restLimit:[[self restRepository] limit]];
+}
+
+-(NSUInteger)offset
+{
+    return [self offsetWithRestOffset:[[self restRepository] offset]];
+}
+
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
     return [self firstIndex:index] ?
-    [[self firstRepository] itemAtIndex:index] :
-    [[self restRepository] itemAtIndex:[self indexForRest:index]];
+    [self firstRepository][index] :
+    [self restRepository][[self indexForRest:index]];
 }
 
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject> item, NSUInteger index, BOOL *stop))block
@@ -63,6 +74,33 @@
 }
 
 #pragma mark - private
+
+-(NSUInteger)offsetWithRestOffset:(NSUInteger)restOffset
+{
+    return restOffset > 0 ?
+    [[self firstRepository] count] + restOffset :
+    [[self firstRepository] offset];
+}
+
+-(NSUInteger)limitWithRestOffset:(NSUInteger)restOffset
+                       restLimit:(NSUInteger)restLimit
+{
+    return restOffset > 0 ?
+    restLimit :
+    [self limitWithFirstLimit:[[self firstRepository] limit]
+                   firstCount:[[self firstRepository] count]
+                    restLimit:restLimit];
+
+}
+
+-(NSUInteger)limitWithFirstLimit:(NSUInteger)firstLimit
+                      firstCount:(NSUInteger)firstCount
+     restLimit:(NSUInteger)restLimit
+{
+    return ((firstLimit + [[self firstRepository] offset]) < firstCount) ?
+    firstLimit :
+    firstCount + restLimit;
+}
 
 -(BOOL)firstIndex:(NSUInteger)index
 {

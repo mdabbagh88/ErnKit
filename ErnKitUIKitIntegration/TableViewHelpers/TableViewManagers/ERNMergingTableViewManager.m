@@ -1,16 +1,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import "ERNRoutingTableViewManager.h"
+#import "ERNMergingTableViewManager.h"
 #import "ERNErrorHandler.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNDummyTableViewCell.h"
 
-@interface ERNRoutingTableViewManager ()
+@interface ERNMergingTableViewManager ()
 @property (nonatomic, readonly) id<ERNTableViewManager> firstTableViewManager;
 @property (nonatomic, readonly) id<ERNTableViewManager> restTableViewManager;
 @end
 
-@implementation ERNRoutingTableViewManager {
+@implementation ERNMergingTableViewManager {
 }
 
 #pragma mark - public - constructors

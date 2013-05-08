@@ -1,13 +1,10 @@
 #import "ERNDemoRestKitApplicationConfigurator.h"
 
-// Tweet data model object, for mapping from json using RestKit
-#import "ERNDemoTweet.h"
-
-// RestKit repository fetching data from a REST endpoint
-#import "ERNRestKitAsyncItemsRepository.h"
+// RestKit repository fetching data from a Twitter statuses REST endpoint
+#import "ERNRestKitAsyncItemsRepository+ERNDemoTwitter.h"
 
 // Routing repository, sending requests to the first or the rest repository, based on index
-#import "ERNRoutingAsyncItemsRepository.h"
+#import "ERNMergingAsyncItemsRepository.h"
 
 // Toggling repository, redirecting repository requests between sub-repositories, based on state
 #import "ERNTogglingAsyncItemsRepository.h"
@@ -27,15 +24,9 @@
 // Segmented control toggler controller, calling its toggler with indexes as its segments are tapped
 #import "ERNSegmentedControlTogglerController.h"
 
-// RestKit itself
-#import <RestKit/RestKit.h>
-
 // A configurator that sets up a map view controller showing the data from two twitter feeds
 // on the map. The controller also has a refresh button, refreshing the feeds, as well as a
 // feed toggler, toggling between showing feed one, feed two and both feeds at the same time.
-
-static NSString *url1 = @"http://api.twitter.com/1/statuses/user_timeline/ernstsson.json?count=100";
-static NSString *url2 = @"http://api.twitter.com/1/statuses/user_timeline/jgumbley.json?count=100";
 
 @implementation ERNDemoRestKitApplicationConfigurator {
 }
@@ -52,39 +43,16 @@ static NSString *url2 = @"http://api.twitter.com/1/statuses/user_timeline/jgumbl
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    // Setup the two Twitter feed REST urls
-    NSURL *twitterUrl1 = [NSURL URLWithString:url1];
-    NSURL *twitterUrl2 = [NSURL URLWithString:url2];
-
-    // Setup the RestKit object mapping for the feed data to the class ERNDemoTweet
-    NSDictionary *twitterMapping = @{
-                                     @"text" : @"text",
-                                     @"coordinates.coordinates" : @"coordinates",
-                                     @"user.profile_image_url" : @"imageUrl"
-                                     };
-    RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[ERNDemoTweet class]];
-    [objectMapping addAttributeMappingsFromDictionary:twitterMapping];
-
-    // Setup a set for the status codes the mapping should apply to, in our case 200
-    NSIndexSet *statusCodes = [NSIndexSet indexSetWithIndex:200];
-
-    // Setup an async repository with the RestKit mapping for each of the feeds
     // First feed
     id<ERNAsyncItemsRepository> repositoryFirstFeed =
-    [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:twitterUrl1
-                                                        keyPath:@""
-                                                        mapping:objectMapping
-                                                    statusCodes:statusCodes];
+    [ERNRestKitAsyncItemsRepository twitterStatusesRepositoryForUser:@"ernstsson"];
     // Second feed
     id<ERNAsyncItemsRepository> repositorySecondFeed =
-    [ERNRestKitAsyncItemsRepository asyncItemsRepositoryWithUrl:twitterUrl2
-                                                        keyPath:@""
-                                                        mapping:objectMapping
-                                                    statusCodes:statusCodes];
-    
+    [ERNRestKitAsyncItemsRepository twitterStatusesRepositoryForUser:@"jgumbley"];
+
     // Setup an async repository containing both of the feeds
     id<ERNAsyncItemsRepository> repositoryBothFeeds =
-    [ERNRoutingAsyncItemsRepository repositoryWithFirstRepository:repositoryFirstFeed
+    [ERNMergingAsyncItemsRepository repositoryWithFirstRepository:repositoryFirstFeed
                                                    restRepository:repositorySecondFeed];
 
     // Setup a toggling repository that can toggle between both, first and second

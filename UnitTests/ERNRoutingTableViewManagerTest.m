@@ -2,13 +2,13 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import "ERNRoutingTableViewManagerTest.h"
-#import "ERNRoutingTableViewManager.h"
+#import "ERNMergingTableViewManager.h"
 
 @implementation ERNRoutingTableViewManagerTest
 
 -(void)testConstructor
 {
-    [ERNRoutingTableViewManager tableViewManagerWithFirstTableViewManager:nil
+    [ERNMergingTableViewManager tableViewManagerWithFirstTableViewManager:nil
                                                      restTableViewManager:nil];
 }
 
