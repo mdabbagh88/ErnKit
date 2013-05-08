@@ -20,7 +20,7 @@
 
 -(id<NSObject>)item
 {
-    return [[self repository] count] ? [[self repository] itemAtIndex:0] : [NSNull null];
+    return [[self repository] count] ? [self repository][0] : [NSNull null];
 }
 
 #pragma mark - private - initializers

@@ -37,7 +37,7 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [[self currentRepository] itemAtIndex:index];
+    return [self currentRepository][index];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
