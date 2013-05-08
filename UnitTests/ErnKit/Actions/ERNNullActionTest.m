@@ -8,10 +8,11 @@
 
 -(void)testSingleton
 {
-    //given
+    //given, when
     id<ERNAction> action1 = [ERNNullAction create];
     id<ERNAction> action2 = [ERNNullAction create];
 
+    //then
     assertThat(action1, equalTo(action2));
 }
 
