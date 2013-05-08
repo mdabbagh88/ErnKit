@@ -23,6 +23,8 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
+    ERNCheckNilNoReturn(url);
+    ERNCheckNilNoReturn(mime);
     [[self firstAction] actionForUrl:url
                                 mime:mime];
     [[self secondAction] actionForUrl:url

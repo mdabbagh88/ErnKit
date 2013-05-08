@@ -42,6 +42,8 @@
 
 -(void)actionForObject:(id<NSObject>)object
 {
+    ERNCheckNilNoReturn(object);
+    ERNCheckNilNoReturn([self action]);
     [self actionForObject:object
                       url:[[self urlMimeFactory] urlForObject:object]];
 }

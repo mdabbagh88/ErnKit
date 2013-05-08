@@ -64,9 +64,9 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "NO"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -78,9 +78,9 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "NO"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -94,7 +94,7 @@
             buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
-            buildForArchiving = "YES"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -108,7 +108,7 @@
             buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
-            buildForArchiving = "YES"
+            buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -140,9 +140,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
-            BuildableName = "ErnKitDemo.app"
-            BlueprintName = "ErnKitDemo"
+            BlueprintIdentifier = "F79AE86B172DCA8F001F8F23"
+            BuildableName = "ErnKitRestKitIntegrationDemo.app"
+            BlueprintName = "ErnKitRestKitIntegrationDemo"
             ReferencedContainer = "container:ErnKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -159,9 +159,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
-            BuildableName = "ErnKitDemo.app"
-            BlueprintName = "ErnKitDemo"
+            BlueprintIdentifier = "F79AE86B172DCA8F001F8F23"
+            BuildableName = "ErnKitRestKitIntegrationDemo.app"
+            BlueprintName = "ErnKitRestKitIntegrationDemo"
             ReferencedContainer = "container:ErnKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -177,9 +177,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
-            BuildableName = "ErnKitDemo.app"
-            BlueprintName = "ErnKitDemo"
+            BlueprintIdentifier = "F79AE86B172DCA8F001F8F23"
+            BuildableName = "ErnKitRestKitIntegrationDemo.app"
+            BlueprintName = "ErnKitRestKitIntegrationDemo"
             ReferencedContainer = "container:ErnKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

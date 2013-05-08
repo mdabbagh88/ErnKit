@@ -44,7 +44,7 @@
 -(BOOL)validIndex:(NSUInteger)index
 {
     return index < [[self actions] count] &&
-    [[self actions][index] guaranteeProtocolConformance:@protocol(ERNAction)];
+    [[self actions][index] conformsToProtocol:@protocol(ERNAction)];
 }
 
 #pragma mark - private - initializers
@@ -53,6 +53,8 @@
 {
     self = [self init];
     ERNCheckNil(self);
+    _actions = actions;
+    [self setCurrentAction:[self validActionForIndex:0]];
     return self;
 }
 
