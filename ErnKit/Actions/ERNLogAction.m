@@ -1,5 +1,6 @@
 #import "ERNLogAction.h"
 #import "ERNErrorHandler.h"
+#import "NSURL+ERNHelper.h"
 
 @interface ERNLogAction ()
 @property (nonatomic, readonly, copy) NSString *string;
@@ -21,7 +22,19 @@
 -(void)actionForUrl:(NSURL *)url
                mime:(NSString *)mime
 {
-    NSLog(@"%@ : %@ : %@", [self string], url, mime);
+    NSLog(@"%@ : %@ : %@", [self string], [self validUrl:url], [self validMime:mime]);
+}
+
+#pragma mark - private
+
+-(NSURL *)validUrl:(NSURL *)url
+{
+    return url ? url : [NSURL createNull];
+}
+
+-(NSString *)validMime:(NSString *)mime
+{
+    return mime ? mime : @"";
 }
 
 #pragma mark - private - accessors

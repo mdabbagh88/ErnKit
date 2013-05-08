@@ -12,6 +12,11 @@
 		A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */; };
 		E41C1E5EAC114E09BA729552 /* libPods-ErnKitTestApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */; };
 		F08E453358B245959142843A /* libPods-ErnKitRestKitIntegrationDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD94E503F6D49219E519702 /* libPods-ErnKitRestKitIntegrationDemo.a */; };
+		F71B935D173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */; };
+		F71B9360173AF58100F80B0F /* ERNNullActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B935F173AF58100F80B0F /* ERNNullActionTest.m */; };
+		F71B9363173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9362173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m */; };
+		F71B9366173AF84300F80B0F /* ERNTraceActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9365173AF84300F80B0F /* ERNTraceActionTest.m */; };
+		F71B9369173AFA4D00F80B0F /* ERNUrlRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9368173AFA4D00F80B0F /* ERNUrlRoutingActionTest.m */; };
 		F7725189172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7725188172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m */; };
 		F772518C172D798D000D9486 /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518B172D798D000D9486 /* ERNDemoTweet.m */; };
 		F7725190172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518F172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m */; };
@@ -107,6 +112,7 @@
 		F7AD8B86173AC4C30046E153 /* ERNDefaultActionHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B85173AC4C30046E153 /* ERNDefaultActionHandlerTest.m */; };
 		F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */; };
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
+		F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
 		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -240,6 +246,16 @@
 		E1742D0455324D6C91BD64E4 /* libPods-ErnKitTestApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitTestApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF3E4ED8D394A96A445B9CF /* Pods-ErnKitDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitDemo.xcconfig"; path = "Pods/Pods-ErnKitDemo.xcconfig"; sourceTree = SOURCE_ROOT; };
 		F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F71B935B173AEDDC00F80B0F /* ERNMimeRoutingActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMimeRoutingActionTest.h; sourceTree = "<group>"; };
+		F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMimeRoutingActionTest.m; sourceTree = "<group>"; };
+		F71B935E173AF58100F80B0F /* ERNNullActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullActionTest.h; sourceTree = "<group>"; };
+		F71B935F173AF58100F80B0F /* ERNNullActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullActionTest.m; sourceTree = "<group>"; };
+		F71B9361173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshAsyncRepositoryActionTest.h; sourceTree = "<group>"; };
+		F71B9362173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRefreshAsyncRepositoryActionTest.m; sourceTree = "<group>"; };
+		F71B9364173AF84300F80B0F /* ERNTraceActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTraceActionTest.h; sourceTree = "<group>"; };
+		F71B9365173AF84300F80B0F /* ERNTraceActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTraceActionTest.m; sourceTree = "<group>"; };
+		F71B9367173AFA4D00F80B0F /* ERNUrlRoutingActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNUrlRoutingActionTest.h; sourceTree = "<group>"; };
+		F71B9368173AFA4D00F80B0F /* ERNUrlRoutingActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNUrlRoutingActionTest.m; sourceTree = "<group>"; };
 		F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ERNHelper.h"; sourceTree = "<group>"; };
 		F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ERNHelper.m"; sourceTree = "<group>"; };
 		F733BADE173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshAsyncRepositoryAction.h; sourceTree = "<group>"; };
@@ -385,6 +401,8 @@
 		F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionTogglerActionTest.m; sourceTree = "<group>"; };
 		F7AD8B8F173AE1B60046E153 /* ERNDualActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDualActionTest.h; sourceTree = "<group>"; };
 		F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDualActionTest.m; sourceTree = "<group>"; };
+		F7AD8B92173AE6FC0046E153 /* ERNLogActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNLogActionTest.h; sourceTree = "<group>"; };
+		F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNLogActionTest.m; sourceTree = "<group>"; };
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -807,6 +825,18 @@
 				F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */,
 				F7AD8B8F173AE1B60046E153 /* ERNDualActionTest.h */,
 				F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */,
+				F7AD8B92173AE6FC0046E153 /* ERNLogActionTest.h */,
+				F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */,
+				F71B935B173AEDDC00F80B0F /* ERNMimeRoutingActionTest.h */,
+				F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */,
+				F71B935E173AF58100F80B0F /* ERNNullActionTest.h */,
+				F71B935F173AF58100F80B0F /* ERNNullActionTest.m */,
+				F71B9361173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.h */,
+				F71B9362173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m */,
+				F71B9364173AF84300F80B0F /* ERNTraceActionTest.h */,
+				F71B9365173AF84300F80B0F /* ERNTraceActionTest.m */,
+				F71B9367173AFA4D00F80B0F /* ERNUrlRoutingActionTest.h */,
+				F71B9368173AFA4D00F80B0F /* ERNUrlRoutingActionTest.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -925,22 +955,22 @@
 			isa = PBXGroup;
 			children = (
 				F7F06A48172D0A9900CA5FC4 /* ERNAction.h */,
-				F7F06A4D172D0A9900CA5FC4 /* ERNMimeRoutingAction.h */,
-				F7F06A4E172D0A9900CA5FC4 /* ERNMimeRoutingAction.m */,
-				F7F06A4F172D0A9900CA5FC4 /* ERNUrlRoutingAction.h */,
-				F7F06A50172D0A9900CA5FC4 /* ERNUrlRoutingAction.m */,
-				F733BADE173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.h */,
-				F733BADF173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.m */,
-				F796D61017356641001A6891 /* ERNDualAction.h */,
-				F796D61117356641001A6891 /* ERNDualAction.m */,
-				F796D613173567C4001A6891 /* ERNNullAction.h */,
-				F796D614173567C4001A6891 /* ERNNullAction.m */,
-				F796D61617356895001A6891 /* ERNLogAction.h */,
-				F796D61717356896001A6891 /* ERNLogAction.m */,
-				F796D619173568CC001A6891 /* ERNTraceAction.h */,
-				F796D61A173568CC001A6891 /* ERNTraceAction.m */,
 				F796D64B173692C9001A6891 /* ERNActionTogglerAction.h */,
 				F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */,
+				F796D61017356641001A6891 /* ERNDualAction.h */,
+				F796D61117356641001A6891 /* ERNDualAction.m */,
+				F796D61617356895001A6891 /* ERNLogAction.h */,
+				F796D61717356896001A6891 /* ERNLogAction.m */,
+				F7F06A4D172D0A9900CA5FC4 /* ERNMimeRoutingAction.h */,
+				F7F06A4E172D0A9900CA5FC4 /* ERNMimeRoutingAction.m */,
+				F796D613173567C4001A6891 /* ERNNullAction.h */,
+				F796D614173567C4001A6891 /* ERNNullAction.m */,
+				F733BADE173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.h */,
+				F733BADF173063B600BE50CA /* ERNRefreshAsyncRepositoryAction.m */,
+				F796D619173568CC001A6891 /* ERNTraceAction.h */,
+				F796D61A173568CC001A6891 /* ERNTraceAction.m */,
+				F7F06A4F172D0A9900CA5FC4 /* ERNUrlRoutingAction.h */,
+				F7F06A50172D0A9900CA5FC4 /* ERNUrlRoutingAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -1661,6 +1691,12 @@
 				F7AD8B86173AC4C30046E153 /* ERNDefaultActionHandlerTest.m in Sources */,
 				F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */,
 				F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */,
+				F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */,
+				F71B935D173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m in Sources */,
+				F71B9360173AF58100F80B0F /* ERNNullActionTest.m in Sources */,
+				F71B9363173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m in Sources */,
+				F71B9366173AF84300F80B0F /* ERNTraceActionTest.m in Sources */,
+				F71B9369173AFA4D00F80B0F /* ERNUrlRoutingActionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

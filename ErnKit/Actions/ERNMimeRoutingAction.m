@@ -1,6 +1,7 @@
 #import "ERNMimeRoutingAction.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAction.h"
 
 @interface ERNMimeRoutingAction ()
 @property (nonatomic, readonly) NSDictionary *actions;
@@ -23,9 +24,22 @@
 {
     ERNCheckNilNoReturn(mime);
     ERNCheckNilNoReturn(url);
-    [[[self actions][mime] guaranteeProtocolConformance:@protocol(ERNAction)] actionForUrl:url
-                                                                                      mime:mime];
+    [[self validActionForMime:mime] actionForUrl:url
+                                            mime:mime];
 }
+
+#pragma mark - private
+
+-(id<ERNAction>)validActionForMime:(NSString *)mime
+{
+    return [self validMime:mime] ? [self actions][mime] : [ERNNullAction create];
+}
+
+-(BOOL)validMime:(NSString *)mime
+{
+    return [[self actions][mime] conformsToProtocol:@protocol(ERNAction)];
+}
+
 
 #pragma mark - private - initializers
 

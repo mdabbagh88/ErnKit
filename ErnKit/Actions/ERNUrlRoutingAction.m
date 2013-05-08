@@ -1,6 +1,7 @@
 #import "ERNUrlRoutingAction.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAction.h"
 
 @interface ERNUrlRoutingAction ()
 @property (nonatomic, readonly) NSDictionary *actions;
@@ -17,7 +18,7 @@
     return [[self alloc] initWithActionsForHosts:actions];
 }
 
-+(instancetype)actionWithActionsForSchemes:(NSDictionary *)actions
++(instancetype)createWithActionsForSchemes:(NSDictionary *)actions
 {
     return [[self alloc] initWithActionsForSchemes:actions];
 }
@@ -29,15 +30,20 @@
 {
     ERNCheckNilNoReturn(url);
     ERNCheckNilNoReturn(mime);
-    [[self getActionForRouting:[self urlRouter](url)] actionForUrl:url
-                                                              mime:mime];
+    [[self validActionForRouting:[self urlRouter](url)] actionForUrl:url
+                                                                mime:mime];
 }
 
 #pragma mark - private
 
--(id<ERNAction>)getActionForRouting:(NSString *)routing
+-(id<ERNAction>)validActionForRouting:(NSString *)routing
 {
-    return [[self actions][routing] guaranteeProtocolConformance:@protocol(ERNAction)];
+    return [self validRouting:routing] ? [self actions][routing] : [ERNNullAction create];
+}
+
+-(BOOL)validRouting:(NSString *)routing
+{
+    return [[self actions][routing] conformsToProtocol:@protocol(ERNAction)];
 }
 
 #pragma mark - private - initializers
