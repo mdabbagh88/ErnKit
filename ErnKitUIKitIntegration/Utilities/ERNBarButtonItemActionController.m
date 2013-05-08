@@ -15,7 +15,7 @@
     NSString *_mime;
 }
 
-#pragma mark - public - constructor
+#pragma mark - public - constructors
 
 +(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem
                                 action:(id<ERNAction>)action
