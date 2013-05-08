@@ -1,7 +1,7 @@
 #import "ERNURLUrlMimeFactory.h"
 #import "NSURL+ERNHelper.h"
 
-static ERNURLUrlMimeFactory *factory;
+static ERNURLUrlMimeFactory *immutableSingleton;
 
 @implementation ERNURLUrlMimeFactory {
 }
@@ -17,7 +17,7 @@ static ERNURLUrlMimeFactory *factory;
 
 +(instancetype)create
 {
-    return factory;
+    return immutableSingleton;
 }
 
 #pragma mark - ERNUrlMimeFactory
@@ -36,7 +36,7 @@ static ERNURLUrlMimeFactory *factory;
 
 +(void)initialize
 {
-    factory = [self new];
+    immutableSingleton = [self new];
 }
 
 @end

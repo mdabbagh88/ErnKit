@@ -3,7 +3,7 @@
 #import "ERNErrorHandler.h"
 #import "ERNDummyTableViewCell.h"
 
-static ERNNullTableViewCellFactory *factory;
+static ERNNullTableViewCellFactory *immutableSingleton;
 
 @implementation ERNNullTableViewCellFactory {
 }
@@ -12,7 +12,7 @@ static ERNNullTableViewCellFactory *factory;
 
 +(instancetype)create
 {
-    return factory;
+    return immutableSingleton;
 }
 
 #pragma mark - ERNTableViewCellFactory
@@ -36,7 +36,7 @@ static ERNNullTableViewCellFactory *factory;
 
 +(void)initialize
 {
-    factory = [self new];
+    immutableSingleton = [self new];
 }
 
 #pragma mark - private

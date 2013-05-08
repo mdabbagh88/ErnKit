@@ -1,7 +1,7 @@
 #import "ERNNullRepositoryPaginator.h"
 #import "NSURL+ERNHelper.h"
 
-static ERNNullRepositoryPaginator *paginator;
+static ERNNullRepositoryPaginator *immutableSingleton;
 
 @implementation ERNNullRepositoryPaginator {
     NSURL *_nextPage;
@@ -12,7 +12,7 @@ static ERNNullRepositoryPaginator *paginator;
 
 +(instancetype)create
 {
-    return paginator;
+    return immutableSingleton;
 }
 
 #pragma mark - ERNRepositoryPaginator
@@ -41,7 +41,7 @@ static ERNNullRepositoryPaginator *paginator;
 
 +(void)initialize
 {
-    paginator = [self new];
+    immutableSingleton = [self new];
 }
 
 @end

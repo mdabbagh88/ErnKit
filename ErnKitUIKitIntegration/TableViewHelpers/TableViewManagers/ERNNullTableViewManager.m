@@ -1,7 +1,7 @@
 #import "ERNNullTableViewManager.h"
 #import "ERNDummyTableViewCell.h"
 
-static ERNNullTableViewManager *tableViewManager;
+static ERNNullTableViewManager *immutableSingleton;
 
 @implementation ERNNullTableViewManager {
 }
@@ -10,7 +10,7 @@ static ERNNullTableViewManager *tableViewManager;
 
 +(instancetype)create
 {
-    return tableViewManager;
+    return immutableSingleton;
 }
 
 #pragma mark - ERNTableViewManager
@@ -35,7 +35,7 @@ static ERNNullTableViewManager *tableViewManager;
 
 +(void)initialize
 {
-    tableViewManager = [self new];
+    immutableSingleton = [self new];
 }
 
 @end

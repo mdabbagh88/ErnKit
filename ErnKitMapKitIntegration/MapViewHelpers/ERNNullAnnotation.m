@@ -1,7 +1,7 @@
 #import "ERNNullAnnotation.h"
 #import "ERNErrorHandler.h"
 
-static ERNNullAnnotation *annotation;
+static ERNNullAnnotation *immutableSingleton;
 
 @implementation ERNNullAnnotation {
     CLLocationCoordinate2D _coordinate;
@@ -11,14 +11,14 @@ static ERNNullAnnotation *annotation;
 
 +(instancetype)create
 {
-    return annotation;
+    return immutableSingleton;
 }
 
 #pragma mark - NSObject
 
 +(void)initialize
 {
-    annotation = [self new];
+    immutableSingleton = [self new];
 }
 
 -(id)init

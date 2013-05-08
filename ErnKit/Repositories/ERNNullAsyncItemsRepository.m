@@ -1,6 +1,6 @@
 #import "ERNNullAsyncItemsRepository.h"
 
-static ERNNullAsyncItemsRepository *repository;
+static ERNNullAsyncItemsRepository *immutableSingleton;
 
 @implementation ERNNullAsyncItemsRepository {
 }
@@ -9,7 +9,7 @@ static ERNNullAsyncItemsRepository *repository;
 
 +(instancetype)create
 {
-    return repository;
+    return immutableSingleton;
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -45,9 +45,9 @@ static ERNNullAsyncItemsRepository *repository;
 
 #pragma mark - NSObject
 
-+(void)initialize
++(void)immutableSingleton
 {
-    repository = [self new];
+    immutableSingleton = [self new];
 }
 
 @end

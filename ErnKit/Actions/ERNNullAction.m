@@ -1,6 +1,6 @@
 #import "ERNNullAction.h"
 
-static ERNNullAction *action;
+static ERNNullAction *immutableSingleton;
 
 @implementation ERNNullAction {
 }
@@ -9,7 +9,7 @@ static ERNNullAction *action;
 
 +(instancetype)create
 {
-    return action;
+    return immutableSingleton;
 }
 
 #pragma mark - ERNAction
@@ -23,7 +23,7 @@ static ERNNullAction *action;
 
 +(void)initialize
 {
-    action = [self new];
+    immutableSingleton = [self new];
 }
 
 @end
