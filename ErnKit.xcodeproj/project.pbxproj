@@ -1071,12 +1071,12 @@
 		F7F06AA1172D0A9900CA5FC4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F7ABC272173518440035B164 /* ERNErrorHandler.h */,
+				F796D64A17368F98001A6891 /* ERNToggler.h */,
 				F7F06AA2172D0A9900CA5FC4 /* NSObject+ERNHelper.h */,
 				F7F06AA3172D0A9900CA5FC4 /* NSObject+ERNHelper.m */,
 				F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */,
 				F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */,
-				F7ABC272173518440035B164 /* ERNErrorHandler.h */,
-				F796D64A17368F98001A6891 /* ERNToggler.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
