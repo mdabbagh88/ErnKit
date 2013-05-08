@@ -68,7 +68,7 @@
 
 -(NSOperationQueue *)createOperationQueue
 {
-    return [self setupOperationQueue:[[NSOperationQueue alloc] init]];
+    return [self setupOperationQueue:[NSOperationQueue new]];
 }
 
 -(NSOperationQueue *)setupOperationQueue:(NSOperationQueue *)operationQueue

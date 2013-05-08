@@ -44,7 +44,7 @@ static NSString *url2 = @"http://api.twitter.com/1/statuses/user_timeline/jgumbl
 
 +(instancetype)configurator
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 #pragma mark - ERNViewControllerConfigurator

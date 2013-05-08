@@ -36,7 +36,7 @@ static ERNNullTableViewCellFactory *factory;
 
 +(void)initialize
 {
-    factory = [[self alloc] init];
+    factory = [self new];
 }
 
 #pragma mark - private

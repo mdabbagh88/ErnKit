@@ -18,7 +18,7 @@ static ERNNullAnnotation *annotation;
 
 +(void)initialize
 {
-    annotation = [[self alloc] init];
+    annotation = [self new];
 }
 
 -(id)init

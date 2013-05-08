@@ -23,7 +23,7 @@ static ERNNullAction *action;
 
 +(void)initialize
 {
-    action = [[self alloc] init];
+    action = [self new];
 }
 
 @end

@@ -35,7 +35,7 @@ static ERNNullTableViewManager *tableViewManager;
 
 +(void)initialize
 {
-    tableViewManager = [[self alloc] init];
+    tableViewManager = [self new];
 }
 
 @end

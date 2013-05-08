@@ -15,7 +15,7 @@
 
 +(instancetype)delegate
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 +(instancetype)delegateWithActionHandler:(id<ERNActionHandler>)actionHandler

@@ -8,7 +8,7 @@
 
 +(instancetype)dummyCell
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 #pragma mark - NSObject

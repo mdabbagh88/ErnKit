@@ -76,11 +76,6 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 #pragma mark - private
 
--(MKMapView *)createMapView
-{
-    return [[MKMapView alloc] init];
-}
-
 static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository>repository)
 {
     return repository ? repository : [ERNNullAsyncItemsRepository repository];
@@ -111,7 +106,7 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 -(MKMapView *)mapView
 {
-    return _mapView = _mapView ? _mapView : [self createMapView];
+    return _mapView = _mapView ? _mapView : [MKMapView new];
 }
 
 #pragma mark - private - initializers

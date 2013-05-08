@@ -20,7 +20,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 -(void)applicationDidEnterBackground:(UIApplication *)application
 {
     UINavigationController *nav = (UINavigationController *)[[self window] rootViewController];
-    UIViewController *vc = [[UIViewController alloc] init];
+    UIViewController *vc = [UIViewController new];
     [nav setViewControllers:@[vc]];
 }
 

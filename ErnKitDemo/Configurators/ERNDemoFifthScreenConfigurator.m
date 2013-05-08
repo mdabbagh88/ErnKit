@@ -4,6 +4,7 @@
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
 #import "ERNMapViewController.h"
 #import "ERNDemoTweet.h"
+#import <RestKit/RestKit.h>
 
 @implementation ERNDemoFifthScreenConfigurator
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
@@ -35,7 +36,7 @@
 
 +(instancetype)configurator
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 @end

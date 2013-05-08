@@ -17,7 +17,7 @@
 
 +(instancetype)tableViewCellFactory
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 +(instancetype)tableViewCellFactoryWithMappings:(NSDictionary *)mappings

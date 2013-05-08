@@ -8,7 +8,7 @@
 
 -(void)testConstructor
 {
-    assertThat([[ERNConverterAsyncRepository alloc] init], notNilValue());
+    assertThat([ERNConverterAsyncRepository new], notNilValue());
 }
 
 @end

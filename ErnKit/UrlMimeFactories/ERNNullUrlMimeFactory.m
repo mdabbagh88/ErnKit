@@ -29,7 +29,7 @@ static ERNNullUrlMimeFactory *factory;
 
 +(void)initialize
 {
-    factory = [[self alloc] init];
+    factory = [self new];
 }
 
 @end

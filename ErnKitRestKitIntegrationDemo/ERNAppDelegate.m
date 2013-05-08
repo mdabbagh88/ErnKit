@@ -13,7 +13,8 @@
 {
     // Create a window for the application
     CGRect frame = [[UIScreen mainScreen] bounds];
-    UIWindow *window = [[UIWindow alloc] initWithFrame:frame];
+    UIWindow *window = [UIWindow new];
+    [window setFrame:frame];
 
     // Create the app transitioner, that will push the view controller to the window
     id<ERNViewControllerTransitioner> transitioner =

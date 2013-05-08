@@ -12,7 +12,7 @@
 
 +(instancetype)annotationViewFactory
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 #pragma mark - ERNMapViewAnnotationViewFactory

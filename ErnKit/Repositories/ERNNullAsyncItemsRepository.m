@@ -37,7 +37,7 @@ static ERNNullAsyncItemsRepository *repository;
 
 +(void)initialize
 {
-    repository = [[self alloc] init];
+    repository = [self new];
 }
 
 @end

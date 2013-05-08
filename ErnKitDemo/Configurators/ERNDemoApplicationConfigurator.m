@@ -32,7 +32,7 @@
 
 -(UINavigationController *)createNavigationController
 {
-    return [[UINavigationController alloc] init];
+    return [UINavigationController new];
 }
 
 -(UINavigationController *)setupNavigationController:(UINavigationController *)navigationController
@@ -145,7 +145,7 @@
 
 +(instancetype)configurator
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 @end

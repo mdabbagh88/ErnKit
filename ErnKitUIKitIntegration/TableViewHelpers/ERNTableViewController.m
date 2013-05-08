@@ -104,7 +104,7 @@
 -(void)setupRefreshable
 {
     _createRefresh = ^() {
-        return [[UIRefreshControl alloc] init];
+        return [UIRefreshControl new];
     };
 }
 

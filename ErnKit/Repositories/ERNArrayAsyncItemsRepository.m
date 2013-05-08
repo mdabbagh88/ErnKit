@@ -9,7 +9,7 @@
 
 +(instancetype)asyncItemsRepository
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 +(instancetype)asyncItemsRepositoryWithArray:(NSArray *)array

@@ -24,7 +24,7 @@
 
 +(instancetype)configurator
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 @end

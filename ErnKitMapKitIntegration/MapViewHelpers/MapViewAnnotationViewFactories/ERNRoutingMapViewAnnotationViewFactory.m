@@ -15,7 +15,7 @@
 
 +(instancetype)factory
 {
-    return [[self alloc] init];
+    return [self new];
 }
 
 +(instancetype)factoryWithMappings:(NSDictionary *)mappings
