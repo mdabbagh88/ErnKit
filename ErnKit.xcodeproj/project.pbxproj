@@ -97,6 +97,13 @@
 		F7ABC32A17351F890035B164 /* ERNModalViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31417351F890035B164 /* ERNModalViewControllerTransitioner.m */; };
 		F7ABC32B17351F890035B164 /* ERNNavigationViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31617351F890035B164 /* ERNNavigationViewControllerTransitioner.m */; };
 		F7ABC32C17351F890035B164 /* ERNWindowViewControllerTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC31917351F890035B164 /* ERNWindowViewControllerTransitioner.m */; };
+		F7AD8B5F173A80FE0046E153 /* libErnKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7ABC239173510C20035B164 /* libErnKit.a */; };
+		F7AD8B60173A80FE0046E153 /* libErnKitMapKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7ABC2A117351C220035B164 /* libErnKitMapKitIntegration.a */; };
+		F7AD8B61173A80FE0046E153 /* libErnKitRestKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F796D641173675FF001A6891 /* libErnKitRestKitIntegration.a */; };
+		F7AD8B62173A80FE0046E153 /* libErnKitUIKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7ABC2E517351D9B0035B164 /* libErnKitUIKitIntegration.a */; };
+		F7AD8B63173A81180046E153 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */; };
+		F7AD8B64173A81210046E153 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEA8172D57BD00B097C1 /* CoreData.framework */; };
+		F7AD8B65173A83850046E153 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
 		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -175,6 +182,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F7AD8B57173A80F30046E153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7ABC238173510C20035B164;
+			remoteInfo = ErnKit;
+		};
+		F7AD8B59173A80F30046E153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7ABC2D517351D9B0035B164;
+			remoteInfo = ErnKitUIKitIntegration;
+		};
+		F7AD8B5B173A80F30046E153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7ABC27317351C220035B164;
+			remoteInfo = ErnKitMapKitIntegration;
+		};
+		F7AD8B5D173A80F30046E153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F796D631173675FF001A6891;
+			remoteInfo = ErnKitRestKitIntegration;
+		};
 		F7F06B41172D0F1100CA5FC4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
@@ -590,6 +625,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7AD8B65173A83850046E153 /* SystemConfiguration.framework in Frameworks */,
+				F7AD8B64173A81210046E153 /* CoreData.framework in Frameworks */,
+				F7AD8B63173A81180046E153 /* MobileCoreServices.framework in Frameworks */,
+				F7AD8B5F173A80FE0046E153 /* libErnKit.a in Frameworks */,
+				F7AD8B60173A80FE0046E153 /* libErnKitMapKitIntegration.a in Frameworks */,
+				F7AD8B61173A80FE0046E153 /* libErnKitRestKitIntegration.a in Frameworks */,
+				F7AD8B62173A80FE0046E153 /* libErnKitUIKitIntegration.a in Frameworks */,
 				F792BEA7172D552A00B097C1 /* CoreLocation.framework in Frameworks */,
 				F7F06A32172D02FF00CA5FC4 /* MapKit.framework in Frameworks */,
 				F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */,
@@ -1362,6 +1404,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				F7AD8B58173A80F30046E153 /* PBXTargetDependency */,
+				F7AD8B5A173A80F30046E153 /* PBXTargetDependency */,
+				F7AD8B5C173A80F30046E153 /* PBXTargetDependency */,
+				F7AD8B5E173A80F30046E153 /* PBXTargetDependency */,
 				F7F06B42172D0F1100CA5FC4 /* PBXTargetDependency */,
 			);
 			name = UnitTests;
@@ -1843,6 +1889,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F7AD8B58173A80F30046E153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7ABC238173510C20035B164 /* ErnKit */;
+			targetProxy = F7AD8B57173A80F30046E153 /* PBXContainerItemProxy */;
+		};
+		F7AD8B5A173A80F30046E153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7ABC2D517351D9B0035B164 /* ErnKitUIKitIntegration */;
+			targetProxy = F7AD8B59173A80F30046E153 /* PBXContainerItemProxy */;
+		};
+		F7AD8B5C173A80F30046E153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7ABC27317351C220035B164 /* ErnKitMapKitIntegration */;
+			targetProxy = F7AD8B5B173A80F30046E153 /* PBXContainerItemProxy */;
+		};
+		F7AD8B5E173A80F30046E153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F796D631173675FF001A6891 /* ErnKitRestKitIntegration */;
+			targetProxy = F7AD8B5D173A80F30046E153 /* PBXContainerItemProxy */;
+		};
 		F7F06B42172D0F1100CA5FC4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F7F06B20172D0D8000CA5FC4 /* ErnKitTestApp */;

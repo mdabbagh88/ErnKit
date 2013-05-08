@@ -1,7 +1,6 @@
 platform :ios, '5.0'
 
 target :ErnKitRestKitIntegration do
-    pod 'ErnKit', :path => 'ErnKit/'
     pod 'RestKit'
 end
 
