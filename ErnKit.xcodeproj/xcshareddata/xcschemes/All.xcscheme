@@ -67,7 +67,7 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F7F06ACA172D0B4400CA5FC4"
@@ -81,7 +81,7 @@
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F79AE86B172DCA8F001F8F23"
@@ -95,7 +95,7 @@
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F7F06B20172D0D8000CA5FC4"
