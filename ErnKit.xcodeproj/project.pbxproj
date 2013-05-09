@@ -58,7 +58,6 @@
 		F79AE86D172DCA8F001F8F23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F79AE86E172DCA8F001F8F23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
 		F79AE86F172DCA8F001F8F23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */; };
-		F79AE875172DCA90001F8F23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F79AE873172DCA90001F8F23 /* InfoPlist.strings */; };
 		F79AE877172DCA90001F8F23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE876172DCA90001F8F23 /* main.m */; };
 		F79AE87B172DCA90001F8F23 /* ERNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE87A172DCA90001F8F23 /* ERNAppDelegate.m */; };
 		F79AE87D172DCA90001F8F23 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE87C172DCA90001F8F23 /* Default.png */; };
@@ -335,10 +334,9 @@
 		F796D64B173692C9001A6891 /* ERNActionTogglerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionTogglerAction.h; sourceTree = "<group>"; };
 		F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionTogglerAction.m; sourceTree = "<group>"; };
 		F79AE86C172DCA8F001F8F23 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F79AE872172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ErnKitRestKitIntegrationDemo-Info.plist"; sourceTree = "<group>"; };
-		F79AE874172DCA90001F8F23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F79AE872172DCA90001F8F23 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
 		F79AE876172DCA90001F8F23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F79AE878172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ErnKitRestKitIntegrationDemo-Prefix.pch"; sourceTree = "<group>"; };
+		F79AE878172DCA90001F8F23 /* Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
 		F79AE879172DCA90001F8F23 /* ERNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAppDelegate.h; sourceTree = "<group>"; };
 		F79AE87A172DCA90001F8F23 /* ERNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNAppDelegate.m; sourceTree = "<group>"; };
 		F79AE87C172DCA90001F8F23 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -461,7 +459,7 @@
 		F7F06AA2172D0A9900CA5FC4 /* NSObject+ERNHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ERNHelper.h"; sourceTree = "<group>"; };
 		F7F06AA3172D0A9900CA5FC4 /* NSObject+ERNHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ERNHelper.m"; sourceTree = "<group>"; };
 		F7F06B21172D0D8000CA5FC4 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7F06B27172D0D8100CA5FC4 /* ErnKitTestApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ErnKitTestApp-Info.plist"; sourceTree = "<group>"; };
+		F7F06B27172D0D8100CA5FC4 /* TestApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestApp-Info.plist"; sourceTree = "<group>"; };
 		F7F06B2B172D0D8100CA5FC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7F06B2E172D0D8100CA5FC4 /* ERNKitTestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNKitTestAppDelegate.h; sourceTree = "<group>"; };
 		F7F06B2F172D0D8100CA5FC4 /* ERNKitTestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNKitTestAppDelegate.m; sourceTree = "<group>"; };
@@ -665,10 +663,9 @@
 		F79AE871172DCA90001F8F23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F79AE872172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Info.plist */,
-				F79AE873172DCA90001F8F23 /* InfoPlist.strings */,
+				F79AE872172DCA90001F8F23 /* Demo-Info.plist */,
 				F79AE876172DCA90001F8F23 /* main.m */,
-				F79AE878172DCA90001F8F23 /* ErnKitRestKitIntegrationDemo-Prefix.pch */,
+				F79AE878172DCA90001F8F23 /* Demo-Prefix.pch */,
 				F79AE87C172DCA90001F8F23 /* Default.png */,
 				F79AE87E172DCA90001F8F23 /* Default@2x.png */,
 				F79AE880172DCA90001F8F23 /* Default-568h@2x.png */,
@@ -1094,9 +1091,9 @@
 		F7F06B25172D0D8000CA5FC4 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				F7F06B26172D0D8100CA5FC4 /* Supporting Files */,
 				F7F06B2E172D0D8100CA5FC4 /* ERNKitTestAppDelegate.h */,
 				F7F06B2F172D0D8100CA5FC4 /* ERNKitTestAppDelegate.m */,
-				F7F06B26172D0D8100CA5FC4 /* Supporting Files */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -1104,7 +1101,7 @@
 		F7F06B26172D0D8100CA5FC4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F7F06B27172D0D8100CA5FC4 /* ErnKitTestApp-Info.plist */,
+				F7F06B27172D0D8100CA5FC4 /* TestApp-Info.plist */,
 				F7F06B2B172D0D8100CA5FC4 /* main.m */,
 				F7F06B31172D0D8100CA5FC4 /* Default.png */,
 				F7F06B33172D0D8100CA5FC4 /* Default@2x.png */,
@@ -1287,7 +1284,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F79AE875172DCA90001F8F23 /* InfoPlist.strings in Resources */,
 				F79AE87D172DCA90001F8F23 /* Default.png in Resources */,
 				F79AE87F172DCA90001F8F23 /* Default@2x.png in Resources */,
 				F79AE881172DCA90001F8F23 /* Default-568h@2x.png in Resources */,
@@ -1626,17 +1622,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		F79AE873172DCA90001F8F23 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F79AE874172DCA90001F8F23 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		F796D63E173675FF001A6891 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1683,8 +1668,8 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "Demo/ErnKitRestKitIntegrationDemo-Prefix.pch";
-				INFOPLIST_FILE = "Demo/ErnKitRestKitIntegrationDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1696,8 +1681,8 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "Demo/ErnKitRestKitIntegrationDemo-Prefix.pch";
-				INFOPLIST_FILE = "Demo/ErnKitRestKitIntegrationDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1709,8 +1694,8 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "Demo/ErnKitRestKitIntegrationDemo-Prefix.pch";
-				INFOPLIST_FILE = "Demo/ErnKitRestKitIntegrationDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1988,7 +1973,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "UnitTests/TestApp/ErnKitTestApp-Info.plist";
+				INFOPLIST_FILE = "UnitTests/TestApp/TestApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2001,7 +1986,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "UnitTests/TestApp/ErnKitTestApp-Info.plist";
+				INFOPLIST_FILE = "UnitTests/TestApp/TestApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2095,7 +2080,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "UnitTests/TestApp/ErnKitTestApp-Info.plist";
+				INFOPLIST_FILE = "UnitTests/TestApp/TestApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
