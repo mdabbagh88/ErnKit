@@ -51,7 +51,7 @@
 -(BOOL)validIndex:(NSUInteger)index
 {
     return index < [[self actions] count] &&
-    [[self actions][index] guaranteeProtocolConformance:@protocol(ERNAction)];
+    [[self actions][index] conformsToProtocol:@protocol(ERNAction)];
 }
 
 -(void)handleAction:(id<ERNAction>)action

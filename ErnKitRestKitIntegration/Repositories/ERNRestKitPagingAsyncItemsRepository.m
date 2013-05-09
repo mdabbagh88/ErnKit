@@ -124,7 +124,9 @@
 
 -(id<ERNRepositoryPaginator>)validatePaginator:(id)paginator
 {
-    return [paginator guaranteeProtocolConformance:@protocol(ERNRepositoryPaginator)];
+    return paginator && [paginator conformsToProtocol:@protocol(ERNRepositoryPaginator)] ?
+    paginator :
+    [ERNNullRepositoryPaginator create];
 }
 
 #pragma mark - private - accessors

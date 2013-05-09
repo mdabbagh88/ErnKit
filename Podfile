@@ -20,14 +20,6 @@ target :ErnKitDemo do
     pod 'RestKit'
 end
 
-target :ErnKitTestApp do
-    pod 'ErnKit', :path => 'ErnKit/'
-    pod 'ErnKitRestKitIntegration', :path => 'ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :path => 'ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :path => 'ErnKitUIKitIntegration/'
-    pod 'RestKit'
-end
-
 target :UnitTests do
     pod 'OCMock'
     pod 'OCHamcrest'

@@ -129,15 +129,11 @@
     _currentTableViewManager = [self validTableViewManager:[self tableViewManagerAtIndex:index]];
 }
 
--(id<ERNTableViewManager>)nullTableViewManagerIfNil:(id<ERNTableViewManager>)tableViewManager
+-(id<ERNTableViewManager>)validTableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
-    return tableViewManager ? tableViewManager : [ERNNullTableViewManager create];
-}
-
--(id<ERNTableViewManager>)validTableViewManager:(id)tableViewManager
-{
-    return [self nullTableViewManagerIfNil:
-            [tableViewManager guaranteeProtocolConformance:@protocol(ERNTableViewManager)]];
+    return tableViewManager && [tableViewManager
+                                conformsToProtocol:@protocol(ERNTableViewManager)] ?
+    tableViewManager : [ERNNullTableViewManager create];
 }
 
 -(id<ERNTableViewManager>)tableViewManagerAtIndex:(NSUInteger)index

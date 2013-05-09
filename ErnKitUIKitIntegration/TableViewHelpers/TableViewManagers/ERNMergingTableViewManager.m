@@ -46,7 +46,9 @@
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
     ERNCheckNilNoReturn(indexPath);
-    [[(id)[self routedTableViewManagerForSection:[indexPath section]] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
+    [[(id)[self routedTableViewManagerForSection:[indexPath section]]
+      guaranteeSelectorResponse:@selector(actionForIndexPath:)]
+     actionForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
 
 -(NSString *)titleForFooterInSection:(NSInteger)section
