@@ -44,20 +44,20 @@
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
     ERNCheckNilNoReturn(indexPath);
-    [[self actionHandler] actionForObject:[self repository][(NSUInteger)[indexPath row]]];
+    [[self actionHandler] actionForObject:[[self repository] itemAtIndex:(NSUInteger)[indexPath row]]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
     return [[self cellFactory] cellForTableView:tableView
-                                     fromObject:[self repository][(NSUInteger)[indexPath row]]];
+                                     fromObject:[[self repository] itemAtIndex:(NSUInteger)[indexPath row]]];
 }
 
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
                     defaultHeight:(CGFloat)defaultHeight
 {
-    return [[self cellFactory] cellHeightForObject:[self repository][(NSUInteger)[indexPath row]]
+    return [[self cellFactory] cellHeightForObject:[[self repository] itemAtIndex:(NSUInteger)[indexPath row]]
                                      defaultHeight:defaultHeight];
 }
 
