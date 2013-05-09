@@ -32,17 +32,19 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self validIndex:index] ? [[self repository] item] : [NSNull null];
+    return [self validIndex:index] ?
+    [self validItem:[[self repository] item]] :
+    [NSNull null];
 }
 
 -(NSUInteger)count
 {
-    return (NSUInteger)[self hasItem];
+    return 1;
 }
 
 -(NSUInteger)limit
 {
-    return [self count];
+    return 1;
 }
 
 -(NSUInteger)offset
@@ -57,14 +59,14 @@
     return index == 0;
 }
 
--(NSArray *)itemToArray
+-(id<NSObject>)validItem:(id<NSObject>)item
 {
-    return [self hasItem] ? @[[[self repository] item]] : @[];
+    return item ? item : [NSNull null];
 }
 
--(BOOL)hasItem
+-(NSArray *)itemToArray
 {
-    return (BOOL)[[self repository] item];
+    return @[[self validItem:[[self repository] item]]];
 }
 
 #pragma mark - private - initializers
