@@ -13,6 +13,7 @@
     id<ERNUrlMimeFactory> factory2 = [ERNNullUrlMimeFactory create];
 
     //then
+    assertThat(factory1, notNilValue());
     assertThat(factory1, equalTo(factory2));
 }
 

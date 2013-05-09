@@ -45,7 +45,7 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
 
 #pragma mark - NSObject
 
-+(void)immutableSingleton
++(void)initialize
 {
     immutableSingleton = [self new];
 }

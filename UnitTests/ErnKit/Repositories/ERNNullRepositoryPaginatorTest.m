@@ -14,6 +14,7 @@
     id<ERNRepositoryPaginator> paginator2 = [ERNNullRepositoryPaginator create];
 
     //then
+    assertThat(paginator1, notNilValue());
     assertThat(paginator1, equalTo(paginator2));
 }
 

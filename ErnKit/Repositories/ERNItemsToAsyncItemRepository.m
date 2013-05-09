@@ -1,12 +1,14 @@
 #import "ERNItemsToAsyncItemRepository.h"
 #import "ERNAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAsyncItemsRepository.h"
 
 @interface ERNItemsToAsyncItemRepository ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository>repository;
 @end
 
 @implementation ERNItemsToAsyncItemRepository {
+    id<ERNAsyncItemsRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -20,7 +22,14 @@
 
 -(id<NSObject>)item
 {
-    return [[self repository] count] ? [self repository][0] : [NSNull null];
+    return [[self repository] itemAtIndex:0];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNAsyncItemsRepository>)repository
+{
+    return _repository = _repository ? _repository : [ERNNullAsyncItemsRepository create];
 }
 
 #pragma mark - private - initializers

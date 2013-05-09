@@ -13,6 +13,7 @@
     id<ERNAction> action2 = [ERNNullAction create];
 
     //then
+    assertThat(action1, notNilValue());
     assertThat(action1, equalTo(action2));
 }
 

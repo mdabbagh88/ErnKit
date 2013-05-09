@@ -28,6 +28,10 @@
 		F74388AE173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388AD173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m */; };
 		F74388B1173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388B0173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m */; };
 		F74388BB173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388BA173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.m */; };
+		F74388BE173BB3F600676477 /* ERNItemsToAsyncItemRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388BD173BB3F500676477 /* ERNItemsToAsyncItemRepositoryTest.m */; };
+		F74388C1173BB89700676477 /* ERNNullAsyncItemRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388C0173BB89500676477 /* ERNNullAsyncItemRepositoryTest.m */; };
+		F74388C4173BB9D700676477 /* ERNNullAsyncItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388C3173BB9D600676477 /* ERNNullAsyncItemsRepositoryTest.m */; };
+		F74388C7173BBC0E00676477 /* ERNObjectAsyncItemRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388C6173BBC0D00676477 /* ERNObjectAsyncItemRepositoryTest.m */; };
 		F7725189172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7725188172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m */; };
 		F772518C172D798D000D9486 /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518B172D798D000D9486 /* ERNDemoTweet.m */; };
 		F7725190172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F772518F172D806D000D9486 /* ERNDemoObject2UrlMimeFactory.m */; };
@@ -301,6 +305,14 @@
 		F74388B0173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNConverterAsyncRepositoryTest.m; sourceTree = "<group>"; };
 		F74388B9173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemToAsyncItemsRepositoryTest.h; sourceTree = "<group>"; };
 		F74388BA173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemToAsyncItemsRepositoryTest.m; sourceTree = "<group>"; };
+		F74388BC173BB3F500676477 /* ERNItemsToAsyncItemRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemsToAsyncItemRepositoryTest.h; sourceTree = "<group>"; };
+		F74388BD173BB3F500676477 /* ERNItemsToAsyncItemRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemsToAsyncItemRepositoryTest.m; sourceTree = "<group>"; };
+		F74388BF173BB89500676477 /* ERNNullAsyncItemRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemRepositoryTest.h; sourceTree = "<group>"; };
+		F74388C0173BB89500676477 /* ERNNullAsyncItemRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemRepositoryTest.m; sourceTree = "<group>"; };
+		F74388C2173BB9D500676477 /* ERNNullAsyncItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemsRepositoryTest.h; sourceTree = "<group>"; };
+		F74388C3173BB9D600676477 /* ERNNullAsyncItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemsRepositoryTest.m; sourceTree = "<group>"; };
+		F74388C5173BBC0B00676477 /* ERNObjectAsyncItemRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNObjectAsyncItemRepositoryTest.h; sourceTree = "<group>"; };
+		F74388C6173BBC0D00676477 /* ERNObjectAsyncItemRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNObjectAsyncItemRepositoryTest.m; sourceTree = "<group>"; };
 		F75C2C52172D36D6008C3B82 /* ErnKitRestKitIntegration-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ErnKitRestKitIntegration-Prefix.pch"; sourceTree = "<group>"; };
 		F7725187172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoFifthScreenConfigurator.h; sourceTree = "<group>"; };
 		F7725188172D77AA000D9486 /* ERNDemoFifthScreenConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoFifthScreenConfigurator.m; sourceTree = "<group>"; };
@@ -656,6 +668,14 @@
 				F74388B0173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m */,
 				F74388B9173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.h */,
 				F74388BA173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.m */,
+				F74388BC173BB3F500676477 /* ERNItemsToAsyncItemRepositoryTest.h */,
+				F74388BD173BB3F500676477 /* ERNItemsToAsyncItemRepositoryTest.m */,
+				F74388BF173BB89500676477 /* ERNNullAsyncItemRepositoryTest.h */,
+				F74388C0173BB89500676477 /* ERNNullAsyncItemRepositoryTest.m */,
+				F74388C2173BB9D500676477 /* ERNNullAsyncItemsRepositoryTest.h */,
+				F74388C3173BB9D600676477 /* ERNNullAsyncItemsRepositoryTest.m */,
+				F74388C5173BBC0B00676477 /* ERNObjectAsyncItemRepositoryTest.h */,
+				F74388C6173BBC0D00676477 /* ERNObjectAsyncItemRepositoryTest.m */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1067,12 +1087,12 @@
 				F7F06A72172D0A9900CA5FC4 /* ERNItemsToAsyncItemRepository.m */,
 				F796D61C1735705F001A6891 /* ERNMergingAsyncItemsRepository.h */,
 				F796D61D1735705F001A6891 /* ERNMergingAsyncItemsRepository.m */,
+				F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */,
+				F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */,
 				F79AE891172E49E5001F8F23 /* ERNNullAsyncItemsRepository.h */,
 				F79AE892172E49E7001F8F23 /* ERNNullAsyncItemsRepository.m */,
 				F733BAF41730F83600BE50CA /* ERNObjectAsyncItemRepository.h */,
 				F733BAF51730F83600BE50CA /* ERNObjectAsyncItemRepository.m */,
-				F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */,
-				F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */,
 				F796D61F17358E75001A6891 /* ERNTogglingAsyncItemsRepository.h */,
 				F796D62017358E76001A6891 /* ERNTogglingAsyncItemsRepository.m */,
 				F733BAF81730FA4900BE50CA /* ERNDefaultRepositoryStore.h */,
@@ -1779,6 +1799,10 @@
 				F74388AE173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m in Sources */,
 				F74388B1173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m in Sources */,
 				F74388BB173BA7F800676477 /* ERNItemToAsyncItemsRepositoryTest.m in Sources */,
+				F74388BE173BB3F600676477 /* ERNItemsToAsyncItemRepositoryTest.m in Sources */,
+				F74388C1173BB89700676477 /* ERNNullAsyncItemRepositoryTest.m in Sources */,
+				F74388C4173BB9D700676477 /* ERNNullAsyncItemsRepositoryTest.m in Sources */,
+				F74388C7173BBC0E00676477 /* ERNObjectAsyncItemRepositoryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
