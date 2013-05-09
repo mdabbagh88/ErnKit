@@ -26,7 +26,7 @@
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
-    ERNCheckNilAndReturn(predicate, [self itemToArray]);
+    ERNCheckNilAndReturn(predicate, @[]);
     return [[self itemToArray] filteredArrayUsingPredicate:predicate];
 }
 

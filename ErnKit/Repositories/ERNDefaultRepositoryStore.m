@@ -1,6 +1,7 @@
 #import "ERNDefaultRepositoryStore.h"
 #import "ERNObjectAsyncItemRepository.h"
 #import "ERNNullAsyncItemRepository.h"
+#import "ERNObjectAsyncItemRepository.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNDefaultRepositoryStore ()
@@ -11,12 +12,21 @@
     NSMapTable *_repositories;
 }
 
+#pragma mark - public - constructors
+
++(instancetype)create
+{
+    return [self new];
+}
+
 #pragma mark - ERNRepositoryStore
 
 -(void)storeUrl:(NSURL *)url
         forItem:(id<NSObject>)object
 {
-    [[self repositories] setObject:object
+    ERNCheckNilNoReturn(url);
+    ERNCheckNilNoReturn(object);
+    [[self repositories] setObject:[ERNObjectAsyncItemRepository createWithItem:object]
                             forKey:url];
 }
 

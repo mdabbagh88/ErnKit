@@ -35,7 +35,7 @@
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
-    ERNCheckNilAndReturn(predicate, [self array]);
+    ERNCheckNilAndReturn(predicate, @[]);
     return [[self array] filteredArrayUsingPredicate:predicate];
 }
 

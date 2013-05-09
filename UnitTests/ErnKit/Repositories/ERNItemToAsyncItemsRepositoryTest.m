@@ -95,7 +95,6 @@
 -(void)testFilteredArrayUsingNilPredicateNilRepository
 {
     //given
-    id expectedItem = [NSNull null];
     id<ERNAsyncItemsRepository> repository =
     [ERNItemToAsyncItemsRepository createWithRepository:nil];
 
@@ -104,8 +103,7 @@
 
     //then
     assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(1));
-    assertThat(array[0], equalTo(expectedItem));
+    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
 }
 
 -(void)testItemAtIndexNilRepository
@@ -247,8 +245,7 @@
 
     //then
     assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(1));
-    assertThat(array[0], equalTo(mockItem));
+    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
 }
 
 -(void)testItemAtIndexRepository

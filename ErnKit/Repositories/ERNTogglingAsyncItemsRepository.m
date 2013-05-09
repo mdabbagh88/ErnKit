@@ -47,16 +47,18 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self currentRepository][index];
+    return [[self currentRepository] itemAtIndex:index];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
+    ERNCheckNilNoReturn(block);
     [[self currentRepository] enumerateItemsUsingBlock:block];
 }
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
+    ERNCheckNilAndReturn(predicate, @[]);
     return [[self currentRepository] filteredArrayUsingPredicate:predicate];
 }
 
@@ -83,20 +85,21 @@
     _currentRepository = [self validRepository:[self repositoryAtIndex:index]];
 }
 
--(id<ERNAsyncItemsRepository>)nullRepositoryIfNil:(id<ERNAsyncItemsRepository>)repository
+-(id<ERNAsyncItemsRepository>)validRepository:(id<ERNAsyncItemsRepository>)repository
 {
-    return repository ? repository : [ERNNullAsyncItemsRepository create];
+    return [self isValidRepository:repository] ? repository : [ERNNullAsyncItemsRepository create];
 }
 
--(id<ERNAsyncItemsRepository>)validRepository:(id)repository
+-(BOOL)isValidRepository:(id<ERNAsyncItemsRepository>)repository
 {
-    return [self nullRepositoryIfNil:
-            [repository guaranteeProtocolConformance:@protocol(ERNAsyncItemsRepository)]];
+    return repository && [repository conformsToProtocol:@protocol(ERNAsyncItemsRepository)];
 }
 
 -(id<ERNAsyncItemsRepository>)repositoryAtIndex:(NSUInteger)index
 {
-    return [self repositories][index];
+    return index < [[self repositories] count] ?
+    [self repositories][index] :
+    [ERNNullAsyncItemsRepository create];
 }
 
 -(void)removeSelfAsObserverFromCurrentRepository
