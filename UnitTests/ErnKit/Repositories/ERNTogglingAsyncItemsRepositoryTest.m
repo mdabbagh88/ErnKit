@@ -341,10 +341,6 @@
     [mockNotificationCenter verify];
 }
 
-
-
-
-
 -(void)testRefreshRepositories
 {
     //given

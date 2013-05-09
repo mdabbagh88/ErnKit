@@ -27,20 +27,28 @@
 
 -(NSUInteger)limit
 {
-    return [self limitWithRestOffset:[[self restRepository] offset]
-                           restLimit:[[self restRepository] limit]];
+    return [self limitWithFirstCount:[[self firstRepository] count]
+                          firstLimit:[[self firstRepository] limit]
+                         firstOffset:[[self firstRepository] offset]
+                           restCount:[[self restRepository] count]
+                           restLimit:[[self restRepository] limit]
+                          restOffset:[[self restRepository] offset]];
 }
 
 -(NSUInteger)offset
 {
-    return [self offsetWithRestOffset:[[self restRepository] offset]];
+    return [[self firstRepository] count] == 0 ?
+    [[self restRepository] offset] :
+    [[self firstRepository] offset];
 }
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self firstIndex:index] ?
-    [self firstRepository][index] :
-    [self restRepository][[self indexForRest:index]];
+    return [self validItem:[self firstIndex:index] ?
+    [[self firstRepository] itemAtIndex:index] :
+            [self restIndex:index] ?
+            [[self restRepository] itemAtIndex:[self indexForRest:index]] :
+            [NSNull null]];
 }
 
 -(void)enumerateItemsUsingBlock:(void (^)(id<NSObject> item, NSUInteger index, BOOL *stop))block
@@ -51,10 +59,10 @@
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
-    return [[[self firstRepository]
+    return [self validArray:[[[self firstRepository]
              filteredArrayUsingPredicate:predicate]
             arrayByAddingObjectsFromArray:[[self restRepository]
-                                           filteredArrayUsingPredicate:predicate]];
+                                           filteredArrayUsingPredicate:predicate]]];
 }
 
 #pragma mark - ERNAsyncRepository
@@ -75,36 +83,35 @@
 
 #pragma mark - private
 
--(NSUInteger)offsetWithRestOffset:(NSUInteger)restOffset
-{
-    return restOffset > 0 ?
-    [[self firstRepository] count] + restOffset :
-    [[self firstRepository] offset];
-}
-
--(NSUInteger)limitWithRestOffset:(NSUInteger)restOffset
+-(NSUInteger)limitWithFirstCount:(NSUInteger)firstCount
+                      firstLimit:(NSUInteger)firstLimit
+                     firstOffset:(NSUInteger)firstOffset
+                       restCount:(NSUInteger)restCount
                        restLimit:(NSUInteger)restLimit
+                      restOffset:(NSUInteger)restOffset
 {
-    return restOffset > 0 ?
-    restLimit :
-    [self limitWithFirstLimit:[[self firstRepository] limit]
-                   firstCount:[[self firstRepository] count]
-                    restLimit:restLimit];
-
+    return (restCount == 0) ? firstLimit :
+    (firstCount == 0) ? restLimit : restLimit + firstCount - firstOffset + restOffset;
 }
 
--(NSUInteger)limitWithFirstLimit:(NSUInteger)firstLimit
-                      firstCount:(NSUInteger)firstCount
-     restLimit:(NSUInteger)restLimit
+-(NSArray *)validArray:(NSArray *)array
 {
-    return ((firstLimit + [[self firstRepository] offset]) < firstCount) ?
-    firstLimit :
-    firstCount + restLimit;
+    return array ? array : @[];
+}
+
+-(id<NSObject>)validItem:(id<NSObject>)item
+{
+    return item ? item : [NSNull null];
 }
 
 -(BOOL)firstIndex:(NSUInteger)index
 {
     return index < [[self firstRepository] count];
+}
+
+-(BOOL)restIndex:(NSUInteger)index
+{
+    return index >= [[self firstRepository] count] && index < [self count];
 }
 
 -(NSUInteger)indexForRest:(NSUInteger)index
