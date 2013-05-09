@@ -4,19 +4,11 @@ target :ErnKitRestKitIntegration do
     pod 'RestKit'
 end
 
-target :ErnKitRestKitIntegrationDemo do
-    pod 'ErnKit', :path => 'ErnKit/'
-    pod 'ErnKitRestKitIntegration', :path => 'ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :path => 'ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :path => 'ErnKitUIKitIntegration/'
-    pod 'RestKit'
-end
-
-target :ErnKitDemo do
-    pod 'ErnKit', :path => 'ErnKit/'
-    pod 'ErnKitRestKitIntegration', :path => 'ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :path => 'ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :path => 'ErnKitUIKitIntegration/'
+target :Demo do
+    pod 'ErnKit', :path => 'Source/ErnKit/'
+    pod 'ErnKitRestKitIntegration', :path => 'Source/ErnKitRestKitIntegration/'
+    pod 'ErnKitMapKitIntegration', :path => 'Source/ErnKitMapKitIntegration/'
+    pod 'ErnKitUIKitIntegration', :path => 'Source/ErnKitUIKitIntegration/'
     pod 'RestKit'
 end
 
