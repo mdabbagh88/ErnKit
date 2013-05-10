@@ -1,5 +1,4 @@
 #import "ERNDemoTweet.h"
-#import <objc/Protocol.h>
 
 @interface ERNDemoTweet ()
 @property (nonatomic, readonly, copy) NSString *text;
@@ -42,7 +41,7 @@
 
 -(BOOL)isInvalidAnnotation:(Protocol *)protocol
 {
-    return [protocol isEqual:@protocol(MKAnnotation)] && ![self hasCoordinates];
+    return [(id)protocol isEqual:@protocol(MKAnnotation)] && ![self hasCoordinates];
 }
 
 -(BOOL)hasCoordinates

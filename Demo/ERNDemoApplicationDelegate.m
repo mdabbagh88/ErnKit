@@ -1,10 +1,10 @@
-#import "ERNAppDelegate.h"
+#import "ERNDemoApplicationDelegate.h"
 #import "ERNWindowViewControllerTransitioner.h"
-#import "ERNDemoRestKitApplicationConfigurator.h"
+#import "ERNDemoApplicationConfigurator.h"
 #import "ERNViewControllerAction.h"
 #import "NSURL+ERNHelper.h"
 
-@implementation ERNAppDelegate {
+@implementation ERNDemoApplicationDelegate {
 }
 
 #pragma mark - UIApplicationDelegate
@@ -22,7 +22,7 @@
 
     // Create the app configurator
     id<ERNViewControllerConfigurator> configurator =
-    [ERNDemoRestKitApplicationConfigurator create];
+    [ERNDemoApplicationConfigurator create];
 
     // Create the first action, with the transitioner and configurator
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:transitioner

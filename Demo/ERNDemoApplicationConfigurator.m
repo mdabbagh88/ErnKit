@@ -1,4 +1,4 @@
-#import "ERNDemoRestKitApplicationConfigurator.h"
+#import "ERNDemoApplicationConfigurator.h"
 
 // RestKit repository fetching data from a Twitter statuses REST endpoint
 #import "ERNRestKitAsyncItemsRepository+ERNDemoTwitter.h"
@@ -28,7 +28,7 @@
 // on the map. The controller also has a refresh button, refreshing the feeds, as well as a
 // feed toggler, toggling between showing feed one, feed two and both feeds at the same time.
 
-@implementation ERNDemoRestKitApplicationConfigurator {
+@implementation ERNDemoApplicationConfigurator {
 }
 
 #pragma mark - public - constructors

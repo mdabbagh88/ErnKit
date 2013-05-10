@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ERNViewControllerConfigurator.h"
 
-@interface ERNDemoRestKitApplicationConfigurator : NSObject <ERNViewControllerConfigurator>
+@interface ERNDemoApplicationConfigurator : NSObject <ERNViewControllerConfigurator>
 +(instancetype)create;
 @end

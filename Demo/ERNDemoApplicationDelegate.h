@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface ERNAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ERNDemoApplicationDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @end
