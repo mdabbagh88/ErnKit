@@ -32,20 +32,10 @@
 
 -(void)handleAction
 {
+    ERNCheckNilNoReturn([self url]);
+    ERNCheckNilNoReturn([self mime]);
     [[self action] actionForUrl:[self url]
                            mime:[self mime]];
-}
-
-#pragma mark - private - accessors
-
--(NSURL *)url
-{
-    return _url = _url ? _url : [NSURL createNull];
-}
-
--(NSString *)mime
-{
-    return _mime = _mime ? _mime : @"";
 }
 
 #pragma mark - private - initializer
@@ -58,6 +48,8 @@
     self = [self init];
     ERNCheckNil(self);
     _action = action;
+    _mime = mime;
+    _url = url;
     [barButtonItem setTarget:self];
     [barButtonItem setAction:@selector(handleAction)];
     return self;

@@ -56,21 +56,13 @@
 
 -(void)handleAction:(id<ERNAction>)action
 {
+    ERNCheckNilNoReturn([self url]);
+    ERNCheckNilNoReturn([self mime]);
     [action actionForUrl:[self url]
                     mime:[self mime]];
 }
 
 #pragma mark - private - accessors
-
--(NSURL *)url
-{
-    return _url = _url ? _url : [NSURL createNull];
-}
-
--(NSString *)mime
-{
-    return _mime = _mime ? _mime : @"";
-}
 
 -(NSArray *)actions
 {

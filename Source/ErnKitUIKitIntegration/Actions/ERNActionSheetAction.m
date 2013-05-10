@@ -26,6 +26,7 @@
                mime:(NSString *)mime
 {
     ERNCheckNilNoReturn([self configurator]);
+    ERNCheckNilNoReturn([self transitioner]);
     ERNCheckNilNoReturn(url);
     ERNCheckNilNoReturn(mime);
     [[self transitioner] transitionToActionSheet:[[self configurator] createActionSheetForUrl:url

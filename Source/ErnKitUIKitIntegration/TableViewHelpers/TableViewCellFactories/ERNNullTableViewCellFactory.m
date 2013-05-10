@@ -52,7 +52,6 @@ static ERNNullTableViewCellFactory *immutableSingleton;
                                          fromObject:(id<NSObject>)object
 {
     return [self setupCell:[UITableViewCell createForTableView:tableView
-                                                    identifier:NSStringFromClass([object class])
                                                          style:UITableViewCellStyleDefault]
                     object:object];
 }

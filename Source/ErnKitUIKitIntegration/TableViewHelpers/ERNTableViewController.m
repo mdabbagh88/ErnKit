@@ -37,6 +37,13 @@
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                      actionHandler:(id<ERNActionHandler>)actionHandler
+{
+    return [[self alloc] initWithRepository:repository
+                              actionHandler:actionHandler];
+}
+
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory
                       actionHandler:(id<ERNActionHandler>)actionHandler
 {
@@ -45,7 +52,7 @@
                               actionHandler:actionHandler];
 }
 
-+(instancetype)refreshableViewControllerWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initRefreshableWithRepository:repository];
 }
@@ -56,6 +63,14 @@
     return [[self alloc] initRefreshableWithRepository:repository
                                            cellFactory:cellFactory];
 }
+
++(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
+                                 actionHandler:(id<ERNActionHandler>)actionHandler
+{
+    return [[self alloc] initRefreshableWithRepository:repository
+                                         actionHandler:actionHandler];
+}
+
 
 +(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
                                    cellFactory:(id<ERNTableViewCellFactory>)cellFactory
@@ -110,6 +125,13 @@
 
 #pragma mark - private - accessors
 
+-(void)setTableView:(UITableView *)tableView
+{
+    [super setTableView:tableView];
+    [tableView setDelegate:[self delegate]];
+    [tableView setDataSource:[self dataSource]];
+}
+
 -(id<ERNTableViewManager>)tableViewManager
 {
     return _tableViewManager = _tableViewManager ?
@@ -160,6 +182,18 @@
 }
 
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
+          actionHandler:(id<ERNActionHandler>)actionHandler
+{
+    self = [self initWithRepository:repository];
+    ERNCheckNil(self);
+    _createTableViewManager = ^(){
+        return [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
+                                                               actionHandler:actionHandler];
+    };
+    return self;
+}
+
+-(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
             cellFactory:(id<ERNTableViewCellFactory>)cellFactory
           actionHandler:(id<ERNActionHandler>)actionHandler
 {
@@ -203,5 +237,16 @@
     [self setupRefreshable];
     return self;
 }
+
+-(id)initRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
+                     actionHandler:(id<ERNActionHandler>)actionHandler
+{
+    self = [self initWithRepository:repository
+                      actionHandler:actionHandler];
+    ERNCheckNil(self);
+    [self setupRefreshable];
+    return self;
+}
+
 
 @end

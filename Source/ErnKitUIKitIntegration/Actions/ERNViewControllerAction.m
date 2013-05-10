@@ -27,6 +27,7 @@
                mime:(NSString *)mime
 {
     ERNCheckNilNoReturn([self configurator]);
+    ERNCheckNilNoReturn([self transitioner]);
     ERNCheckNilNoReturn(mime);
     ERNCheckNilNoReturn(url);
     [[self transitioner] transitionToViewController:[[self configurator] createViewControllerForUrl:url

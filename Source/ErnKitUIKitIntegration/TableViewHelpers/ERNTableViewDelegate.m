@@ -2,12 +2,14 @@
 #import "ERNTableViewManager.h"
 #import "ERNErrorHandler.h"
 #import "NSObject+ERNHelper.h"
+#import "ERNNullTableViewManager.h"
 
 @interface ERNTableViewDelegate ()
 @property (nonatomic, readonly) id<ERNTableViewManager> tableViewManager;
 @end
 
 @implementation ERNTableViewDelegate {
+    id<ERNTableViewManager> _tableViewManager;
 }
 
 #pragma mark - public - constructors
@@ -60,7 +62,9 @@ viewForFooterInSection:(NSInteger)section
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ERNCheckNilNoReturn(indexPath);
-    [[(id)[self tableViewManager] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:indexPath];
+    if ([[self tableViewManager] respondsToSelector:@selector(actionForIndexPath:)]) {
+        [[self tableViewManager] actionForIndexPath:indexPath];
+    }
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
 }
@@ -118,6 +122,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 -(BOOL)canHandleViewForFooterInSection
 {
     return [[self tableViewManager] respondsToSelector:@selector(viewForFooterInSection:)];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNTableViewManager>)tableViewManager
+{
+    return _tableViewManager = _tableViewManager ? _tableViewManager :
+    [ERNNullTableViewManager create];
 }
 
 #pragma mark - private - initializers

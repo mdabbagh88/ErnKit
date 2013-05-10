@@ -10,6 +10,8 @@
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory;
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                      actionHandler:(id<ERNActionHandler>)actionHandler;
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory
                       actionHandler:(id<ERNActionHandler>)actionHandler;
 @end

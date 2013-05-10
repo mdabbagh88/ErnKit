@@ -104,10 +104,8 @@
     // controller
     ERNSegmentedControlTogglerController *feedController =
     [ERNSegmentedControlTogglerController createWithSegmentedControl:feedSegmentedControl
-                                                             toggler:repository
-                                                                 url:url
-                                                                mime:mime];
-    
+                                                             toggler:repository];
+
     // Setup the needed bar button items for the toolbar, with left and right spacing to center the
     // segmented control, as well as the segmented control itself
     // Left spacing

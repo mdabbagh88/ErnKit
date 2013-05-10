@@ -3,12 +3,14 @@
 #import "ERNErrorHandler.h"
 #import "UITableViewCell+ERNHelper.h"
 #import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewManager.h"
 
 @interface ERNTableViewDataSource ()
 @property (nonatomic, readonly) id<ERNTableViewManager> tableViewManager;
 @end
 
 @implementation ERNTableViewDataSource {
+    id<ERNTableViewManager> _tableViewManager;
 }
 
 #pragma mark - public - constructors
@@ -66,6 +68,14 @@ titleForHeaderInSection:(NSInteger)section
 -(BOOL)canHandleTitleForHeaderInSection
 {
     return [[self tableViewManager] respondsToSelector:@selector(titleForHeaderInSection:)];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNTableViewManager>)tableViewManager
+{
+    return _tableViewManager = _tableViewManager ? _tableViewManager :
+    [ERNNullTableViewManager create];
 }
 
 #pragma mark - private - initializers

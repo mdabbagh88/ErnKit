@@ -28,6 +28,13 @@
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
+                      actionHandler:(id<ERNActionHandler>)actionHandler
+{
+    return [[self alloc] initWithRepository:repository
+                              actionHandler:actionHandler];
+}
+
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initWithRepository:repository
@@ -96,6 +103,15 @@
     self = [self initWithRepository:repository];
     ERNCheckNil(self);
     _cellFactory = cellFactory;
+    return self;
+}
+
+-(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
+          actionHandler:(id<ERNActionHandler>)actionHandler
+{
+    self = [self initWithRepository:repository];
+    ERNCheckNil(self);
+    _actionHandler = actionHandler;
     return self;
 }
 
