@@ -1293,7 +1293,6 @@
 				F79AE868172DCA8F001F8F23 /* Sources */,
 				F79AE869172DCA8F001F8F23 /* Frameworks */,
 				F79AE86A172DCA8F001F8F23 /* Resources */,
-				C446C608340143EF88AF5DB4 /* Copy Pods Resources */,
 				134DB1303B274BF1A38308DC /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1538,20 +1537,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
-		};
-		C446C608340143EF88AF5DB4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-ErnKitRestKitIntegrationDemo-resources.sh\"\n";
 		};
 		EFC8BFBAB44A4A72A710278D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
