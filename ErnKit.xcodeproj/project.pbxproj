@@ -76,6 +76,9 @@
 		F79AE88E172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
 		F79AE88F172DCDF1001F8F23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC15172BD3FA00F09332 /* CoreLocation.framework */; };
 		F79AE890172DCDF7001F8F23 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC02172B207600F09332 /* MapKit.framework */; };
+		F7A30860173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A3085F173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m */; };
+		F7A30863173ED3C40083F020 /* ERNMergingTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A30862173ED3C40083F020 /* ERNMergingTableViewManagerTest.m */; };
+		F7A30866173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A30865173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m */; };
 		F7ABC246173511170035B164 /* ERNDefaultActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06A46172D0A9900CA5FC4 /* ERNDefaultActionHandler.m */; };
 		F7ABC249173511170035B164 /* ERNMimeRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06A4E172D0A9900CA5FC4 /* ERNMimeRoutingAction.m */; };
 		F7ABC24A173511170035B164 /* ERNUrlRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06A50172D0A9900CA5FC4 /* ERNUrlRoutingAction.m */; };
@@ -135,6 +138,14 @@
 		F7E52C6F173D5B4B00A771D3 /* ERNViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C6E173D5B4B00A771D3 /* ERNViewControllerTest.m */; };
 		F7E52C72173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */; };
 		F7E52C75173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C74173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m */; };
+		F7E52C78173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C77173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m */; };
+		F7E52C7B173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C7A173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.m */; };
+		F7E52C7E173E615900A771D3 /* ERNModalViewControllerTransitionerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C7D173E615900A771D3 /* ERNModalViewControllerTransitionerTest.m */; };
+		F7E52C81173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C80173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.m */; };
+		F7E52C84173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C83173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.m */; };
+		F7E52C87173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C86173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.m */; };
+		F7E52C8A173E67E800A771D3 /* ERNNullTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C89173E67E800A771D3 /* ERNNullTableViewManagerTest.m */; };
+		F7E52C8D173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C8C173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
 		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -156,6 +167,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F7A3085C173ECAFE0083F020 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7F06B20172D0D8000CA5FC4;
+			remoteInfo = TestApp;
+		};
 		F7AD8B57173A80F30046E153 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
@@ -183,13 +201,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = F796D631173675FF001A6891;
 			remoteInfo = ErnKitRestKitIntegration;
-		};
-		F7F06B41172D0F1100CA5FC4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F7DA700E171F0CBA0026D627 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F7F06B20172D0D8000CA5FC4;
-			remoteInfo = ErnKitTestApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -370,6 +381,12 @@
 		F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
 		F79AE891172E49E5001F8F23 /* ERNNullAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemsRepository.h; sourceTree = "<group>"; };
 		F79AE892172E49E7001F8F23 /* ERNNullAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemsRepository.m; sourceTree = "<group>"; };
+		F7A3085E173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepositoryTableViewManagerTest.h; sourceTree = "<group>"; };
+		F7A3085F173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNAsyncItemsRepositoryTableViewManagerTest.m; sourceTree = "<group>"; };
+		F7A30861173ED3C40083F020 /* ERNMergingTableViewManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMergingTableViewManagerTest.h; sourceTree = "<group>"; };
+		F7A30862173ED3C40083F020 /* ERNMergingTableViewManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMergingTableViewManagerTest.m; sourceTree = "<group>"; };
+		F7A30864173ED3D10083F020 /* ERNTogglingTableViewManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingTableViewManagerTest.h; sourceTree = "<group>"; };
+		F7A30865173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTogglingTableViewManagerTest.m; sourceTree = "<group>"; };
 		F7ABC239173510C20035B164 /* libErnKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ABC272173518440035B164 /* ERNErrorHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNErrorHandler.h; sourceTree = "<group>"; };
 		F7ABC2A117351C220035B164 /* libErnKitMapKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKitMapKitIntegration.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -447,6 +464,22 @@
 		F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionControllerTest.m; sourceTree = "<group>"; };
 		F7E52C73173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlTogglerControllerTest.h; sourceTree = "<group>"; };
 		F7E52C74173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlTogglerControllerTest.m; sourceTree = "<group>"; };
+		F7E52C76173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlActionControllerTest.h; sourceTree = "<group>"; };
+		F7E52C77173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlActionControllerTest.m; sourceTree = "<group>"; };
+		F7E52C79173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNWindowViewControllerTransitionerTest.h; sourceTree = "<group>"; };
+		F7E52C7A173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNWindowViewControllerTransitionerTest.m; sourceTree = "<group>"; };
+		F7E52C7C173E615900A771D3 /* ERNModalViewControllerTransitionerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNModalViewControllerTransitionerTest.h; sourceTree = "<group>"; };
+		F7E52C7D173E615900A771D3 /* ERNModalViewControllerTransitionerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNModalViewControllerTransitionerTest.m; sourceTree = "<group>"; };
+		F7E52C7F173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNavigationViewControllerTransitionerTest.h; sourceTree = "<group>"; };
+		F7E52C80173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNavigationViewControllerTransitionerTest.m; sourceTree = "<group>"; };
+		F7E52C82173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNViewActionSheetTransitionerTest.h; sourceTree = "<group>"; };
+		F7E52C83173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNViewActionSheetTransitionerTest.m; sourceTree = "<group>"; };
+		F7E52C85173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionSheetTransitionerTest.h; sourceTree = "<group>"; };
+		F7E52C86173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionSheetTransitionerTest.m; sourceTree = "<group>"; };
+		F7E52C88173E67E800A771D3 /* ERNNullTableViewManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewManagerTest.h; sourceTree = "<group>"; };
+		F7E52C89173E67E800A771D3 /* ERNNullTableViewManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewManagerTest.m; sourceTree = "<group>"; };
+		F7E52C8B173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingTableViewCellFactoryTest.h; sourceTree = "<group>"; };
+		F7E52C8C173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingTableViewCellFactoryTest.m; sourceTree = "<group>"; };
 		F7F069A5172C992000CA5FC4 /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F7F069AC172C992200CA5FC4 /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -714,6 +747,8 @@
 			children = (
 				F74388F4173CF74C00676477 /* ERNNullTableViewCellFactoryTest.h */,
 				F74388F5173CF74C00676477 /* ERNNullTableViewCellFactoryTest.m */,
+				F7E52C8B173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.h */,
+				F7E52C8C173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m */,
 			);
 			path = TableViewCellFactories;
 			sourceTree = "<group>";
@@ -721,6 +756,14 @@
 		F74388E8173CEF4E00676477 /* TableViewManagers */ = {
 			isa = PBXGroup;
 			children = (
+				F7E52C88173E67E800A771D3 /* ERNNullTableViewManagerTest.h */,
+				F7E52C89173E67E800A771D3 /* ERNNullTableViewManagerTest.m */,
+				F7A3085E173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.h */,
+				F7A3085F173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m */,
+				F7A30861173ED3C40083F020 /* ERNMergingTableViewManagerTest.h */,
+				F7A30862173ED3C40083F020 /* ERNMergingTableViewManagerTest.m */,
+				F7A30864173ED3D10083F020 /* ERNTogglingTableViewManagerTest.h */,
+				F7A30865173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m */,
 			);
 			path = TableViewManagers;
 			sourceTree = "<group>";
@@ -728,6 +771,16 @@
 		F74388E9173CEF4E00676477 /* Transitioners */ = {
 			isa = PBXGroup;
 			children = (
+				F7E52C79173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.h */,
+				F7E52C7A173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.m */,
+				F7E52C7C173E615900A771D3 /* ERNModalViewControllerTransitionerTest.h */,
+				F7E52C7D173E615900A771D3 /* ERNModalViewControllerTransitionerTest.m */,
+				F7E52C7F173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.h */,
+				F7E52C80173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.m */,
+				F7E52C82173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.h */,
+				F7E52C83173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.m */,
+				F7E52C85173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.h */,
+				F7E52C86173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.m */,
 			);
 			path = Transitioners;
 			sourceTree = "<group>";
@@ -741,6 +794,8 @@
 				F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */,
 				F7E52C73173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.h */,
 				F7E52C74173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m */,
+				F7E52C76173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.h */,
+				F7E52C77173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1315,11 +1370,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				F7A3085D173ECAFE0083F020 /* PBXTargetDependency */,
 				F7AD8B58173A80F30046E153 /* PBXTargetDependency */,
 				F7AD8B5A173A80F30046E153 /* PBXTargetDependency */,
 				F7AD8B5C173A80F30046E153 /* PBXTargetDependency */,
 				F7AD8B5E173A80F30046E153 /* PBXTargetDependency */,
-				F7F06B42172D0F1100CA5FC4 /* PBXTargetDependency */,
 			);
 			name = UnitTests;
 			productName = UnitTests;
@@ -1688,6 +1743,17 @@
 				F7E52C6F173D5B4B00A771D3 /* ERNViewControllerTest.m in Sources */,
 				F7E52C72173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m in Sources */,
 				F7E52C75173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m in Sources */,
+				F7E52C78173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m in Sources */,
+				F7E52C7B173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.m in Sources */,
+				F7E52C7E173E615900A771D3 /* ERNModalViewControllerTransitionerTest.m in Sources */,
+				F7E52C81173E63B300A771D3 /* ERNNavigationViewControllerTransitionerTest.m in Sources */,
+				F7E52C84173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.m in Sources */,
+				F7E52C87173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.m in Sources */,
+				F7E52C8A173E67E800A771D3 /* ERNNullTableViewManagerTest.m in Sources */,
+				F7E52C8D173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m in Sources */,
+				F7A30860173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m in Sources */,
+				F7A30863173ED3C40083F020 /* ERNMergingTableViewManagerTest.m in Sources */,
+				F7A30866173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1703,6 +1769,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F7A3085D173ECAFE0083F020 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7F06B20172D0D8000CA5FC4 /* TestApp */;
+			targetProxy = F7A3085C173ECAFE0083F020 /* PBXContainerItemProxy */;
+		};
 		F7AD8B58173A80F30046E153 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F7ABC238173510C20035B164 /* ErnKit */;
@@ -1722,11 +1793,6 @@
 			isa = PBXTargetDependency;
 			target = F796D631173675FF001A6891 /* ErnKitRestKitIntegration */;
 			targetProxy = F7AD8B5D173A80F30046E153 /* PBXContainerItemProxy */;
-		};
-		F7F06B42172D0F1100CA5FC4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F7F06B20172D0D8000CA5FC4 /* TestApp */;
-			targetProxy = F7F06B41172D0F1100CA5FC4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1885,7 +1951,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/ErnKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ErnKitUIKitIntegration;
@@ -1897,7 +1963,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/ErnKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ErnKitUIKitIntegration;
@@ -1909,7 +1975,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/ErnKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ErnKitUIKitIntegration;
@@ -1971,7 +2037,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2027,7 +2093,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LLVM_LTO = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -2042,7 +2108,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ErnKitTestApp.app/ErnKitTestApp";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -2060,7 +2126,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ErnKitTestApp.app/ErnKitTestApp";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -2154,7 +2220,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2167,7 +2233,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ErnKitTestApp.app/ErnKitTestApp";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",

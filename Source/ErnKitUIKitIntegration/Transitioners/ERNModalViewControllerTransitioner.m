@@ -23,7 +23,7 @@
     ERNCheckNilNoReturn(destinationViewController);
     [[self sourceViewController] presentViewController:destinationViewController
                                               animated:YES
-                                            completion:^{}];
+                                            completion:nil];
 }
 
 #pragma mark - private - initializers

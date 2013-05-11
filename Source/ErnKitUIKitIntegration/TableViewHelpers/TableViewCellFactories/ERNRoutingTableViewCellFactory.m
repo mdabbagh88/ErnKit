@@ -58,7 +58,7 @@
     return [self factoryIsValid:factory] ? factory : [self defaultFactory];
 }
 
--(BOOL)factoryIsValid:(id<ERNTableViewCellFactory>)factory
+-(BOOL)factoryIsValid:(id)factory
 {
     return [factory conformsToProtocol:@protocol(ERNTableViewCellFactory)];
 }

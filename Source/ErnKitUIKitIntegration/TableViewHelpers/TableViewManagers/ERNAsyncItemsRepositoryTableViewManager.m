@@ -70,7 +70,7 @@
 
 -(NSInteger)sections
 {
-    return 1;
+    return (NSInteger)[self repository];
 }
 
 -(NSInteger)rowsInSection:(NSInteger)section

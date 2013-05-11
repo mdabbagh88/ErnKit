@@ -1,8 +1,4 @@
-#import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
-
-@class UITableView;
-@class UITableViewCell;
+#import <UIKit/UIKit.h>
 
 @protocol ERNTableViewCellFactory <NSObject>
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
