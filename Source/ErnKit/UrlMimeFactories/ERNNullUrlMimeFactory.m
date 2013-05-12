@@ -17,7 +17,7 @@ static ERNNullUrlMimeFactory *immutableSingleton;
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
-    return [NSURL createNull];
+    return [NSURL ERN_createNull];
 }
 
 -(NSString *)mimeForObject:(id<NSObject>)object

@@ -21,8 +21,8 @@
                                fromAnnotation:(ERNDemoTweet *)annotation
 {
     // Setup and annotation view, reusing current annotations from the map if possible
-    MKAnnotationView *annotationView = [MKAnnotationView createForMapView:mapView
-                                                               annotation:annotation];
+    MKAnnotationView *annotationView = [MKAnnotationView ERN_createForMapView:mapView
+                                                                   annotation:annotation];
 
     // Setup an image view, using the image url from the ERNDemoTweet class
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];

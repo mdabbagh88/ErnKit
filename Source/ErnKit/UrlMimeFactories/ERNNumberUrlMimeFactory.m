@@ -25,7 +25,7 @@ static ERNNumberUrlMimeFactory *immutableSingleton;
 
 -(NSURL *)urlForObject:(NSNumber *)number
 {
-    ERNCheckNilAndReturn(number, [NSURL createNull]);
+    ERNCheckNilAndReturn(number, [NSURL ERN_createNull]);
     return [NSURL URLWithString:[NSString stringWithFormat:@"number:%@", number]];
 }
 

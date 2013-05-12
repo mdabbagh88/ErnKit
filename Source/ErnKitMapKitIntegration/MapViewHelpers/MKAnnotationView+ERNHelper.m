@@ -6,47 +6,48 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithAnnotation:(id<MKAnnotation>)annotation
++(instancetype)ERN_createWithAnnotation:(id<MKAnnotation>)annotation
 {
-    return [self createForMapView:nil
-                       annotation:annotation];
+    return [self ERN_createForMapView:nil
+                           annotation:annotation];
 }
 
-+(instancetype)createForMapView:(MKMapView *)mapView
-                     annotation:(id<MKAnnotation>)annotation
++(instancetype)ERN_createForMapView:(MKMapView *)mapView
+                         annotation:(id<MKAnnotation>)annotation
 {
-    return [self createForMapView:mapView
-                       annotation:annotation
-                       identifier:NSStringFromClass([self class])];
+    return [self ERN_createForMapView:mapView
+                           annotation:annotation
+                           identifier:NSStringFromClass([self class])];
 }
 
 #pragma mark - private
 
-+(instancetype)createForMapView:(MKMapView *)mapView
-                     annotation:(id<MKAnnotation>)annotation
-                     identifier:(NSString *)identifier
++(instancetype)ERN_createForMapView:(MKMapView *)mapView
+                         annotation:(id<MKAnnotation>)annotation
+                         identifier:(NSString *)identifier
 {
-    return [self createAnnotationView:[mapView
-                                       dequeueReusableAnnotationViewWithIdentifier:identifier]
-                           annotation:[self validateAnnotation:annotation]
-                           identifier:identifier];
-
+    return [self ERN_createAnnotationView:[mapView
+                                           dequeueReusableAnnotationViewWithIdentifier:identifier]
+                               annotation:[self ERN_validateAnnotation:annotation]
+                               identifier:identifier];
+    
 }
 
-+(id<MKAnnotation>)validateAnnotation:(id<MKAnnotation>)annotation
++(id<MKAnnotation>)ERN_validateAnnotation:(id<MKAnnotation>)annotation
 {
     return annotation ? annotation : [ERNNullAnnotation create];
 }
 
-+(instancetype)createAnnotationView:(MKAnnotationView *)view
-                         annotation:(id<MKAnnotation>)annotation
-                         identifier:(NSString *)identifier
++(instancetype)ERN_createAnnotationView:(MKAnnotationView *)view
+                             annotation:(id<MKAnnotation>)annotation
+                             identifier:(NSString *)identifier
 {
-    return view ? [view setupAnnotation:annotation] : [[self alloc] initWithAnnotation:annotation
-                                                                       reuseIdentifier:identifier];
+    return view ? [view ERN_setupAnnotation:annotation] :
+    [[self alloc] initWithAnnotation:annotation
+                     reuseIdentifier:identifier];
 }
 
--(instancetype)setupAnnotation:(id<MKAnnotation>)annotation
+-(instancetype)ERN_setupAnnotation:(id<MKAnnotation>)annotation
 {
     [self setAnnotation:annotation];
     return self;

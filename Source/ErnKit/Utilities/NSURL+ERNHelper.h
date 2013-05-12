@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSURL (ERNHelper)
-+(instancetype)createNull;
++(instancetype)ERN_createNull;
 @end

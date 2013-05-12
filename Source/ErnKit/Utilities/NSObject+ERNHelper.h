@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (ERNHelper)
--(instancetype)guaranteeSelectorResponse:(SEL)selector;
+-(instancetype)ERN_guaranteeSelectorResponse:(SEL)selector;
 @end

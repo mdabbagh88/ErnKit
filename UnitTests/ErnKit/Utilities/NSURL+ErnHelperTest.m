@@ -9,8 +9,8 @@
 -(void)testSingleton
 {
     //given, when
-    NSURL *url1 = [NSURL createNull];
-    NSURL *url2 = [NSURL createNull];
+    NSURL *url1 = [NSURL ERN_createNull];
+    NSURL *url2 = [NSURL ERN_createNull];
 
     //then
     assertThat(url1, notNilValue());

@@ -49,7 +49,7 @@
 {
     ERNCheckNilNoReturn(indexPath);
     [[(id)[self routedTableViewManagerForSection:[indexPath section]]
-      guaranteeSelectorResponse:@selector(actionForIndexPath:)]
+      ERN_guaranteeSelectorResponse:@selector(actionForIndexPath:)]
      actionForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
 

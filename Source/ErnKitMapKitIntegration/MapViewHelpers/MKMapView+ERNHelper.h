@@ -1,5 +1,5 @@
 #import <MapKit/MapKit.h>
 
 @interface MKMapView (ERNHelper)
--(void)zoomToFitMapAnnotations;
+-(void)ERN_zoomToFitMapAnnotations;
 @end

@@ -29,7 +29,7 @@
 
 -(NSURL *)validUrl:(NSURL *)url
 {
-    return url ? url : [NSURL createNull];
+    return url ? url : [NSURL ERN_createNull];
 }
 
 -(NSString *)validMime:(NSString *)mime

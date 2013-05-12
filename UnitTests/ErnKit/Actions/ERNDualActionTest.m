@@ -25,7 +25,7 @@
                                                     secondAction:nil];
 
     //when, then
-    [action actionForUrl:[NSURL createNull]
+    [action actionForUrl:[NSURL ERN_createNull]
                     mime:nil];
 }
 
@@ -47,7 +47,7 @@
                                                     secondAction:nil];
 
     //when, then
-    [action actionForUrl:[NSURL createNull]
+    [action actionForUrl:[NSURL ERN_createNull]
                     mime:@"mime"];
 }
 
@@ -74,7 +74,7 @@
                                                     secondAction:nil];
 
     //when
-    [action actionForUrl:[NSURL createNull]
+    [action actionForUrl:[NSURL ERN_createNull]
                     mime:nil];
 
     //then
@@ -138,7 +138,7 @@
                                                     secondAction:mockAction2];
 
     //when
-    [action actionForUrl:[NSURL createNull]
+    [action actionForUrl:[NSURL ERN_createNull]
                     mime:nil];
 
     //then
@@ -205,7 +205,7 @@
                                                     secondAction:mockAction2];
 
     //when
-    [action actionForUrl:[NSURL createNull]
+    [action actionForUrl:[NSURL ERN_createNull]
                     mime:nil];
 
     //then

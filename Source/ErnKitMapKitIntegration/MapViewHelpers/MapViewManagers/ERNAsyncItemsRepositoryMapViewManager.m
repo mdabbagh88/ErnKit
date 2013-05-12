@@ -74,7 +74,7 @@
                             mapView:mapView];
     ERNCheckNil(self);
     _annotationZoomer = ^(){
-        [mapView zoomToFitMapAnnotations];
+        [mapView ERN_zoomToFitMapAnnotations];
     };
     return self;
 }

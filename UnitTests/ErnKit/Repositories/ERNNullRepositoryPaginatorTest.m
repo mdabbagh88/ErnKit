@@ -39,7 +39,7 @@
     NSURL *url = [paginator nextPage];
 
     //then
-    assertThat(url, equalTo([NSURL createNull]));
+    assertThat(url, equalTo([NSURL ERN_createNull]));
 }
 
 -(void)testPreviousPage
@@ -51,7 +51,7 @@
     NSURL *url = [paginator previousPage];
 
     //then
-    assertThat(url, equalTo([NSURL createNull]));
+    assertThat(url, equalTo([NSURL ERN_createNull]));
 }
 
 -(void)testItems

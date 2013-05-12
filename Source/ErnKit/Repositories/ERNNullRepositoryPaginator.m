@@ -24,12 +24,12 @@ static ERNNullRepositoryPaginator *immutableSingleton;
 
 -(NSURL *)nextPage
 {
-    return _nextPage = _nextPage ? _nextPage : [NSURL createNull];
+    return _nextPage = _nextPage ? _nextPage : [NSURL ERN_createNull];
 }
 
 -(NSURL *)previousPage
 {
-    return _previousPage = _previousPage ? _previousPage : [NSURL createNull];
+    return _previousPage = _previousPage ? _previousPage : [NSURL ERN_createNull];
 }
 
 -(NSArray *)items

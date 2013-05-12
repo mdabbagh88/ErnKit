@@ -4,7 +4,7 @@
 
 #pragma mark - public
 
--(instancetype)guaranteeSelectorResponse:(SEL)selector
+-(instancetype)ERN_guaranteeSelectorResponse:(SEL)selector
 {
     return [self respondsToSelector:selector] ? self : nil;
 }

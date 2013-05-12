@@ -22,7 +22,7 @@
 
 -(NSURL *)urlForObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(object, [NSURL createNull]);
+    ERNCheckNilAndReturn(object, [NSURL ERN_createNull]);
     return [self validUrlForObject:[[self factoryForObject:object] urlForObject:object]];
 }
 
@@ -36,7 +36,7 @@
 
 -(NSURL *)validUrlForObject:(NSURL *)url
 {
-    return url ? url : [NSURL createNull];
+    return url ? url : [NSURL ERN_createNull];
 }
 
 -(NSString *)validMimeForObject:(NSString *)mime

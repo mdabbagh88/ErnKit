@@ -17,7 +17,7 @@
     NSArray *array = @[];
 
     //when
-    NSArray *returnArray = [array guaranteeSelectorResponse:@selector(count)];
+    NSArray *returnArray = [array ERN_guaranteeSelectorResponse:@selector(count)];
 
     //then
     assertThat(returnArray, equalTo(array));
@@ -29,7 +29,7 @@
     NSArray *array = @[];
 
     //when
-    NSArray *returnArray = [array guaranteeSelectorResponse:@selector(testHasNotSelector)];
+    NSArray *returnArray = [array ERN_guaranteeSelectorResponse:@selector(testHasNotSelector)];
 
     //then
     assertThat(returnArray, equalTo(nil));

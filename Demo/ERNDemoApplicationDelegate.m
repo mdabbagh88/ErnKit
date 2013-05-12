@@ -29,7 +29,7 @@
                                                               configurator:configurator];
 
     // Run the application action, creating the app root view controller, pushing it to the window
-    [action actionForUrl:[NSURL createNull]
+    [action actionForUrl:[NSURL ERN_createNull]
                     mime:@""];
 
     // Show the window

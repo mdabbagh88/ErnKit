@@ -24,7 +24,7 @@ static ERNURLUrlMimeFactory *immutableSingleton;
 
 -(NSURL *)urlForObject:(NSURL *)url
 {
-    return url ? url : [NSURL createNull];
+    return url ? url : [NSURL ERN_createNull];
 }
 
 -(NSString *)mimeForObject:(NSURL *)url

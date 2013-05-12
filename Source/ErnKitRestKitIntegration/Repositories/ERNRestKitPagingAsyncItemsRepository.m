@@ -133,7 +133,7 @@
 
 -(NSURL *)url
 {
-    return _url = _url ? _url : [NSURL createNull];
+    return _url = _url ? _url : [NSURL ERN_createNull];
 }
 
 -(id<ERNRepositoryPaginator>)paginator
