@@ -43,8 +43,7 @@ static ERNNullTableViewCellFactory *immutableSingleton;
 
 -(UITableViewCell *)createTableViewCellFromObject:(id<NSObject>)object
 {
-    return [self setupCell:[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                  reuseIdentifier:NSStringFromClass([object class])]
+    return [self setupCell:[UITableViewCell createWithStyle:UITableViewCellStyleDefault]
                     object:object];
 }
 

@@ -6,17 +6,32 @@
 
 #pragma mark - public - constructors
 
++(instancetype)createWithAnnotation:(id<MKAnnotation>)annotation
+{
+    return [self createForMapView:nil
+                       annotation:annotation];
+}
+
++(instancetype)createForMapView:(MKMapView *)mapView
+                     annotation:(id<MKAnnotation>)annotation
+{
+    return [self createForMapView:mapView
+                       annotation:annotation
+                       identifier:NSStringFromClass([self class])];
+}
+
+#pragma mark - private
+
 +(instancetype)createForMapView:(MKMapView *)mapView
                      annotation:(id<MKAnnotation>)annotation
                      identifier:(NSString *)identifier
 {
-    return [self createAnnotationView:[mapView dequeueReusableAnnotationViewWithIdentifier:identifier]
+    return [self createAnnotationView:[mapView
+                                       dequeueReusableAnnotationViewWithIdentifier:identifier]
                            annotation:[self validateAnnotation:annotation]
                            identifier:identifier];
-    
-}
 
-#pragma mark - private
+}
 
 +(id<MKAnnotation>)validateAnnotation:(id<MKAnnotation>)annotation
 {

@@ -2,6 +2,6 @@
 
 @interface MKAnnotationView (ERNHelper)
 +(instancetype)createForMapView:(MKMapView *)mapView
-                     annotation:(id<MKAnnotation>)annotation
-                     identifier:(NSString *)identifier;
+                     annotation:(id<MKAnnotation>)annotation;
++(instancetype)createWithAnnotation:(id<MKAnnotation>)annotation;
 @end

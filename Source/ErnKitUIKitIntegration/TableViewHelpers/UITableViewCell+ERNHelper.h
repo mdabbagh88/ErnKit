@@ -4,4 +4,5 @@
 
 +(instancetype)createForTableView:(UITableView *)tableView
                             style:(UITableViewCellStyle)style;
++(instancetype)createWithStyle:(UITableViewCellStyle)style;
 @end

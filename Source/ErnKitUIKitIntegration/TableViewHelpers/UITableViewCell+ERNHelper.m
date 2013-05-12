@@ -4,6 +4,12 @@
 
 #pragma mark - public - constructors
 
++(instancetype)createWithStyle:(UITableViewCellStyle)style
+{
+    return [self createForTableView:nil
+                              style:style];
+}
+
 +(instancetype)createForTableView:(UITableView *)tableView
                           style:(UITableViewCellStyle)style
 {
