@@ -1,5 +1,5 @@
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface ERNViewControllerTest : SenTestCase
+@interface ERNNullAnnotationTest : SenTestCase
 
 @end

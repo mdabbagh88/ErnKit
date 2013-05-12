@@ -14,6 +14,13 @@ static ERNNullAnnotation *immutableSingleton;
     return immutableSingleton;
 }
 
+#pragma mark - public - accessors
+
+-(CLLocationCoordinate2D)coordinate
+{
+    return _coordinate;
+}
+
 #pragma mark - NSObject
 
 +(void)initialize

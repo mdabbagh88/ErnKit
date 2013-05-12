@@ -24,6 +24,9 @@
 // Segmented control toggler controller, calling its toggler with indexes as its segments are tapped
 #import "ERNSegmentedControlTogglerController.h"
 
+// Category declaring the UIViewController method to retain sub controllers
+#import "UIViewController+ERNHelper.h"
+
 // A configurator that sets up a map view controller showing the data from two twitter feeds
 // on the map. The controller also has a refresh button, refreshing the feeds, as well as a
 // feed toggler, toggling between showing feed one, feed two and both feeds at the same time.
@@ -69,7 +72,7 @@
     [ERNDemoTweetMapViewAnnotationViewFactory create];
     
     // Setup the map view controller with the RestKit repository and the annotation view factory
-    ERNViewController *viewController =
+    UIViewController *viewController =
     [ERNMapViewController createAutoZoomingWithRepository:repository
                                             actionHandler:nil
                                               viewFactory:annotationViewFactory];
@@ -132,7 +135,7 @@
     
     // Save the refresh and feed toggler controllers to the view controller so that they are
     // appropriately retained and released by ARC
-    [viewController setSubControllers:@[refreshController, feedController]];
+    [viewController ERN_setSubControllers:@[refreshController, feedController]];
     
     // Setup a navigation controller with our view controller as root view controller
     // so that the navigation bar and toolbar is visible

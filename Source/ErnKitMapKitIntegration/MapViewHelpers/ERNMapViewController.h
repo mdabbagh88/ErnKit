@@ -1,11 +1,11 @@
-#import "ERNViewController.h"
+#import <UIKit/UIKit.h>
 
 @protocol ERNAsyncItemsRepository;
 @protocol ERNActionHandler;
 @protocol ERNMapViewAnnotationViewFactory;
 @class MKMapView;
 
-@interface ERNMapViewController : ERNViewController
+@interface ERNMapViewController : UIViewController
 @property (nonatomic, readonly) MKMapView *mapView;
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                       actionHandler:(id<ERNActionHandler>)actionHandler
