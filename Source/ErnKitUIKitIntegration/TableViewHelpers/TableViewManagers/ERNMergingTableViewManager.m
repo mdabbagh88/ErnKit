@@ -31,7 +31,8 @@
 
 -(NSInteger)rowsInSection:(NSInteger)section
 {
-    return [[self routedTableViewManagerForSection:section] rowsInSection:[self routedSection:section]];
+    return [[self routedTableViewManagerForSection:section]
+            rowsInSection:[self routedSection:section]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -39,8 +40,9 @@
 {
     ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
     ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
-    return [[self routedTableViewManagerForSection:[indexPath section]] tableView:tableView
-                                                                 cellForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
+    return [[self routedTableViewManagerForSection:
+             [indexPath section]] tableView:tableView
+            cellForIndexPath:[self routedIndexPathForIndexPath:indexPath]];
 }
 
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +71,8 @@
     ERNCheckNilAndReturn(indexPath, defaultHeight);
     return [self heightForRowAtRoutedIndexPath:[self routedIndexPathForIndexPath:indexPath]
                                  defaultHeight:defaultHeight
-                        routedTableViewManager:[self routedTableViewManagerForSection:[indexPath section]]];
+                        routedTableViewManager:
+            [self routedTableViewManagerForSection:[indexPath section]]];
 }
 
 -(CGFloat)heightForHeaderInSection:(NSInteger)section
@@ -122,7 +125,8 @@
                           defaultHeight:(CGFloat)defaultHeight
                  routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
 {
-    return [routedTableViewManager respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)] ?
+    return [routedTableViewManager
+            respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)] ?
     [routedTableViewManager heightForRowAtIndexPath:routedIndexPath
                                       defaultHeight:defaultHeight] :
     defaultHeight;
@@ -132,7 +136,8 @@
                            defaultHeight:(CGFloat)defaultHeight
                   routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
 {
-    return [routedTableViewManager respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)] ?
+    return [routedTableViewManager
+            respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)] ?
     [routedTableViewManager heightForHeaderInSection:routedSection
                                        defaultHeight:defaultHeight] :
     defaultHeight;
@@ -142,7 +147,8 @@
                            defaultHeight:(CGFloat)defaultHeight
                   routedTableViewManager:(id<ERNTableViewManager>)routedTableViewManager
 {
-    return [routedTableViewManager respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)] ?
+    return [routedTableViewManager
+            respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)] ?
     [routedTableViewManager heightForFooterInSection:routedSection
                                        defaultHeight:defaultHeight] :
     defaultHeight;

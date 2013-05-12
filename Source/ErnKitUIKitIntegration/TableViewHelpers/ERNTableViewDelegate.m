@@ -83,7 +83,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(BOOL)canHandleHeightForRowAtIndexPath
 {
-    return [[self tableViewManager] respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)];
+    return [[self tableViewManager]
+            respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)];
 }
 
 -(CGFloat)heightForHeaderInSection:(NSInteger)section
@@ -97,7 +98,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(BOOL)canHandleHeightForHeaderInSection
 {
-    return [[self tableViewManager] respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)];
+    return [[self tableViewManager]
+            respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)];
 }
 
 -(CGFloat)heightForFooterInSection:(NSInteger)section
@@ -111,7 +113,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(BOOL)canHandleHeightForFooterInSection
 {
-    return [[self tableViewManager] respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)];
+    return [[self tableViewManager]
+            respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)];
 }
 
 -(BOOL)canHandleViewForHeaderInSection

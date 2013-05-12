@@ -51,7 +51,7 @@
             [NSNull null]];
 }
 
--(void)enumerateItemsUsingBlock:(void (^)(id<NSObject> item, NSUInteger index, BOOL *stop))block
+-(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
     [[self firstRepository] enumerateItemsUsingBlock:block];
     [[self restRepository] enumerateItemsUsingBlock:block];

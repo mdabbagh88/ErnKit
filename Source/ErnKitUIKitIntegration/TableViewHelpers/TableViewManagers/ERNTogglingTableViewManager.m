@@ -45,7 +45,8 @@
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
     ERNCheckNilNoReturn(indexPath);
-    [[(id)[self currentTableViewManager] guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:indexPath];
+    [[(id)[self currentTableViewManager]
+      guaranteeSelectorResponse:@selector(actionForIndexPath:)] actionForIndexPath:indexPath];
 }
 
 -(NSString *)titleForFooterInSection:(NSInteger)section
@@ -67,7 +68,8 @@
                     defaultHeight:(CGFloat)defaultHeight
 {
     ERNCheckNilAndReturn(indexPath, defaultHeight);
-    return [[self currentTableViewManager] respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)] ?
+    return [[self currentTableViewManager]
+            respondsToSelector:@selector(heightForRowAtIndexPath:defaultHeight:)] ?
     [[self currentTableViewManager] heightForRowAtIndexPath:indexPath
                                       defaultHeight:defaultHeight] :
     defaultHeight;
@@ -77,7 +79,8 @@
 -(CGFloat)heightForHeaderInSection:(NSInteger)section
                      defaultHeight:(CGFloat)defaultHeight
 {
-    return [[self currentTableViewManager] respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)] ?
+    return [[self currentTableViewManager]
+            respondsToSelector:@selector(heightForHeaderInSection:defaultHeight:)] ?
     [[self currentTableViewManager] heightForHeaderInSection:section
                                        defaultHeight:defaultHeight] :
     defaultHeight;
@@ -87,7 +90,8 @@
 -(CGFloat)heightForFooterInSection:(NSInteger)section
                      defaultHeight:(CGFloat)defaultHeight
 {
-    return [[self currentTableViewManager] respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)] ?
+    return [[self currentTableViewManager]
+            respondsToSelector:@selector(heightForFooterInSection:defaultHeight:)] ?
     [[self currentTableViewManager] heightForFooterInSection:section
                                        defaultHeight:defaultHeight] :
     defaultHeight;

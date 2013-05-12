@@ -29,8 +29,9 @@
     ERNCheckNilNoReturn([self transitioner]);
     ERNCheckNilNoReturn(url);
     ERNCheckNilNoReturn(mime);
-    [[self transitioner] transitionToActionSheet:[[self configurator] createActionSheetForUrl:url
-                                                                                         mime:mime]];
+    [[self transitioner] transitionToActionSheet:
+     [[self configurator] createActionSheetForUrl:url
+                                             mime:mime]];
 }
 
 #pragma mark - private - initializers

@@ -23,7 +23,8 @@
 {
     __block CLLocationCoordinate2D topLeftCoord = CLLocationCoordinate2DMake(-90, 180);
     __block CLLocationCoordinate2D bottomRightCoord = CLLocationCoordinate2DMake(90, -180);
-    [[self annotations] enumerateObjectsUsingBlock:^(id<MKAnnotation> annotation, NSUInteger index, BOOL *stop) {
+    [[self annotations] enumerateObjectsUsingBlock:
+     ^(id<MKAnnotation> annotation, NSUInteger index, BOOL *stop) {
         CLLocationCoordinate2D coordinate = [annotation coordinate];
         topLeftCoord.longitude = fmin(topLeftCoord.longitude,
                                       coordinate.longitude);
@@ -35,12 +36,23 @@
                                          coordinate.latitude);
     }];
 
-    return MKCoordinateRegionMake(CLLocationCoordinate2DMake([self latitudeCenterFromTop:topLeftCoord.latitude
-                                                                                  bottom:bottomRightCoord.latitude],
-                                                             [self longitudeCenterFromLeft:topLeftCoord.longitude
-                                                                                     right:bottomRightCoord.longitude]),
-                                  MKCoordinateSpanMake([self adjustDelta:fabs(topLeftCoord.latitude - bottomRightCoord.latitude)],
-                                                       [self adjustDelta:fabs(bottomRightCoord.longitude - topLeftCoord.longitude)]));
+    CLLocationDegrees latitude = [self latitudeCenterFromTop:topLeftCoord.latitude
+                                                      bottom:bottomRightCoord.latitude];
+
+    CLLocationDegrees longitude = [self longitudeCenterFromLeft:topLeftCoord.longitude
+                                                          right:bottomRightCoord.longitude];
+
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+
+    CLLocationDegrees latitudeDelta =
+    [self adjustDelta:fabs(topLeftCoord.latitude - bottomRightCoord.latitude)];
+
+    CLLocationDegrees longitudeDelta =
+    [self adjustDelta:fabs(bottomRightCoord.longitude - topLeftCoord.longitude)];
+
+    MKCoordinateSpan span = MKCoordinateSpanMake(latitudeDelta, longitudeDelta);
+    
+    return MKCoordinateRegionMake(coordinate, span);
 }
 
 -(CLLocationDegrees)latitudeCenterFromTop:(CLLocationDegrees)top

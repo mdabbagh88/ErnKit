@@ -30,8 +30,9 @@
     ERNCheckNilNoReturn([self transitioner]);
     ERNCheckNilNoReturn(mime);
     ERNCheckNilNoReturn(url);
-    [[self transitioner] transitionToViewController:[[self configurator] createViewControllerForUrl:url
-                                                                                               mime:mime]];
+    [[self transitioner] transitionToViewController:
+     [[self configurator] createViewControllerForUrl:url
+                                                mime:mime]];
 }
 
 #pragma mark - private - initializers
