@@ -9,7 +9,10 @@
 @property (nonatomic) id<ERNAction> currentAction;
 @end
 
-@implementation ERNActionTogglerAction
+@implementation ERNActionTogglerAction {
+    NSUInteger _selectedIndex;
+    NSNotificationCenter *_notificationCenter;
+}
 
 #pragma mark - public - constructors
 
@@ -20,9 +23,34 @@
 
 #pragma mark - ERNToggler
 
--(void)toggleToIndex:(NSUInteger)index
+-(void)setSelectedIndex:(NSUInteger)index
 {
+    _selectedIndex = index;
     [self setCurrentAction:[self validActionForIndex:index]];
+}
+
+-(NSUInteger)selectedIndex
+{
+    return _selectedIndex;
+}
+
+-(void)addObserver:(id)observer
+          selector:(SEL)selector
+{
+    ERNCheckNilNoReturn(observer);
+    ERNCheckNilNoReturn(selector);
+    [[self notificationCenter] addObserver:observer
+                                  selector:selector
+                                      name:[self notificationName]
+                                    object:self];
+}
+
+-(void)removeObserver:(id)observer
+{
+    ERNCheckNilNoReturn(observer);
+    [[self notificationCenter] removeObserver:observer
+                                         name:[self notificationName]
+                                       object:self];
 }
 
 #pragma mark - ERNAction
@@ -47,6 +75,20 @@
     [[self actions][index] conformsToProtocol:@protocol(ERNAction)];
 }
 
+-(NSString *)notificationName
+{
+    return NSStringFromClass([self class]);
+}
+
+#pragma mark - private - accessors
+
+-(NSNotificationCenter *)notificationCenter
+{
+    return _notificationCenter = _notificationCenter ?
+    _notificationCenter :
+    [NSNotificationCenter new];
+}
+
 #pragma mark - private - initializers
 
 -(id)initWithActions:(NSArray *)actions
@@ -54,6 +96,7 @@
     self = [self init];
     ERNCheckNil(self);
     _actions = actions;
+    _selectedIndex = 0;
     [self setCurrentAction:[self validActionForIndex:0]];
     return self;
 }

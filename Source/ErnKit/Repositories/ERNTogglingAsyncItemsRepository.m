@@ -9,6 +9,7 @@
 @end
 
 @implementation ERNTogglingAsyncItemsRepository {
+    NSUInteger _selectedIndex;
 }
 
 #pragma mark - public - constructor
@@ -20,12 +21,18 @@
 
 #pragma mark - ERNToggler
 
--(void)toggleToIndex:(NSUInteger)index
+-(void)setSelectedIndex:(NSUInteger)index
 {
+    _selectedIndex = index;
     [self removeSelfAsObserverFromCurrentRepository];
     [self changeCurrentRepositoryToIndex:index];
     [self addSelfAsObserverToCurrentRepository];
     [self notifyObservers];
+}
+
+-(NSUInteger)selectedIndex
+{
+    return _selectedIndex;
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -125,6 +132,7 @@
     self = [self init];
     ERNCheckNil(self);
     _repositories = repositories;
+    _selectedIndex = 0;
     [self changeCurrentRepositoryToIndex:0];
     [self addSelfAsObserverToCurrentRepository];
     return self;

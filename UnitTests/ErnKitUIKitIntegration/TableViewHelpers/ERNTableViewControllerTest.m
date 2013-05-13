@@ -4,31 +4,14 @@
 #import <UIKit/UIKit.h>
 #import "ERNTableViewControllerTest.h"
 #import "ERNTableViewController.h"
+#import "ERNTableViewController+Refreshable.h"
 #import "ERNAsyncItemsRepository.h"
 
 @interface ERNTableViewController ()
--(void)refreshRepository;
 -(void)repositoryRefreshed;
 @end
 
 @implementation ERNTableViewControllerTest
-
--(void)testSetSubViewControllers
-{
-    //given
-    NSArray *expectedArray = @[@"one", @"two"];
-    id mockRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    ERNTableViewController *viewController =
-    [ERNTableViewController createRefreshableWithRepository:mockRepository];
-
-    //when
-    [viewController setSubControllers:expectedArray];
-    NSArray *array = [viewController subControllers];
-
-    //then
-    assertThat(array, equalTo(expectedArray));
-    [mockRepository verify];
-}
 
 -(void)testViewDidLoadNilRepository
 {
@@ -94,33 +77,6 @@
     assertThat([[viewController tableView] delegate], notNilValue());
     assertThat([[viewController tableView] dataSource], notNilValue());
     assertThat([viewController refreshControl], notNilValue());
-    [mockRepository verify];
-}
-
--(void)testRefreshableRefreshNilRepository
-{
-    //given
-    ERNTableViewController *viewController =
-    [ERNTableViewController createRefreshableWithRepository:nil];
-    [viewController viewDidLoad];
-
-    //when, then
-    [viewController refreshRepository];
-}
-
--(void)testRefreshableRefreshRepository
-{
-    //given
-    id mockRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[mockRepository expect] refresh];
-    ERNTableViewController *viewController =
-    [ERNTableViewController createRefreshableWithRepository:mockRepository];
-    [viewController viewDidLoad];
-
-    //when
-    [viewController refreshRepository];
-
-    //then
     [mockRepository verify];
 }
 

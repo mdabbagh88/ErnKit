@@ -13,7 +13,6 @@
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSource;
 @property (nonatomic, readonly) id<UITableViewDelegate> delegate;
 @property (nonatomic, readonly, copy) id<ERNTableViewManager> (^createTableViewManager)();
-@property (nonatomic, readonly, copy) UIRefreshControl *(^createRefresh)();
 @end
 
 @implementation ERNTableViewController {
@@ -52,35 +51,6 @@
                               actionHandler:actionHandler];
 }
 
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    return [[self alloc] initRefreshableWithRepository:repository];
-}
-
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                   cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-{
-    return [[self alloc] initRefreshableWithRepository:repository
-                                           cellFactory:cellFactory];
-}
-
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                 actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [[self alloc] initRefreshableWithRepository:repository
-                                         actionHandler:actionHandler];
-}
-
-
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                   cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                                 actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [[self alloc] initRefreshableWithRepository:repository
-                                           cellFactory:cellFactory
-                                         actionHandler:actionHandler];
-}
-
 #pragma mark - UIViewController
 
 -(void)viewDidLoad
@@ -88,10 +58,6 @@
     [super viewDidLoad];
     [[self tableView] setDataSource:[self dataSource]];
     [[self tableView] setDelegate:[self delegate]];
-    [self setRefreshControl:[self createRefresh]()];
-    [[self refreshControl] addTarget:self
-                              action:@selector(refreshRepository)
-                    forControlEvents:UIControlEventValueChanged];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
 }
@@ -105,22 +71,9 @@
 
 #pragma mark - private
 
--(void)refreshRepository
-{
-    [[self repository] refresh];
-}
-
 -(void)repositoryRefreshed
 {
-    [[self refreshControl] endRefreshing];
     [[self tableView] reloadData];
-}
-
--(void)setupRefreshable
-{
-    _createRefresh = ^() {
-        return [UIRefreshControl new];
-    };
 }
 
 #pragma mark - private - accessors
@@ -163,9 +116,6 @@
     _createTableViewManager = ^(){
         return [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository];
     };
-    _createRefresh = ^(){
-        return (UIRefreshControl *)nil;
-    };
     return self;
 }
 
@@ -207,46 +157,5 @@
     };
     return self;
 }
-
--(id)initRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    self = [self initWithRepository:repository];
-    ERNCheckNil(self);
-    [self setupRefreshable];
-    return self;
-}
-
--(id)initRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                       cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-{
-    self = [self initWithRepository:repository
-                        cellFactory:cellFactory];
-    ERNCheckNil(self);
-    [self setupRefreshable];
-    return self;
-}
-
--(id)initRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                       cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                     actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    self = [self initWithRepository:repository
-                        cellFactory:cellFactory
-                      actionHandler:actionHandler];
-    ERNCheckNil(self);
-    [self setupRefreshable];
-    return self;
-}
-
--(id)initRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                     actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    self = [self initWithRepository:repository
-                      actionHandler:actionHandler];
-    ERNCheckNil(self);
-    [self setupRefreshable];
-    return self;
-}
-
 
 @end

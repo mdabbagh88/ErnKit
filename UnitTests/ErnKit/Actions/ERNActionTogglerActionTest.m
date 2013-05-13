@@ -13,7 +13,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
 
     //when, then
-    [actionTogglerAction toggleToIndex:5];
+    [actionTogglerAction setSelectedIndex:5];
     [actionTogglerAction actionForUrl:nil
                                  mime:nil];
 }
@@ -24,7 +24,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
 
     //when, then
-    [actionTogglerAction toggleToIndex:5];
+    [actionTogglerAction setSelectedIndex:5];
     [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
                                  mime:nil];
 }
@@ -35,7 +35,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
 
     //when, then
-    [actionTogglerAction toggleToIndex:5];
+    [actionTogglerAction setSelectedIndex:5];
     [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
                                  mime:@""];
 }
@@ -46,7 +46,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
 
     //when, then
-    [actionTogglerAction toggleToIndex:5];
+    [actionTogglerAction setSelectedIndex:5];
     [actionTogglerAction actionForUrl:nil
                                  mime:@""];
 }
@@ -58,7 +58,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
 
     //when, then
-    [actionTogglerAction toggleToIndex:1];
+    [actionTogglerAction setSelectedIndex:1];
     [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
                                  mime:@""];
 }
@@ -70,7 +70,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
 
     //when, then
-    [actionTogglerAction toggleToIndex:10];
+    [actionTogglerAction setSelectedIndex:10];
     [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
                                  mime:@""];
 }
@@ -88,7 +88,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
 
     //when, then
-    [actionTogglerAction toggleToIndex:1];
+    [actionTogglerAction setSelectedIndex:1];
     [actionTogglerAction actionForUrl:expectedUrl
                                  mime:expectedMime];
 
@@ -109,8 +109,8 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
 
     //when, then
-    [actionTogglerAction toggleToIndex:1];
-    [actionTogglerAction toggleToIndex:0];
+    [actionTogglerAction setSelectedIndex:1];
+    [actionTogglerAction setSelectedIndex:0];
     [actionTogglerAction actionForUrl:expectedUrl
                                  mime:expectedMime];
 
@@ -148,7 +148,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
 
     //when, then
-    [actionTogglerAction toggleToIndex:10];
+    [actionTogglerAction setSelectedIndex:10];
     [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
                                  mime:@""];
 

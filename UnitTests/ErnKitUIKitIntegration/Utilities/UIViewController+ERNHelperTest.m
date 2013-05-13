@@ -13,7 +13,6 @@
     UIViewController *viewController = [UIViewController new];
 
     //when
-    [viewController ERN_setSubControllers:nil];
     NSArray *array = [viewController ERN_getSubControllers];
 
     //then
@@ -27,7 +26,8 @@
     UIViewController *viewController = [UIViewController new];
 
     //when
-    [viewController ERN_setSubControllers:expectedArray];
+    [viewController ERN_addSubController:expectedArray[0]];
+    [viewController ERN_addSubController:expectedArray[1]];
     NSArray *array = [viewController ERN_getSubControllers];
 
     //then

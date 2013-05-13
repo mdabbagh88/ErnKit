@@ -20,6 +20,10 @@
 		F71B9377173B010E00F80B0F /* ERNRoutingUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9376173B010E00F80B0F /* ERNRoutingUrlMimeFactoryTest.m */; };
 		F71B937A173B011A00F80B0F /* ERNStringUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9379173B011A00F80B0F /* ERNStringUrlMimeFactoryTest.m */; };
 		F71B937D173B012B00F80B0F /* ERNURLUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B937C173B012B00F80B0F /* ERNURLUrlMimeFactoryTest.m */; };
+		F7421DDD17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DDC17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m */; };
+		F7421DE01741727B00E3ED5D /* ERNTableViewController+Refreshable.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */; };
+		F7421DE3174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DE2174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m */; };
+		F7421DE61741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DE51741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m */; };
 		F74388A2173B08A600676477 /* ERNNullRepositoryPaginatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388A1173B08A600676477 /* ERNNullRepositoryPaginatorTest.m */; };
 		F74388A5173B0CB800676477 /* ERNBaseAsyncRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388A4173B0CB800676477 /* ERNBaseAsyncRepositoryTest.m */; };
 		F74388AB173B12FA00676477 /* ERNNullMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388AA173B12FA00676477 /* ERNNullMapViewDelegate.m */; };
@@ -283,6 +287,14 @@
 		F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemRepository.h; sourceTree = "<group>"; };
 		F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemRepository.m; sourceTree = "<group>"; };
 		F7358A48172D488F000204DC /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		F7421DDB17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshControlRepositoryRefreshController.h; sourceTree = "<group>"; };
+		F7421DDC17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRefreshControlRepositoryRefreshController.m; sourceTree = "<group>"; };
+		F7421DDE1741727B00E3ED5D /* ERNTableViewController+Refreshable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNTableViewController+Refreshable.h"; sourceTree = "<group>"; };
+		F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNTableViewController+Refreshable.m"; sourceTree = "<group>"; };
+		F7421DE1174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoMapViewControllerConfigurator.h; sourceTree = "<group>"; };
+		F7421DE2174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoMapViewControllerConfigurator.m; sourceTree = "<group>"; };
+		F7421DE41741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTableViewControllerConfigurator.h; sourceTree = "<group>"; };
+		F7421DE51741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTableViewControllerConfigurator.m; sourceTree = "<group>"; };
 		F74388A0173B08A600676477 /* ERNNullRepositoryPaginatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullRepositoryPaginatorTest.h; sourceTree = "<group>"; };
 		F74388A1173B08A600676477 /* ERNNullRepositoryPaginatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullRepositoryPaginatorTest.m; sourceTree = "<group>"; };
 		F74388A3173B0CB800676477 /* ERNBaseAsyncRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBaseAsyncRepositoryTest.h; sourceTree = "<group>"; };
@@ -814,6 +826,10 @@
 				F79AE87A172DCA90001F8F23 /* ERNDemoApplicationDelegate.m */,
 				F79AE886172DCB7D001F8F23 /* ERNDemoApplicationConfigurator.h */,
 				F79AE887172DCB7D001F8F23 /* ERNDemoApplicationConfigurator.m */,
+				F7421DE1174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.h */,
+				F7421DE2174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m */,
+				F7421DE41741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.h */,
+				F7421DE51741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m */,
 				F79AE88C172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.h */,
 				F79AE88D172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m */,
 				F79AE889172DCC74001F8F23 /* ERNDemoTweet.h */,
@@ -1043,8 +1059,12 @@
 				F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */,
 				F796D64717368500001A6891 /* ERNSegmentedControlTogglerController.h */,
 				F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */,
+				F7421DDB17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.h */,
+				F7421DDC17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m */,
 				F7A30874173FC6FA0083F020 /* UIViewController+ERNHelper.h */,
 				F7A30875173FC6FB0083F020 /* UIViewController+ERNHelper.m */,
+				F7421DDE1741727B00E3ED5D /* ERNTableViewController+Refreshable.h */,
+				F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1644,6 +1664,8 @@
 				F79AE88B172DCC74001F8F23 /* ERNDemoTweet.m in Sources */,
 				F79AE88E172DCD70001F8F23 /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */,
 				F7F1004E173A4D6400FD3E29 /* ERNRestKitAsyncItemsRepository+ERNDemoTwitter.m in Sources */,
+				F7421DE3174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m in Sources */,
+				F7421DE61741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1724,6 +1746,8 @@
 				F78C90631737C4FA00301956 /* ERNTogglingTableViewManager.m in Sources */,
 				F78C90661737CAF400301956 /* ERNNullTableViewManager.m in Sources */,
 				F7A30876173FC6FB0083F020 /* UIViewController+ERNHelper.m in Sources */,
+				F7421DDD17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m in Sources */,
+				F7421DE01741727B00E3ED5D /* ERNTableViewController+Refreshable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

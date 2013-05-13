@@ -56,7 +56,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     [repository refresh];
 
     //then
@@ -89,7 +89,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([repository count], equalToUnsignedInteger(0));
@@ -122,7 +122,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([repository limit], equalToUnsignedInteger(0));
@@ -155,7 +155,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([repository offset], equalToUnsignedInteger(0));
@@ -188,7 +188,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThat([[repository itemAtIndex:5] class], equalTo([[NSNull null] class]));
@@ -222,7 +222,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([[repository filteredArrayUsingPredicate:nil] count],
@@ -259,7 +259,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([[repository filteredArrayUsingPredicate:mockPredicate] count],
@@ -298,7 +298,7 @@
     __block BOOL called = NO;
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     [repository enumerateItemsUsingBlock:
      ^(id<NSObject> item, NSUInteger index, BOOL *stop) {
          called = YES;
@@ -334,7 +334,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     [repository enumerateItemsUsingBlock:nil];
 
     //then
@@ -378,7 +378,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
     [repository refresh];
 
     //then
@@ -402,7 +402,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     [repository refresh];
 
     //then
@@ -447,7 +447,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     [mockRepository1 verify];
@@ -471,7 +471,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
 
     //then
     assertThatUnsignedInteger([repository count], equalToUnsignedInteger(expectedCount));
@@ -518,7 +518,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
 
     //then
     assertThatUnsignedInteger([repository limit], equalToUnsignedInteger(expectedLimit));
@@ -540,7 +540,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([repository limit], equalToUnsignedInteger(0));
@@ -587,7 +587,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
 
     //then
     assertThatUnsignedInteger([repository offset], equalToUnsignedInteger(expectedOffset));
@@ -609,7 +609,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([repository offset], equalToUnsignedInteger(0));
@@ -658,7 +658,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
 
     //then
     assertThat([repository itemAtIndex:expectedIndex], equalTo(mockObject));
@@ -680,7 +680,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThat([[repository itemAtIndex:5] class], equalTo([[NSNull null] class]));
@@ -725,7 +725,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
 
     //then
     assertThatUnsignedInteger([[repository filteredArrayUsingPredicate:nil] count],
@@ -748,7 +748,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
 
     //then
     assertThatUnsignedInteger([[repository filteredArrayUsingPredicate:nil] count],
@@ -796,7 +796,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
 
     //then
@@ -822,7 +822,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
     NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
 
     //then
@@ -869,7 +869,7 @@
     __block BOOL called = NO;
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     [repository enumerateItemsUsingBlock:
      ^(id<NSObject> item, NSUInteger index, BOOL *stop) {
          called = YES;
@@ -898,7 +898,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
     [repository enumerateItemsUsingBlock:expectedBlock];
 
     //then
@@ -940,7 +940,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:5];
+    [repository setSelectedIndex:5];
     [repository enumerateItemsUsingBlock:nil];
 
     //then
@@ -962,7 +962,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    [repository toggleToIndex:1];
+    [repository setSelectedIndex:1];
     [repository enumerateItemsUsingBlock:nil];
 
     //then

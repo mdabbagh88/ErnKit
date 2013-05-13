@@ -10,7 +10,10 @@
 @property (nonatomic) id<ERNTableViewManager> currentTableViewManager;
 @end
 
-@implementation ERNTogglingTableViewManager
+@implementation ERNTogglingTableViewManager {
+    NSUInteger _selectedIndex;
+    NSNotificationCenter *_notificationCenter;
+}
 
 #pragma mark - public - constructors
 
@@ -115,10 +118,37 @@
 
 #pragma mark - ERNToggler
 
--(void)toggleToIndex:(NSUInteger)index
+-(void)setSelectedIndex:(NSUInteger)index
 {
+    _selectedIndex = index;
     [self changeCurrentTableViewManagerToIndex:index];
     [self reloadTableView:[self tableView]];
+    [[self notificationCenter] postNotificationName:[self notificationName]
+                                             object:self];
+}
+
+-(NSUInteger)selectedIndex
+{
+    return _selectedIndex;
+}
+
+-(void)addObserver:(id)observer
+          selector:(SEL)selector
+{
+    ERNCheckNilNoReturn(observer);
+    ERNCheckNilNoReturn(selector);
+    [[self notificationCenter] addObserver:observer
+                                  selector:selector
+                                      name:[self notificationName]
+                                    object:self];
+}
+
+-(void)removeObserver:(id)observer
+{
+    ERNCheckNilNoReturn(observer);
+    [[self notificationCenter] removeObserver:observer
+                                         name:[self notificationName]
+                                       object:self];
 }
 
 #pragma mark - private
@@ -145,6 +175,22 @@
     return [self tableViewManagers][index];
 }
 
+#pragma mark - private
+
+-(NSString *)notificationName
+{
+    return NSStringFromClass([self class]);
+}
+
+#pragma mark - private - accessors
+
+-(NSNotificationCenter *)notificationCenter
+{
+    return _notificationCenter = _notificationCenter ?
+    _notificationCenter :
+    [NSNotificationCenter new];
+}
+
 #pragma mark - private - initializers
 
 -(id)initWithTableViewManagers:(NSArray *)tableViewManagers
@@ -154,6 +200,7 @@
     ERNCheckNil(self);
     _tableViewManagers = tableViewManagers;
     _tableView = tableView;
+    _selectedIndex = 0;
     return self;
 }
 

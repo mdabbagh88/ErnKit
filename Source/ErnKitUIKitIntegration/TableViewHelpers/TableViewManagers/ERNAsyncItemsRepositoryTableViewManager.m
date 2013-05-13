@@ -73,7 +73,7 @@
 
 -(NSInteger)sections
 {
-    return (NSInteger)[self repository];
+    return [self repository] ? 1 : 0;
 }
 
 -(NSInteger)rowsInSection:(NSInteger)section

@@ -60,8 +60,8 @@
 {
     //given
     NSInteger expectedIndex = 2;
-    id mockToggler = [OCMockObject mockForProtocol:@protocol(ERNToggler)];
-    [[mockToggler expect] toggleToIndex:(NSUInteger)expectedIndex];
+    id mockToggler = [OCMockObject niceMockForProtocol:@protocol(ERNToggler)];
+    [[mockToggler expect] setSelectedIndex:(NSUInteger)expectedIndex];
     id mockSegmentedControl = [OCMockObject mockForClass:[UISegmentedControl class]];
     [[mockSegmentedControl expect] addTarget:OCMOCK_ANY
                                       action:NSSelectorFromString(@"valueChanged:")

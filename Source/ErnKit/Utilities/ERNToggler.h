@@ -1,5 +1,8 @@
 #import <Foundation/Foundation.h>
 
 @protocol ERNToggler <NSObject>
--(void)toggleToIndex:(NSUInteger)index;
+@property (nonatomic) NSUInteger selectedIndex;
+-(void)addObserver:(id)observer
+          selector:(SEL)selector;
+-(void)removeObserver:(id)observer;
 @end

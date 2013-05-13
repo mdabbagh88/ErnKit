@@ -6,6 +6,7 @@
 
 @interface ERNSegmentedControlTogglerController ()
 @property (nonatomic, readonly) id<ERNToggler> toggler;
+@property (nonatomic, readonly) UISegmentedControl *segmentedControl;
 @end
 
 @implementation ERNSegmentedControlTogglerController {
@@ -24,7 +25,12 @@
 
 -(void)valueChanged:(UISegmentedControl *)segmentedControl
 {
-    [[self toggler] toggleToIndex:(NSUInteger)[segmentedControl selectedSegmentIndex]];
+    [[self toggler] setSelectedIndex:(NSUInteger)[segmentedControl selectedSegmentIndex]];
+}
+
+-(void)dataChanged
+{
+    [[self segmentedControl] setSelectedSegmentIndex:(NSInteger)[[self toggler] selectedIndex]];
 }
 
 #pragma mark - private - initializers
@@ -36,9 +42,12 @@
     self = [self init];
     ERNCheckNil(self);
     _toggler = toggler;
-    [segmentedControl addTarget:self
-                         action:@selector(valueChanged:)
-               forControlEvents:UIControlEventValueChanged];
+    _segmentedControl = segmentedControl;
+    [_toggler addObserver:self
+                 selector:@selector(dataChanged)];
+    [_segmentedControl addTarget:self
+                          action:@selector(valueChanged:)
+                forControlEvents:UIControlEventValueChanged];
     return self;
 }
 
