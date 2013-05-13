@@ -16,7 +16,7 @@
     ERNBaseAsyncRepository *repository = [ERNBaseAsyncRepository new];
     NSNotificationCenter *notificationCenter = [repository notificationCenter];
 
-    assertThat(notificationCenter, equalTo([NSNotificationCenter defaultCenter]));
+    assertThat(notificationCenter, notNilValue());
 }
 
 -(void)testNotifyObservers

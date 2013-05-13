@@ -63,7 +63,7 @@
 {
     return _notificationCenter = _notificationCenter ?
     _notificationCenter :
-    [NSNotificationCenter defaultCenter];
+    [NSNotificationCenter new];
 }
 
 @end
