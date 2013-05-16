@@ -17,7 +17,8 @@
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
 {
-    return [[self alloc] initWithMappings:mappings];
+    return [[self alloc] initWithMappings:mappings
+                           defaultFactory:nil];
 }
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
@@ -80,19 +81,12 @@
 #pragma mark - private - initializers
 
 -(id)initWithMappings:(NSDictionary *)mappings
+       defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory
 {
     self = [self init];
     ERNCheckNil(self);
     _mappings = mappings;
-    return self;
-}
-
--(id)initWithMappings:(NSDictionary *)mappings
-       defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory
-{
-    self = [self initWithMappings:mappings];
-    ERNCheckNil(self);
-    _defaultFactory = defaultFactory ? defaultFactory : _defaultFactory;
+    _defaultFactory = defaultFactory;
     return self;
 }
 

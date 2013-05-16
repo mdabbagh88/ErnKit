@@ -13,7 +13,7 @@
     UIViewController *viewController = [UIViewController new];
 
     //when
-    NSArray *array = [viewController ERN_getSubControllers];
+    NSArray *array = [viewController ERN_getMicroControllers];
 
     //then
     assertThat(array, nilValue());
@@ -26,9 +26,9 @@
     UIViewController *viewController = [UIViewController new];
 
     //when
-    [viewController ERN_addSubController:expectedArray[0]];
-    [viewController ERN_addSubController:expectedArray[1]];
-    NSArray *array = [viewController ERN_getSubControllers];
+    [viewController ERN_addMicroController:expectedArray[0]];
+    [viewController ERN_addMicroController:expectedArray[1]];
+    NSArray *array = [viewController ERN_getMicroControllers];
 
     //then
     assertThat(array, equalTo(expectedArray));

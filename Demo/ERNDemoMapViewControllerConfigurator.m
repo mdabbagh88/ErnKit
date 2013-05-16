@@ -1,26 +1,11 @@
 #import "ERNDemoMapViewControllerConfigurator.h"
-
-// Map view annotation view factory, creating annotation views for the map based on tweet objects
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
-
-// Map view controller showing annotations from an items repository on the screen
 #import "ERNMapViewController.h"
-
-// Refresh repository action, refreshing a repository when invoked
 #import "ERNRefreshAsyncRepositoryAction.h"
-
-// Bar button item action controller, calling its action when its button is tapped
 #import "ERNBarButtonItemActionController.h"
-
-// Segmented control toggler controller, calling its toggler with indexes as its segments are tapped
 #import "ERNSegmentedControlTogglerController.h"
-
-// Category declaring the UIViewController method to retain sub controllers
 #import "UIViewController+ERNHelper.h"
-
-// Error handler
 #import "ERNErrorHandler.h"
-
 #import "ERNAsyncItemsRepository.h"
 
 
@@ -30,6 +15,13 @@
 @end
 
 @implementation ERNDemoMapViewControllerConfigurator {
+    id<ERNMapViewAnnotationViewFactory> _annotationViewFactory;
+    UIViewController *_mapViewController;
+    id<ERNAction> _refreshAction;
+    UIBarButtonItem *_refreshButton;
+    UISegmentedControl *_feedSegmentedControl;
+    ERNSegmentedControlTogglerController *_feedController;
+    ERNBarButtonItemActionController *_refreshController;
 }
 
 #pragma mark - public - constructors
@@ -46,60 +38,76 @@
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    // Setup an annotation view factory creating map annotations for the map view controller
-    id<ERNMapViewAnnotationViewFactory> annotationViewFactory =
-    [ERNDemoTweetMapViewAnnotationViewFactory create];
+    [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [[self feedSegmentedControl] setSelectedSegmentIndex:0];
 
-    // Setup the map view controller with the RestKit repository and the annotation view factory
-    UIViewController *mapViewController =
+    [[[self mapViewController] navigationItem] setTitleView:[self feedSegmentedControl]];
+    [[[self mapViewController] navigationItem] setRightBarButtonItem:[self refreshButton]];
+    [[self mapViewController] ERN_addMicroController:[self feedController]];
+    [[self mapViewController] ERN_addMicroController:[self createRefreshControllerFromUrl:url
+                                                                                     mime:mime]];
+    return [self mapViewController];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNMapViewAnnotationViewFactory>)annotationViewFactory
+{
+    return _annotationViewFactory = _annotationViewFactory ?
+    _annotationViewFactory :
+    [ERNDemoTweetMapViewAnnotationViewFactory create];
+}
+
+-(UIViewController *)mapViewController
+{
+    return _mapViewController = _mapViewController ?
+    _mapViewController :
     [ERNMapViewController createAutoZoomingWithRepository:[self repository]
                                             actionHandler:nil
-                                              viewFactory:annotationViewFactory];
+                                              viewFactory:[self annotationViewFactory]];
+}
 
-    // Setup a refresh action
-    id<ERNAction> refreshAction =
+-(id<ERNAction>)refreshAction
+{
+    return _refreshAction = _refreshAction ?
+    _refreshAction :
     [ERNRefreshAsyncRepositoryAction createWithRepository:[self repository]];
+}
 
-
-    // Setup a refresh button for the toolbar and wire it up with the refresh action
-    UIBarButtonItem *refreshButton =
+-(UIBarButtonItem *)refreshButton
+{
+    return _refreshButton = _refreshButton ?
+    _refreshButton :
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                   target:nil
                                                   action:nil];
-
-    // Wire the refresh action with the refresh button using a bar button action controller
-    ERNBarButtonItemActionController *refreshController =
-    [ERNBarButtonItemActionController createWithBarButtonItem:refreshButton
-                                                       action:refreshAction
-                                                          url:url
-                                                         mime:mime];
-
-    // Setup a segmented control used to select what feed to show
-    UISegmentedControl *feedSegmentedControl =
-    [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Magnus", @"Jim"]];
-    [feedSegmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [feedSegmentedControl setSelectedSegmentIndex:0];
-
-    // Wire the toggling repository with the segmented control using a segmented control toggler
-    // controller
-    ERNSegmentedControlTogglerController *feedController =
-    [ERNSegmentedControlTogglerController createWithSegmentedControl:feedSegmentedControl
-                                                             toggler:[self toggler]];
-
-    // Setup the toolbar in the view controller, left space, segmented control, right space
-    [[mapViewController navigationItem] setTitleView:feedSegmentedControl];
-
-    // Setup the navigation bar in the view controller, the refresh button
-    [[mapViewController navigationItem] setRightBarButtonItem:refreshButton];
-
-    // Save the refresh and feed toggler controllers to the view controller so that they are
-    // appropriately retained and released by ARC
-    [mapViewController ERN_addSubController:refreshController];
-    [mapViewController ERN_addSubController:feedController];
-
-    // Return the navigation controller to the system for transitioning
-    return mapViewController;
 }
+
+-(UISegmentedControl *)feedSegmentedControl
+{
+    return _feedSegmentedControl = _feedSegmentedControl ?
+    _feedSegmentedControl :
+    [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Magnus", @"Jim"]];
+}
+
+-(ERNSegmentedControlTogglerController *)feedController
+{
+    return _feedController = _feedController ?
+    _feedController :
+    [ERNSegmentedControlTogglerController createWithSegmentedControl:[self feedSegmentedControl]
+                                                             toggler:[self toggler]];
+}
+
+-(ERNBarButtonItemActionController *)createRefreshControllerFromUrl:(NSURL *)url
+                                                               mime:(NSString *)mime
+{
+    return [ERNBarButtonItemActionController createWithBarButtonItem:[self refreshButton]
+                                                              action:[self refreshAction]
+                                                                 url:url
+                                                                mime:mime];
+}
+
+#pragma mark - private - initializers
 
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
                 toggler:(id<ERNToggler>)toggler

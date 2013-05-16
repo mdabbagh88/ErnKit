@@ -15,7 +15,8 @@
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
 {
-    return [[self alloc] initWithMappings:mappings];
+    return [[self alloc] initWithMappings:mappings
+                           defaultFactory:nil];
 }
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
@@ -65,17 +66,10 @@
 -(id)initWithMappings:(NSDictionary *)mappings
        defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
 {
-    self = [self initWithMappings:mappings];
-    ERNCheckNil(self);
-    _defaultFactory = defaultFactory;
-    return self;
-}
-
--(id)initWithMappings:(NSDictionary *)mappings
-{
     self = [self init];
     ERNCheckNil(self);
     _mappings = mappings;
+    _defaultFactory = defaultFactory;
     return self;
 }
 

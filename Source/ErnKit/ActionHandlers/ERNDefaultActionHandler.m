@@ -30,12 +30,15 @@
                  urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
 {
     return [[self alloc] initWithAction:action
-                         urlMimeFactory:urlMimeFactory];
+                         urlMimeFactory:urlMimeFactory
+                        repositoryStore:nil];
 }
 
 +(instancetype)createWithAction:(id<ERNAction>)action
 {
-    return [[self alloc] initWithAction:action];
+    return [[self alloc] initWithAction:action
+                         urlMimeFactory:nil
+                        repositoryStore:nil];
 }
 
 #pragma mark - ERNActionHandler
@@ -72,27 +75,11 @@
      urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
     repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
-    self = [self initWithAction:action
-            urlMimeFactory:urlMimeFactory];
-    ERNCheckNil(self);
-    _repositoryStore = repositoryStore;
-    return self;
-}
-
--(id)initWithAction:(id<ERNAction>)action
-     urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
-{
-    self = [self initWithAction:action];
-    ERNCheckNil(self);
-    _urlMimeFactory = urlMimeFactory;
-    return self;
-}
-
--(id)initWithAction:(id<ERNAction>)action
-{
     self = [self init];
     ERNCheckNil(self);
     _action = action;
+    _repositoryStore = repositoryStore;
+    _urlMimeFactory = urlMimeFactory;
     return self;
 }
 

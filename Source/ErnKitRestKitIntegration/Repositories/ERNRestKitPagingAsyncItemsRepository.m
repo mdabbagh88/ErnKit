@@ -32,6 +32,7 @@
 {
     return [[self alloc] initWithUrl:url
                              keyPath:keyPath
+                         pathPattern:nil
                              mapping:mapping
                          statusCodes:statusCodes];
 }
@@ -142,19 +143,6 @@
 }
 
 #pragma mark - private - initializers
-
--(id)initWithUrl:(NSURL *)url
-         keyPath:(NSString *)keyPath
-         mapping:(RKObjectMapping *)mapping
-     statusCodes:(NSIndexSet *)statusCodes
-{
-    self = [self initWithUrl:url
-                     keyPath:keyPath
-                 pathPattern:nil
-                     mapping:mapping
-                 statusCodes:statusCodes];
-    return self;
-}
 
 -(id)initWithUrl:(NSURL *)url
          keyPath:(NSString *)keyPath

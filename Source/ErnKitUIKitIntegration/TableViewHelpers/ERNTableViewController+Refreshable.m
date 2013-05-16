@@ -48,7 +48,7 @@
     [ERNRefreshControlRepositoryRefreshController createWithRefreshControl:refreshControl
                                                                 repository:repository];
     [tableViewController setRefreshControl:refreshControl];
-    [tableViewController ERN_addSubController:refreshController];
+    [tableViewController ERN_addMicroController:refreshController];
     return tableViewController;
 }
 

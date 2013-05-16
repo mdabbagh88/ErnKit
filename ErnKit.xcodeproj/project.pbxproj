@@ -10,6 +10,10 @@
 		551CB70F4A9F468689771182 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FB2A2DCCAA419391FF6031 /* libPods-Demo.a */; };
 		5A3FC65CBBD940FA92B9BB31 /* libPods-ErnKitRestKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */; };
 		A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */; };
+		F70A6A2A1742B2B6004095C1 /* ERNBarButtonItemActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A6A231742B2B6004095C1 /* ERNBarButtonItemActionController.m */; };
+		F70A6A2B1742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A6A251742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m */; };
+		F70A6A2C1742B2B6004095C1 /* ERNSegmentedControlActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A6A271742B2B6004095C1 /* ERNSegmentedControlActionController.m */; };
+		F70A6A2D1742B2B6004095C1 /* ERNSegmentedControlTogglerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A6A291742B2B6004095C1 /* ERNSegmentedControlTogglerController.m */; };
 		F71B935D173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */; };
 		F71B9360173AF58100F80B0F /* ERNNullActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B935F173AF58100F80B0F /* ERNNullActionTest.m */; };
 		F71B9363173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9362173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m */; };
@@ -20,7 +24,6 @@
 		F71B9377173B010E00F80B0F /* ERNRoutingUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9376173B010E00F80B0F /* ERNRoutingUrlMimeFactoryTest.m */; };
 		F71B937A173B011A00F80B0F /* ERNStringUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9379173B011A00F80B0F /* ERNStringUrlMimeFactoryTest.m */; };
 		F71B937D173B012B00F80B0F /* ERNURLUrlMimeFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B937C173B012B00F80B0F /* ERNURLUrlMimeFactoryTest.m */; };
-		F7421DDD17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DDC17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m */; };
 		F7421DE01741727B00E3ED5D /* ERNTableViewController+Refreshable.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */; };
 		F7421DE3174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DE2174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.m */; };
 		F7421DE61741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7421DE51741862400E3ED5D /* ERNDemoTableViewControllerConfigurator.m */; };
@@ -60,11 +63,8 @@
 		F796D61B173568CD001A6891 /* ERNTraceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61A173568CC001A6891 /* ERNTraceAction.m */; };
 		F796D61E1735705F001A6891 /* ERNMergingAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61D1735705F001A6891 /* ERNMergingAsyncItemsRepository.m */; };
 		F796D62117358E76001A6891 /* ERNTogglingAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D62017358E76001A6891 /* ERNTogglingAsyncItemsRepository.m */; };
-		F796D62A1735B98A001A6891 /* ERNBarButtonItemActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D6291735B98A001A6891 /* ERNBarButtonItemActionController.m */; };
-		F796D630173661A0001A6891 /* ERNSegmentedControlActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */; };
 		F796D63B173675FF001A6891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
 		F796D64317367696001A6891 /* ERNRestKitRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2C317351D020035B164 /* ERNRestKitRepositoryFactory.m */; };
-		F796D64917368500001A6891 /* ERNSegmentedControlTogglerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */; };
 		F796D64D173692C9001A6891 /* ERNActionTogglerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */; };
 		F79AE86D172DCA8F001F8F23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F79AE86E172DCA8F001F8F23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
@@ -255,6 +255,14 @@
 		6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.xcconfig"; path = "Pods/Pods-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F70A6A221742B2B6004095C1 /* ERNBarButtonItemActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionController.h; sourceTree = "<group>"; };
+		F70A6A231742B2B6004095C1 /* ERNBarButtonItemActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionController.m; sourceTree = "<group>"; };
+		F70A6A241742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshControlRepositoryRefreshController.h; sourceTree = "<group>"; };
+		F70A6A251742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRefreshControlRepositoryRefreshController.m; sourceTree = "<group>"; };
+		F70A6A261742B2B6004095C1 /* ERNSegmentedControlActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlActionController.h; sourceTree = "<group>"; };
+		F70A6A271742B2B6004095C1 /* ERNSegmentedControlActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlActionController.m; sourceTree = "<group>"; };
+		F70A6A281742B2B6004095C1 /* ERNSegmentedControlTogglerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlTogglerController.h; sourceTree = "<group>"; };
+		F70A6A291742B2B6004095C1 /* ERNSegmentedControlTogglerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlTogglerController.m; sourceTree = "<group>"; };
 		F71B935B173AEDDC00F80B0F /* ERNMimeRoutingActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMimeRoutingActionTest.h; sourceTree = "<group>"; };
 		F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMimeRoutingActionTest.m; sourceTree = "<group>"; };
 		F71B935E173AF58100F80B0F /* ERNNullActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullActionTest.h; sourceTree = "<group>"; };
@@ -287,8 +295,6 @@
 		F733BAFB1730FD1C00BE50CA /* ERNNullAsyncItemRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemRepository.h; sourceTree = "<group>"; };
 		F733BAFC1730FD1D00BE50CA /* ERNNullAsyncItemRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemRepository.m; sourceTree = "<group>"; };
 		F7358A48172D488F000204DC /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
-		F7421DDB17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshControlRepositoryRefreshController.h; sourceTree = "<group>"; };
-		F7421DDC17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRefreshControlRepositoryRefreshController.m; sourceTree = "<group>"; };
 		F7421DDE1741727B00E3ED5D /* ERNTableViewController+Refreshable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNTableViewController+Refreshable.h"; sourceTree = "<group>"; };
 		F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNTableViewController+Refreshable.m"; sourceTree = "<group>"; };
 		F7421DE1174185F800E3ED5D /* ERNDemoMapViewControllerConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoMapViewControllerConfigurator.h; sourceTree = "<group>"; };
@@ -366,13 +372,7 @@
 		F796D61D1735705F001A6891 /* ERNMergingAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMergingAsyncItemsRepository.m; sourceTree = "<group>"; };
 		F796D61F17358E75001A6891 /* ERNTogglingAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingAsyncItemsRepository.h; sourceTree = "<group>"; };
 		F796D62017358E76001A6891 /* ERNTogglingAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTogglingAsyncItemsRepository.m; sourceTree = "<group>"; };
-		F796D6281735B98A001A6891 /* ERNBarButtonItemActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionController.h; sourceTree = "<group>"; };
-		F796D6291735B98A001A6891 /* ERNBarButtonItemActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionController.m; sourceTree = "<group>"; };
-		F796D62E173661A0001A6891 /* ERNSegmentedControlActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlActionController.h; sourceTree = "<group>"; };
-		F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlActionController.m; sourceTree = "<group>"; };
 		F796D641173675FF001A6891 /* libErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKitRestKitIntegration.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F796D64717368500001A6891 /* ERNSegmentedControlTogglerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlTogglerController.h; sourceTree = "<group>"; };
-		F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlTogglerController.m; sourceTree = "<group>"; };
 		F796D64A17368F98001A6891 /* ERNToggler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNToggler.h; sourceTree = "<group>"; };
 		F796D64B173692C9001A6891 /* ERNActionTogglerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionTogglerAction.h; sourceTree = "<group>"; };
 		F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionTogglerAction.m; sourceTree = "<group>"; };
@@ -639,6 +639,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F70A6A211742B2B5004095C1 /* MicroControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F70A6A221742B2B6004095C1 /* ERNBarButtonItemActionController.h */,
+				F70A6A231742B2B6004095C1 /* ERNBarButtonItemActionController.m */,
+				F70A6A241742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.h */,
+				F70A6A251742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m */,
+				F70A6A261742B2B6004095C1 /* ERNSegmentedControlActionController.h */,
+				F70A6A271742B2B6004095C1 /* ERNSegmentedControlActionController.m */,
+				F70A6A281742B2B6004095C1 /* ERNSegmentedControlTogglerController.h */,
+				F70A6A291742B2B6004095C1 /* ERNSegmentedControlTogglerController.m */,
+			);
+			path = MicroControllers;
+			sourceTree = "<group>";
+		};
 		F71B936A173AFE7700F80B0F /* UrlMimeFactories */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,6 +972,7 @@
 				F7ABC2F417351F890035B164 /* Configurators */,
 				F7ABC2F817351F890035B164 /* TableViewHelpers */,
 				F7ABC30F17351F890035B164 /* Transitioners */,
+				F70A6A211742B2B5004095C1 /* MicroControllers */,
 				F7ABC31A17351F890035B164 /* Utilities */,
 			);
 			path = ErnKitUIKitIntegration;
@@ -999,6 +1015,8 @@
 				F7ABC30017351F890035B164 /* ERNTableViewDelegate.m */,
 				F7ABC30D17351F890035B164 /* UITableViewCell+ERNHelper.h */,
 				F7ABC30E17351F890035B164 /* UITableViewCell+ERNHelper.m */,
+				F7421DDE1741727B00E3ED5D /* ERNTableViewController+Refreshable.h */,
+				F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */,
 			);
 			path = TableViewHelpers;
 			sourceTree = "<group>";
@@ -1053,18 +1071,8 @@
 		F7ABC31A17351F890035B164 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F796D6281735B98A001A6891 /* ERNBarButtonItemActionController.h */,
-				F796D6291735B98A001A6891 /* ERNBarButtonItemActionController.m */,
-				F796D62E173661A0001A6891 /* ERNSegmentedControlActionController.h */,
-				F796D62F173661A0001A6891 /* ERNSegmentedControlActionController.m */,
-				F796D64717368500001A6891 /* ERNSegmentedControlTogglerController.h */,
-				F796D64817368500001A6891 /* ERNSegmentedControlTogglerController.m */,
-				F7421DDB17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.h */,
-				F7421DDC17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m */,
 				F7A30874173FC6FA0083F020 /* UIViewController+ERNHelper.h */,
 				F7A30875173FC6FB0083F020 /* UIViewController+ERNHelper.m */,
-				F7421DDE1741727B00E3ED5D /* ERNTableViewController+Refreshable.h */,
-				F7421DDF1741727B00E3ED5D /* ERNTableViewController+Refreshable.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1739,15 +1747,15 @@
 				F7ABC32A17351F890035B164 /* ERNModalViewControllerTransitioner.m in Sources */,
 				F7ABC32B17351F890035B164 /* ERNNavigationViewControllerTransitioner.m in Sources */,
 				F7ABC32C17351F890035B164 /* ERNWindowViewControllerTransitioner.m in Sources */,
-				F796D62A1735B98A001A6891 /* ERNBarButtonItemActionController.m in Sources */,
-				F796D630173661A0001A6891 /* ERNSegmentedControlActionController.m in Sources */,
-				F796D64917368500001A6891 /* ERNSegmentedControlTogglerController.m in Sources */,
 				F78C905D1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m in Sources */,
 				F78C90631737C4FA00301956 /* ERNTogglingTableViewManager.m in Sources */,
 				F78C90661737CAF400301956 /* ERNNullTableViewManager.m in Sources */,
 				F7A30876173FC6FB0083F020 /* UIViewController+ERNHelper.m in Sources */,
-				F7421DDD17416DA000E3ED5D /* ERNRefreshControlRepositoryRefreshController.m in Sources */,
 				F7421DE01741727B00E3ED5D /* ERNTableViewController+Refreshable.m in Sources */,
+				F70A6A2A1742B2B6004095C1 /* ERNBarButtonItemActionController.m in Sources */,
+				F70A6A2B1742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m in Sources */,
+				F70A6A2C1742B2B6004095C1 /* ERNSegmentedControlActionController.m in Sources */,
+				F70A6A2D1742B2B6004095C1 /* ERNSegmentedControlTogglerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

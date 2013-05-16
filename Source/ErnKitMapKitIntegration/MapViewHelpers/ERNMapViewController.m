@@ -8,14 +8,17 @@
 #import "ERNNullAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 
+typedef id<MKMapViewDelegate> (^ERNMapViewDelegateConstructor)();
+typedef id<ERNMapViewManager> (^ERNMapViewManagerConstructor)(MKMapView *);
+
 static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository>repository);
 
 @interface ERNMapViewController ()
 @property (nonatomic, readonly) id<MKMapViewDelegate> delegate;
 @property (nonatomic, readonly) id<ERNMapViewManager> mapViewManager;
 @property (nonatomic, readonly) id<ERNAsyncRepository> repository;
-@property (nonatomic, readonly, copy) id<MKMapViewDelegate> (^createDelegate)();
-@property (nonatomic, readonly, copy) id<ERNMapViewManager> (^createMapViewManager)(MKMapView *);
+@property (nonatomic, readonly, copy) ERNMapViewDelegateConstructor createDelegate;
+@property (nonatomic, readonly, copy) ERNMapViewManagerConstructor createMapViewManager;
 @end
 
 @implementation ERNMapViewController {
@@ -31,29 +34,59 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
                         viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
     return [[self alloc] initWithRepository:repository
-                              actionHandler:actionHandler
-                                viewFactory:viewFactory];
+                        delegateConstructor:^(){
+                            return [ERNMapViewDelegate createWithActionHandler:actionHandler
+                                                                   viewFactory:viewFactory];
+                        }
+                  mapViewManagerConstructor:^(MKMapView *mapView) {
+                      return [ERNAsyncItemsRepositoryMapViewManager
+                              createWithRepository:validateRepository(repository)
+                              mapView:mapView];
+                  }];
 }
 
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
-    return [[self alloc] initWithRepository:repository];
+    return [[self alloc] initWithRepository:repository
+                        delegateConstructor:^(){
+                            return [ERNNullMapViewDelegate create];
+                        }
+                  mapViewManagerConstructor:^(MKMapView *mapView) {
+                      return [ERNAsyncItemsRepositoryMapViewManager
+                              createWithRepository:validateRepository(repository)
+                              mapView:mapView];
+                  }];
 }
 
 +(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
                                  actionHandler:(id<ERNActionHandler>)actionHandler
                                    viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
-    return [[self alloc] initAutoZoomingWithRepository:repository
-                                         actionHandler:actionHandler
-                                           viewFactory:viewFactory];
+    return [[self alloc] initWithRepository:repository
+                        delegateConstructor:^(){
+                            return [ERNMapViewDelegate createWithActionHandler:actionHandler
+                                                                   viewFactory:viewFactory];
+                        }
+                  mapViewManagerConstructor:^(MKMapView *mapView) {
+                      return [ERNAsyncItemsRepositoryMapViewManager
+                              createAutoZoomingWithRepository:validateRepository(repository)
+                              mapView:mapView];
+                  }];
 }
 
 
 +(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
-    return [[self alloc] initAutoZoomingWithRepository:repository];
+    return [[self alloc] initWithRepository:repository
+                        delegateConstructor:^(){
+                            return [ERNNullMapViewDelegate create];
+                        }
+                  mapViewManagerConstructor:^(MKMapView *mapView) {
+                      return [ERNAsyncItemsRepositoryMapViewManager
+                              createAutoZoomingWithRepository:validateRepository(repository)
+                              mapView:mapView];
+                  }];
 }
 
 #pragma mark - UIViewController
@@ -82,15 +115,6 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
     return repository ? repository : [ERNNullAsyncItemsRepository create];
 }
 
--(void)setupZoomingMapViewManagerConstructor:(id<ERNAsyncItemsRepository>)repository
-{
-    _createMapViewManager = ^(MKMapView *mapView) {
-        return [ERNAsyncItemsRepositoryMapViewManager
-                createAutoZoomingWithRepository:validateRepository(repository)
-                mapView:mapView];
-    };
-}
-
 #pragma mark - private - accessors
 
 -(id<ERNMapViewManager>)mapViewManager
@@ -112,52 +136,16 @@ static id<ERNAsyncItemsRepository> validateRepository(id<ERNAsyncItemsRepository
 
 #pragma mark - private - initializers
 
--(id)initAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
-                     actionHandler:(id<ERNActionHandler>)actionHandler
-                       viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
-{
-    self = [self initWithRepository:repository
-                      actionHandler:actionHandler
-                        viewFactory:viewFactory];
-    ERNCheckNil(self);
-    [self setupZoomingMapViewManagerConstructor:repository];
-    return self;
-}
-
--(id)initAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    self = [self initWithRepository:repository];
-    ERNCheckNil(self);
-    [self setupZoomingMapViewManagerConstructor:repository];
-    return self;
-}
-
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-          actionHandler:(id<ERNActionHandler>)actionHandler
-            viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
-{
-    self = [self initWithRepository:repository];
-    ERNCheckNil(self);
-    _createDelegate = ^(){
-        return [ERNMapViewDelegate createWithActionHandler:actionHandler
-                                               viewFactory:viewFactory];
-    };
-    return self;
-}
+    delegateConstructor:(ERNMapViewDelegateConstructor)delegateConstructor
+mapViewManagerConstructor:(ERNMapViewManagerConstructor)mapViewManagerConstructor
 
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     self = [self init];
     ERNCheckNil(self);
     _repository = validateRepository(repository);
-    _createDelegate = ^(){
-        return [ERNNullMapViewDelegate create];
-    };
-    _createMapViewManager = ^(MKMapView *mapView) {
-        return [ERNAsyncItemsRepositoryMapViewManager
-                createWithRepository:validateRepository(repository)
-                mapView:mapView];
-    };
+    _createDelegate = delegateConstructor;
+    _createMapViewManager = mapViewManagerConstructor;
     return self;
 }
 

@@ -31,6 +31,7 @@
                       actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initWithRepository:repository
+                                cellFactory:nil
                               actionHandler:actionHandler];
 }
 
@@ -38,12 +39,15 @@
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initWithRepository:repository
-                                cellFactory:cellFactory];
+                                cellFactory:cellFactory
+                              actionHandler:nil];
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
-    return [[self alloc] initWithRepository:repository];
+    return [[self alloc] initWithRepository:repository
+                                cellFactory:nil
+                              actionHandler:nil];
 }
 
 #pragma mark - ERNTableViewManager
@@ -93,38 +97,13 @@
 #pragma mark - private - initializers
 
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
+            cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+          actionHandler:(id<ERNActionHandler>)actionHandler
 {
     self = [self init];
     ERNCheckNil(self);
     _repository = repository;
-    return self;
-}
-
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-            cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-{
-    self = [self initWithRepository:repository];
-    ERNCheckNil(self);
     _cellFactory = cellFactory;
-    return self;
-}
-
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-          actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    self = [self initWithRepository:repository];
-    ERNCheckNil(self);
-    _actionHandler = actionHandler;
-    return self;
-}
-
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-            cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-          actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    self = [self initWithRepository:repository
-                        cellFactory:cellFactory];
-    ERNCheckNil(self);
     _actionHandler = actionHandler;
     return self;
 }

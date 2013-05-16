@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (ERNHelper)
--(void)ERN_addSubController:(id)subController;
--(NSArray *)ERN_getSubControllers;
+-(void)ERN_addMicroController:(id)microController;
+-(NSArray *)ERN_getMicroControllers;
 @end

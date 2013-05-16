@@ -3,9 +3,11 @@
 #import "ERNErrorHandler.h"
 #import "ERNNullAction.h"
 
+typedef NSString *(^ERNURLRouter)(NSURL *);
+
 @interface ERNUrlRoutingAction ()
 @property (nonatomic, readonly) NSDictionary *actions;
-@property (nonatomic, readonly, copy) NSString *(^urlRouter)(NSURL *);
+@property (nonatomic, readonly, copy) ERNURLRouter urlRouter;
 @end
 
 @implementation ERNUrlRoutingAction {
@@ -15,12 +17,18 @@
 
 +(instancetype)createWithActionsForHosts:(NSDictionary *)actions
 {
-    return [[self alloc] initWithActionsForHosts:actions];
+    return [[self alloc] initWithActions:actions
+                               urlRouter:^(NSURL *url){
+                                   return [url host];
+                               }];
 }
 
 +(instancetype)createWithActionsForSchemes:(NSDictionary *)actions
 {
-    return [[self alloc] initWithActionsForSchemes:actions];
+    return [[self alloc] initWithActions:actions
+                               urlRouter:^(NSURL *url){
+                                   return [url scheme];
+                               }];
 }
 
 #pragma mark - ERNAction
@@ -48,31 +56,13 @@
 
 #pragma mark - private - initializers
 
--(id)initWithActionsForHosts:(NSDictionary *)actions
-{
-    self = [self initWithActions:actions];
-    ERNCheckNil(self);
-    _urlRouter = ^(NSURL *url){
-        return [url host];
-    };
-    return self;
-}
-
--(id)initWithActionsForSchemes:(NSDictionary *)actions
-{
-    self = [self initWithActions:actions];
-    ERNCheckNil(self);
-    _urlRouter = ^(NSURL *url){
-        return [url scheme];
-    };
-    return self;
-}
-
 -(id)initWithActions:(NSDictionary *)actions
+           urlRouter:(ERNURLRouter)urlRouter
 {
     self = [self init];
     ERNCheckNil(self);
     _actions = actions;
+    _urlRouter = urlRouter;
     return self;
 }
 

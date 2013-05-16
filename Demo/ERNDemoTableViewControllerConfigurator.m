@@ -15,6 +15,9 @@
 @end
 
 @implementation ERNDemoTableViewControllerConfigurator {
+    UIViewController *_tableViewController;
+    UISegmentedControl *_feedSegmentedControl;
+    ERNSegmentedControlTogglerController *_feedController;
 }
 
 #pragma mark - public - constructors
@@ -31,31 +34,35 @@
 -(UIViewController *)createViewControllerForUrl:(NSURL *)url
                                            mime:(NSString *)mime
 {
-    // Setup the map view controller with the RestKit repository and the annotation view factory
-    UIViewController *tableViewController =
+    [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [[self feedSegmentedControl] setSelectedSegmentIndex:0];
+    [[[self tableViewController] navigationItem] setTitleView:[self feedSegmentedControl]];
+    [[self tableViewController] ERN_addMicroController:[self feedController]];
+    return [self tableViewController];
+}
+
+#pragma mark - private - accessors
+
+-(UIViewController *)tableViewController
+{
+    return _tableViewController = _tableViewController ?
+    _tableViewController :
     [ERNTableViewController createRefreshableWithRepository:[self repository]];
+}
 
-    // Setup a segmented control used to select what feed to show
-    UISegmentedControl *feedSegmentedControl =
+-(UISegmentedControl *)feedSegmentedControl
+{
+    return _feedSegmentedControl = _feedSegmentedControl ?
+    _feedSegmentedControl :
     [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Magnus", @"Jim"]];
-    [feedSegmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [feedSegmentedControl setSelectedSegmentIndex:0];
+}
 
-    // Wire the toggling repository with the segmented control using a segmented control toggler
-    // controller
-    ERNSegmentedControlTogglerController *feedController =
-    [ERNSegmentedControlTogglerController createWithSegmentedControl:feedSegmentedControl
+-(ERNSegmentedControlTogglerController *)feedController
+{
+    return _feedController = _feedController ?
+    _feedController :
+    [ERNSegmentedControlTogglerController createWithSegmentedControl:[self feedSegmentedControl]
                                                              toggler:[self toggler]];
-
-    // Setup the toolbar in the view controller, left space, segmented control, right space
-    [[tableViewController navigationItem] setTitleView:feedSegmentedControl];
-
-    // Save the feed toggler controllers to the view controller so that they are
-    // appropriately retained and released by ARC
-    [tableViewController ERN_addSubController:feedController];
-
-    // Return the controller to the system for transitioning
-    return tableViewController;
 }
 
 #pragma mark - private - initializer
