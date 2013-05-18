@@ -1,45 +1,38 @@
 #import <MapKit/MapKit.h>
-#import "ERNAsyncItemsRepositoryMapViewManager.h"
+#import "ERNMapViewRepositoryRefreshController.h"
 #import "ERNAsyncItemsRepository.h"
 #import "MKMapView+ERNHelper.h"
 #import "ERNErrorHandler.h"
 
 typedef const void(^ERNAnnotationZoomer)();
 
-@interface ERNAsyncItemsRepositoryMapViewManager ()
+@interface ERNMapViewRepositoryRefreshController ()
 @property (nonatomic, readonly) MKMapView *mapView;
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
 @property (nonatomic, readonly, copy) ERNAnnotationZoomer annotationZoomer;
 @end
 
-@implementation ERNAsyncItemsRepositoryMapViewManager {
+@implementation ERNMapViewRepositoryRefreshController {
 }
 
 #pragma mark - public - constructors
 
-+(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                       mapView:(MKMapView *)mapView
++(instancetype)createAutoZoomingWithMapView:(MKMapView *)mapView
+                                 repository:(id<ERNAsyncItemsRepository>)repository
 {
-    return [[self alloc] initWithRepository:repository
-                                    mapView:mapView
-                           annotationZoomer:^(){
-                               [mapView ERN_zoomToFitMapAnnotations];
-                           }];
+    return [[self alloc] initWithMapView:mapView
+                              repository:repository
+                        annotationZoomer:^(){
+                            [mapView ERN_zoomToFitMapAnnotations];
+                        }];
 }
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                            mapView:(MKMapView *)mapView
++(instancetype)createWithMapView:(MKMapView *)mapView
+                      repository:(id<ERNAsyncItemsRepository>)repository
 {
-    return [[self alloc] initWithRepository:repository
-                                    mapView:mapView
-                           annotationZoomer:^(){}];
-}
-
-#pragma mark - ERNMapViewManager
-
--(void)reload
-{
-    [self reloadWithAnnotations:[self annotationsInRepository]];
+    return [[self alloc] initWithMapView:mapView
+                              repository:repository
+                        annotationZoomer:^(){}];
 }
 
 #pragma mark - NSObject
@@ -50,6 +43,11 @@ typedef const void(^ERNAnnotationZoomer)();
 }
 
 #pragma mark - private
+
+-(void)reload
+{
+    [self reloadWithAnnotations:[self annotationsInRepository]];
+}
 
 -(void)reloadWithAnnotations:(NSArray *)annotations
 {
@@ -73,9 +71,9 @@ typedef const void(^ERNAnnotationZoomer)();
 
 #pragma mark - private - initializers
 
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-                mapView:(MKMapView *)mapView
-       annotationZoomer:(ERNAnnotationZoomer)annotationZoomer
+-(id)initWithMapView:(MKMapView *)mapView
+          repository:(id<ERNAsyncItemsRepository>)repository
+    annotationZoomer:(ERNAnnotationZoomer)annotationZoomer
 {
     self = [self init];
     ERNCheckNil(self);

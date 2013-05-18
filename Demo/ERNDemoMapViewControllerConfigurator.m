@@ -1,6 +1,7 @@
 #import "ERNDemoMapViewControllerConfigurator.h"
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
 #import "ERNMapViewController.h"
+#import "ERNMapViewController+ERNAsyncItemsRepository.h"
 #import "ERNRefreshAsyncRepositoryAction.h"
 #import "ERNBarButtonItemActionController.h"
 #import "ERNSegmentedControlTogglerController.h"
