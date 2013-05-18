@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNNullTableViewCellFactoryTest.h"
-#import "ERNNullTableViewCellFactory.h"
+#import "ERNDefaultTableViewCellFactory.h"
 #import "ERNNullTableViewCell.h"
 
 @implementation ERNNullTableViewCellFactoryTest
@@ -11,8 +11,8 @@
 -(void)testSingleton
 {
     //given, when
-    id<ERNTableViewCellFactory> factory1 = [ERNNullTableViewCellFactory create];
-    id<ERNTableViewCellFactory> factory2 = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory1 = [ERNDefaultTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory2 = [ERNDefaultTableViewCellFactory create];
 
     //then
     assertThat(factory1, notNilValue());
@@ -22,7 +22,7 @@
 -(void)testCellForNilTableViewNilObject
 {
     //given
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
     UITableViewCell *cell = [factory cellForTableView:nil
@@ -36,7 +36,7 @@
 {
     //given
     id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
     UITableViewCell *cell = [factory cellForTableView:mockTableView
@@ -50,7 +50,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
     UITableViewCell *cell = [factory cellForTableView:nil
@@ -72,7 +72,7 @@
     [[[mockTableViewCell expect] andReturn:mockLabel] textLabel];
     id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     [[[mockTableView expect] andReturn:mockTableViewCell] dequeueReusableCellWithIdentifier:OCMOCK_ANY];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
     UITableViewCell *cell = [factory cellForTableView:mockTableView
@@ -89,7 +89,7 @@
 {
     //given
     CGFloat defaultHeight = 34.0f;
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
     CGFloat height = [factory cellHeightForObject:nil
@@ -104,7 +104,7 @@
     //given
     CGFloat defaultHeight = 34.0f;
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
     CGFloat height = [factory cellHeightForObject:mockObject

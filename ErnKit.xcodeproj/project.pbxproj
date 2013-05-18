@@ -125,7 +125,7 @@
 		F7ABC32117351F890035B164 /* ERNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2FC17351F890035B164 /* ERNTableViewController.m */; };
 		F7ABC32217351F890035B164 /* ERNTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2FE17351F890035B164 /* ERNTableViewDataSource.m */; };
 		F7ABC32317351F890035B164 /* ERNTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC30017351F890035B164 /* ERNTableViewDelegate.m */; };
-		F7ABC32417351F890035B164 /* ERNNullTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC30317351F890035B164 /* ERNNullTableViewCellFactory.m */; };
+		F7ABC32417351F890035B164 /* ERNDefaultTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC30317351F890035B164 /* ERNDefaultTableViewCellFactory.m */; };
 		F7ABC32517351F890035B164 /* ERNRoutingTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC30517351F890035B164 /* ERNRoutingTableViewCellFactory.m */; };
 		F7ABC32617351F890035B164 /* ERNAsyncItemsRepositoryTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC30917351F890035B164 /* ERNAsyncItemsRepositoryTableViewManager.m */; };
 		F7ABC32717351F890035B164 /* ERNMergingTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC30B17351F890035B164 /* ERNMergingTableViewManager.m */; };
@@ -454,8 +454,8 @@
 		F7ABC2FE17351F890035B164 /* ERNTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDataSource.m; sourceTree = "<group>"; };
 		F7ABC2FF17351F890035B164 /* ERNTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewDelegate.h; sourceTree = "<group>"; };
 		F7ABC30017351F890035B164 /* ERNTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDelegate.m; sourceTree = "<group>"; };
-		F7ABC30217351F890035B164 /* ERNNullTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewCellFactory.h; sourceTree = "<group>"; };
-		F7ABC30317351F890035B164 /* ERNNullTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactory.m; sourceTree = "<group>"; };
+		F7ABC30217351F890035B164 /* ERNDefaultTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultTableViewCellFactory.h; sourceTree = "<group>"; };
+		F7ABC30317351F890035B164 /* ERNDefaultTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultTableViewCellFactory.m; sourceTree = "<group>"; };
 		F7ABC30417351F890035B164 /* ERNRoutingTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingTableViewCellFactory.h; sourceTree = "<group>"; };
 		F7ABC30517351F890035B164 /* ERNRoutingTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingTableViewCellFactory.m; sourceTree = "<group>"; };
 		F7ABC30617351F890035B164 /* ERNTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewCellFactory.h; sourceTree = "<group>"; };
@@ -1035,8 +1035,8 @@
 			isa = PBXGroup;
 			children = (
 				F7ABC30617351F890035B164 /* ERNTableViewCellFactory.h */,
-				F7ABC30217351F890035B164 /* ERNNullTableViewCellFactory.h */,
-				F7ABC30317351F890035B164 /* ERNNullTableViewCellFactory.m */,
+				F7ABC30217351F890035B164 /* ERNDefaultTableViewCellFactory.h */,
+				F7ABC30317351F890035B164 /* ERNDefaultTableViewCellFactory.m */,
 				F7ABC30417351F890035B164 /* ERNRoutingTableViewCellFactory.h */,
 				F7ABC30517351F890035B164 /* ERNRoutingTableViewCellFactory.m */,
 			);
@@ -1754,7 +1754,7 @@
 				F7ABC32117351F890035B164 /* ERNTableViewController.m in Sources */,
 				F7ABC32217351F890035B164 /* ERNTableViewDataSource.m in Sources */,
 				F7ABC32317351F890035B164 /* ERNTableViewDelegate.m in Sources */,
-				F7ABC32417351F890035B164 /* ERNNullTableViewCellFactory.m in Sources */,
+				F7ABC32417351F890035B164 /* ERNDefaultTableViewCellFactory.m in Sources */,
 				F7ABC32517351F890035B164 /* ERNRoutingTableViewCellFactory.m in Sources */,
 				F7ABC32617351F890035B164 /* ERNAsyncItemsRepositoryTableViewManager.m in Sources */,
 				F7ABC32717351F890035B164 /* ERNMergingTableViewManager.m in Sources */,

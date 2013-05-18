@@ -1,11 +1,11 @@
-#import "ERNNullTableViewCellFactory.h"
+#import "ERNDefaultTableViewCellFactory.h"
 #import "UITableViewCell+ERNHelper.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullTableViewCell.h"
 
-static ERNNullTableViewCellFactory *immutableSingleton;
+static ERNDefaultTableViewCellFactory *immutableSingleton;
 
-@implementation ERNNullTableViewCellFactory {
+@implementation ERNDefaultTableViewCellFactory {
 }
 
 #pragma mark - public - constructors

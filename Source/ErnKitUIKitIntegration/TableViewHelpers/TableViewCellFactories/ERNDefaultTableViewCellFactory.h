@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ERNTableViewCellFactory.h"
 
-@interface ERNNullTableViewCellFactory : NSObject <ERNTableViewCellFactory>
+@interface ERNDefaultTableViewCellFactory : NSObject <ERNTableViewCellFactory>
 +(instancetype)create;
 @end

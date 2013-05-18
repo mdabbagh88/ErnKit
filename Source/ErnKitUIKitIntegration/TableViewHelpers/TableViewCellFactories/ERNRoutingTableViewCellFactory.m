@@ -1,5 +1,5 @@
 #import "ERNRoutingTableViewCellFactory.h"
-#import "ERNNullTableViewCellFactory.h"
+#import "ERNDefaultTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullTableViewCell.h"
 
@@ -70,7 +70,7 @@
 {
     return _defaultFactory = _defaultFactory ?
     _defaultFactory :
-    [ERNNullTableViewCellFactory create];
+    [ERNDefaultTableViewCellFactory create];
 }
 
 -(NSDictionary *)mappings

@@ -2,7 +2,7 @@
 #import "ERNErrorHandler.h"
 #import "ERNActionHandler.h"
 #import "ERNTableViewCellFactory.h"
-#import "ERNNullTableViewCellFactory.h"
+#import "ERNDefaultTableViewCellFactory.h"
 #import "ERNNullTableViewCell.h"
 
 @interface ERNDefaultTableViewItemManager ()
@@ -66,7 +66,7 @@
 {
     return _cellFactory = _cellFactory ?
     _cellFactory :
-    [ERNNullTableViewCellFactory create];
+    [ERNDefaultTableViewCellFactory create];
 }
 
 #pragma mark - private - initializers
