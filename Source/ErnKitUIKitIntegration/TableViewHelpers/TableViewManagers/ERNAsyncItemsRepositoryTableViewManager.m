@@ -2,7 +2,7 @@
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
 #import "ERNAsyncItemsRepository.h"
 #import "ERNTableViewItemManager.h"
-#import "ERNDefaultTableViewItemManager.h"
+#import "ERNTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullTableViewCell.h"
 #import "ERNNullTableViewItemManager.h"
