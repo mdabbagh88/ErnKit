@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		551CB70F4A9F468689771182 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FB2A2DCCAA419391FF6031 /* libPods-Demo.a */; };
-		5A3FC65CBBD940FA92B9BB31 /* libPods-ErnKitRestKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */; };
+		988E5D40E4914C249B6D880D /* libPods-ErnKitRestKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB2A764A64E4D56BADF841A /* libPods-ErnKitRestKitIntegration.a */; };
 		A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */; };
 		F70A6A2A1742B2B6004095C1 /* ERNBarButtonItemActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A6A231742B2B6004095C1 /* ERNBarButtonItemActionController.m */; };
 		F70A6A2B1742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70A6A251742B2B6004095C1 /* ERNRefreshControlRepositoryRefreshController.m */; };
@@ -259,6 +259,8 @@
 		68FB2A2DCCAA419391FF6031 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.xcconfig"; path = "Pods/Pods-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB2A764A64E4D56BADF841A /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErnKitRestKitIntegration.xcconfig"; path = "Pods/Pods-ErnKitRestKitIntegration.xcconfig"; sourceTree = SOURCE_ROOT; };
 		F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70A6A221742B2B6004095C1 /* ERNBarButtonItemActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionController.h; sourceTree = "<group>"; };
 		F70A6A231742B2B6004095C1 /* ERNBarButtonItemActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionController.m; sourceTree = "<group>"; };
@@ -576,7 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F796D63B173675FF001A6891 /* Foundation.framework in Frameworks */,
-				5A3FC65CBBD940FA92B9BB31 /* libPods-ErnKitRestKitIntegration.a in Frameworks */,
+				988E5D40E4914C249B6D880D /* libPods-ErnKitRestKitIntegration.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,6 +1157,7 @@
 				F74388E2173C3B2B00676477 /* Config */,
 				F7DA7018171F0CBA0026D627 /* Frameworks */,
 				F7DA7017171F0CBA0026D627 /* Products */,
+				D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1188,6 +1191,7 @@
 				71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */,
 				F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */,
 				68FB2A2DCCAA419391FF6031 /* libPods-Demo.a */,
+				9DB2A764A64E4D56BADF841A /* libPods-ErnKitRestKitIntegration.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1365,11 +1369,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F796D63D173675FF001A6891 /* Build configuration list for PBXNativeTarget "ErnKitRestKitIntegration" */;
 			buildPhases = (
+				1D6597EBC5AB4BBB988B016F /* Check Pods Manifest.lock */,
 				A16A1A78A08D493CB9861706 /* Check Pods Manifest.lock */,
 				F796D632173675FF001A6891 /* Sources */,
 				F796D63A173675FF001A6891 /* Frameworks */,
 				F796D63C173675FF001A6891 /* CopyFiles */,
 				6B75732794FB4557A6E35B8F /* Copy Pods Resources */,
+				7119CA9E2A6248E5AF9098D6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1460,7 +1466,6 @@
 				F7F069A1172C992000CA5FC4 /* Frameworks */,
 				F7F069A3172C992000CA5FC4 /* ShellScript */,
 				9B0AFECD5DAC45D6B8F15696 /* Copy Pods Resources */,
-				F7AD8B7C173ABFC20046E153 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1564,7 +1569,35 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-Demo-resources.sh\"\n";
 		};
+		1D6597EBC5AB4BBB988B016F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 		6B75732794FB4557A6E35B8F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ErnKitRestKitIntegration-resources.sh\"\n";
+		};
+		7119CA9E2A6248E5AF9098D6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1604,7 +1637,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-UnitTests-resources.sh\"\necho \"hejsan\"";
+			shellScript = "\"${SRCROOT}/Pods/Pods-UnitTests-resources.sh\"";
 		};
 		A16A1A78A08D493CB9861706 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1647,19 +1680,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
-		};
-		F7AD8B7C173ABFC20046E153 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"hejsan\"";
 		};
 		F7F069A3172C992000CA5FC4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1890,12 +1910,12 @@
 /* Begin XCBuildConfiguration section */
 		F796D63E173675FF001A6891 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */;
+			baseConfigurationReference = D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ErnKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Source/ErnKitRestKitIntegration/ErnKitRestKitIntegration-Prefix.pch";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = ErnKitRestKitIntegration;
 				SKIP_INSTALL = YES;
 			};
@@ -1903,12 +1923,12 @@
 		};
 		F796D63F173675FF001A6891 /* Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */;
+			baseConfigurationReference = D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ErnKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Source/ErnKitRestKitIntegration/ErnKitRestKitIntegration-Prefix.pch";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = ErnKitRestKitIntegration;
 				SKIP_INSTALL = YES;
 			};
@@ -1916,12 +1936,12 @@
 		};
 		F796D640173675FF001A6891 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */;
+			baseConfigurationReference = D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ErnKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Source/ErnKitRestKitIntegration/ErnKitRestKitIntegration-Prefix.pch";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = ErnKitRestKitIntegration;
 				SKIP_INSTALL = YES;
 			};
