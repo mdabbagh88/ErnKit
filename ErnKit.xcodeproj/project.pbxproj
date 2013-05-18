@@ -1149,7 +1149,6 @@
 		F7DA700D171F0CBA0026D627 = {
 			isa = PBXGroup;
 			children = (
-				F787FB6E17477194007D751A /* Security.framework */,
 				F74388E0173C3A6800676477 /* Source */,
 				F7F069AA172C992000CA5FC4 /* UnitTests */,
 				F79AE870172DCA8F001F8F23 /* Demo */,
@@ -1176,6 +1175,7 @@
 		F7DA7018171F0CBA0026D627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F787FB6E17477194007D751A /* Security.framework */,
 				F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */,
 				F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */,
 				F792BEA8172D57BD00B097C1 /* CoreData.framework */,
