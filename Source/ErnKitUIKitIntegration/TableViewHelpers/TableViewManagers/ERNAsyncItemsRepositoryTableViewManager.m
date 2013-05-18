@@ -1,15 +1,14 @@
 #import <UIKit/UIKit.h>
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
 #import "ERNAsyncItemsRepository.h"
-#import "ERNTableViewCellFactory.h"
-#import "ERNNullTableViewCellFactory.h"
-#import "ERNActionHandler.h"
+#import "ERNTableViewItemManager.h"
+#import "ERNDefaultTableViewItemManager.h"
 #import "ERNErrorHandler.h"
+#import "ERNDummyTableViewCell.h"
 
 @interface ERNAsyncItemsRepositoryTableViewManager ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository>repository;
-@property (nonatomic, readonly) id<ERNTableViewCellFactory>cellFactory;
-@property (nonatomic, readonly) id<ERNActionHandler>actionHandler;
+@property (nonatomic, readonly) id<ERNTableViewItemManager>itemManager;
 @end
 
 @implementation ERNAsyncItemsRepositoryTableViewManager {
@@ -23,31 +22,31 @@
                       actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initWithRepository:repository
-                                cellFactory:cellFactory
-                              actionHandler:actionHandler];
+                                itemManager:[ERNDefaultTableViewItemManager
+                                             createWithCellFactory:cellFactory
+                                             actionHandler:actionHandler]];
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                       actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initWithRepository:repository
-                                cellFactory:nil
-                              actionHandler:actionHandler];
+                                itemManager:[ERNDefaultTableViewItemManager
+                                             createWithActionHandler:actionHandler]];
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initWithRepository:repository
-                                cellFactory:cellFactory
-                              actionHandler:nil];
+                                itemManager:[ERNDefaultTableViewItemManager
+                                             createWithCellFactory:cellFactory]];
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithRepository:repository
-                                cellFactory:nil
-                              actionHandler:nil];
+                                itemManager:nil];
 }
 
 #pragma mark - ERNTableViewManager
@@ -55,14 +54,16 @@
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
 {
     ERNCheckNilNoReturn(indexPath);
-    [[self actionHandler] actionForObject:
+    [[self itemManager] actionForObject:
      [[self repository] itemAtIndex:(NSUInteger)[indexPath row]]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self cellFactory] cellForTableView:tableView
+    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
+    return [[self itemManager] cellForTableView:tableView
                                      fromObject:[[self repository] itemAtIndex:
                                                  (NSUInteger)[indexPath row]]];
 }
@@ -70,7 +71,8 @@
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
                     defaultHeight:(CGFloat)defaultHeight
 {
-    return [[self cellFactory] cellHeightForObject:[[self repository] itemAtIndex:
+    ERNCheckNilAndReturn(indexPath, defaultHeight);
+    return [[self itemManager] cellHeightForObject:[[self repository] itemAtIndex:
                                                     (NSUInteger)[indexPath row]]
                                      defaultHeight:defaultHeight];
 }
@@ -85,26 +87,15 @@
     return (NSInteger)[[self repository] count];
 }
 
-#pragma mark - private - accessors
-
--(id<ERNTableViewCellFactory>)cellFactory
-{
-    return _cellFactory = _cellFactory ?
-    _cellFactory :
-    [ERNNullTableViewCellFactory create];
-}
-
 #pragma mark - private - initializers
 
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-            cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-          actionHandler:(id<ERNActionHandler>)actionHandler
+            itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     self = [self init];
     ERNCheckNil(self);
     _repository = repository;
-    _cellFactory = cellFactory;
-    _actionHandler = actionHandler;
+    _itemManager = itemManager;
     return self;
 }
 
