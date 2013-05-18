@@ -4,12 +4,6 @@
 #import "UIViewController+ERNHelper.h"
 
 @implementation ERNTableViewController (Refreshable)
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    return [self setupRefreshController:
-            [ERNTableViewController createWithRepository:repository]
-                             repository:repository];
-}
 
 +(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
                                    cellFactory:(id<ERNTableViewCellFactory>)cellFactory
@@ -17,15 +11,6 @@
     return [self setupRefreshController:
             [ERNTableViewController createWithRepository:repository
                                              cellFactory:cellFactory]
-                             repository:repository];
-}
-
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                 actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [self setupRefreshController:
-            [ERNTableViewController createWithRepository:repository
-                                           actionHandler:actionHandler]
                              repository:repository];
 }
 

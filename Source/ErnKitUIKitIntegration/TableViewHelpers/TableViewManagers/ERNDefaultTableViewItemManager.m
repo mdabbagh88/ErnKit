@@ -2,7 +2,7 @@
 #import "ERNErrorHandler.h"
 #import "ERNActionHandler.h"
 #import "ERNTableViewCellFactory.h"
-#import "ERNDefaultTableViewCellFactory.h"
+#import "ERNNullTableViewCellFactory.h"
 #import "ERNNullTableViewCell.h"
 
 @interface ERNDefaultTableViewItemManager ()
@@ -20,12 +20,6 @@
                        actionHandler:(id<ERNActionHandler>)actionHandler
 {
     return [[self alloc] initWithCellFactory:cellFactory
-                               actionHandler:actionHandler];
-}
-
-+(instancetype)createWithActionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [[self alloc] initWithCellFactory:nil
                                actionHandler:actionHandler];
 }
 
@@ -66,7 +60,7 @@
 {
     return _cellFactory = _cellFactory ?
     _cellFactory :
-    [ERNDefaultTableViewCellFactory create];
+    [ERNNullTableViewCellFactory create];
 }
 
 #pragma mark - private - initializers

@@ -27,16 +27,6 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
 #pragma mark - public - constructors
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    return [[self alloc] initWithRepository:repository
-                tableViewManagerConstructor:
-            ^(){
-                return [ERNAsyncItemsRepositoryTableViewManager
-                        createWithRepository:repository];
-            }];
-}
-
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                         cellFactory:(id<ERNTableViewCellFactory>)cellFactory
 {
     return [[self alloc] initWithRepository:repository
@@ -46,19 +36,6 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
                         createWithRepository:repository
                         itemManager:[ERNDefaultTableViewItemManager
                                      createWithCellFactory:cellFactory]];
-            }];
-}
-
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                      actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [[self alloc] initWithRepository:repository
-                tableViewManagerConstructor:
-            ^(){
-                return [ERNAsyncItemsRepositoryTableViewManager
-                        createWithRepository:repository
-                        itemManager:[ERNDefaultTableViewItemManager
-                                     createWithActionHandler:actionHandler]];
             }];
 }
 

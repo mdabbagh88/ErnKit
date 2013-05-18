@@ -7,6 +7,7 @@
 #import "ERNSegmentedControlTogglerController.h"
 #import "UIViewController+ERNHelper.h"
 #import "ERNTableViewController+Refreshable.h"
+#import "ERNDefaultTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNDemoTableViewControllerConfigurator ()
@@ -47,7 +48,8 @@
 {
     return _tableViewController = _tableViewController ?
     _tableViewController :
-    [ERNTableViewController createRefreshableWithRepository:[self repository]];
+    [ERNTableViewController createRefreshableWithRepository:[self repository]
+     cellFactory:[ERNDefaultTableViewCellFactory create]];
 }
 
 -(UISegmentedControl *)feedSegmentedControl
