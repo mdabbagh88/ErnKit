@@ -749,6 +749,7 @@
 		F74388E2173C3B2B00676477 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */,
 				1165D52C50DD48CFBA0E2A45 /* Pods-Demo.xcconfig */,
 				6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */,
 				FE7A70C8869A4ED7AB3FB021 /* Pods-ErnKitRestKitIntegration.xcconfig */,
@@ -1161,7 +1162,6 @@
 				F74388E2173C3B2B00676477 /* Config */,
 				F7DA7018171F0CBA0026D627 /* Frameworks */,
 				F7DA7017171F0CBA0026D627 /* Products */,
-				D3CDC8EBA62F44A28B7AF8F9 /* Pods-ErnKitRestKitIntegration.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
