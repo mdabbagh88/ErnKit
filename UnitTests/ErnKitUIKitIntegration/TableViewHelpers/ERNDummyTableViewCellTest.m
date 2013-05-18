@@ -3,14 +3,14 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNDummyTableViewCellTest.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @implementation ERNDummyTableViewCellTest
 
 -(void)testCreate
 {
     //given, when, then
-    [ERNDummyTableViewCell create];
+    [ERNNullTableViewCell create];
 }
 
 @end

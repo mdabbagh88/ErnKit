@@ -1,5 +1,5 @@
 #import "ERNNullTableViewManager.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 static ERNNullTableViewManager *immutableSingleton;
 
@@ -18,7 +18,7 @@ static ERNNullTableViewManager *immutableSingleton;
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
-    return [ERNDummyTableViewCell create];
+    return [ERNNullTableViewCell create];
 }
 
 -(NSInteger)sections

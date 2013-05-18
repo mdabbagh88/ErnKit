@@ -4,7 +4,7 @@
 #import "ERNTableViewItemManager.h"
 #import "ERNDefaultTableViewItemManager.h"
 #import "ERNErrorHandler.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 #import "ERNNullTableViewItemManager.h"
 
 @interface ERNAsyncItemsRepositoryTableViewManager ()
@@ -44,8 +44,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
-    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
     return [[self itemManager] cellForTableView:tableView
                                      fromObject:[[self repository] itemAtIndex:
                                                  (NSUInteger)[indexPath row]]];

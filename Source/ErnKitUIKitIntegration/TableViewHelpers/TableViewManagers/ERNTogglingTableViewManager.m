@@ -2,7 +2,7 @@
 #import "ERNErrorHandler.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNNullTableViewManager.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @interface ERNTogglingTableViewManager ()
 @property (nonatomic, readonly, copy) NSArray *tableViewManagers;
@@ -39,8 +39,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
              cellForIndexPath:(NSIndexPath *)indexPath
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
-    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
     return [[self currentTableViewManager] tableView:tableView
                                     cellForIndexPath:indexPath];
 }

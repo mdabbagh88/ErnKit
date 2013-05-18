@@ -2,7 +2,7 @@
 #import "ERNTableViewManager.h"
 #import "ERNErrorHandler.h"
 #import "UITableViewCell+ERNHelper.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 #import "ERNNullTableViewManager.h"
 
 @interface ERNTableViewDataSource ()
@@ -25,8 +25,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
-    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
     return [[self tableViewManager] tableView:tableView
                              cellForIndexPath:indexPath];
 }

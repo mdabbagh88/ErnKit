@@ -1,7 +1,7 @@
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 #import "ERNErrorHandler.h"
 
-@implementation ERNDummyTableViewCell {
+@implementation ERNNullTableViewCell {
 }
 
 #pragma mark - public - constructors
@@ -18,7 +18,7 @@
     self = [super initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:NSStringFromClass([self class])];
     ERNCheckNil(self);
-    [[self textLabel] setText:@"Dummy cell"];
+    [[self textLabel] setText:[self reuseIdentifier]];
     return self;
 }
 

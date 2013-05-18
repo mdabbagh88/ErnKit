@@ -3,7 +3,7 @@
 #import "ERNActionHandler.h"
 #import "ERNTableViewCellFactory.h"
 #import "ERNNullTableViewCellFactory.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @interface ERNDefaultTableViewItemManager ()
 @property (nonatomic, readonly) id<ERNActionHandler> actionHandler;
@@ -46,8 +46,8 @@
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
-    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
+    ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
     return [[self cellFactory] cellForTableView:tableView
                                      fromObject:object];
 }

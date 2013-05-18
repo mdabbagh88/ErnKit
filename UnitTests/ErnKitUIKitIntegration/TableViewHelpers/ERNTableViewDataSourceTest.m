@@ -4,7 +4,7 @@
 #import <UIKit/UIKit.h>
 #import "ERNTableViewDataSourceTest.h"
 #import "ERNTableViewDataSource.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 #import "ERNTableViewManager.h"
 
 @implementation ERNTableViewDataSourceTest
@@ -20,7 +20,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
 }
 
 -(void)testCellForRowAtNilIndexPathTableViewWithNilManager
@@ -35,7 +35,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
     [mockTableView verify];
 }
 
@@ -51,7 +51,7 @@
                             cellForRowAtIndexPath:mockIndexPath];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
     [mockIndexPath verify];
 }
 
@@ -68,7 +68,7 @@
                             cellForRowAtIndexPath:mockIndexPath];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
     [mockTableView verify];
     [mockIndexPath verify];
 }
@@ -204,7 +204,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
     [mockTableViewManager verify];
 }
 
@@ -221,7 +221,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
     [mockTableView verify];
     [mockTableViewManager verify];
 }
@@ -239,7 +239,7 @@
                             cellForRowAtIndexPath:mockIndexPath];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
     [mockIndexPath verify];
     [mockTableViewManager verify];
 }

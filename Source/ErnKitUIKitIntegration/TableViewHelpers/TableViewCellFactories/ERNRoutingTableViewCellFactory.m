@@ -1,7 +1,7 @@
 #import "ERNRoutingTableViewCellFactory.h"
 #import "ERNNullTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @interface ERNRoutingTableViewCellFactory ()
 @property (nonatomic, readonly, copy) NSDictionary *mappings;
@@ -33,8 +33,8 @@
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
-    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
+    ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
     return [[self factoryForObject:object] cellForTableView:tableView
                                                  fromObject:object];
 }

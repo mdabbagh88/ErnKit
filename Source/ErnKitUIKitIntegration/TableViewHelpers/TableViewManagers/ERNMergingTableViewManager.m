@@ -3,7 +3,7 @@
 #import "ERNMergingTableViewManager.h"
 #import "ERNErrorHandler.h"
 #import "NSObject+ERNHelper.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @interface ERNMergingTableViewManager ()
 @property (nonatomic, readonly) id<ERNTableViewManager> firstTableViewManager;
@@ -38,8 +38,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
               cellForIndexPath:(NSIndexPath *)indexPath
 {
-    ERNCheckNilAndReturn(tableView, [ERNDummyTableViewCell create]);
-    ERNCheckNilAndReturn(indexPath, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
+    ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
     return [[self routedTableViewManagerForSection:
              [indexPath section]] tableView:tableView
             cellForIndexPath:[self routedIndexPathForIndexPath:indexPath]];

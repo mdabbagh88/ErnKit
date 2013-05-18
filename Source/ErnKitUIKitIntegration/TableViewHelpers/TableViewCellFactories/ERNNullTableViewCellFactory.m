@@ -1,7 +1,7 @@
 #import "ERNNullTableViewCellFactory.h"
 #import "UITableViewCell+ERNHelper.h"
 #import "ERNErrorHandler.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 static ERNNullTableViewCellFactory *immutableSingleton;
 
@@ -20,7 +20,7 @@ static ERNNullTableViewCellFactory *immutableSingleton;
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(object, [ERNDummyTableViewCell create]);
+    ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(tableView, [self createTableViewCellFromObject:object]);
     return [self createTableViewCellForTableView:tableView
                                       fromObject:object];

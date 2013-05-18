@@ -4,7 +4,7 @@
 #import <UIKit/UIKit.h>
 #import "ERNNullTableViewCellFactoryTest.h"
 #import "ERNNullTableViewCellFactory.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @implementation ERNNullTableViewCellFactoryTest
 
@@ -29,7 +29,7 @@
                                            fromObject:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
 }
 
 -(void)testCellForTableViewNilObject
@@ -43,7 +43,7 @@
                                            fromObject:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNDummyTableViewCell class]));
+    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
 }
 
 -(void)testCellForNilTableViewObject

@@ -1,5 +1,5 @@
 #import "ERNNullTableViewItemManager.h"
-#import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewCell.h"
 
 @implementation ERNNullTableViewItemManager {
 }
@@ -26,7 +26,7 @@
 -(UITableViewCell *)cellForTableView:(UITableView *)tableView
                           fromObject:(id<NSObject>)object
 {
-    return [ERNDummyTableViewCell create];
+    return [ERNNullTableViewCell create];
 }
 
 @end
