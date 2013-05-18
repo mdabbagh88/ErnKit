@@ -8,14 +8,11 @@
 #import "ERNTableViewItemManager.h"
 #import "ERNDefaultTableViewItemManager.h"
 
-typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
-
 @interface ERNTableViewController ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNTableViewManager> tableViewManager;
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSource;
 @property (nonatomic, readonly) id<UITableViewDelegate> delegate;
-@property (nonatomic, readonly, copy) ERNTableViewManagerConstructor createTableViewManager;
 @end
 
 @implementation ERNTableViewController {
@@ -27,31 +24,12 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
 #pragma mark - public - constructors
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+                        itemManager:(id<ERNTableViewItemManager>)itemManager;
 {
     return [[self alloc] initWithRepository:repository
-                tableViewManagerConstructor:
-            ^(){
-                return [ERNAsyncItemsRepositoryTableViewManager
-                        createWithRepository:repository
-                        itemManager:[ERNDefaultTableViewItemManager
-                                     createWithCellFactory:cellFactory]];
-            }];
-}
-
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                      actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [[self alloc] initWithRepository:repository
-                tableViewManagerConstructor:
-            ^(){
-                return [ERNAsyncItemsRepositoryTableViewManager
-                        createWithRepository:repository
-                        itemManager:[ERNDefaultTableViewItemManager
-                                     createWithCellFactory:cellFactory
-                                     actionHandler:actionHandler]];
-            }];
+                           tableViewManager:
+            [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
+                                                              itemManager:itemManager]];
 }
 
 #pragma mark - UIViewController
@@ -88,13 +66,6 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
     [tableView setDataSource:[self dataSource]];
 }
 
--(id<ERNTableViewManager>)tableViewManager
-{
-    return _tableViewManager = _tableViewManager ?
-    _tableViewManager :
-    [self createTableViewManager]();
-}
-
 -(id<UITableViewDataSource>)dataSource
 {
     return _dataSource = _dataSource ?
@@ -112,12 +83,12 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
 #pragma mark - private - initializers
 
 -(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-tableViewManagerConstructor:(ERNTableViewManagerConstructor)createTableViewManager
+       tableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
     self = [self init];
     ERNCheckNil(self);
     _repository = repository;
-    _createTableViewManager = createTableViewManager;
+    _tableViewManager = tableViewManager;
     return self;
 }
 

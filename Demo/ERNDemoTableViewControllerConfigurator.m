@@ -9,6 +9,7 @@
 #import "ERNTableViewController+Refreshable.h"
 #import "ERNDefaultTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
+#import "ERNDefaultTableViewItemManager.h"
 
 @interface ERNDemoTableViewControllerConfigurator ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
@@ -49,7 +50,8 @@
     return _tableViewController = _tableViewController ?
     _tableViewController :
     [ERNTableViewController createRefreshableWithRepository:[self repository]
-     cellFactory:[ERNDefaultTableViewCellFactory create]];
+     itemManager:[ERNDefaultTableViewItemManager
+                  createWithCellFactory:[ERNDefaultTableViewCellFactory create]]];
 }
 
 -(UISegmentedControl *)feedSegmentedControl

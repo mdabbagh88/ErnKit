@@ -6,22 +6,11 @@
 @implementation ERNTableViewController (Refreshable)
 
 +(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                   cellFactory:(id<ERNTableViewCellFactory>)cellFactory
+                                   itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     return [self setupRefreshController:
             [ERNTableViewController createWithRepository:repository
-                                             cellFactory:cellFactory]
-                             repository:repository];
-}
-
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
-                                   cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                                 actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [self setupRefreshController:
-            [ERNTableViewController createWithRepository:repository
-                                             cellFactory:cellFactory
-                                           actionHandler:actionHandler]
+                                             itemManager:itemManager]
                              repository:repository];
 }
 
