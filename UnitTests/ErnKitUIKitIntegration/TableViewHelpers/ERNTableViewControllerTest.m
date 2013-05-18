@@ -34,8 +34,6 @@
     ERNTableViewController *viewController =
     [ERNTableViewController createWithRepository:mockRepository
                                      itemManager:nil];
-    [[mockRepository expect] addObserver:viewController
-                                selector:NSSelectorFromString(@"repositoryRefreshed")];
 
     //when
     [viewController viewDidLoad];
@@ -73,8 +71,6 @@
     ERNTableViewController *viewController =
     [ERNTableViewController createWithRepository:mockRepository
                                      itemManager:mockTableViewItemManager];
-    [[mockRepository expect] addObserver:viewController
-                                selector:NSSelectorFromString(@"repositoryRefreshed")];
 
     //when
     [viewController viewDidLoad];

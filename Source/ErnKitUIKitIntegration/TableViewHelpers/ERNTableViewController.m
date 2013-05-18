@@ -7,8 +7,10 @@
 #import "ERNErrorHandler.h"
 #import "ERNTableViewItemManager.h"
 #import "ERNDefaultTableViewItemManager.h"
+#import "ERNTableViewRepositoryRefreshController.h"
 
 @interface ERNTableViewController ()
+@property (nonatomic, readwrite) ERNTableViewRepositoryRefreshController *refreshController;
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNTableViewManager> tableViewManager;
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSource;
@@ -37,24 +39,18 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [[self tableView] setDataSource:[self dataSource]];
-    [[self tableView] setDelegate:[self delegate]];
-    [[self repository] addObserver:self
-                          selector:@selector(repositoryRefreshed)];
-}
-
-#pragma mark - NSObject
-
--(void)dealloc
-{
-    [_repository removeObserver:self];
+    [self setupTableView:[self tableView]];
 }
 
 #pragma mark - private
 
--(void)repositoryRefreshed
+-(void)setupTableView:(UITableView *)tableView
 {
-    [[self tableView] reloadData];
+    [tableView setDelegate:[self delegate]];
+    [tableView setDataSource:[self dataSource]];
+    [self setRefreshController:[ERNTableViewRepositoryRefreshController
+                                createWithTableView:tableView
+                                repository:[self repository]]];
 }
 
 #pragma mark - private - accessors
@@ -62,8 +58,7 @@
 -(void)setTableView:(UITableView *)tableView
 {
     [super setTableView:tableView];
-    [tableView setDelegate:[self delegate]];
-    [tableView setDataSource:[self dataSource]];
+    [self setupTableView:tableView];
 }
 
 -(id<UITableViewDataSource>)dataSource

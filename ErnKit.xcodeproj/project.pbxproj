@@ -54,6 +54,7 @@
 		F787FB6D17476EB3007D751A /* ERNNullTableViewItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB6C17476EB3007D751A /* ERNNullTableViewItemManager.m */; };
 		F787FB6F17477194007D751A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F787FB6E17477194007D751A /* Security.framework */; };
 		F787FB72174789D8007D751A /* ERNNullTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB71174789D8007D751A /* ERNNullTableViewCellFactory.m */; };
+		F787FB7517479068007D751A /* ERNTableViewRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */; };
 		F78C905D1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */; };
 		F78C90631737C4FA00301956 /* ERNTogglingTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90621737C4FA00301956 /* ERNTogglingTableViewManager.m */; };
 		F78C90661737CAF400301956 /* ERNNullTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90651737CAF400301956 /* ERNNullTableViewManager.m */; };
@@ -361,6 +362,8 @@
 		F787FB6E17477194007D751A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F787FB70174789D8007D751A /* ERNNullTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewCellFactory.h; sourceTree = "<group>"; };
 		F787FB71174789D8007D751A /* ERNNullTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactory.m; sourceTree = "<group>"; };
+		F787FB7317479067007D751A /* ERNTableViewRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewRepositoryRefreshController.h; sourceTree = "<group>"; };
+		F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewRepositoryRefreshController.m; sourceTree = "<group>"; };
 		F78C905B1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionSheetTransitioner.h; sourceTree = "<group>"; };
 		F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionSheetTransitioner.m; sourceTree = "<group>"; };
 		F78C90611737C4FA00301956 /* ERNTogglingTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingTableViewManager.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 				F70A6A271742B2B6004095C1 /* ERNSegmentedControlActionController.m */,
 				F70A6A281742B2B6004095C1 /* ERNSegmentedControlTogglerController.h */,
 				F70A6A291742B2B6004095C1 /* ERNSegmentedControlTogglerController.m */,
+				F787FB7317479067007D751A /* ERNTableViewRepositoryRefreshController.h */,
+				F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */,
 			);
 			path = MicroControllers;
 			sourceTree = "<group>";
@@ -1780,6 +1785,7 @@
 				F787FB6A174765C6007D751A /* ERNDefaultTableViewItemManager.m in Sources */,
 				F787FB6D17476EB3007D751A /* ERNNullTableViewItemManager.m in Sources */,
 				F787FB72174789D8007D751A /* ERNNullTableViewCellFactory.m in Sources */,
+				F787FB7517479068007D751A /* ERNTableViewRepositoryRefreshController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
