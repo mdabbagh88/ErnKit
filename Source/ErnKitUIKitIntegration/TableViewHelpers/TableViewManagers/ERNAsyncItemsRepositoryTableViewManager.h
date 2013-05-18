@@ -2,16 +2,10 @@
 #import "ERNTableViewManager.h"
 
 @protocol ERNAsyncItemsRepository;
-@protocol ERNTableViewCellFactory;
-@protocol ERNActionHandler;
+@protocol ERNTableViewItemManager;
 
 @interface ERNAsyncItemsRepositoryTableViewManager : NSObject <ERNTableViewManager>
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository;
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory;
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                      actionHandler:(id<ERNActionHandler>)actionHandler;
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                      actionHandler:(id<ERNActionHandler>)actionHandler;
+                        itemManager:(id<ERNTableViewItemManager>)itemManager;
 @end

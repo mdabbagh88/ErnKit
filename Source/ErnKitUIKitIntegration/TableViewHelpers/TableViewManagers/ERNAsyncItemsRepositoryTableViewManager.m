@@ -5,6 +5,7 @@
 #import "ERNDefaultTableViewItemManager.h"
 #import "ERNErrorHandler.h"
 #import "ERNDummyTableViewCell.h"
+#import "ERNNullTableViewItemManager.h"
 
 @interface ERNAsyncItemsRepositoryTableViewManager ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository>repository;
@@ -13,34 +14,16 @@
 
 @implementation ERNAsyncItemsRepositoryTableViewManager {
     id<ERNTableViewCellFactory> _cellFactory;
+    id<ERNTableViewItemManager> _itemManager;
 }
 
 #pragma mark - public - constructors
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                      actionHandler:(id<ERNActionHandler>)actionHandler
+                        itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     return [[self alloc] initWithRepository:repository
-                                itemManager:[ERNDefaultTableViewItemManager
-                                             createWithCellFactory:cellFactory
-                                             actionHandler:actionHandler]];
-}
-
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                      actionHandler:(id<ERNActionHandler>)actionHandler
-{
-    return [[self alloc] initWithRepository:repository
-                                itemManager:[ERNDefaultTableViewItemManager
-                                             createWithActionHandler:actionHandler]];
-}
-
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        cellFactory:(id<ERNTableViewCellFactory>)cellFactory
-{
-    return [[self alloc] initWithRepository:repository
-                                itemManager:[ERNDefaultTableViewItemManager
-                                             createWithCellFactory:cellFactory]];
+                                itemManager:itemManager];
 }
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
@@ -85,6 +68,14 @@
 -(NSInteger)rowsInSection:(NSInteger)section
 {
     return (NSInteger)[[self repository] count];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNTableViewItemManager>)itemManager
+{
+    return _itemManager = _itemManager ? _itemManager :
+    [ERNNullTableViewItemManager create];
 }
 
 #pragma mark - private - initializers

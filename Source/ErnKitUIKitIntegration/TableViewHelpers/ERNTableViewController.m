@@ -5,6 +5,8 @@
 #import "ERNTableViewDataSource.h"
 #import "ERNTableViewDelegate.h"
 #import "ERNErrorHandler.h"
+#import "ERNTableViewItemManager.h"
+#import "ERNDefaultTableViewItemManager.h"
 
 typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
 
@@ -42,7 +44,8 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
             ^(){
                 return [ERNAsyncItemsRepositoryTableViewManager
                         createWithRepository:repository
-                        cellFactory:cellFactory];
+                        itemManager:[ERNDefaultTableViewItemManager
+                                     createWithCellFactory:cellFactory]];
             }];
 }
 
@@ -54,7 +57,8 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
             ^(){
                 return [ERNAsyncItemsRepositoryTableViewManager
                         createWithRepository:repository
-                        actionHandler:actionHandler];
+                        itemManager:[ERNDefaultTableViewItemManager
+                                     createWithActionHandler:actionHandler]];
             }];
 }
 
@@ -67,8 +71,9 @@ typedef id<ERNTableViewManager> (^ERNTableViewManagerConstructor)();
             ^(){
                 return [ERNAsyncItemsRepositoryTableViewManager
                         createWithRepository:repository
-                        cellFactory:cellFactory
-                        actionHandler:actionHandler];
+                        itemManager:[ERNDefaultTableViewItemManager
+                                     createWithCellFactory:cellFactory
+                                     actionHandler:actionHandler]];
             }];
 }
 
