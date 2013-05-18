@@ -1,17 +1,10 @@
 #import "ERNTableViewController.h"
-#import "ERNAsyncItemsRepository.h"
-#import "ERNTableViewCellFactory.h"
-#import "ERNAsyncItemsRepositoryTableViewManager.h"
 #import "ERNTableViewDataSource.h"
 #import "ERNTableViewDelegate.h"
 #import "ERNErrorHandler.h"
 #import "ERNTableViewItemManager.h"
-#import "ERNDefaultTableViewItemManager.h"
-#import "ERNTableViewRepositoryRefreshController.h"
 
 @interface ERNTableViewController ()
-@property (nonatomic, readwrite) ERNTableViewRepositoryRefreshController *refreshController;
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNTableViewManager> tableViewManager;
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSource;
 @property (nonatomic, readonly) id<UITableViewDelegate> delegate;
@@ -25,13 +18,9 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        itemManager:(id<ERNTableViewItemManager>)itemManager;
++(instancetype)createWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
-    return [[self alloc] initWithRepository:repository
-                           tableViewManager:
-            [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
-                                                              itemManager:itemManager]];
+    return [[self alloc] initWithTableViewManager:tableViewManager];
 }
 
 #pragma mark - UIViewController
@@ -48,9 +37,6 @@
 {
     [tableView setDelegate:[self delegate]];
     [tableView setDataSource:[self dataSource]];
-    [self setRefreshController:[ERNTableViewRepositoryRefreshController
-                                createWithTableView:tableView
-                                repository:[self repository]]];
 }
 
 #pragma mark - private - accessors
@@ -77,12 +63,10 @@
 
 #pragma mark - private - initializers
 
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
-       tableViewManager:(id<ERNTableViewManager>)tableViewManager
+-(id)initWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
     self = [self init];
     ERNCheckNil(self);
-    _repository = repository;
     _tableViewManager = tableViewManager;
     return self;
 }

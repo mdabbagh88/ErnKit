@@ -13,27 +13,11 @@
 
 @implementation ERNTableViewControllerTest
 
--(void)testViewDidLoadNilRepositoryNilCellFactory
+-(void)testViewDidLoadNilTableViewManager
 {
     //given
-    ERNTableViewController *viewController = [ERNTableViewController createWithRepository:nil
-                                                                              itemManager:nil];
-
-    //when
-    [viewController viewDidLoad];
-
-    //then
-    assertThat([[viewController tableView] delegate], notNilValue());
-    assertThat([[viewController tableView] dataSource], notNilValue());
-}
-
--(void)testViewDidLoadRepositoryNilCellFactory
-{
-    //given
-    id mockRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     ERNTableViewController *viewController =
-    [ERNTableViewController createWithRepository:mockRepository
-                                     itemManager:nil];
+    [ERNTableViewController createWithTableViewManager:nil];
 
     //when
     [viewController viewDidLoad];
@@ -41,17 +25,15 @@
     //then
     assertThat([[viewController tableView] delegate], notNilValue());
     assertThat([[viewController tableView] dataSource], notNilValue());
-    [mockRepository verify];
 }
 
--(void)testViewDidLoadNilRepositoryCellFactory
+-(void)testViewDidLoadTableViewManager
 {
     //given
-    id mockTableViewItemManager =
+    id mockTableViewManager =
     [OCMockObject niceMockForProtocol:@protocol(ERNTableViewItemManager)];
     ERNTableViewController *viewController =
-    [ERNTableViewController createWithRepository:nil
-                                     itemManager:mockTableViewItemManager];
+    [ERNTableViewController createWithTableViewManager:mockTableViewManager];
 
     //when
     [viewController viewDidLoad];
@@ -59,27 +41,7 @@
     //then
     assertThat([[viewController tableView] delegate], notNilValue());
     assertThat([[viewController tableView] dataSource], notNilValue());
-    [mockTableViewItemManager verify];
-}
-
--(void)testViewDidLoadRepositoryCellFactory
-{
-    //given
-    id mockTableViewItemManager =
-    [OCMockObject niceMockForProtocol:@protocol(ERNTableViewItemManager)];
-    id mockRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    ERNTableViewController *viewController =
-    [ERNTableViewController createWithRepository:mockRepository
-                                     itemManager:mockTableViewItemManager];
-
-    //when
-    [viewController viewDidLoad];
-
-    //then
-    assertThat([[viewController tableView] delegate], notNilValue());
-    assertThat([[viewController tableView] dataSource], notNilValue());
-    [mockRepository verify];
-    [mockTableViewItemManager verify];
+    [mockTableViewManager verify];
 }
 
 @end

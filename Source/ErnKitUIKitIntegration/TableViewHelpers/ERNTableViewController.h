@@ -1,9 +1,7 @@
 #import <UIKit/UIKit.h>
 
-@protocol ERNTableViewItemManager;
-@protocol ERNAsyncItemsRepository;
+@protocol ERNTableViewManager;
 
 @interface ERNTableViewController : UITableViewController
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
-                        itemManager:(id<ERNTableViewItemManager>)itemManager;
++(instancetype)createWithTableViewManager:(id<ERNTableViewManager>)tableViewManager;
 @end
