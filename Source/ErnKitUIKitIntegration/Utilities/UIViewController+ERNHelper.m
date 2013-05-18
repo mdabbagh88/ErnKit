@@ -15,6 +15,13 @@ static NSString *ERN_addMicroController = @"ERN_addMicroControllers";
     [self ERN_setMicroControllers:array];
 }
 
+-(NSArray *)ERN_getMicroControllers
+{
+    return [self ERN_getMutableMicroControllers];
+}
+
+#pragma mark - private
+
 -(void)ERN_setMicroControllers:(NSMutableArray *)subControllers
 {
     objc_setAssociatedObject(self,
@@ -22,13 +29,6 @@ static NSString *ERN_addMicroController = @"ERN_addMicroControllers";
                              subControllers,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
--(NSArray *)ERN_getMicroControllers
-{
-    return [self ERN_getMutableMicroControllers];
-}
-
-#pragma mark - private
 
 -(NSMutableArray *)ERN_getMutableMicroControllers
 {
