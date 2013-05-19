@@ -57,6 +57,7 @@
 		F787FB7517479068007D751A /* ERNTableViewRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */; };
 		F787FB841747E08F007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB831747E08E007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m */; };
 		F787FB8B1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB8A1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m */; };
+		F787FB901748FF2C007D751A /* ERNItemsToAsyncPaginatedItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB8F1748FF25007D751A /* ERNItemsToAsyncPaginatedItemsRepository.m */; };
 		F78C905D1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */; };
 		F78C90631737C4FA00301956 /* ERNTogglingTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90621737C4FA00301956 /* ERNTogglingTableViewManager.m */; };
 		F78C90661737CAF400301956 /* ERNNullTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90651737CAF400301956 /* ERNNullTableViewManager.m */; };
@@ -372,6 +373,8 @@
 		F787FB891747E5D4007D751A /* ERNMapViewRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewRepositoryRefreshController.h; sourceTree = "<group>"; };
 		F787FB8A1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewRepositoryRefreshController.m; sourceTree = "<group>"; };
 		F787FB8D1748FC12007D751A /* ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F787FB8E1748FF22007D751A /* ERNItemsToAsyncPaginatedItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemsToAsyncPaginatedItemsRepository.h; sourceTree = "<group>"; };
+		F787FB8F1748FF25007D751A /* ERNItemsToAsyncPaginatedItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemsToAsyncPaginatedItemsRepository.m; sourceTree = "<group>"; };
 		F78C905B1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionSheetTransitioner.h; sourceTree = "<group>"; };
 		F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionSheetTransitioner.m; sourceTree = "<group>"; };
 		F78C90611737C4FA00301956 /* ERNTogglingTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingTableViewManager.h; sourceTree = "<group>"; };
@@ -1311,6 +1314,8 @@
 				F733BAF91730FA4A00BE50CA /* ERNDefaultRepositoryStore.m */,
 				F7F100491739BA8F00FD3E29 /* ERNNullRepositoryPaginator.h */,
 				F7F1004A1739BA8F00FD3E29 /* ERNNullRepositoryPaginator.m */,
+				F787FB8E1748FF22007D751A /* ERNItemsToAsyncPaginatedItemsRepository.h */,
+				F787FB8F1748FF25007D751A /* ERNItemsToAsyncPaginatedItemsRepository.m */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1761,6 +1766,7 @@
 				F796D62117358E76001A6891 /* ERNTogglingAsyncItemsRepository.m in Sources */,
 				F796D64D173692C9001A6891 /* ERNActionTogglerAction.m in Sources */,
 				F7F1004B1739BA8F00FD3E29 /* ERNNullRepositoryPaginator.m in Sources */,
+				F787FB901748FF2C007D751A /* ERNItemsToAsyncPaginatedItemsRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
