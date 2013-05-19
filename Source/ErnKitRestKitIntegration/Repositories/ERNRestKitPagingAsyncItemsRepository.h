@@ -3,7 +3,8 @@
 
 @class RKObjectMapping;
 
-@interface ERNRestKitPagingAsyncItemsRepository : ERNArrayAsyncItemsRepository
+@interface ERNRestKitPagingAsyncItemsRepository : ERNArrayAsyncItemsRepository <
+    ERNAsyncPaginatedItemsRepository>
 +(instancetype)createWithUrl:(NSURL *)url
                      keyPath:(NSString *)keyPath
                      mapping:(RKObjectMapping *)mapping

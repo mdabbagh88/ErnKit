@@ -75,7 +75,7 @@
     return 0;
 }
 
--(NSUInteger)limit
+-(NSUInteger)fetched
 {
     return [[self array] count];
 }
