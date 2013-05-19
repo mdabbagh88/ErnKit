@@ -55,7 +55,7 @@
 
 #pragma mark - ERNAsyncPaginatedItemsRepository
 
--(NSUInteger)fetched
+-(NSUInteger)total
 {
     return [[self array] count];
 }

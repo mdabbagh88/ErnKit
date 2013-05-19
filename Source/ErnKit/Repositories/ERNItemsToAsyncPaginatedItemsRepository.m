@@ -17,9 +17,9 @@
 
 #pragma mark - ERNAsyncPaginatedItemsRepository
 
--(NSUInteger)fetched
+-(NSUInteger)count
 {
-    return [[self repository] total];
+    return [[self repository] count];
 }
 
 -(NSUInteger)offset
@@ -31,7 +31,7 @@
 
 -(NSUInteger)total
 {
-    return [[self repository] total];
+    return [[self repository] count];
 }
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index

@@ -17,7 +17,7 @@ static ERNNullRepositoryPaginator *immutableSingleton;
 
 #pragma mark - ERNRepositoryPaginator
 
--(NSUInteger)count
+-(NSUInteger)total
 {
     return 0;
 }

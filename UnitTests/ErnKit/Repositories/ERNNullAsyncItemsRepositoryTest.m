@@ -101,10 +101,10 @@
     id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
 
     //when
-    NSUInteger fetched = [repository fetched];
+    NSUInteger count = [repository count];
 
     //then
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
 }
 
 -(void)testOffset

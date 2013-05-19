@@ -40,10 +40,10 @@
     [ERNItemToAsyncItemsRepository createWithRepository:nil];
 
     //when
-    NSUInteger fetched = [repository fetched];
+    NSUInteger count = [repository count];
 
     //then
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(1));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger(1));
 }
 
 -(void)testEnumerateItemsUsingBlockNilRepository
@@ -170,10 +170,10 @@
     [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
 
     //when
-    NSUInteger fetched = [repository fetched];
+    NSUInteger count = [repository count];
 
     //then
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(1));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger(1));
 }
 
 -(void)testEnumerateItemsUsingBlockRepository

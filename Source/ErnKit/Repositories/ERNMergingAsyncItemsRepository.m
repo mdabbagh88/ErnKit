@@ -25,13 +25,13 @@
     return [[self firstRepository] total] + [[self restRepository] total];
 }
 
--(NSUInteger)fetched
+-(NSUInteger)count
 {
     return [self limitWithFirstCount:[[self firstRepository] total]
-                          firstLimit:[[self firstRepository] fetched]
+                          firstLimit:[[self firstRepository] count]
                          firstOffset:[[self firstRepository] offset]
                            restCount:[[self restRepository] total]
-                           restLimit:[[self restRepository] fetched]
+                           restLimit:[[self restRepository] count]
                           restOffset:[[self restRepository] offset]];
 }
 

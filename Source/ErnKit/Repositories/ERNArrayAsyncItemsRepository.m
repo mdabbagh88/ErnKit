@@ -39,7 +39,7 @@
     return [[self array] filteredArrayUsingPredicate:predicate];
 }
 
--(NSUInteger)total
+-(NSUInteger)count
 {
     return [[self array] count];
 }

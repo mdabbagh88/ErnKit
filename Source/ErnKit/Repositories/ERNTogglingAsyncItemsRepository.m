@@ -37,14 +37,14 @@
 
 #pragma mark - ERNAsyncItemsRepository
 
+-(NSUInteger)count
+{
+    return [[self currentRepository] count];
+}
+
 -(NSUInteger)total
 {
     return [[self currentRepository] total];
-}
-
--(NSUInteger)fetched
-{
-    return [[self currentRepository] fetched];
 }
 
 -(NSUInteger)offset

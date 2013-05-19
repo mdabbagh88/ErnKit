@@ -65,9 +65,9 @@
                           selector:@selector(repositoryRefreshed)];
 }
 
--(NSUInteger)count
+-(NSUInteger)total
 {
-    return [[self paginator] count];
+    return [[self paginator] total];
 }
 
 -(NSUInteger)offset
@@ -75,7 +75,7 @@
     return 0;
 }
 
--(NSUInteger)fetched
+-(NSUInteger)count
 {
     return [[self array] count];
 }

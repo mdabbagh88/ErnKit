@@ -105,10 +105,10 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger fetched = [repository fetched];
+    NSUInteger count = [repository count];
 
     //then
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
@@ -125,7 +125,7 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThatUnsignedInteger([repository fetched], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
@@ -485,7 +485,7 @@
     //given
     NSUInteger expectedfetched = 3;
     id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
-    [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
+    [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] count];
     id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -494,10 +494,10 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger fetched = [repository fetched];
+    NSUInteger count = [repository count];
 
     //then
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedfetched));
     [mockRepository1 verify];
     [mockRepository2 verify];
     [mockNotificationCenter verify];
@@ -509,7 +509,7 @@
     NSUInteger expectedfetched = 3;
     id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
-    [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
+    [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] count];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -521,7 +521,7 @@
     [repository setSelectedIndex:1];
 
     //then
-    assertThatUnsignedInteger([repository fetched], equalToUnsignedInteger(expectedfetched));
+    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(expectedfetched));
     [mockRepository1 verify];
     [mockRepository2 verify];
     [mockNotificationCenter verify];
@@ -543,7 +543,7 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThatUnsignedInteger([repository fetched], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(0));
     [mockRepository1 verify];
     [mockRepository2 verify];
     [mockNotificationCenter verify];

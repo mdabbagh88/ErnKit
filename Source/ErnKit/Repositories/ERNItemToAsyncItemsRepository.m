@@ -42,7 +42,7 @@
     return 1;
 }
 
--(NSUInteger)fetched
+-(NSUInteger)count
 {
     return 1;
 }

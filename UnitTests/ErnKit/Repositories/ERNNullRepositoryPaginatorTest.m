@@ -24,10 +24,10 @@
     id<ERNRepositoryPaginator> paginator = [ERNNullRepositoryPaginator create];
 
     //when
-    NSUInteger count = [paginator count];
+    NSUInteger total = [paginator total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
 }
 
 -(void)testNextPage

@@ -36,11 +36,11 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger total = [repository total];
+    NSUInteger count = [repository count];
 
     //then
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
 }
 
 -(void)testItemAtIndexNilArray
@@ -126,11 +126,11 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger total = [repository total];
+    NSUInteger count = [repository count];
 
     //then
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(total, equalToUnsignedInteger([initArray count]));
+    assertThatUnsignedInteger(count, equalToUnsignedInteger([initArray count]));
 }
 
 -(void)testItemAtIndexOutOfIndexArray
