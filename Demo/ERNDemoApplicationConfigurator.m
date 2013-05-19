@@ -8,9 +8,9 @@
 #import "ERNViewControllerAction.h"
 
 @implementation ERNDemoApplicationConfigurator {
-    id<ERNAsyncItemsRepository> _repositoryFirstFeed;
-    id<ERNAsyncItemsRepository> _repositorySecondFeed;
-    id<ERNAsyncItemsRepository> _repositoryBothFeeds;
+    id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;
+    id<ERNAsyncPaginatedItemsRepository> _repositorySecondFeed;
+    id<ERNAsyncPaginatedItemsRepository> _repositoryBothFeeds;
     ERNTogglingAsyncItemsRepository *_repository;
     UINavigationController *_navigationControllerMapTab;
     UINavigationController *_navigationControllerTableTab;
@@ -57,21 +57,21 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAsyncItemsRepository>)repositoryFirstFeed
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryFirstFeed
 {
     return _repositoryFirstFeed = _repositoryFirstFeed ?
     _repositoryFirstFeed :
     [ERNRestKitAsyncItemsRepository createTwitterStatusesForUser:@"ernstsson"];
 }
 
--(id<ERNAsyncItemsRepository>)repositorySecondFeed
+-(id<ERNAsyncPaginatedItemsRepository>)repositorySecondFeed
 {
     return _repositorySecondFeed = _repositorySecondFeed ?
     _repositorySecondFeed :
     [ERNRestKitAsyncItemsRepository createTwitterStatusesForUser:@"jgumbley"];
 }
 
--(id<ERNAsyncItemsRepository>)repositoryBothFeeds
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryBothFeeds
 {
     return _repositoryBothFeeds = _repositoryBothFeeds ?
     _repositoryBothFeeds :

@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNTableViewItemManager.h"
 #import "ERNTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
@@ -8,7 +8,7 @@
 #import "ERNNullTableViewItemManager.h"
 
 @interface ERNAsyncItemsRepositoryTableViewManager ()
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository>repository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>repository;
 @property (nonatomic, readonly) id<ERNTableViewItemManager>itemManager;
 @end
 
@@ -19,14 +19,14 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                         itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     return [[self alloc] initWithRepository:repository
                                 itemManager:itemManager];
 }
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return [[self alloc] initWithRepository:repository
                                 itemManager:nil];
@@ -80,7 +80,7 @@
 
 #pragma mark - private - initializers
 
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
+-(id)initWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
             itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     self = [self init];

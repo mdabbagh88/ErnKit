@@ -1,19 +1,19 @@
 #import "ERNItemsToAsyncItemRepository.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullAsyncItemsRepository.h"
 
 @interface ERNItemsToAsyncItemRepository ()
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository>repository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>repository;
 @end
 
 @implementation ERNItemsToAsyncItemRepository {
-    id<ERNAsyncItemsRepository> _repository;
+    id<ERNAsyncPaginatedItemsRepository> _repository;
 }
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return [[self alloc] initWithItemsRepository:repository];
 }
@@ -27,14 +27,14 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAsyncItemsRepository>)repository
+-(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return _repository = _repository ? _repository : [ERNNullAsyncItemsRepository create];
 }
 
 #pragma mark - private - initializers
 
--(id)initWithItemsRepository:(id<ERNAsyncItemsRepository>)repository
+-(id)initWithItemsRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     self = [self initWithRepository:repository];
     ERNCheckNil(self);

@@ -1,7 +1,7 @@
 #import "ERNBaseAsyncRepository.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 
-@interface ERNMergingAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncItemsRepository>
-+(instancetype)createWithFirstRepository:(id<ERNAsyncItemsRepository>)firstRepository
-                          restRepository:(id<ERNAsyncItemsRepository>)restRepository;
+@interface ERNMergingAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncPaginatedItemsRepository>
++(instancetype)createWithFirstRepository:(id<ERNAsyncPaginatedItemsRepository>)firstRepository
+                          restRepository:(id<ERNAsyncPaginatedItemsRepository>)restRepository;
 @end

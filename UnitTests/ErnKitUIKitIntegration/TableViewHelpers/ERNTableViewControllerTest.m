@@ -4,7 +4,7 @@
 #import <UIKit/UIKit.h>
 #import "ERNTableViewControllerTest.h"
 #import "ERNTableViewController.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNTableViewItemManager.h"
 
 @interface ERNTableViewController ()

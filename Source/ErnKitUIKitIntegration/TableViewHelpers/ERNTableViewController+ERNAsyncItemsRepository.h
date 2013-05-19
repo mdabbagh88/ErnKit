@@ -1,11 +1,11 @@
 #import "ERNTableViewController.h"
 
-@protocol ERNAsyncItemsRepository;
+@protocol ERNAsyncPaginatedItemsRepository;
 @protocol ERNTableViewItemManager;
 
 @interface ERNTableViewController (ERNAsyncItemsRepository)
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                         itemManager:(id<ERNTableViewItemManager>)itemManager;
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createRefreshableWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                                    itemManager:(id<ERNTableViewItemManager>)itemManager;
 @end

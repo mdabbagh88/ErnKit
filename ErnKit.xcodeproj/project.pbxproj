@@ -531,7 +531,7 @@
 		F7F06A68172D0A9900CA5FC4 /* ERNArrayAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNArrayAsyncItemsRepository.h; sourceTree = "<group>"; };
 		F7F06A69172D0A9900CA5FC4 /* ERNArrayAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNArrayAsyncItemsRepository.m; sourceTree = "<group>"; };
 		F7F06A6A172D0A9900CA5FC4 /* ERNAsyncItemRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemRepository.h; sourceTree = "<group>"; };
-		F7F06A6B172D0A9900CA5FC4 /* ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepository.h; sourceTree = "<group>"; };
+		F7F06A6B172D0A9900CA5FC4 /* ERNAsyncPaginatedItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNAsyncPaginatedItemsRepository.h; sourceTree = "<group>"; };
 		F7F06A6C172D0A9900CA5FC4 /* ERNAsyncRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNAsyncRepository.h; sourceTree = "<group>"; };
 		F7F06A6D172D0A9900CA5FC4 /* ERNBaseAsyncRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBaseAsyncRepository.h; sourceTree = "<group>"; };
 		F7F06A6E172D0A9900CA5FC4 /* ERNBaseAsyncRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBaseAsyncRepository.m; sourceTree = "<group>"; };
@@ -1281,7 +1281,7 @@
 			children = (
 				F7F06A6C172D0A9900CA5FC4 /* ERNAsyncRepository.h */,
 				F7F06A6A172D0A9900CA5FC4 /* ERNAsyncItemRepository.h */,
-				F7F06A6B172D0A9900CA5FC4 /* ERNAsyncItemsRepository.h */,
+				F7F06A6B172D0A9900CA5FC4 /* ERNAsyncPaginatedItemsRepository.h */,
 				F7F100421739AEAC00FD3E29 /* ERNRepositoryPaginator.h */,
 				F781C0201731C82100CED541 /* ERNRepositoryFactory.h */,
 				F733BAF71730F86600BE50CA /* ERNRepositoryStore.h */,

@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "ERNViewControllerConfigurator.h"
 
-@protocol ERNAsyncItemsRepository;
+@protocol ERNAsyncPaginatedItemsRepository;
 @protocol ERNToggler;
 
 @interface ERNDemoTableViewControllerConfigurator : NSObject <ERNViewControllerConfigurator>
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                             toggler:(id<ERNToggler>)toggler;
 @end

@@ -197,7 +197,7 @@
 -(void)testSubRepositoriesUpdatedFirstNilRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -217,7 +217,7 @@
 {
     //given
     NSUInteger expectedtotal = 4;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -238,7 +238,7 @@
 {
     //given
     NSUInteger expectedfetched = 5;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -260,7 +260,7 @@
     //given
     NSUInteger expectedOffset = 6;
     NSUInteger firsttotal = 56;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedOffset)] offset];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -281,7 +281,7 @@
 -(void)testRefreshWithFirstNilRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockFirstRepository expect] refresh];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -303,7 +303,7 @@
     NSUInteger firsttotal = 20;
     NSUInteger requestedIndex = 10;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -326,7 +326,7 @@
     //given
     NSUInteger firsttotal = 10;
     NSUInteger requestedIndex = 20;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -346,7 +346,7 @@
 -(void)testEnumerateItemsUsingNilBlockWithFirstNilRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -365,7 +365,7 @@
 {
     //given
     ERNRepositoryEnumerationBlock block = ^(id<NSObject> item, NSUInteger index, BOOL *stop) {};
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockFirstRepository expect] enumerateItemsUsingBlock:block];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -384,7 +384,7 @@
 -(void)testFilteredArrayUsingNilPredicateWithFirstNilRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -404,7 +404,7 @@
 -(void)testFilteredArrayUsingPredicateWithFirstNilRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
     [[mockFirstRepository expect] filteredArrayUsingPredicate:mockPredicate];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -427,7 +427,7 @@
 -(void)testSubRepositoriesUpdatedNilFirstRest
 {
     //given
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -447,7 +447,7 @@
 {
     //given
     NSUInteger expectedtotal = 4;
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -469,7 +469,7 @@
     //given
     NSUInteger expectedfetched = 5;
     NSUInteger resttotal = 10;
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -491,7 +491,7 @@
 {
     //given
     NSUInteger expectedOffset = 6;
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedOffset)] offset];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
@@ -511,7 +511,7 @@
 -(void)testRefreshWithNilFirstRest
 {
     //given
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRestRepository expect] refresh];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
@@ -533,7 +533,7 @@
     NSUInteger requestedIndex = 10;
     NSUInteger resttotal = 20;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     [[[mockRestRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -556,7 +556,7 @@
     //given
     NSUInteger resttotal = 10;
     NSUInteger requestedIndex = 20;
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
@@ -576,7 +576,7 @@
 -(void)testEnumerateItemsUsingNilBlockWithNilFirstRest
 {
     //given
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -595,7 +595,7 @@
 {
     //given
     ERNRepositoryEnumerationBlock block = ^(id<NSObject> item, NSUInteger index, BOOL *stop) {};
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRestRepository expect] enumerateItemsUsingBlock:block];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
@@ -614,7 +614,7 @@
 -(void)testFilteredArrayUsingNilPredicateWithNilFirstRest
 {
     //given
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -634,7 +634,7 @@
 -(void)testFilteredArrayUsingPredicateWithNilFirstRest
 {
     //given
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
     [[mockRestRepository expect] filteredArrayUsingPredicate:mockPredicate];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -657,8 +657,8 @@
 -(void)testSubRepositoriesUpdatedFirstRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -680,8 +680,8 @@
     NSUInteger expectedtotal = 9;
     NSUInteger firsttotal = 4;
     NSUInteger resttotal = 5;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -705,8 +705,8 @@
     NSUInteger expectedtotal = 5;
     NSUInteger firsttotal = 0;
     NSUInteger resttotal = 5;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -730,8 +730,8 @@
     NSUInteger expectedtotal = 4;
     NSUInteger firsttotal = 4;
     NSUInteger resttotal = 0;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -754,8 +754,8 @@
     //given
     NSUInteger expectedfetched = 5;
     NSUInteger resttotal = 10;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -781,8 +781,8 @@
     NSUInteger restfetched = 5;
     NSUInteger resttotal = 87;
     NSUInteger expectedfetched = firsttotal + restfetched;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
@@ -812,8 +812,8 @@
     NSUInteger restfetched = 500;
     NSUInteger restOffset = 0;
     NSUInteger expectedfetched = restfetched + firsttotal - firstOffset;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
@@ -845,8 +845,8 @@
     NSUInteger restfetched = 500;
     NSUInteger restOffset = 30;
     NSUInteger expectedfetched = restfetched + restOffset + firsttotal - firstOffset;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
@@ -878,8 +878,8 @@
     NSUInteger restfetched = 0;
     NSUInteger restOffset = 0;
     NSUInteger expectedfetched = firstfetched;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
@@ -912,8 +912,8 @@
     NSUInteger restfetched = 23;
     NSUInteger restOffset = 4;
     NSUInteger expectedOffset = firstOffset;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
@@ -946,8 +946,8 @@
     NSUInteger restfetched = 23;
     NSUInteger restOffset = 4;
     NSUInteger expectedOffset = restOffset;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
@@ -974,9 +974,9 @@
 -(void)testRefreshWithFirstRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockFirstRepository expect] refresh];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRestRepository expect] refresh];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -1000,8 +1000,8 @@
     NSUInteger firsttotal = 30;
     NSUInteger expectedRestIndex = 10;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockRestRepository expect] andReturn:mockItem] itemAtIndex:expectedRestIndex];
@@ -1027,8 +1027,8 @@
     NSUInteger resttotal = 20;
     NSUInteger firsttotal = 30;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
@@ -1053,8 +1053,8 @@
     NSUInteger requestedIndex = 200;
     NSUInteger resttotal = 20;
     NSUInteger firsttotal = 30;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -1076,8 +1076,8 @@
 -(void)testEnumerateItemsUsingNilBlockWithFirstRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -1095,8 +1095,8 @@
 {
     //given
     ERNRepositoryEnumerationBlock block = ^(id<NSObject> item, NSUInteger index, BOOL *stop) {};
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockFirstRepository expect] enumerateItemsUsingBlock:block];
     [[mockRestRepository expect] enumerateItemsUsingBlock:block];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -1116,8 +1116,8 @@
 -(void)testFilteredArrayUsingNilPredicateWithFirstRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -1137,8 +1137,8 @@
 -(void)testFilteredArrayUsingPredicateWithFirstRest
 {
     //given
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
     [[mockFirstRepository expect] filteredArrayUsingPredicate:mockPredicate];
     [[mockRestRepository expect] filteredArrayUsingPredicate:mockPredicate];

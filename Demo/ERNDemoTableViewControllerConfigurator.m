@@ -11,7 +11,7 @@
 #import "ERNDefaultTableViewItemManager.h"
 
 @interface ERNDemoTableViewControllerConfigurator ()
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNToggler> toggler;
 @end
 
@@ -23,7 +23,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                             toggler:(id<ERNToggler>)toggler
 {
     return [[self alloc] initWithRepository:repository
@@ -70,7 +70,7 @@
 
 #pragma mark - private - initializer
 
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
+-(id)initWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                 toggler:(id<ERNToggler>)toggler
 {
     self = [self init];

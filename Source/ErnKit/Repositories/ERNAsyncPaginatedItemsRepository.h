@@ -3,7 +3,7 @@
 
 typedef void (^ERNRepositoryEnumerationBlock)(id<NSObject> item, NSUInteger index, BOOL *stop);
 
-@protocol ERNAsyncItemsRepository <ERNAsyncRepository>
+@protocol ERNAsyncPaginatedItemsRepository <ERNAsyncRepository>
 @property (nonatomic, readonly, assign) NSUInteger total;
 @property (nonatomic, readonly, assign) NSUInteger fetched;
 @property (nonatomic, readonly, assign) NSUInteger offset;

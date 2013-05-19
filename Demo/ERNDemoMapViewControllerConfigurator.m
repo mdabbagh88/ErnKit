@@ -7,11 +7,11 @@
 #import "ERNSegmentedControlTogglerController.h"
 #import "UIViewController+ERNHelper.h"
 #import "ERNErrorHandler.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 
 
 @interface ERNDemoMapViewControllerConfigurator ()
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNToggler> toggler;
 @end
 
@@ -27,7 +27,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                             toggler:(id<ERNToggler>)toggler
 {
     return [[self alloc] initWithRepository:repository
@@ -110,7 +110,7 @@
 
 #pragma mark - private - initializers
 
--(id)initWithRepository:(id<ERNAsyncItemsRepository>)repository
+-(id)initWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                 toggler:(id<ERNToggler>)toggler
 {
     self = [self init];

@@ -4,7 +4,7 @@
 #import "ERNNullAsyncItemsRepository.h"
 
 @interface ERNTogglingAsyncItemsRepository ()
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository>currentRepository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>currentRepository;
 @property (nonatomic, readonly) NSArray *repositories;
 @end
 
@@ -92,17 +92,17 @@
     _currentRepository = [self validRepository:[self repositoryAtIndex:index]];
 }
 
--(id<ERNAsyncItemsRepository>)validRepository:(id<ERNAsyncItemsRepository>)repository
+-(id<ERNAsyncPaginatedItemsRepository>)validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return [self isValidRepository:repository] ? repository : [ERNNullAsyncItemsRepository create];
 }
 
--(BOOL)isValidRepository:(id<ERNAsyncItemsRepository>)repository
+-(BOOL)isValidRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
-    return repository && [repository conformsToProtocol:@protocol(ERNAsyncItemsRepository)];
+    return repository && [repository conformsToProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
 }
 
--(id<ERNAsyncItemsRepository>)repositoryAtIndex:(NSUInteger)index
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryAtIndex:(NSUInteger)index
 {
     return index < [[self repositories] count] ?
     [self repositories][index] :

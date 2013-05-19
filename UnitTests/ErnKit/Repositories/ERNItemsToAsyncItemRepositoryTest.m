@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNItemsToAsyncItemRepositoryTest.h"
 #import "ERNItemsToAsyncItemRepository.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 
 @implementation ERNItemsToAsyncItemRepositoryTest
 
@@ -24,7 +24,7 @@
 {
     //given
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository expect] andReturn:mockItem] itemAtIndex:0];
     id<ERNAsyncItemRepository> repository =
     [ERNItemsToAsyncItemRepository createWithRepository:mockRepository];

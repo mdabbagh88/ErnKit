@@ -1,8 +1,8 @@
 #import "ERNAsyncItemRepository.h"
 #import "ERNConverterAsyncRepository.h"
 
-@protocol ERNAsyncItemsRepository;
+@protocol ERNAsyncPaginatedItemsRepository;
 
 @interface ERNItemsToAsyncItemRepository : ERNConverterAsyncRepository <ERNAsyncItemRepository>
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository;
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository;
 @end

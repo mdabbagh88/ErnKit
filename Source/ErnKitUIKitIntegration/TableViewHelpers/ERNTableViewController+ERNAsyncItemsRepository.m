@@ -1,7 +1,7 @@
 #import "ERNTableViewController+ERNAsyncItemsRepository.h"
 #import "ERNRefreshControlRepositoryRefreshController.h"
 #import "ERNTableViewRepositoryRefreshController.h"
-#import "ERNAsyncItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
 #import "UIViewController+ERNHelper.h"
 #import "ERNTableViewItemManager.h"
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
@@ -10,7 +10,7 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                         itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     return [self setupTableViewRefreshController:
@@ -20,7 +20,7 @@
                                       repository:repository];
 }
 
-+(instancetype)createRefreshableWithRepository:(id<ERNAsyncItemsRepository>)repository
++(instancetype)createRefreshableWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                                    itemManager:(id<ERNTableViewItemManager>)itemManager
 {
     return [self setupRefreshControlRefreshController:

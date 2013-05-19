@@ -2,8 +2,8 @@
 #import "ERNErrorHandler.h"
 
 @interface ERNMergingAsyncItemsRepository ()
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository> firstRepository;
-@property (nonatomic, readonly) id<ERNAsyncItemsRepository> restRepository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> firstRepository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> restRepository;
 @end
 
 @implementation ERNMergingAsyncItemsRepository {
@@ -11,8 +11,8 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithFirstRepository:(id<ERNAsyncItemsRepository>)firstRepository
-                          restRepository:(id<ERNAsyncItemsRepository>)restRepository
++(instancetype)createWithFirstRepository:(id<ERNAsyncPaginatedItemsRepository>)firstRepository
+                          restRepository:(id<ERNAsyncPaginatedItemsRepository>)restRepository
 {
     return [[self alloc] initWithFirstRepository:firstRepository
                                   restRepository:restRepository];
@@ -126,8 +126,8 @@
 
 #pragma mark - private - initializers
 
--(id)initWithFirstRepository:(id<ERNAsyncItemsRepository>)firstRepository
-              restRepository:(id<ERNAsyncItemsRepository>)restRepository
+-(id)initWithFirstRepository:(id<ERNAsyncPaginatedItemsRepository>)firstRepository
+              restRepository:(id<ERNAsyncPaginatedItemsRepository>)restRepository
 {
     self = [self init];
     ERNCheckNil(self);

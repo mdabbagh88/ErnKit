@@ -344,9 +344,9 @@
 -(void)testRefreshRepositories
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository1 expect] refresh];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository2 expect] refresh];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -366,9 +366,9 @@
 -(void)testToggleWithRepositoriesRefresh
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository1 expect] refresh];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository2 expect] refresh];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -390,9 +390,9 @@
 -(void)testToggleWithRepositoriesRefreshOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository1 expect] refresh];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository2 expect] refresh];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -415,8 +415,8 @@
 {
     //given
     NSUInteger expectedtotal = 4;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedtotal)] total];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -437,8 +437,8 @@
 -(void)testToggleWithRepositoriestotalOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -460,8 +460,8 @@
 {
     //given
     NSUInteger expectedtotal = 4;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedtotal)] total];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -484,9 +484,9 @@
 {
     //given
     NSUInteger expectedfetched = 3;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -507,8 +507,8 @@
 {
     //given
     NSUInteger expectedfetched = 3;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -530,8 +530,8 @@
 -(void)testToggleWithRepositoriesfetchedOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -553,9 +553,9 @@
 {
     //given
     NSUInteger expectedOffset = 4;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedOffset)] offset];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -576,8 +576,8 @@
 {
     //given
     NSUInteger expectedOffset = 4;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedOffset)] offset];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -599,8 +599,8 @@
 -(void)testToggleWithRepositoriesOffsetOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -623,9 +623,9 @@
     //given
     NSUInteger expectedIndex = 5;
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository1 expect] andReturn:mockObject] itemAtIndex:expectedIndex];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -647,8 +647,8 @@
     //given
     NSUInteger expectedIndex = 5;
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository2 expect] andReturn:mockObject] itemAtIndex:expectedIndex];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -670,8 +670,8 @@
 -(void)testToggleWithRepositoriesItemAtIndexOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -694,8 +694,8 @@
 {
     //given
     NSArray *expectedArray = @[];
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -715,8 +715,8 @@
 -(void)testToggleWithRepositoriesFilteredArrayUsingNilPredicateOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -738,8 +738,8 @@
 -(void)testToggleWithRepositoriesFilteredArrayUsingNilPredicate
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -763,9 +763,9 @@
     //given
     NSArray *expectedArray = @[@"one", @"two"];
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository1 expect] andReturn:expectedArray] filteredArrayUsingPredicate:mockPredicate];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -785,8 +785,8 @@
 -(void)testToggleWithRepositoriesFilteredArrayUsingPredicateOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
     ERNTogglingAsyncItemsRepository *repository =
@@ -811,8 +811,8 @@
     //given
     NSArray *expectedArray = @[@"one", @"two"];
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRepository2 expect] andReturn:expectedArray] filteredArrayUsingPredicate:mockPredicate];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -837,8 +837,8 @@
     //given
     ERNRepositoryEnumerationBlock expectedBlock =
     ^(id<NSObject> item, NSUInteger index, BOOL *stop) {};
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository1 expect]  enumerateItemsUsingBlock:expectedBlock];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -858,8 +858,8 @@
 -(void)testToggleWithRepositoriesEnumerateItemsUsingBlockOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -887,8 +887,8 @@
     //given
     ERNRepositoryEnumerationBlock expectedBlock =
     ^(id<NSObject> item, NSUInteger index, BOOL *stop) {};
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[mockRepository2 expect]  enumerateItemsUsingBlock:expectedBlock];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
@@ -910,8 +910,8 @@
 -(void)testEnumeratItemsUsingNilBlockRepositories
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -930,8 +930,8 @@
 -(void)testToggleWithRepositoriesEnumerateItemsUsingNilBlockOutOfBounds
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -952,8 +952,8 @@
 -(void)testToggleWithRepositoriesEnumerateItemsUsingNilBlock
 {
     //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
