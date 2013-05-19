@@ -28,21 +28,6 @@
     [mockNotificationCenter verify];
 }
 
--(void)testFetchedNilArray
-{
-    //given
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    ERNArrayAsyncItemsRepository *repository = [ERNArrayAsyncItemsRepository createWithArray:nil];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    NSUInteger fetched = [repository fetched];
-
-    //then
-    [mockNotificationCenter verify];
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
-}
-
 -(void)testTotalNilArray
 {
     //given
@@ -56,21 +41,6 @@
     //then
     [mockNotificationCenter verify];
     assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
-}
-
--(void)testOffsetNilArray
-{
-    //given
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    ERNArrayAsyncItemsRepository *repository = [ERNArrayAsyncItemsRepository createWithArray:nil];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    NSUInteger offset = [repository offset];
-
-    //then
-    [mockNotificationCenter verify];
-    assertThatUnsignedInteger(offset, equalToUnsignedInteger(0));
 }
 
 -(void)testItemAtIndexNilArray
@@ -147,22 +117,6 @@
     [mockNotificationCenter verify];
 }
 
--(void)testFetchedArray
-{
-    //given
-    NSArray *initArray = @[@"one", @"two"];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    ERNArrayAsyncItemsRepository *repository = [ERNArrayAsyncItemsRepository createWithArray:initArray];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    NSUInteger fetched = [repository fetched];
-
-    //then
-    [mockNotificationCenter verify];
-    assertThatUnsignedInteger(fetched, equalToUnsignedInteger([initArray count]));
-}
-
 -(void)testTotalArray
 {
     //given
@@ -177,22 +131,6 @@
     //then
     [mockNotificationCenter verify];
     assertThatUnsignedInteger(total, equalToUnsignedInteger([initArray count]));
-}
-
--(void)testOffsetArray
-{
-    //given
-    NSArray *initArray = @[@"one", @"two"];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    ERNArrayAsyncItemsRepository *repository = [ERNArrayAsyncItemsRepository createWithArray:initArray];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    NSUInteger offset = [repository offset];
-
-    //then
-    [mockNotificationCenter verify];
-    assertThatUnsignedInteger(offset, equalToUnsignedInteger(0));
 }
 
 -(void)testItemAtIndexOutOfIndexArray

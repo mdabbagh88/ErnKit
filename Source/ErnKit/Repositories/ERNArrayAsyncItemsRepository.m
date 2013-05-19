@@ -44,16 +44,6 @@
     return [[self array] count];
 }
 
--(NSUInteger)fetched
-{
-    return [self total];
-}
-
--(NSUInteger)offset
-{
-    return 0;
-}
-
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
     return [self validIndex:index] ? [self array][index] : [NSNull null];
