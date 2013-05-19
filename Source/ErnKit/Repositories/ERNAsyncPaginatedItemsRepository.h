@@ -1,13 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "ERNAsyncRepository.h"
+#import "ERNAsyncItemsRepository.h"
 
-typedef void (^ERNRepositoryEnumerationBlock)(id<NSObject> item, NSUInteger index, BOOL *stop);
-
-@protocol ERNAsyncPaginatedItemsRepository <ERNAsyncRepository>
-@property (nonatomic, readonly, assign) NSUInteger total;
+@protocol ERNAsyncPaginatedItemsRepository <ERNAsyncItemsRepository>
 @property (nonatomic, readonly, assign) NSUInteger fetched;
 @property (nonatomic, readonly, assign) NSUInteger offset;
--(id<NSObject>)itemAtIndex:(NSUInteger)index;
--(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block;
--(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate;
 @end

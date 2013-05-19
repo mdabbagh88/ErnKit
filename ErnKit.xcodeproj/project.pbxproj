@@ -371,6 +371,7 @@
 		F787FB831747E08E007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNMapViewController+ERNAsyncItemsRepository.m"; sourceTree = "<group>"; };
 		F787FB891747E5D4007D751A /* ERNMapViewRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewRepositoryRefreshController.h; sourceTree = "<group>"; };
 		F787FB8A1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewRepositoryRefreshController.m; sourceTree = "<group>"; };
+		F787FB8D1748FC12007D751A /* ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepository.h; sourceTree = "<group>"; };
 		F78C905B1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionSheetTransitioner.h; sourceTree = "<group>"; };
 		F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionSheetTransitioner.m; sourceTree = "<group>"; };
 		F78C90611737C4FA00301956 /* ERNTogglingTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingTableViewManager.h; sourceTree = "<group>"; };
@@ -1281,6 +1282,7 @@
 			children = (
 				F7F06A6C172D0A9900CA5FC4 /* ERNAsyncRepository.h */,
 				F7F06A6A172D0A9900CA5FC4 /* ERNAsyncItemRepository.h */,
+				F787FB8D1748FC12007D751A /* ERNAsyncItemsRepository.h */,
 				F7F06A6B172D0A9900CA5FC4 /* ERNAsyncPaginatedItemsRepository.h */,
 				F7F100421739AEAC00FD3E29 /* ERNRepositoryPaginator.h */,
 				F781C0201731C82100CED541 /* ERNRepositoryFactory.h */,
