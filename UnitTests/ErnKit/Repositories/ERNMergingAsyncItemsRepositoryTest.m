@@ -102,7 +102,7 @@
     [mockNotificationCenter verify];
 }
 
--(void)testItemAtIndexWithNilFirstNilRest
+-(void)testItemAtTotalIndexWithNilFirstNilRest
 {
     //given
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -112,7 +112,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id<NSObject> item = [repository itemAtIndex:10];
+    id<NSObject> item = [repository itemAtTotalIndex:10];
     
     //then
     assertThat(item, notNilValue());
@@ -297,7 +297,7 @@
     [mockFirstRepository verify];
 }
 
--(void)testItemAtIndexWithFirstNilRest
+-(void)testItemAtTotalIndexWithFirstNilRest
 {
     //given
     NSUInteger firsttotal = 20;
@@ -305,7 +305,7 @@
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
-    [[[mockFirstRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
+    [[[mockFirstRepository expect] andReturn:mockItem] itemAtTotalIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -313,7 +313,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id<NSObject> item = [repository itemAtIndex:requestedIndex];
+    id<NSObject> item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat(item, equalTo(mockItem));
@@ -321,7 +321,7 @@
     [mockFirstRepository verify];
 }
 
--(void)testItemAtIndexWithFirstNilRestOutOfBounds
+-(void)testItemAtTotalIndexWithFirstNilRestOutOfBounds
 {
     //given
     NSUInteger firsttotal = 10;
@@ -335,7 +335,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id<NSObject> item = [repository itemAtIndex:requestedIndex];
+    id<NSObject> item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat([item class], equalTo([[NSNull null] class]));
@@ -527,7 +527,7 @@
     [mockRestRepository verify];
 }
 
--(void)testItemAtIndexWithNilFirstRest
+-(void)testItemAtTotalIndexWithNilFirstRest
 {
     //given
     NSUInteger requestedIndex = 10;
@@ -535,7 +535,7 @@
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
-    [[[mockRestRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
+    [[[mockRestRepository expect] andReturn:mockItem] itemAtTotalIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -543,7 +543,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id item = [repository itemAtIndex:requestedIndex];
+    id item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat(item, equalTo(mockItem));
@@ -551,7 +551,7 @@
     [mockRestRepository verify];
 }
 
--(void)testItemAtIndexWithNilFirstRestOutOfBounds
+-(void)testItemAtTotalIndexWithNilFirstRestOutOfBounds
 {
     //given
     NSUInteger resttotal = 10;
@@ -565,7 +565,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id<NSObject> item = [repository itemAtIndex:requestedIndex];
+    id<NSObject> item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat([item class], equalTo([[NSNull null] class]));
@@ -992,7 +992,7 @@
     [mockRestRepository verify];
 }
 
--(void)testItemAtIndexWithFirstRestInRest
+-(void)testItemAtTotalIndexWithFirstRestInRest
 {
     //given
     NSUInteger requestedIndex = 40;
@@ -1004,7 +1004,7 @@
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
-    [[[mockRestRepository expect] andReturn:mockItem] itemAtIndex:expectedRestIndex];
+    [[[mockRestRepository expect] andReturn:mockItem] itemAtTotalIndex:expectedRestIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -1012,7 +1012,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id item = [repository itemAtIndex:requestedIndex];
+    id item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat(item, equalTo(mockItem));
@@ -1020,7 +1020,7 @@
     [mockRestRepository verify];
 }
 
--(void)testItemAtIndexWithFirstRestInFirst
+-(void)testItemAtTotalIndexWithFirstRestInFirst
 {
     //given
     NSUInteger requestedIndex = 23;
@@ -1031,7 +1031,7 @@
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
-    [[[mockFirstRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
+    [[[mockFirstRepository expect] andReturn:mockItem] itemAtTotalIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -1039,7 +1039,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id item = [repository itemAtIndex:requestedIndex];
+    id item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat(item, equalTo(mockItem));
@@ -1047,7 +1047,7 @@
     [mockRestRepository verify];
 }
 
--(void)testItemAtIndexWithFirstRestOutOfBounds
+-(void)testItemAtTotalIndexWithFirstRestOutOfBounds
 {
     //given
     NSUInteger requestedIndex = 200;
@@ -1064,7 +1064,7 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    id<NSObject> item = [repository itemAtIndex:requestedIndex];
+    id<NSObject> item = [repository itemAtTotalIndex:requestedIndex];
 
     //then
     assertThat([item class], equalTo([[NSNull null] class]));

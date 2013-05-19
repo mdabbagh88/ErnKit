@@ -2,7 +2,7 @@
 #import "ERNArrayAsyncItemsRepository.h"
 #import <RestKit/RestKit.h>
 
-@interface ERNRestKitAsyncItemsRepository : ERNArrayAsyncItemsRepository <ERNAsyncPaginatedItemsRepository>
+@interface ERNRestKitAsyncItemsRepository : ERNArrayAsyncItemsRepository <ERNAsyncItemsRepository>
 +(instancetype)createWithUrl:(NSURL *)url
                      keyPath:(NSString *)keyPath
                      mapping:(RKObjectMapping *)mapping

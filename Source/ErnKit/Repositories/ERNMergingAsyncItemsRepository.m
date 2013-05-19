@@ -18,12 +18,30 @@
                                   restRepository:restRepository];
 }
 
-#pragma mark - ERNAsyncItemsRepository
+#pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(NSUInteger)total
 {
     return [[self firstRepository] total] + [[self restRepository] total];
 }
+
+-(NSUInteger)offset
+{
+    return [[self firstRepository] total] == 0 ?
+    [[self restRepository] offset] :
+    [[self firstRepository] offset];
+}
+
+-(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+{
+    return [self validItem:[self firstIndex:index] ?
+            [[self firstRepository] itemAtTotalIndex:index] :
+            [self restIndex:index] ?
+            [[self restRepository] itemAtTotalIndex:[self indexForRest:index]] :
+            [NSNull null]];
+}
+
+#pragma mark - ERNAsyncItemsRepository
 
 -(NSUInteger)count
 {
@@ -35,20 +53,9 @@
                           restOffset:[[self restRepository] offset]];
 }
 
--(NSUInteger)offset
-{
-    return [[self firstRepository] total] == 0 ?
-    [[self restRepository] offset] :
-    [[self firstRepository] offset];
-}
-
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self validItem:[self firstIndex:index] ?
-    [[self firstRepository] itemAtIndex:index] :
-            [self restIndex:index] ?
-            [[self restRepository] itemAtIndex:[self indexForRest:index]] :
-            [NSNull null]];
+    return [self itemAtTotalIndex:index + [self offset]];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block

@@ -12,7 +12,7 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNAsyncItemsRepository
+#pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
@@ -23,12 +23,19 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
     return @[];
 }
 
--(NSUInteger)total
+-(NSUInteger)count
 {
     return 0;
 }
 
--(NSUInteger)count
+-(id<NSObject>)itemAtIndex:(NSUInteger)index
+{
+    return [self itemAtTotalIndex:index];
+}
+
+#pragma mark - ERNAsyncItemsRepository
+
+-(NSUInteger)total
 {
     return 0;
 }
@@ -38,7 +45,7 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
     return 0;
 }
 
--(id<NSObject>)itemAtIndex:(NSUInteger)index
+-(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
 {
     return [NSNull null];
 }

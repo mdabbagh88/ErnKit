@@ -32,17 +32,24 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
+    return [self itemAtTotalIndex:index];
+}
+
+-(NSUInteger)count
+{
+    return 1;
+}
+
+#pragma mark - ERNAsyncItemsRepository
+
+-(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+{
     return [self validIndex:index] ?
     [self validItem:[[self repository] item]] :
     [NSNull null];
 }
 
 -(NSUInteger)total
-{
-    return 1;
-}
-
--(NSUInteger)count
 {
     return 1;
 }

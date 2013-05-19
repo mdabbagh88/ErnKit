@@ -6,6 +6,7 @@
 #import "NSObject+ERNHelper.h"
 #import "ERNRepositoryPaginator.h"
 #import "ERNNullRepositoryPaginator.h"
+#import "ERNItemsToAsyncPaginatedItemsRepository.h"
 #import <RestKit/RestKit.h>
 
 @interface ERNRestKitPagingAsyncItemsRepository ()
@@ -56,13 +57,28 @@
 {
     [[self repository] removeObserver:self];
     [self setRepository:[ERNItemsToAsyncItemRepository
-                         createWithRepository:[ERNRestKitAsyncItemsRepository
+                         createWithRepository:[ERNItemsToAsyncPaginatedItemsRepository createWithRepository:[ERNRestKitAsyncItemsRepository
                                                createWithUrl:[self url]
                                                keyPath:[self keyPath]
                                                mapping:[self mapping]
-                                               statusCodes:[self statusCodes]]]];
+                                               statusCodes:[self statusCodes]]]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
+}
+
+-(NSUInteger)count
+{
+    return [[self array] count];
+}
+
+
+#pragma mark - ERNAsyncPaginatedItemsRepository
+
+-(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+{
+    return [self indexWithinArray:index] ?
+    [self array][index] :
+    [self updatePageAndReturnNullObject];
 }
 
 -(NSUInteger)total
@@ -73,18 +89,6 @@
 -(NSUInteger)offset
 {
     return 0;
-}
-
--(NSUInteger)count
-{
-    return [[self array] count];
-}
-
--(id<NSObject>)itemAtIndex:(NSUInteger)index
-{
-    return [self indexWithinArray:index] ?
-    [self array][index] :
-    [self updatePageAndReturnNullObject];
 }
 
 #pragma mark - NSObject
@@ -100,12 +104,12 @@
 {
     [[self repository] removeObserver:self];
     [self setRepository:[ERNItemsToAsyncItemRepository
-                         createWithRepository:
+                         createWithRepository:[ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
                          [ERNRestKitAsyncItemsRepository
                           createWithUrl:[[self paginator] nextPage]
                           keyPath:[self keyPath]
                           mapping:[self mapping]
-                          statusCodes:[self statusCodes]]]];
+                          statusCodes:[self statusCodes]]]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
     return [NSNull null];

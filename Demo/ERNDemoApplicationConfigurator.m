@@ -6,6 +6,7 @@
 #import "ERNDemoMapViewControllerConfigurator.h"
 #import "ERNDemoTableViewControllerConfigurator.h"
 #import "ERNViewControllerAction.h"
+#import "ERNItemsToAsyncPaginatedItemsRepository.h"
 
 @implementation ERNDemoApplicationConfigurator {
     id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;
@@ -61,14 +62,18 @@
 {
     return _repositoryFirstFeed = _repositoryFirstFeed ?
     _repositoryFirstFeed :
-    [ERNRestKitAsyncItemsRepository createTwitterStatusesForUser:@"ernstsson"];
+    [ERNItemsToAsyncPaginatedItemsRepository
+     createWithRepository:[ERNRestKitAsyncItemsRepository
+                           createTwitterStatusesForUser:@"ernstsson"]];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositorySecondFeed
 {
     return _repositorySecondFeed = _repositorySecondFeed ?
     _repositorySecondFeed :
-    [ERNRestKitAsyncItemsRepository createTwitterStatusesForUser:@"jgumbley"];
+    [ERNItemsToAsyncPaginatedItemsRepository
+     createWithRepository:[ERNRestKitAsyncItemsRepository
+                           createTwitterStatusesForUser:@"jgumbley"]];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositoryBothFeeds

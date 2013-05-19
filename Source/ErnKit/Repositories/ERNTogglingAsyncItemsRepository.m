@@ -37,9 +37,9 @@
 
 #pragma mark - ERNAsyncItemsRepository
 
--(NSUInteger)count
+-(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
 {
-    return [[self currentRepository] count];
+    return [[self currentRepository] itemAtTotalIndex:index];
 }
 
 -(NSUInteger)total
@@ -50,6 +50,13 @@
 -(NSUInteger)offset
 {
     return [[self currentRepository] offset];
+}
+
+#pragma mark - ERNAsyncPaginatedItemsRepository
+
+-(NSUInteger)count
+{
+    return [[self currentRepository] count];
 }
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index

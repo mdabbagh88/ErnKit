@@ -27,6 +27,11 @@
     return 0;
 }
 
+-(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+{
+    return [[self repository] itemAtIndex:index];
+}
+
 #pragma mark - ERNAsyncItemsRepository
 
 -(NSUInteger)total
