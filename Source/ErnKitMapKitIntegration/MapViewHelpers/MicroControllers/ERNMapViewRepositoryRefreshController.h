@@ -1,11 +1,11 @@
 #import <Foundation/Foundation.h>
 
-@protocol ERNAsyncPaginatedItemsRepository;
+@protocol ERNAsyncItemsRepository;
 @class MKMapView;
 
 @interface ERNMapViewRepositoryRefreshController : NSObject
 +(instancetype)createAutoZoomingWithMapView:(MKMapView *)mapView
-                                 repository:(id<ERNAsyncPaginatedItemsRepository>)repository;
+                                 repository:(id<ERNAsyncItemsRepository>)repository;
 +(instancetype)createWithMapView:(MKMapView *)mapView
-                      repository:(id<ERNAsyncPaginatedItemsRepository>)repository;
+                      repository:(id<ERNAsyncItemsRepository>)repository;
 @end

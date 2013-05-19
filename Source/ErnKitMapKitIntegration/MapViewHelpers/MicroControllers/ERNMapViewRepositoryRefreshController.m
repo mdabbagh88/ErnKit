@@ -1,6 +1,6 @@
 #import <MapKit/MapKit.h>
 #import "ERNMapViewRepositoryRefreshController.h"
-#import "ERNAsyncPaginatedItemsRepository.h"
+#import "ERNAsyncItemsRepository.h"
 #import "MKMapView+ERNHelper.h"
 #import "ERNErrorHandler.h"
 
@@ -8,7 +8,7 @@ typedef const void(^ERNAnnotationZoomer)();
 
 @interface ERNMapViewRepositoryRefreshController ()
 @property (nonatomic, readonly) MKMapView *mapView;
-@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
+@property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
 @property (nonatomic, readonly, copy) ERNAnnotationZoomer annotationZoomer;
 @end
 
@@ -18,7 +18,7 @@ typedef const void(^ERNAnnotationZoomer)();
 #pragma mark - public - constructors
 
 +(instancetype)createAutoZoomingWithMapView:(MKMapView *)mapView
-                                 repository:(id<ERNAsyncPaginatedItemsRepository>)repository
+                                 repository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithMapView:mapView
                               repository:repository
@@ -28,7 +28,7 @@ typedef const void(^ERNAnnotationZoomer)();
 }
 
 +(instancetype)createWithMapView:(MKMapView *)mapView
-                      repository:(id<ERNAsyncPaginatedItemsRepository>)repository
+                      repository:(id<ERNAsyncItemsRepository>)repository
 {
     return [[self alloc] initWithMapView:mapView
                               repository:repository
@@ -72,7 +72,7 @@ typedef const void(^ERNAnnotationZoomer)();
 #pragma mark - private - initializers
 
 -(id)initWithMapView:(MKMapView *)mapView
-          repository:(id<ERNAsyncPaginatedItemsRepository>)repository
+          repository:(id<ERNAsyncItemsRepository>)repository
     annotationZoomer:(ERNAnnotationZoomer)annotationZoomer
 {
     self = [self init];

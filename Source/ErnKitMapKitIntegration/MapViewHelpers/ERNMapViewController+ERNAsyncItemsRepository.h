@@ -4,10 +4,10 @@
 #import "ERNMapViewAnnotationViewFactory.h"
 
 @interface ERNMapViewController (ERNAsyncItemsRepository)
-+(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
                                  actionHandler:(id<ERNActionHandler>)actionHandler
                                    viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
-+(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                       actionHandler:(id<ERNActionHandler>)actionHandler
                        viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
 @end

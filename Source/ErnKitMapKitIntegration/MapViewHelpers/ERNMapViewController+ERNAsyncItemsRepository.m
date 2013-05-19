@@ -5,7 +5,7 @@
 
 @implementation ERNMapViewController (ERNAsyncItemsRepository)
 
-+(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
++(instancetype)createAutoZoomingWithRepository:(id<ERNAsyncItemsRepository>)repository
                                  actionHandler:(id<ERNActionHandler>)actionHandler
                                    viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
@@ -21,7 +21,7 @@
      return mapViewController;
 }
 
-+(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
++(instancetype)createWithRepository:(id<ERNAsyncItemsRepository>)repository
                       actionHandler:(id<ERNActionHandler>)actionHandler
                         viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
