@@ -67,7 +67,7 @@
 
 -(NSInteger)rowsInSection:(NSInteger)section
 {
-    return (NSInteger)[[self repository] count];
+    return (NSInteger)[[self repository] total];
 }
 
 #pragma mark - private - accessors

@@ -20,30 +20,30 @@
     assertThatUnsignedInteger(offset, equalToUnsignedInteger(0));
 }
 
--(void)testCountNilRepository
+-(void)testTotalNilRepository
 {
     //given
     id<ERNAsyncItemsRepository> repository =
     [ERNItemToAsyncItemsRepository createWithRepository:nil];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(1));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(1));
 }
 
--(void)testLimitNilRepository
+-(void)testFetchedNilRepository
 {
     //given
     id<ERNAsyncItemsRepository> repository =
     [ERNItemToAsyncItemsRepository createWithRepository:nil];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(1));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(1));
 }
 
 -(void)testEnumerateItemsUsingBlockNilRepository
@@ -148,7 +148,7 @@
     assertThatUnsignedInteger(offset, equalToUnsignedInteger(0));
 }
 
--(void)testCountRepository
+-(void)testTotalRepository
 {
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
@@ -156,13 +156,13 @@
     [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(1));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(1));
 }
 
--(void)testLimitRepository
+-(void)testFetchedRepository
 {
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
@@ -170,10 +170,10 @@
     [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(1));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(1));
 }
 
 -(void)testEnumerateItemsUsingBlockRepository

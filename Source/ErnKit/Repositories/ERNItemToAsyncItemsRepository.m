@@ -37,12 +37,12 @@
     [NSNull null];
 }
 
--(NSUInteger)count
+-(NSUInteger)total
 {
     return 1;
 }
 
--(NSUInteger)limit
+-(NSUInteger)fetched
 {
     return 1;
 }

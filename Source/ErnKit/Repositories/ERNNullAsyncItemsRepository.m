@@ -23,14 +23,14 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
     return @[];
 }
 
--(NSUInteger)count
+-(NSUInteger)total
 {
     return 0;
 }
 
--(NSUInteger)limit
+-(NSUInteger)fetched
 {
-    return [self count];
+    return [self total];
 }
 
 -(NSUInteger)offset

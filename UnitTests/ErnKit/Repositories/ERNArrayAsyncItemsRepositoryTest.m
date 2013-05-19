@@ -28,7 +28,7 @@
     [mockNotificationCenter verify];
 }
 
--(void)testLimitNilArray
+-(void)testFetchedNilArray
 {
     //given
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
@@ -36,14 +36,14 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
 }
 
--(void)testCountNilArray
+-(void)testTotalNilArray
 {
     //given
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
@@ -51,11 +51,11 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
 }
 
 -(void)testOffsetNilArray
@@ -147,7 +147,7 @@
     [mockNotificationCenter verify];
 }
 
--(void)testLimitArray
+-(void)testFetchedArray
 {
     //given
     NSArray *initArray = @[@"one", @"two"];
@@ -156,14 +156,14 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger([initArray count]));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger([initArray count]));
 }
 
--(void)testCountArray
+-(void)testTotalArray
 {
     //given
     NSArray *initArray = @[@"one", @"two"];
@@ -172,11 +172,11 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(count, equalToUnsignedInteger([initArray count]));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger([initArray count]));
 }
 
 -(void)testOffsetArray

@@ -39,14 +39,14 @@
     return [[self array] filteredArrayUsingPredicate:predicate];
 }
 
--(NSUInteger)count
+-(NSUInteger)total
 {
     return [[self array] count];
 }
 
--(NSUInteger)limit
+-(NSUInteger)fetched
 {
-    return [self count];
+    return [self total];
 }
 
 -(NSUInteger)offset

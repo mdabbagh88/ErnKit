@@ -20,24 +20,24 @@
 
 #pragma mark - ERNAsyncItemsRepository
 
--(NSUInteger)count
+-(NSUInteger)total
 {
-    return [[self firstRepository] count] + [[self restRepository] count];
+    return [[self firstRepository] total] + [[self restRepository] total];
 }
 
--(NSUInteger)limit
+-(NSUInteger)fetched
 {
-    return [self limitWithFirstCount:[[self firstRepository] count]
-                          firstLimit:[[self firstRepository] limit]
+    return [self limitWithFirstCount:[[self firstRepository] total]
+                          firstLimit:[[self firstRepository] fetched]
                          firstOffset:[[self firstRepository] offset]
-                           restCount:[[self restRepository] count]
-                           restLimit:[[self restRepository] limit]
+                           restCount:[[self restRepository] total]
+                           restLimit:[[self restRepository] fetched]
                           restOffset:[[self restRepository] offset]];
 }
 
 -(NSUInteger)offset
 {
-    return [[self firstRepository] count] == 0 ?
+    return [[self firstRepository] total] == 0 ?
     [[self restRepository] offset] :
     [[self firstRepository] offset];
 }
@@ -106,17 +106,17 @@
 
 -(BOOL)firstIndex:(NSUInteger)index
 {
-    return index < [[self firstRepository] count];
+    return index < [[self firstRepository] total];
 }
 
 -(BOOL)restIndex:(NSUInteger)index
 {
-    return index >= [[self firstRepository] count] && index < [self count];
+    return index >= [[self firstRepository] total] && index < [self total];
 }
 
 -(NSUInteger)indexForRest:(NSUInteger)index
 {
-    return index - [[self firstRepository] count];
+    return index - [[self firstRepository] total];
 }
 
 -(void)subRepositoriesRefreshed

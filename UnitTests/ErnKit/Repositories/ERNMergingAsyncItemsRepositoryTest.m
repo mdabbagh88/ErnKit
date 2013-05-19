@@ -35,7 +35,7 @@
     [mockNotificationCenter verify];
 }
 
--(void)testCountWithNilFirstNilRest
+-(void)testTotalWithNilFirstNilRest
 {
     //given
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -45,14 +45,14 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
--(void)testLimitWithNilFirstNilRest
+-(void)testFetchedWithNilFirstNilRest
 {
     //given
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -62,10 +62,10 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
@@ -213,33 +213,33 @@
     [mockFirstRepository verify];
 }
 
--(void)testCountWithFirstNilRest
+-(void)testTotalWithFirstNilRest
 {
     //given
-    NSUInteger expectedCount = 4;
+    NSUInteger expectedtotal = 4;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedtotal)] total];
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(expectedtotal));
     [mockNotificationCenter verify];
     [mockFirstRepository verify];
 }
 
--(void)testLimitWithFirstNilRest
+-(void)testFetchedWithFirstNilRest
 {
     //given
-    NSUInteger expectedLimit = 5;
+    NSUInteger expectedfetched = 5;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedLimit)] limit];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -247,10 +247,10 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
     [mockNotificationCenter verify];
     [mockFirstRepository verify];
 }
@@ -259,10 +259,10 @@
 {
     //given
     NSUInteger expectedOffset = 6;
-    NSUInteger firstCount = 56;
+    NSUInteger firsttotal = 56;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(expectedOffset)] offset];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -300,11 +300,11 @@
 -(void)testItemAtIndexWithFirstNilRest
 {
     //given
-    NSUInteger firstCount = 20;
+    NSUInteger firsttotal = 20;
     NSUInteger requestedIndex = 10;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -324,10 +324,10 @@
 -(void)testItemAtIndexWithFirstNilRestOutOfBounds
 {
     //given
-    NSUInteger firstCount = 10;
+    NSUInteger firsttotal = 10;
     NSUInteger requestedIndex = 20;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:nil];
@@ -443,35 +443,35 @@
     [mockRestRepository verify];
 }
 
--(void)testCountWithNilFirstRest
+-(void)testTotalWithNilFirstRest
 {
     //given
-    NSUInteger expectedCount = 4;
+    NSUInteger expectedtotal = 4;
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedCount)] count];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedtotal)] total];
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(expectedtotal));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testLimitWithNilFirstRest
+-(void)testFetchedWithNilFirstRest
 {
     //given
-    NSUInteger expectedLimit = 5;
-    NSUInteger restCount = 10;
+    NSUInteger expectedfetched = 5;
+    NSUInteger resttotal = 10;
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedLimit)] limit];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -479,10 +479,10 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
@@ -531,10 +531,10 @@
 {
     //given
     NSUInteger requestedIndex = 10;
-    NSUInteger restCount = 20;
+    NSUInteger resttotal = 20;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     [[[mockRestRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
@@ -554,10 +554,10 @@
 -(void)testItemAtIndexWithNilFirstRestOutOfBounds
 {
     //given
-    NSUInteger restCount = 10;
+    NSUInteger resttotal = 10;
     NSUInteger requestedIndex = 20;
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:nil
                                                   restRepository:mockRestRepository];
@@ -674,119 +674,90 @@
     [mockRestRepository verify];
 }
 
--(void)testCountWithFirstRest
+-(void)testTotalWithFirstRest
 {
     //given
-    NSUInteger expectedCount = 9;
-    NSUInteger firstCount = 4;
-    NSUInteger restCount = 5;
+    NSUInteger expectedtotal = 9;
+    NSUInteger firsttotal = 4;
+    NSUInteger resttotal = 5;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(expectedtotal));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testCountWithEmptyFirstRest
+-(void)testTotalWithEmptyFirstRest
 {
     //given
-    NSUInteger expectedCount = 5;
-    NSUInteger firstCount = 0;
-    NSUInteger restCount = 5;
+    NSUInteger expectedtotal = 5;
+    NSUInteger firsttotal = 0;
+    NSUInteger resttotal = 5;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(expectedtotal));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testCountWithFirstEmptyRest
+-(void)testTotalWithFirstEmptyRest
 {
     //given
-    NSUInteger expectedCount = 4;
-    NSUInteger firstCount = 4;
-    NSUInteger restCount = 0;
+    NSUInteger expectedtotal = 4;
+    NSUInteger firsttotal = 4;
+    NSUInteger resttotal = 0;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(expectedtotal));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testLimitWithFirstRestEmptyFirst
+-(void)testFetchedWithFirstRestEmptyFirst
 {
     //given
-    NSUInteger expectedLimit = 5;
-    NSUInteger restCount = 10;
+    NSUInteger expectedfetched = 5;
+    NSUInteger resttotal = 10;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedLimit)] limit];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
-                                                  createWithFirstRepository:mockFirstRepository
-                                                  restRepository:mockRestRepository];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    NSUInteger limit = [repository limit];
-
-    //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
-    [mockNotificationCenter verify];
-    [mockRestRepository verify];
-}
-
--(void)testLimitWithFirstRestFullFirst
-{
-    //given
-    NSUInteger firstCount = 4;
-    NSUInteger firstLimit = 4;
-    NSUInteger restLimit = 5;
-    NSUInteger restCount = 87;
-    NSUInteger expectedLimit = firstCount + restLimit;
-    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstLimit)] limit];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restLimit)] limit];
-    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];
@@ -794,31 +765,60 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testLimitWithFirstRestNotFullFirst
+-(void)testFetchedWithFirstRestFullFirst
 {
     //given
-    NSUInteger firstCount = 30;
-    NSUInteger firstLimit = 12;
+    NSUInteger firsttotal = 4;
+    NSUInteger firstfetched = 4;
+    NSUInteger restfetched = 5;
+    NSUInteger resttotal = 87;
+    NSUInteger expectedfetched = firsttotal + restfetched;
+    id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
+    [[[mockRestRepository expect] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
+                                                  createWithFirstRepository:mockFirstRepository
+                                                  restRepository:mockRestRepository];
+    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
+    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
+
+    //when
+    NSUInteger fetched = [repository fetched];
+
+    //then
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
+    [mockNotificationCenter verify];
+    [mockRestRepository verify];
+}
+
+-(void)testFetchedWithFirstRestNotFullFirst
+{
+    //given
+    NSUInteger firsttotal = 30;
+    NSUInteger firstfetched = 12;
     NSUInteger firstOffset = 3;
-    NSUInteger restCount = 1000;
-    NSUInteger restLimit = 500;
+    NSUInteger resttotal = 1000;
+    NSUInteger restfetched = 500;
     NSUInteger restOffset = 0;
-    NSUInteger expectedLimit = restLimit + firstCount - firstOffset;
+    NSUInteger expectedfetched = restfetched + firsttotal - firstOffset;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstLimit)] limit];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restLimit)] limit];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restOffset)] offset];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -827,31 +827,31 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testLimitWithFirstRestNotFullFirstNotFullRest
+-(void)testFetchedWithFirstRestNotFullFirstNotFullRest
 {
     //given
-    NSUInteger firstCount = 30;
-    NSUInteger firstLimit = 12;
+    NSUInteger firsttotal = 30;
+    NSUInteger firstfetched = 12;
     NSUInteger firstOffset = 3;
-    NSUInteger restCount = 1000;
-    NSUInteger restLimit = 500;
+    NSUInteger resttotal = 1000;
+    NSUInteger restfetched = 500;
     NSUInteger restOffset = 30;
-    NSUInteger expectedLimit = restLimit + restOffset + firstCount - firstOffset;
+    NSUInteger expectedfetched = restfetched + restOffset + firsttotal - firstOffset;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstLimit)] limit];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restLimit)] limit];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restOffset)] offset];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -860,31 +860,31 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
 
--(void)testLimitWithFirstRestNotFullFirstEmptyRest
+-(void)testFetchedWithFirstRestNotFullFirstEmptyRest
 {
     //given
-    NSUInteger firstCount = 30;
-    NSUInteger firstLimit = 12;
+    NSUInteger firsttotal = 30;
+    NSUInteger firstfetched = 12;
     NSUInteger firstOffset = 3;
-    NSUInteger restCount = 0;
-    NSUInteger restLimit = 0;
+    NSUInteger resttotal = 0;
+    NSUInteger restfetched = 0;
     NSUInteger restOffset = 0;
-    NSUInteger expectedLimit = firstLimit;
+    NSUInteger expectedfetched = firstfetched;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstLimit)] limit];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restLimit)] limit];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restOffset)] offset];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -893,10 +893,10 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
     [mockNotificationCenter verify];
     [mockRestRepository verify];
 }
@@ -905,20 +905,20 @@
 -(void)testOffsetWithFirstRest
 {
     //given
-    NSUInteger firstCount = 30;
-    NSUInteger firstLimit = 12;
+    NSUInteger firsttotal = 30;
+    NSUInteger firstfetched = 12;
     NSUInteger firstOffset = 3;
-    NSUInteger restCount = 233;
-    NSUInteger restLimit = 23;
+    NSUInteger resttotal = 233;
+    NSUInteger restfetched = 23;
     NSUInteger restOffset = 4;
     NSUInteger expectedOffset = firstOffset;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstLimit)] limit];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restLimit)] limit];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restOffset)] offset];
 
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -939,20 +939,20 @@
 -(void)testOffsetWithEmptyFirstRest
 {
     //given
-    NSUInteger firstCount = 0;
-    NSUInteger firstLimit = 0;
+    NSUInteger firsttotal = 0;
+    NSUInteger firstfetched = 0;
     NSUInteger firstOffset = 0;
-    NSUInteger restCount = 233;
-    NSUInteger restLimit = 23;
+    NSUInteger resttotal = 233;
+    NSUInteger restfetched = 23;
     NSUInteger restOffset = 4;
     NSUInteger expectedOffset = restOffset;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstOffset)] offset];
-    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstLimit)] limit];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restLimit)] limit];
+    [[[mockFirstRepository expect] andReturnValue:OCMOCK_VALUE(firstfetched)] fetched];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restfetched)] fetched];
     [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restOffset)] offset];
 
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
@@ -996,14 +996,14 @@
 {
     //given
     NSUInteger requestedIndex = 40;
-    NSUInteger restCount = 20;
-    NSUInteger firstCount = 30;
+    NSUInteger resttotal = 20;
+    NSUInteger firsttotal = 30;
     NSUInteger expectedRestIndex = 10;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockRestRepository expect] andReturn:mockItem] itemAtIndex:expectedRestIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -1024,13 +1024,13 @@
 {
     //given
     NSUInteger requestedIndex = 23;
-    NSUInteger restCount = 20;
-    NSUInteger firstCount = 30;
+    NSUInteger resttotal = 20;
+    NSUInteger firsttotal = 30;
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
-    [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firstCount)] count];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
+    [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
     [[[mockFirstRepository expect] andReturn:mockItem] itemAtIndex:requestedIndex];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
@@ -1051,12 +1051,12 @@
 {
     //given
     NSUInteger requestedIndex = 200;
-    NSUInteger restCount = 20;
-    NSUInteger firstCount = 30;
+    NSUInteger resttotal = 20;
+    NSUInteger firsttotal = 30;
     id mockFirstRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRestRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firstCount)] count];
-    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(restCount)] count];
+    [[[mockFirstRepository stub] andReturnValue:OCMOCK_VALUE(firsttotal)] total];
+    [[[mockRestRepository stub] andReturnValue:OCMOCK_VALUE(resttotal)] total];
     ERNMergingAsyncItemsRepository *repository = [ERNMergingAsyncItemsRepository
                                                   createWithFirstRepository:mockFirstRepository
                                                   restRepository:mockRestRepository];

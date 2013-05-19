@@ -63,7 +63,7 @@
     [mockNotificationCenter verify];
 }
 
--(void)testCountNilRepositories
+-(void)testTotalNilRepositories
 {
     //given
     ERNTogglingAsyncItemsRepository *repository =
@@ -72,14 +72,14 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
--(void)testToggleWithNilRepositoriesCount
+-(void)testToggleWithNilRepositoriestotal
 {
     //given
     ERNTogglingAsyncItemsRepository *repository =
@@ -92,11 +92,11 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([repository total], equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
--(void)testLimitNilRepositories
+-(void)testFetchedNilRepositories
 {
     //given
     ERNTogglingAsyncItemsRepository *repository =
@@ -105,14 +105,14 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
--(void)testToggleWithNilRepositoriesLimit
+-(void)testToggleWithNilRepositoriesfetched
 {
     //given
     ERNTogglingAsyncItemsRepository *repository =
@@ -125,7 +125,7 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThatUnsignedInteger([repository limit], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([repository fetched], equalToUnsignedInteger(0));
     [mockNotificationCenter verify];
 }
 
@@ -411,13 +411,13 @@
     [mockRepository2 verify];
 }
 
--(void)testCountRepositories
+-(void)testTotalRepositories
 {
     //given
-    NSUInteger expectedCount = 4;
+    NSUInteger expectedtotal = 4;
     id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
     id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedCount)] count];
+    [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedtotal)] total];
     NSArray *repositories = @[mockRepository1, mockRepository2];
     ERNTogglingAsyncItemsRepository *repository =
     [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
@@ -425,109 +425,16 @@
     [repository testHelperChangeNotificationCenter:mockNotificationCenter];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
     [mockRepository1 verify];
     [mockRepository2 verify];
     [mockNotificationCenter verify];
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(expectedtotal));
 }
 
--(void)testToggleWithRepositoriesCountOutOfBounds
-{
-    //given
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    NSArray *repositories = @[mockRepository1, mockRepository2];
-    ERNTogglingAsyncItemsRepository *repository =
-    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    [repository setSelectedIndex:5];
-
-    //then
-    [mockRepository1 verify];
-    [mockRepository2 verify];
-    [mockNotificationCenter verify];
-    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(0));
-}
-
--(void)testToggleWithRepositoriesCount
-{
-    //given
-    NSUInteger expectedCount = 4;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedCount)] count];
-    NSArray *repositories = @[mockRepository1, mockRepository2];
-    ERNTogglingAsyncItemsRepository *repository =
-    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    [repository setSelectedIndex:1];
-
-    //then
-    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(expectedCount));
-    [mockRepository1 verify];
-    [mockRepository2 verify];
-    [mockNotificationCenter verify];
-}
-
--(void)testLimitRepositories
-{
-    //given
-    NSUInteger expectedLimit = 3;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedLimit)] limit];
-    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    NSArray *repositories = @[mockRepository1, mockRepository2];
-    ERNTogglingAsyncItemsRepository *repository =
-    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    NSUInteger limit = [repository limit];
-
-    //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(expectedLimit));
-    [mockRepository1 verify];
-    [mockRepository2 verify];
-    [mockNotificationCenter verify];
-}
-
--(void)testToggleWithRepositoriesLimit
-{
-    //given
-    NSUInteger expectedLimit = 3;
-    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
-    [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedLimit)] limit];
-    NSArray *repositories = @[mockRepository1, mockRepository2];
-    ERNTogglingAsyncItemsRepository *repository =
-    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
-    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
-    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
-
-    //when
-    [repository setSelectedIndex:1];
-
-    //then
-    assertThatUnsignedInteger([repository limit], equalToUnsignedInteger(expectedLimit));
-    [mockRepository1 verify];
-    [mockRepository2 verify];
-    [mockNotificationCenter verify];
-}
-
--(void)testToggleWithRepositoriesLimitOutOfBounds
+-(void)testToggleWithRepositoriestotalOutOfBounds
 {
     //given
     id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
@@ -543,7 +450,100 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThatUnsignedInteger([repository limit], equalToUnsignedInteger(0));
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+    [mockNotificationCenter verify];
+    assertThatUnsignedInteger([repository total], equalToUnsignedInteger(0));
+}
+
+-(void)testToggleWithRepositoriestotal
+{
+    //given
+    NSUInteger expectedtotal = 4;
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedtotal)] total];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
+    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
+    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
+
+    //when
+    [repository setSelectedIndex:1];
+
+    //then
+    assertThatUnsignedInteger([repository total], equalToUnsignedInteger(expectedtotal));
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+    [mockNotificationCenter verify];
+}
+
+-(void)testFetchedRepositories
+{
+    //given
+    NSUInteger expectedfetched = 3;
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    [[[mockRepository1 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
+    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
+
+    //when
+    NSUInteger fetched = [repository fetched];
+
+    //then
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(expectedfetched));
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+    [mockNotificationCenter verify];
+}
+
+-(void)testToggleWithRepositoriesfetched
+{
+    //given
+    NSUInteger expectedfetched = 3;
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    [[[mockRepository2 expect] andReturnValue:OCMOCK_VALUE(expectedfetched)] fetched];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
+    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
+    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
+
+    //when
+    [repository setSelectedIndex:1];
+
+    //then
+    assertThatUnsignedInteger([repository fetched], equalToUnsignedInteger(expectedfetched));
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+    [mockNotificationCenter verify];
+}
+
+-(void)testToggleWithRepositoriesfetchedOutOfBounds
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemsRepository)];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
+    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
+    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
+
+    //when
+    [repository setSelectedIndex:5];
+
+    //then
+    assertThatUnsignedInteger([repository fetched], equalToUnsignedInteger(0));
     [mockRepository1 verify];
     [mockRepository2 verify];
     [mockNotificationCenter verify];

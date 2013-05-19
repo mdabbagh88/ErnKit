@@ -83,28 +83,28 @@
     assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
 }
 
--(void)testCount
+-(void)testTotal
 {
     //given
     id<ERNAsyncItemsRepository> repository = [ERNNullAsyncItemsRepository create];
 
     //when
-    NSUInteger count = [repository count];
+    NSUInteger total = [repository total];
 
     //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
 }
 
--(void)testLimit
+-(void)testFetched
 {
     //given
     id<ERNAsyncItemsRepository> repository = [ERNNullAsyncItemsRepository create];
 
     //when
-    NSUInteger limit = [repository limit];
+    NSUInteger fetched = [repository fetched];
 
     //then
-    assertThatUnsignedInteger(limit, equalToUnsignedInteger(0));
+    assertThatUnsignedInteger(fetched, equalToUnsignedInteger(0));
 }
 
 -(void)testOffset
