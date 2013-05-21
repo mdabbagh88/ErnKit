@@ -1,4 +1,6 @@
 xcuserdata
 Pods
 Podfile.lock
+Gemfile.lock
 build/
+tmp/
