@@ -9,6 +9,7 @@
 @property (nonatomic, readonly) NSOperationQueue *operationQueue;
 @property (nonatomic) NSOperation *currentOperation;
 @property (nonatomic) NSError *lastError;
+@property (nonatomic, assign) BOOL refreshing;
 @end
 
 @implementation ERNRestKitAsyncItemsRepository {
@@ -47,10 +48,13 @@
 
 -(void)refresh
 {
-    [[self currentOperation] cancel];
-    [self setCurrentOperation:[self setupCompletionForOperation:[self requestOperation]
-                                        responseOperationsQueue:[self responseQueue]]];
-    [[self operationQueue] addOperation:[self currentOperation]];
+    if (![self refreshing]) {
+        [self setRefreshing:YES];
+        [[self currentOperation] cancel];
+        [self setCurrentOperation:[self setupCompletionForOperation:[self requestOperation]
+                                            responseOperationsQueue:[self responseQueue]]];
+        [[self operationQueue] addOperation:[self currentOperation]];
+    }
 }
 
 #pragma mark - ERNAsyncPaginatedItemsRepository
@@ -129,11 +133,13 @@
 
 -(void)refreshedWithItems:(NSArray *)items
 {
+    [self setRefreshing:NO];
     [self setArray:items];
 }
 
 -(void)refreshedWithError:(NSError *)error
 {
+    [self setRefreshing:NO];
     [self setLastError:error];
     [self setArray:@[]];
 }
