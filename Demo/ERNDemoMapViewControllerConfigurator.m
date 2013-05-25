@@ -88,7 +88,7 @@
 {
     return _feedSegmentedControl = _feedSegmentedControl ?
     _feedSegmentedControl :
-    [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Magnus", @"Jim"]];
+    [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Demo", @"Demo Two"]];
 }
 
 -(ERNSegmentedControlTogglerController *)feedController

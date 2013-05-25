@@ -64,7 +64,7 @@
     _repositoryFirstFeed :
     [ERNItemsToAsyncPaginatedItemsRepository
      createWithRepository:[ERNRestKitAsyncItemsRepository
-                           createTwitterStatusesForUser:@"ernstsson"]];
+                           createTwitterStatusesForUser:@"demo"]];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositorySecondFeed
@@ -73,7 +73,7 @@
     _repositorySecondFeed :
     [ERNItemsToAsyncPaginatedItemsRepository
      createWithRepository:[ERNRestKitAsyncItemsRepository
-                           createTwitterStatusesForUser:@"jgumbley"]];
+                           createTwitterStatusesForUser:@"demotwo"]];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositoryBothFeeds

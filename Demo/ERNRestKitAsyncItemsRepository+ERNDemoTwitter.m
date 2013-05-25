@@ -13,8 +13,8 @@
 +(instancetype)createTwitterStatusesForUser:(NSString *)user
 {
     // Setup a url for accessing twitter statuses
-    NSString *urlFormat = @"http://api.twitter.com/1/statuses/user_timeline/%@.json?count=100";
-    NSString *urlString = [NSString stringWithFormat:urlFormat, user];
+    NSString *urlFormat = @"http://localhost:3333/%@/%@";
+    NSString *urlString = [NSString stringWithFormat:urlFormat, user, user];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Setup the RestKit object mapping for the feed data to the class ERNDemoTweet
@@ -31,7 +31,7 @@
     
     // Setup an async repository with the RestKit mapping for twitter
     return [ERNRestKitAsyncItemsRepository createWithUrl:url
-                                                 keyPath:@""
+                                                 keyPath:@"data"
                                                  mapping:objectMapping
                                              statusCodes:statusCodes];
 }

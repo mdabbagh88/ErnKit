@@ -1,7 +1,7 @@
 {
     "data": [
         {
-            "text": "A",
+            "text": "Demo two blah",
             "user": {
                 "profile_image_url": "http://a0.twimg.com/profile_images/2175219347/image_normal.jpg",
             }
@@ -13,15 +13,15 @@
             }
         },
         {
-            "text": "C",
+            "text": "Demo two in africa",
             "user": {
                 "profile_image_url": "http://a0.twimg.com/profile_images/2175219347/image_normal.jpg",
             },
             "coordinates": {
                 "type": "Point",
                 "coordinates": [
-                    12.7453362,
-                    56.03235295
+                    13.7453362,
+                    30.03235295
                 ]
             }
         },
@@ -40,7 +40,7 @@
                 "type": "Point",
                 "coordinates": [
                     12.69566669,
-                    56.04392159
+                    32.04392159
                 ]
             }
         },
@@ -58,8 +58,8 @@
             "coordinates": {
                 "type": "Point",
                 "coordinates": [
-                    12.99987791,
-                    55.60822514
+                    11.99987791,
+                    31.60822514
                 ]
             }
         },
@@ -83,6 +83,6 @@
         }
     ],
     "paging": {
-        "next": "http://localhost:3333/demo/demo2"
+        "next": "http://localhost:3333/demotwo/demotwo2"
     }
 }

@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "text": "H",
+            "user": {
+                "profile_image_url": "http://a0.twimg.com/profile_images/2175219347/image_normal.jpg",
+            }
+        },
+        {
+            "text": "H",
+            "user": {
+                "profile_image_url": "http://a0.twimg.com/profile_images/2175219347/image_normal.jpg",
+            }
+        },
+        {
+            "text": "G",
+            "user": {
+                "profile_image_url": "http://a0.twimg.com/profile_images/2175219347/image_normal.jpg",
+            },
+            "coordinates": {
+                "type": "Point",
+                "coordinates": [
+                    12.74551485,
+                    56.03164822
+                ]
+            }
+        }
+    ],
+    "paging": {
+        "previous": "http://localhost:3333/demo/demo2"
+    }
+}
