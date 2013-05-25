@@ -36,18 +36,6 @@
     }
 }
 
-#pragma mark - ERNAsyncPaginatedItemsRepository
-
--(NSUInteger)total
-{
-    return [[self array] count];
-}
-
--(NSUInteger)offset
-{
-    return 0;
-}
-
 #pragma mark - NSObject
 
 -(void)dealloc
