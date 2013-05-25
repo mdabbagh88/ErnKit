@@ -6,5 +6,6 @@
 @interface ERNRestKitPagingAsyncItemsRepository : ERNArrayAsyncItemsRepository <
     ERNAsyncPaginatedItemsRepository>
 +(instancetype)createWithUrl:(NSURL *)url
-          responseDescriptor:(RKResponseDescriptor *)responseDescriptor;
+          responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+                  windowSize:(NSUInteger)windowSize;
 @end

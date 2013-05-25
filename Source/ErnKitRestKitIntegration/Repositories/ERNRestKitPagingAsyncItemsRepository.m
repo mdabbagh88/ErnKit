@@ -11,23 +11,29 @@
 
 @interface ERNRestKitPagingAsyncItemsRepository ()
 @property (nonatomic) id<ERNAsyncItemRepository> repository;
-@property (nonatomic) id<ERNRepositoryPaginator> paginator;
 @property (nonatomic, readonly) RKResponseDescriptor *responseDescriptor;
 @property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) NSUInteger windowSize;
+@property (nonatomic, readonly) NSMutableArray *pages;
+@property (nonatomic, readwrite) NSUInteger offset;
 @end
 
 @implementation ERNRestKitPagingAsyncItemsRepository {
     NSURL *_url;
-    id<ERNRepositoryPaginator> _paginator;
+    NSUInteger _windowSize;
+    NSMutableArray *_pages;
+    NSUInteger _offset;
 }
 
 #pragma mark - public - constructors
 
 +(instancetype)createWithUrl:(NSURL *)url
-responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+          responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+                  windowSize:(NSUInteger)windowSize
 {
     return [[self alloc] initWithUrl:url
-                  responseDescriptor:responseDescriptor];
+                  responseDescriptor:responseDescriptor
+                          windowSize:windowSize];
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -54,28 +60,33 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 
 -(NSUInteger)total
 {
-    return [[[self paginator] nextPage] hasValue] ?
-    [[[self paginator] total] unsignedIntegerValue] :
+    return [[[[self pages] lastObject] nextPage] hasValue] ?
+    [[(id<ERNRepositoryPaginator>)[[self pages] lastObject] total] unsignedIntegerValue] :
     [self count] + [self offset];
-}
-
--(NSUInteger)offset
-{
-    return 0;
 }
 
 -(void)fetchPrevious
 {
+    [[self repository] removeObserver:self];
+    [self setRepository:[ERNItemsToAsyncItemRepository
+                         createWithRepository:
+                         [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
+                         [ERNRestKitAsyncItemsRepository
+                          createWithUrl:[[[self pages] objectAtIndex:0] previousPage]
+                          responseDescriptor:[self responseDescriptor]]]]];
+    [[self repository] addObserver:self
+                          selector:@selector(repositoryPreviousPageRefreshed)];
+    [[self repository] refresh];
 }
 
 -(BOOL)hasPrevious
 {
-    return NO;
+    return [[[[self pages] objectAtIndex:0] previousPage] hasValue];
 }
 
 -(BOOL)hasNext
 {
-    return [[[self paginator] nextPage] hasValue];
+    return [[[[self pages] lastObject] nextPage] hasValue];
 }
 
 -(void)fetchNext
@@ -85,10 +96,10 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
                          createWithRepository:
                          [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
                          [ERNRestKitAsyncItemsRepository
-                          createWithUrl:[[self paginator] nextPage]
+                          createWithUrl:[[[self pages] lastObject] nextPage]
                           responseDescriptor:[self responseDescriptor]]]]];
     [[self repository] addObserver:self
-                          selector:@selector(repositoryPageRefreshed)];
+                          selector:@selector(repositoryNextPageRefreshed)];
     [[self repository] refresh];
 }
 
@@ -108,15 +119,41 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 
 -(void)repositoryRefreshed
 {
-    [self setPaginator:[self validatePaginator:[[self repository] item]]];
-    [self setArray:[[self paginator] items]];
+    [[self pages] removeAllObjects];
+    [[self pages] addObject:[self validatePaginator:[[self repository] item]]];
+    [self setArray:[[[self pages] objectAtIndex:0] items]];
 }
 
--(void)repositoryPageRefreshed
+-(void)repositoryNextPageRefreshed
 {
-    [self setPaginator:[self validatePaginator:[[self repository] item]]];
-    [self setArray:
-     [[self array] arrayByAddingObjectsFromArray:[[self paginator] items]]];
+
+    [[self pages] addObject:[self validatePaginator:[[self repository] item]]];
+    if (([[[[self pages] lastObject] items] count] + [[self array] count]) >
+        [self windowSize]) {
+        [self setOffset:[self offset] + [[[[self pages] objectAtIndex:0] items] count]];
+        [[self pages] removeObjectAtIndex:0];
+    }
+    NSMutableArray *newArray = [NSMutableArray array];
+    for (id<ERNRepositoryPaginator> page in [self pages]) {
+        [newArray addObjectsFromArray:[page items]];
+    }
+    [self setArray:newArray];
+}
+
+-(void)repositoryPreviousPageRefreshed
+{
+    [[self pages] insertObject:[self validatePaginator:[[self repository] item]]
+                       atIndex:0];
+    [self setOffset:[self offset] - [[[[self pages] objectAtIndex:0] items] count]];
+    if (([[[[self pages] objectAtIndex:0] items] count] + [[self array] count]) >
+        [self windowSize]) {
+        [[self pages] removeLastObject];
+    }
+    NSMutableArray *newArray = [NSMutableArray array];
+    for (id<ERNRepositoryPaginator> page in [self pages]) {
+        [newArray addObjectsFromArray:[page items]];
+    }
+    [self setArray:newArray];
 }
 
 -(id<ERNRepositoryPaginator>)validatePaginator:(id)paginator
@@ -133,20 +170,19 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
     return _url = _url ? _url : [NSURL ERN_createNull];
 }
 
--(id<ERNRepositoryPaginator>)paginator
-{
-    return _paginator = _paginator ? _paginator : [ERNNullRepositoryPaginator create];
-}
-
 #pragma mark - private - initializers
 
 -(id)initWithUrl:(NSURL *)url
 responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+      windowSize:(NSUInteger)windowSize
 {
     self = [super init];
     ERNCheckNil(self);
     _url = url;
     _responseDescriptor = responseDescriptor;
+    _windowSize = windowSize;
+    _pages = [NSMutableArray array];
+    _offset = 0;
     return self;
 }
 

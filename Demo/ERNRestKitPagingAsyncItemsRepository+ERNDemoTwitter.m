@@ -52,7 +52,8 @@
     
     // Setup an async repository with the RestKit mapping for twitter and pagination
     return [ERNRestKitPagingAsyncItemsRepository createWithUrl:url
-                                            responseDescriptor:paginationResponseDescriptor];
+                                            responseDescriptor:paginationResponseDescriptor
+                                                    windowSize:20];
 }
 
 @end
