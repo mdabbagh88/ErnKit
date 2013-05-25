@@ -7,6 +7,7 @@
 #import "ERNDemoTableViewControllerConfigurator.h"
 #import "ERNViewControllerAction.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
+#import <UIKit/UIKit.h>
 
 @implementation ERNDemoApplicationConfigurator {
     id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;

@@ -1,17 +1,10 @@
 #import <Foundation/Foundation.h>
 #import "ERNArrayAsyncItemsRepository.h"
 
-@class RKObjectMapping;
+@class RKResponseDescriptor;
 
 @interface ERNRestKitPagingAsyncItemsRepository : ERNArrayAsyncItemsRepository <
     ERNAsyncPaginatedItemsRepository>
 +(instancetype)createWithUrl:(NSURL *)url
-                     keyPath:(NSString *)keyPath
-                     mapping:(RKObjectMapping *)mapping
-                 statusCodes:(NSIndexSet *)statusCodes;
-+(instancetype)createWithUrl:(NSURL *)url
-                     keyPath:(NSString *)keyPath
-                 pathPattern:(NSString *)pathPattern
-                     mapping:(RKObjectMapping *)mapping
-                 statusCodes:(NSIndexSet *)statusCodes;
+          responseDescriptor:(RKResponseDescriptor *)responseDescriptor;
 @end

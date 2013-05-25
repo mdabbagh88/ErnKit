@@ -20,28 +20,10 @@
 #pragma mark - public - constructors
 
 +(instancetype)createWithUrl:(NSURL *)url
-                     keyPath:(NSString *)keyPath
-                     mapping:(RKObjectMapping *)mapping
-                 statusCodes:(NSIndexSet *)statusCodes
+          responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 {
     return [[self alloc] initWithUrl:url
-                             keyPath:keyPath
-                         pathPattern:nil
-                             mapping:mapping
-                         statusCodes:statusCodes];
-}
-
-+(instancetype)createWithUrl:(NSURL *)url
-                     keyPath:(NSString *)keyPath
-                 pathPattern:(NSString *)pathPattern
-                     mapping:(RKObjectMapping *)mapping
-                 statusCodes:(NSIndexSet *)statusCodes
-{
-    return [[self alloc] initWithUrl:url
-                             keyPath:keyPath
-                         pathPattern:pathPattern
-                             mapping:mapping
-                         statusCodes:statusCodes];
+                  responseDescriptor:responseDescriptor];
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -159,17 +141,11 @@
 #pragma mark - private - initializers
 
 -(id)initWithUrl:(NSURL *)url
-         keyPath:(NSString *)keyPath
-     pathPattern:(NSString *)pathPattern
-         mapping:(RKObjectMapping *)mapping
-     statusCodes:(NSIndexSet *)statusCodes
+responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 {
     self = [super init];
     ERNCheckNil(self);
-    _responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
-                                                                  pathPattern:pathPattern
-                                                                      keyPath:keyPath
-                                                                  statusCodes:statusCodes];
+    _responseDescriptor = responseDescriptor;
     _url = url;
     return self;
 }

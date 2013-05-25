@@ -12,6 +12,9 @@
 
 +(instancetype)createTwitterStatusesForUser:(NSString *)user
 {
+    // Setup a set for the status codes the mapping should apply to, in our case 200
+    NSIndexSet *statusCodes = [NSIndexSet indexSetWithIndex:200];
+
     // Setup a url for accessing twitter statuses
     NSString *urlFormat = @"http://localhost:3333/%@/%@";
     NSString *urlString = [NSString stringWithFormat:urlFormat, user, user];
@@ -25,15 +28,19 @@
                                      };
     RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[ERNDemoTweet class]];
     [objectMapping addAttributeMappingsFromDictionary:twitterMapping];
+    RKResponseDescriptor *tweetResponseDescriptor =
+    [RKResponseDescriptor responseDescriptorWithMapping:objectMapping
+                                            pathPattern:nil
+                                                keyPath:@"data"
+                                            statusCodes:statusCodes];
+
+    // Setup the RestKit paginating mapping
     
-    // Setup a set for the status codes the mapping should apply to, in our case 200
-    NSIndexSet *statusCodes = [NSIndexSet indexSetWithIndex:200];
+
     
-    // Setup an async repository with the RestKit mapping for twitter
+    // Setup an async repository with the RestKit mapping for twitter and pagination
     return [ERNRestKitAsyncItemsRepository createWithUrl:url
-                                                 keyPath:@"data"
-                                                 mapping:objectMapping
-                                             statusCodes:statusCodes];
+                                      responseDescriptor:tweetResponseDescriptor];
 }
 
 @end
