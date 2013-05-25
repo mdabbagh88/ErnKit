@@ -133,11 +133,7 @@
         [self setOffset:[self offset] + [[[[self pages] objectAtIndex:0] items] count]];
         [[self pages] removeObjectAtIndex:0];
     }
-    NSMutableArray *newArray = [NSMutableArray array];
-    for (id<ERNRepositoryPaginator> page in [self pages]) {
-        [newArray addObjectsFromArray:[page items]];
-    }
-    [self setArray:newArray];
+    [self refreshArray];
 }
 
 -(void)repositoryPreviousPageRefreshed
@@ -149,12 +145,19 @@
         [self windowSize]) {
         [[self pages] removeLastObject];
     }
+    [self refreshArray];
+}
+
+-(void)refreshArray
+{
     NSMutableArray *newArray = [NSMutableArray array];
-    for (id<ERNRepositoryPaginator> page in [self pages]) {
+    [[self pages] enumerateObjectsUsingBlock:
+     ^(id<ERNRepositoryPaginator> page, NSUInteger index, BOOL *stop) {
         [newArray addObjectsFromArray:[page items]];
-    }
+     }];
     [self setArray:newArray];
 }
+
 
 -(id<ERNRepositoryPaginator>)validatePaginator:(id)paginator
 {
