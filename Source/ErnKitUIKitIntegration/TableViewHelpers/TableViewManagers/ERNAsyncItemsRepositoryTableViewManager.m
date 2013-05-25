@@ -86,7 +86,7 @@
 
 -(BOOL)loadPreviousForIndex:(NSInteger)index
 {
-    return [[self repository] hasPrevious] && index == 0;
+    return index == 0 && [[self repository] hasPrevious];
 }
 
 #pragma mark - private - accessors
