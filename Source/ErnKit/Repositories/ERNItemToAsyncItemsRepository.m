@@ -32,7 +32,9 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self itemAtTotalIndex:index];
+    return [self validIndex:index] ?
+    [self validItem:[[self repository] item]] :
+    [NSNull null];
 }
 
 -(NSUInteger)count
@@ -40,14 +42,7 @@
     return 1;
 }
 
-#pragma mark - ERNAsyncItemsRepository
-
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
-{
-    return [self validIndex:index] ?
-    [self validItem:[[self repository] item]] :
-    [NSNull null];
-}
+#pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(NSUInteger)total
 {
@@ -57,6 +52,24 @@
 -(NSUInteger)offset
 {
     return 0;
+}
+
+-(BOOL)hasPrevious
+{
+    return NO;
+}
+
+-(BOOL)hasNext
+{
+    return NO;
+}
+
+-(void)fetchNext
+{
+}
+
+-(void)fetchPrevious
+{
 }
 
 #pragma mark - private

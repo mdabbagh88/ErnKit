@@ -1,27 +1,19 @@
-#import "ERNNullRepositoryPaginator.h"
+#import "ERNDefaultRepositoryPaginator.h"
+#import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
-static ERNNullRepositoryPaginator *immutableSingleton;
-
-@implementation ERNNullRepositoryPaginator {
+@implementation ERNDefaultRepositoryPaginator {
     NSNumber *_total;
     NSURL *_nextPage;
     NSURL *_previousPage;
     NSArray *_items;
 }
 
-#pragma mark - public - constructors
-
-+(instancetype)create
-{
-    return immutableSingleton;
-}
-
 #pragma mark - ERNRepositoryPaginator
 
 -(NSNumber *)total
 {
-    return _total = _total ? _total : @0;
+    return _total = _total ? _total : [NSNumber numberWithUnsignedInteger:UINT_MAX];
 }
 
 -(NSURL *)nextPage
@@ -37,13 +29,6 @@ static ERNNullRepositoryPaginator *immutableSingleton;
 -(NSArray *)items
 {
     return _items = _items ? _items : @[];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

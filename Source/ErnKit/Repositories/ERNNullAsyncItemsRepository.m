@@ -12,7 +12,7 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNAsyncPaginatedItemsRepository
+#pragma mark - ERNAsyncItemsRepository
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
@@ -30,10 +30,10 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self itemAtTotalIndex:index];
+    return [NSNull null];
 }
 
-#pragma mark - ERNAsyncItemsRepository
+#pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(NSUInteger)total
 {
@@ -45,9 +45,23 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
     return 0;
 }
 
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+
+-(BOOL)hasPrevious
 {
-    return [NSNull null];
+    return NO;
+}
+
+-(BOOL)hasNext
+{
+    return NO;
+}
+
+-(void)fetchNext
+{
+}
+
+-(void)fetchPrevious
+{
 }
 
 #pragma mark - NSObject

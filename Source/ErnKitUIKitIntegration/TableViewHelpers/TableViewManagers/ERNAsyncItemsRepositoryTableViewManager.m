@@ -46,9 +46,16 @@
 {
     ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
-    return [[self itemManager] cellForTableView:tableView
-                                     fromObject:[[self repository] itemAtIndex:
-                                                 (NSUInteger)[indexPath row]]];
+    UITableViewCell *cell = [[self itemManager] cellForTableView:tableView
+                                                      fromObject:[[self repository] itemAtIndex:
+                                                                  (NSUInteger)[indexPath row]]];
+    if ([self loadNextForIndex:[indexPath row]]) {
+        [[self repository] fetchNext];
+    }
+    if ([self loadPreviousForIndex:[indexPath row]]) {
+        [[self repository] fetchPrevious];
+    }
+    return cell;
 }
 
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,6 +75,18 @@
 -(NSInteger)rowsInSection:(NSInteger)section
 {
     return (NSInteger)[[self repository] count];
+}
+
+#pragma mark - private
+
+-(BOOL)loadNextForIndex:(NSInteger)index
+{
+    return [[self repository] hasNext] && index == (NSInteger)[[self repository] count] - 1;
+}
+
+-(BOOL)loadPreviousForIndex:(NSInteger)index
+{
+    return [[self repository] hasPrevious] && index == 0;
 }
 
 #pragma mark - private - accessors

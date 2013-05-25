@@ -42,31 +42,54 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
                                                 responseDescriptor:[self responseDescriptor]]]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
+    [[self repository] refresh];
 }
 
--(NSUInteger)count
+-(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [[self array] count];
+    return [super itemAtIndex:index];
 }
-
 
 #pragma mark - ERNAsyncPaginatedItemsRepository
 
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
-{
-    return [self indexWithinArray:index] ?
-    [self array][index] :
-    [self updatePageAndReturnNullObject];
-}
-
 -(NSUInteger)total
 {
-    return [[self paginator] total];
+    return [[[self paginator] nextPage] hasValue] ?
+    [[[self paginator] total] unsignedIntegerValue] :
+    [self count] + [self offset];
 }
 
 -(NSUInteger)offset
 {
     return 0;
+}
+
+-(void)fetchPrevious
+{
+}
+
+-(BOOL)hasPrevious
+{
+    return NO;
+}
+
+-(BOOL)hasNext
+{
+    return [[[self paginator] nextPage] hasValue];
+}
+
+-(void)fetchNext
+{
+    [[self repository] removeObserver:self];
+    [self setRepository:[ERNItemsToAsyncItemRepository
+                         createWithRepository:
+                         [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
+                         [ERNRestKitAsyncItemsRepository
+                          createWithUrl:[[self paginator] nextPage]
+                          responseDescriptor:[self responseDescriptor]]]]];
+    [[self repository] addObserver:self
+                          selector:@selector(repositoryPageRefreshed)];
+    [[self repository] refresh];
 }
 
 #pragma mark - NSObject
@@ -78,19 +101,6 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 
 #pragma mark - private
 
--(id<NSObject>)updatePageAndReturnNullObject
-{
-    [[self repository] removeObserver:self];
-    [self setRepository:[ERNItemsToAsyncItemRepository
-                         createWithRepository:[ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
-                         [ERNRestKitAsyncItemsRepository
-                          createWithUrl:[[self paginator] nextPage]
-                          responseDescriptor:[self responseDescriptor]]]]];
-    [[self repository] addObserver:self
-                          selector:@selector(repositoryRefreshed)];
-    return [NSNull null];
-}
-
 -(BOOL)indexWithinArray:(NSUInteger)index
 {
     return index < [[self array] count];
@@ -99,8 +109,14 @@ responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 -(void)repositoryRefreshed
 {
     [self setPaginator:[self validatePaginator:[[self repository] item]]];
-    [self setArray:[[self array] arrayByAddingObjectsFromArray:[[self paginator] items]]];
-    [self notifyObservers];
+    [self setArray:[[self paginator] items]];
+}
+
+-(void)repositoryPageRefreshed
+{
+    [self setPaginator:[self validatePaginator:[[self repository] item]]];
+    [self setArray:
+     [[self array] arrayByAddingObjectsFromArray:[[self paginator] items]]];
 }
 
 -(id<ERNRepositoryPaginator>)validatePaginator:(id)paginator

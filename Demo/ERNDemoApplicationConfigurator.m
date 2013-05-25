@@ -1,5 +1,5 @@
 #import "ERNDemoApplicationConfigurator.h"
-#import "ERNRestKitAsyncItemsRepository+ERNDemoTwitter.h"
+#import "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.h"
 #import "ERNMergingAsyncItemsRepository.h"
 #import "ERNTogglingAsyncItemsRepository.h"
 #import "ERNNavigationViewControllerTransitioner.h"
@@ -62,19 +62,15 @@
 -(id<ERNAsyncPaginatedItemsRepository>)repositoryFirstFeed
 {
     return _repositoryFirstFeed = _repositoryFirstFeed ?
-    _repositoryFirstFeed :
-    [ERNItemsToAsyncPaginatedItemsRepository
-     createWithRepository:[ERNRestKitAsyncItemsRepository
-                           createTwitterStatusesForUser:@"demo"]];
+    _repositoryFirstFeed : [ERNRestKitPagingAsyncItemsRepository
+                            createTwitterStatusesForUser:@"demo"];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositorySecondFeed
 {
     return _repositorySecondFeed = _repositorySecondFeed ?
-    _repositorySecondFeed :
-    [ERNItemsToAsyncPaginatedItemsRepository
-     createWithRepository:[ERNRestKitAsyncItemsRepository
-                           createTwitterStatusesForUser:@"demotwo"]];
+    _repositorySecondFeed :[ERNRestKitPagingAsyncItemsRepository
+                            createTwitterStatusesForUser:@"demotwo"];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositoryBothFeeds

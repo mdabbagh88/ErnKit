@@ -27,49 +27,95 @@
 
 -(NSUInteger)offset
 {
-    return [[self firstRepository] total] == 0 ?
-    [[self restRepository] offset] :
+    return [self useFirstOnly] ?
+    [[self firstRepository] offset] :
+    [self useRestOnly] ?
+    [[self firstRepository] total] + [[self restRepository] offset] :
     [[self firstRepository] offset];
 }
 
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+-(BOOL)hasNext
 {
-    return [self validItem:[self firstIndex:index] ?
-            [[self firstRepository] itemAtTotalIndex:index] :
-            [self restIndex:index] ?
-            [[self restRepository] itemAtTotalIndex:[self indexForRest:index]] :
-            [NSNull null]];
+    return [self useFirstOnly] ?
+    [[self firstRepository] hasNext] :
+    [self useRestOnly] ?
+    [[self restRepository] hasNext] :
+    [[self restRepository] hasNext];
+}
+
+-(BOOL)hasPrevious
+{
+    return [self useFirstOnly] ?
+    [[self firstRepository] hasPrevious] :
+    [self useRestOnly] ?
+    [[self restRepository] hasPrevious] :
+    [[self firstRepository] hasPrevious];
+}
+
+-(void)fetchNext
+{
+    if ([self useFirstOnly]) {
+        [[self firstRepository] fetchNext];
+    } else if ([self useRestOnly]) {
+        [[self restRepository] fetchNext];
+    } else {
+        [[self restRepository] fetchNext];
+    }
+}
+
+-(void)fetchPrevious
+{
+    if ([self useFirstOnly]) {
+        [[self firstRepository] fetchPrevious];
+    } else if ([self useRestOnly]) {
+        [[self restRepository] fetchPrevious];
+    } else {
+        [[self firstRepository] fetchPrevious];
+    }
 }
 
 #pragma mark - ERNAsyncItemsRepository
 
 -(NSUInteger)count
 {
-    return [self limitWithFirstCount:[[self firstRepository] total]
-                          firstLimit:[[self firstRepository] count]
-                         firstOffset:[[self firstRepository] offset]
-                           restCount:[[self restRepository] total]
-                           restLimit:[[self restRepository] count]
-                          restOffset:[[self restRepository] offset]];
+    return [self useFirstOnly] ?
+    [[self firstRepository] count] :
+    [self useRestOnly] ?
+    [[self restRepository] count] :
+    [[self firstRepository] count] + [[self restRepository] count];
 }
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self itemAtTotalIndex:index + [self offset]];
+    return [self useFirstOnly] ?
+    [[self firstRepository] itemAtIndex:index] :
+    [self useRestOnly] ?
+    [[self restRepository] itemAtIndex:index + [[self restRepository] offset]] :
+    [self indexInFirst:index] ?
+    [[self firstRepository] itemAtIndex:index] :
+    [[self restRepository] itemAtIndex:index - [[self firstRepository] count]];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
 {
-    [[self firstRepository] enumerateItemsUsingBlock:block];
-    [[self restRepository] enumerateItemsUsingBlock:block];
+    if ([self useFirstOnly]) {
+        [[self firstRepository] enumerateItemsUsingBlock:block];
+    } else if ([self useRestOnly]) {
+        [[self restRepository] enumerateItemsUsingBlock:block];
+    } else {
+        [[self firstRepository] enumerateItemsUsingBlock:block];
+        [[self restRepository] enumerateItemsUsingBlock:block];
+    }
 }
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
-    return [self validArray:[[[self firstRepository]
-             filteredArrayUsingPredicate:predicate]
-            arrayByAddingObjectsFromArray:[[self restRepository]
-                                           filteredArrayUsingPredicate:predicate]]];
+    return [self useFirstOnly] ?
+    [[self firstRepository] filteredArrayUsingPredicate:predicate] :
+    [self useRestOnly] ?
+    [[self restRepository] filteredArrayUsingPredicate:predicate] :
+    [[[self firstRepository] filteredArrayUsingPredicate:predicate]
+     arrayByAddingObjectsFromArray:[[self restRepository] filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - ERNAsyncRepository
@@ -90,15 +136,20 @@
 
 #pragma mark - private
 
--(NSUInteger)limitWithFirstCount:(NSUInteger)firstCount
-                      firstLimit:(NSUInteger)firstLimit
-                     firstOffset:(NSUInteger)firstOffset
-                       restCount:(NSUInteger)restCount
-                       restLimit:(NSUInteger)restLimit
-                      restOffset:(NSUInteger)restOffset
+-(BOOL)useFirstOnly
 {
-    return (restCount == 0) ? firstLimit :
-    (firstCount == 0) ? restLimit : restLimit + firstCount - firstOffset + restOffset;
+    return [[self firstRepository] count] + [[self firstRepository] offset] <
+    [[self firstRepository] total];
+}
+
+-(BOOL)useRestOnly
+{
+    return ![self useFirstOnly] && [[self restRepository] offset] > 0;
+}
+
+-(BOOL)indexInFirst:(NSUInteger)index
+{
+    return index < [[self firstRepository] count];
 }
 
 -(NSArray *)validArray:(NSArray *)array
@@ -109,21 +160,6 @@
 -(id<NSObject>)validItem:(id<NSObject>)item
 {
     return item ? item : [NSNull null];
-}
-
--(BOOL)firstIndex:(NSUInteger)index
-{
-    return index < [[self firstRepository] total];
-}
-
--(BOOL)restIndex:(NSUInteger)index
-{
-    return index >= [[self firstRepository] total] && index < [self total];
-}
-
--(NSUInteger)indexForRest:(NSUInteger)index
-{
-    return index - [[self firstRepository] total];
 }
 
 -(void)subRepositoriesRefreshed

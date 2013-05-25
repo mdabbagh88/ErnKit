@@ -35,12 +35,7 @@
     return _selectedIndex;
 }
 
-#pragma mark - ERNAsyncItemsRepository
-
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
-{
-    return [[self currentRepository] itemAtTotalIndex:index];
-}
+#pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(NSUInteger)total
 {
@@ -52,7 +47,27 @@
     return [[self currentRepository] offset];
 }
 
-#pragma mark - ERNAsyncPaginatedItemsRepository
+-(void)fetchPrevious
+{
+    [[self currentRepository] fetchPrevious];
+}
+
+-(void)fetchNext
+{
+    [[self currentRepository] fetchNext];
+}
+
+-(BOOL)hasNext
+{
+    return [[self currentRepository] hasNext];
+}
+
+-(BOOL)hasPrevious
+{
+    return [[self currentRepository] hasPrevious];
+}
+
+#pragma mark - ERNAsyncItemsRepository
 
 -(NSUInteger)count
 {

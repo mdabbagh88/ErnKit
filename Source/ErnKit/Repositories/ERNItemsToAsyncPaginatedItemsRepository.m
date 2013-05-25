@@ -17,7 +17,7 @@
 
 #pragma mark - ERNAsyncPaginatedItemsRepository
 
--(NSUInteger)count
+-(NSUInteger)total
 {
     return [[self repository] count];
 }
@@ -27,14 +27,27 @@
     return 0;
 }
 
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index
+-(BOOL)hasPrevious
 {
-    return [[self repository] itemAtIndex:index];
+    return NO;
+}
+
+-(BOOL)hasNext
+{
+    return NO;
+}
+
+-(void)fetchNext
+{
+}
+
+-(void)fetchPrevious
+{
 }
 
 #pragma mark - ERNAsyncItemsRepository
 
--(NSUInteger)total
+-(NSUInteger)count
 {
     return [[self repository] count];
 }

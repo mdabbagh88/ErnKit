@@ -24,7 +24,7 @@
     id<ERNRepositoryPaginator> paginator = [ERNNullRepositoryPaginator create];
 
     //when
-    NSUInteger total = [paginator total];
+    NSUInteger total = [[paginator total] unsignedIntegerValue];
 
     //then
     assertThatUnsignedInteger(total, equalToUnsignedInteger(0));

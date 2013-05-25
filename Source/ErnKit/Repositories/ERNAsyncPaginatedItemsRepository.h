@@ -4,5 +4,8 @@
 @protocol ERNAsyncPaginatedItemsRepository <ERNAsyncItemsRepository>
 @property (nonatomic, readonly, assign) NSUInteger total;
 @property (nonatomic, readonly, assign) NSUInteger offset;
--(id<NSObject>)itemAtTotalIndex:(NSUInteger)index;
+@property (nonatomic, readonly, assign) BOOL hasNext;
+@property (nonatomic, readonly, assign) BOOL hasPrevious;
+-(void)fetchNext;
+-(void)fetchPrevious;
 @end
