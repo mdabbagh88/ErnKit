@@ -27,6 +27,6 @@
         }
     ],
     "paging": {
-        "previous": "http://localhost:3333/demo/demotwo2"
+        "previous": "http://localhost:3333/demotwo/demotwo2"
     }
 }
