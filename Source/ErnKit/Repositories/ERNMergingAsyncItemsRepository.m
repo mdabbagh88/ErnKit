@@ -90,7 +90,7 @@
     return [self useFirstOnly] ?
     [[self firstRepository] itemAtIndex:index] :
     [self useRestOnly] ?
-    [[self restRepository] itemAtIndex:index + [[self restRepository] offset]] :
+    [[self restRepository] itemAtIndex:index] :
     [self indexInFirst:index] ?
     [[self firstRepository] itemAtIndex:index] :
     [[self restRepository] itemAtIndex:index - [[self firstRepository] count]];
