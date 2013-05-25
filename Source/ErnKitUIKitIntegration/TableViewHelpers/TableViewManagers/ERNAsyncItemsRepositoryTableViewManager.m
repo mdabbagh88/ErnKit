@@ -46,16 +46,10 @@
 {
     ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
-    UITableViewCell *cell = [[self itemManager] cellForTableView:tableView
-                                                      fromObject:[[self repository] itemAtIndex:
-                                                                  (NSUInteger)[indexPath row]]];
-    if ([self loadNextForIndex:[indexPath row]]) {
-        [[self repository] fetchNext];
-    }
-    if ([self loadPreviousForIndex:[indexPath row]]) {
-        [[self repository] fetchPrevious];
-    }
-    return cell;
+    [self handlePageFetchingForRow:[indexPath row]];
+    return [[self itemManager] cellForTableView:tableView
+                                     fromObject:[[self repository] itemAtIndex:
+                                                 (NSUInteger)[indexPath row]]];
 }
 
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,14 +73,24 @@
 
 #pragma mark - private
 
+-(void)handlePageFetchingForRow:(NSInteger)row
+{
+    if ([self loadNextForIndex:row]) {
+        [[self repository] fetchNext];
+    }
+    if ([self loadPreviousForIndex:row]) {
+        [[self repository] fetchPrevious];
+    }
+}
+
 -(BOOL)loadNextForIndex:(NSInteger)index
 {
-    return [[self repository] hasNext] && index == (NSInteger)[[self repository] count] - 1;
+    return (index == (NSInteger)[[self repository] count] - 1) && [[self repository] hasNext];
 }
 
 -(BOOL)loadPreviousForIndex:(NSInteger)index
 {
-    return index == 0 && [[self repository] hasPrevious];
+    return (index == 0) && [[self repository] hasPrevious];
 }
 
 #pragma mark - private - accessors
