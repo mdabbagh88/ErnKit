@@ -27,14 +27,6 @@
 }
 
 +(instancetype)createWithAction:(id<ERNAction>)action
-                 urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
-{
-    return [[self alloc] initWithAction:action
-                         urlMimeFactory:urlMimeFactory
-                        repositoryStore:nil];
-}
-
-+(instancetype)createWithAction:(id<ERNAction>)action
 {
     return [[self alloc] initWithAction:action
                          urlMimeFactory:nil

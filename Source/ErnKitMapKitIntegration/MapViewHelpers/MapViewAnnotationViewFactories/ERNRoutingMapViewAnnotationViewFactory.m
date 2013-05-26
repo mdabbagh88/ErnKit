@@ -14,12 +14,6 @@
 #pragma mark - public - constructors
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
-{
-    return [[self alloc] initWithMappings:mappings
-                           defaultFactory:nil];
-}
-
-+(instancetype)createWithMappings:(NSDictionary *)mappings
                    defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
 {
     return [[self alloc] initWithMappings:mappings

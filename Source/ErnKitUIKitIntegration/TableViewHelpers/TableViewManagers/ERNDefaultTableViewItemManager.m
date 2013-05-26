@@ -23,12 +23,6 @@
                                actionHandler:actionHandler];
 }
 
-+(instancetype)createWithCellFactory:(id<ERNTableViewCellFactory>)cellFactory
-{
-    return [[self alloc] initWithCellFactory:cellFactory
-                               actionHandler:nil];
-}
-
 #pragma mark - ERNTableViewItemManager
 
 -(void)actionForObject:(id<NSObject>)object

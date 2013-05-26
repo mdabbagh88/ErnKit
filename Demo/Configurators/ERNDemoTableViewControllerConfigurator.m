@@ -8,6 +8,7 @@
 #import "UIViewController+ERNHelper.h"
 #import "ERNDefaultTableViewCellFactory.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullActionHandler.h"
 #import "ERNDefaultTableViewItemManager.h"
 
 @interface ERNDemoTableViewControllerConfigurator ()
@@ -50,7 +51,8 @@
     _tableViewController :
     [ERNTableViewController createRefreshableWithRepository:[self repository]
      itemManager:[ERNDefaultTableViewItemManager
-                  createWithCellFactory:[ERNDefaultTableViewCellFactory create]]];
+                  createWithCellFactory:[ERNDefaultTableViewCellFactory create]
+                  actionHandler:[ERNNullActionHandler create]]];
 }
 
 -(UISegmentedControl *)feedSegmentedControl

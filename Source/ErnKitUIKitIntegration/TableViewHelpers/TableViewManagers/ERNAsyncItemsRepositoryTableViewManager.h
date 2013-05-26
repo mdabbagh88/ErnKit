@@ -5,7 +5,6 @@
 @protocol ERNTableViewItemManager;
 
 @interface ERNAsyncItemsRepositoryTableViewManager : NSObject <ERNTableViewManager>
-+(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository;
 +(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
                         itemManager:(id<ERNTableViewItemManager>)itemManager;
 @end

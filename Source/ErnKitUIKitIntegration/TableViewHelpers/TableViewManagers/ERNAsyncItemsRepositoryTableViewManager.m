@@ -26,12 +26,6 @@
                                 itemManager:itemManager];
 }
 
-+(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
-{
-    return [[self alloc] initWithRepository:repository
-                                itemManager:nil];
-}
-
 #pragma mark - ERNTableViewManager
 
 -(void)actionForIndexPath:(NSIndexPath *)indexPath

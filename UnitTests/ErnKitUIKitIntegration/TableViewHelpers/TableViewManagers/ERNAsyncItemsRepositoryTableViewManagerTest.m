@@ -11,7 +11,8 @@
 {
     //given
     id<ERNTableViewManager> manager =
-    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                      itemManager:nil];
 
     //when
     UITableViewCell *cell = [manager tableView:nil
@@ -25,7 +26,8 @@
 {
     //given
     id<ERNTableViewManager> manager =
-    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                      itemManager:nil];
 
     //when
     NSInteger sections = [manager sections];
@@ -38,7 +40,8 @@
 {
     //given
     id<ERNTableViewManager> manager =
-    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                      itemManager:nil];
 
     //when
     NSInteger rows = [manager rowsInSection:3];
@@ -51,7 +54,8 @@
 {
     //given
     id<ERNTableViewManager> manager =
-    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil];
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                      itemManager:nil];
 
     //when
     [manager actionForIndexPath:nil];

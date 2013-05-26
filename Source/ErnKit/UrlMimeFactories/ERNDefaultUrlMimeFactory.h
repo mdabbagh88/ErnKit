@@ -1,13 +1,6 @@
-//
-//  ERNDefaultUrlMimeFactory.h
-//  ErnKit
-//
-//  Created by Magnus on 2013-05-26.
-//  Copyright (c) 2013 Ernstsson.net. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
+#import "ERNUrlMimeFactory.h"
 
-@interface ERNDefaultUrlMimeFactory : NSObject
-
+@interface ERNDefaultUrlMimeFactory : NSObject <ERNUrlMimeFactory>
++(instancetype)create;
 @end
