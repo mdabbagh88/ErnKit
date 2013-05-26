@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "ERNViewControllerConfigurator.h"
+#import <ErnKit/ERNViewControllerConfigurator.h>
 
 @protocol ERNAsyncPaginatedItemsRepository;
 @protocol ERNToggler;

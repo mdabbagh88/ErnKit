@@ -1,6 +1,6 @@
-#import "MKAnnotationView+ERNDemoTwitter.h"
-#import "MKAnnotationView+ERNHelper.h"
+#import <ErnKit/MKAnnotationView+ERNHelper.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "MKAnnotationView+ERNDemoTwitter.h"
 #import "ERNDemoTweet.h"
 
 @implementation MKAnnotationView (ERNDemoTwitter)

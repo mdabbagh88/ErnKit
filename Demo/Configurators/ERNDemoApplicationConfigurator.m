@@ -1,13 +1,13 @@
-#import "ERNDemoApplicationConfigurator.h"
+#import <UIKit/UIKit.h>
+#import <ErnKit/ERNMergingAsyncItemsRepository.h>
+#import <ErnKit/ERNTogglingAsyncItemsRepository.h>
+#import <ErnKit/ERNNavigationViewControllerTransitioner.h>
+#import <ErnKit/ERNViewControllerAction.h>
+#import <ErnKit/ERNItemsToAsyncPaginatedItemsRepository.h>
 #import "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.h"
-#import "ERNMergingAsyncItemsRepository.h"
-#import "ERNTogglingAsyncItemsRepository.h"
-#import "ERNNavigationViewControllerTransitioner.h"
+#import "ERNDemoApplicationConfigurator.h"
 #import "ERNDemoMapViewControllerConfigurator.h"
 #import "ERNDemoTableViewControllerConfigurator.h"
-#import "ERNViewControllerAction.h"
-#import "ERNItemsToAsyncPaginatedItemsRepository.h"
-#import <UIKit/UIKit.h>
 
 @implementation ERNDemoApplicationConfigurator {
     id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;

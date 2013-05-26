@@ -1,14 +1,13 @@
+#import <ErnKit/ERNMapViewController.h>
+#import <ErnKit/ERNMapViewController+ERNAsyncItemsRepository.h>
+#import <ErnKit/ERNRefreshAsyncRepositoryAction.h>
+#import <ErnKit/ERNBarButtonItemActionController.h>
+#import <ErnKit/ERNSegmentedControlTogglerController.h>
+#import <ErnKit/UIViewController+ERNHelper.h>
+#import <ErnKit/ERNErrorHandler.h>
+#import <ErnKit/ERNAsyncPaginatedItemsRepository.h>
 #import "ERNDemoMapViewControllerConfigurator.h"
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
-#import "ERNMapViewController.h"
-#import "ERNMapViewController+ERNAsyncItemsRepository.h"
-#import "ERNRefreshAsyncRepositoryAction.h"
-#import "ERNBarButtonItemActionController.h"
-#import "ERNSegmentedControlTogglerController.h"
-#import "UIViewController+ERNHelper.h"
-#import "ERNErrorHandler.h"
-#import "ERNAsyncPaginatedItemsRepository.h"
-
 
 @interface ERNDemoMapViewControllerConfigurator ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
