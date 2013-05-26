@@ -80,6 +80,12 @@
     return NSStringFromClass([self class]);
 }
 
+-(void)notifyObservers
+{
+    [[self notificationCenter] postNotificationName:[self notificationName]
+                                             object:self];
+}
+
 #pragma mark - private - accessors
 
 -(NSNotificationCenter *)notificationCenter
@@ -87,6 +93,12 @@
     return _notificationCenter = _notificationCenter ?
     _notificationCenter :
     [NSNotificationCenter new];
+}
+
+-(void)setCurrentAction:(id<ERNAction>)currentAction
+{
+    _currentAction = currentAction;
+    [self notifyObservers];
 }
 
 #pragma mark - private - initializers
