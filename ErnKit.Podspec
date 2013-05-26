@@ -1,15 +1,15 @@
 Pod::Spec.new do |s|
   s.name         = "ErnKit"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of ErnKit."
+  s.version      = "0.0.3"
+  s.summary      = "ErnKit is a framework for simplifying the development of well structured Objective-C apps"
   s.homepage     = "http://github.com/ernstsson/ErnKit"
   s.license      = 'MIT'
   s.author       = {
       "Magnus Ernstsson" => "magnus@ernstsson.net"
   }
   s.source       = {
-      :git => "http://github.com/ernstsson/ErnKit.git",
-      :tag => "v0.0.1"
+      :git => "https://github.com/ernstsson/ErnKit.git",
+      :tag => "v0.0.3"
   }
   s.platform     = :ios, '5.0'
   s.requires_arc = true
