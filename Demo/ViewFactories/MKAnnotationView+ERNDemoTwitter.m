@@ -1,28 +1,16 @@
-#import "ERNDemoTweetMapViewAnnotationViewFactory.h"
-#import "ERNDemoTweet.h"
+#import "MKAnnotationView+ERNDemoTwitter.h"
 #import "MKAnnotationView+ERNHelper.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "ERNDemoTweet.h"
 
-// An ERNMapViewAnnotationViewFactory, creating MKAnnotationViews based on ERNDemoTweet objects
+@implementation MKAnnotationView (ERNDemoTwitter)
 
-@implementation ERNDemoTweetMapViewAnnotationViewFactory {
-}
-
-#pragma mark - public - constructors
-
-+(instancetype)create
-{
-    return [self new];
-}
-
-#pragma mark - ERNMapViewAnnotationViewFactory
-
--(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
-                               fromAnnotation:(ERNDemoTweet *)annotation
++(instancetype)createTwitterForMapView:(MKMapView *)mapView
+                        fromAnnotation:(ERNDemoTweet *)annotation
 {
     // Setup and annotation view, reusing current annotations from the map if possible
-    MKAnnotationView *annotationView = [MKAnnotationView ERN_createForMapView:mapView
-                                                                   annotation:annotation];
+    MKAnnotationView *annotationView = [self ERN_createForMapView:mapView
+                                                       annotation:annotation];
 
     // Setup an image view, using the image url from the ERNDemoTweet class
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
