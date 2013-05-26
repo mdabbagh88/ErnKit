@@ -5,10 +5,10 @@ target :ErnKitRestKitIntegration do
 end
 
 target :Demo do
-    pod 'ErnKit', :path => 'Source/ErnKit/'
-    pod 'ErnKitRestKitIntegration', :path => 'Source/ErnKitRestKitIntegration/'
-    pod 'ErnKitMapKitIntegration', :path => 'Source/ErnKitMapKitIntegration/'
-    pod 'ErnKitUIKitIntegration', :path => 'Source/ErnKitUIKitIntegration/'
+    pod 'ErnKit/Core', :path => './'
+    pod 'ErnKit/RestKitIntegration', :path => './'
+    pod 'ErnKit/MapKitIntegration', :path => './'
+    pod 'ErnKit/UIKitIntegration', :path => './'
     pod 'RestKit'
 end
 

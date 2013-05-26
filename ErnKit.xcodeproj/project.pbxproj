@@ -50,7 +50,6 @@
 		F7438902173D3B2A00676477 /* ERNTableViewDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */; };
 		F787FB6A174765C6007D751A /* ERNDefaultTableViewItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB68174765C0007D751A /* ERNDefaultTableViewItemManager.m */; };
 		F787FB6D17476EB3007D751A /* ERNNullTableViewItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB6C17476EB3007D751A /* ERNNullTableViewItemManager.m */; };
-		F787FB6F17477194007D751A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F787FB6E17477194007D751A /* Security.framework */; };
 		F787FB72174789D8007D751A /* ERNNullTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB71174789D8007D751A /* ERNNullTableViewCellFactory.m */; };
 		F787FB7517479068007D751A /* ERNTableViewRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */; };
 		F787FB841747E08F007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB831747E08E007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m */; };
@@ -73,10 +72,6 @@
 		F78C905D1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */; };
 		F78C90631737C4FA00301956 /* ERNTogglingTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90621737C4FA00301956 /* ERNTogglingTableViewManager.m */; };
 		F78C90661737CAF400301956 /* ERNNullTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90651737CAF400301956 /* ERNNullTableViewManager.m */; };
-		F792BEA7172D552A00B097C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC15172BD3FA00F09332 /* CoreLocation.framework */; };
-		F792BEA9172D57BD00B097C1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEA8172D57BD00B097C1 /* CoreData.framework */; };
-		F792BEAB172D57CF00B097C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */; };
-		F792BEAD172D57E300B097C1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */; };
 		F796D61217356641001A6891 /* ERNDualAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61117356641001A6891 /* ERNDualAction.m */; };
 		F796D615173567C5001A6891 /* ERNNullAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D614173567C4001A6891 /* ERNNullAction.m */; };
 		F796D61817356896001A6891 /* ERNLogAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D61717356896001A6891 /* ERNLogAction.m */; };
@@ -86,15 +81,20 @@
 		F796D63B173675FF001A6891 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
 		F796D64317367696001A6891 /* ERNRestKitRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2C317351D020035B164 /* ERNRestKitRepositoryFactory.m */; };
 		F796D64D173692C9001A6891 /* ERNActionTogglerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */; };
-		F79AE86D172DCA8F001F8F23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
-		F79AE86E172DCA8F001F8F23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
-		F79AE86F172DCA8F001F8F23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */; };
+		F796E97A1752C233000008F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
+		F796E97B1752C238000008F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
+		F796E97C1752C23E000008F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
+		F796E97D1752C25B000008F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F787FB6E17477194007D751A /* Security.framework */; };
+		F796E97E1752C268000008F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
+		F796E97F1752C272000008F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC15172BD3FA00F09332 /* CoreLocation.framework */; };
+		F796E9801752C27C000008F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEA8172D57BD00B097C1 /* CoreData.framework */; };
+		F796E9811752C284000008F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC02172B207600F09332 /* MapKit.framework */; };
+		F796E9831752C2AA000008F7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */; };
+		F796E9841752C2B3000008F7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */; };
 		F79AE877172DCA90001F8F23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79AE876172DCA90001F8F23 /* main.m */; };
 		F79AE87D172DCA90001F8F23 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE87C172DCA90001F8F23 /* Default.png */; };
 		F79AE87F172DCA90001F8F23 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE87E172DCA90001F8F23 /* Default@2x.png */; };
 		F79AE881172DCA90001F8F23 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79AE880172DCA90001F8F23 /* Default-568h@2x.png */; };
-		F79AE88F172DCDF1001F8F23 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC15172BD3FA00F09332 /* CoreLocation.framework */; };
-		F79AE890172DCDF7001F8F23 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC02172B207600F09332 /* MapKit.framework */; };
 		F7A30860173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A3085F173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m */; };
 		F7A30863173ED3C40083F020 /* ERNMergingTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A30862173ED3C40083F020 /* ERNMergingTableViewManagerTest.m */; };
 		F7A30866173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A30865173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m */; };
@@ -150,9 +150,6 @@
 		F7AD8B60173A80FE0046E153 /* libErnKitMapKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7ABC2A117351C220035B164 /* libErnKitMapKitIntegration.a */; };
 		F7AD8B61173A80FE0046E153 /* libErnKitRestKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F796D641173675FF001A6891 /* libErnKitRestKitIntegration.a */; };
 		F7AD8B62173A80FE0046E153 /* libErnKitUIKitIntegration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7ABC2E517351D9B0035B164 /* libErnKitUIKitIntegration.a */; };
-		F7AD8B63173A81180046E153 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAC172D57E300B097C1 /* MobileCoreServices.framework */; };
-		F7AD8B64173A81210046E153 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEA8172D57BD00B097C1 /* CoreData.framework */; };
-		F7AD8B65173A83850046E153 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792BEAA172D57CF00B097C1 /* SystemConfiguration.framework */; };
 		F7AD8B86173AC4C30046E153 /* ERNDefaultActionHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B85173AC4C30046E153 /* ERNDefaultActionHandlerTest.m */; };
 		F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */; };
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
@@ -168,19 +165,13 @@
 		F7E52C8A173E67E800A771D3 /* ERNNullTableViewManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C89173E67E800A771D3 /* ERNNullTableViewManagerTest.m */; };
 		F7E52C8D173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C8C173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m */; };
 		F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F069A6172C992000CA5FC4 /* SenTestingKit.framework */; };
-		F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
-		F7F06A32172D02FF00CA5FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC02172B207600F09332 /* MapKit.framework */; };
-		F7F06B22172D0D8000CA5FC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
 		F7F06B23172D0D8000CA5FC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
-		F7F06B24172D0D8000CA5FC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */; };
 		F7F06B2C172D0D8100CA5FC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06B2B172D0D8100CA5FC4 /* main.m */; };
 		F7F06B30172D0D8100CA5FC4 /* ERNKitTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06B2F172D0D8100CA5FC4 /* ERNKitTestAppDelegate.m */; };
 		F7F06B32172D0D8100CA5FC4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F06B31172D0D8100CA5FC4 /* Default.png */; };
 		F7F06B34172D0D8100CA5FC4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F06B33172D0D8100CA5FC4 /* Default@2x.png */; };
 		F7F06B36172D0D8100CA5FC4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F06B35172D0D8100CA5FC4 /* Default-568h@2x.png */; };
-		F7F06B3D172D0E0A00CA5FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC02172B207600F09332 /* MapKit.framework */; };
-		F7F06B3E172D0E0E00CA5FC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78CBC15172BD3FA00F09332 /* CoreLocation.framework */; };
 		F7F100451739B13700FD3E29 /* ERNRestKitPagingAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F100441739B13700FD3E29 /* ERNRestKitPagingAsyncItemsRepository.m */; };
 		F7F100481739B38800FD3E29 /* ERNRestKitAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F100471739B38800FD3E29 /* ERNRestKitAsyncItemsRepository.m */; };
 		F7F1004B1739BA8F00FD3E29 /* ERNNullRepositoryPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F1004A1739BA8F00FD3E29 /* ERNNullRepositoryPaginator.m */; };
@@ -614,11 +605,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F79AE890172DCDF7001F8F23 /* MapKit.framework in Frameworks */,
-				F79AE88F172DCDF1001F8F23 /* CoreLocation.framework in Frameworks */,
-				F79AE86D172DCA8F001F8F23 /* UIKit.framework in Frameworks */,
-				F79AE86E172DCA8F001F8F23 /* Foundation.framework in Frameworks */,
-				F79AE86F172DCA8F001F8F23 /* CoreGraphics.framework in Frameworks */,
+				F796E97B1752C238000008F7 /* UIKit.framework in Frameworks */,
+				F796E97A1752C233000008F7 /* Foundation.framework in Frameworks */,
 				551CB70F4A9F468689771182 /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,18 +638,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F787FB6F17477194007D751A /* Security.framework in Frameworks */,
-				F7AD8B65173A83850046E153 /* SystemConfiguration.framework in Frameworks */,
-				F7AD8B64173A81210046E153 /* CoreData.framework in Frameworks */,
-				F7AD8B63173A81180046E153 /* MobileCoreServices.framework in Frameworks */,
+				F796E9841752C2B3000008F7 /* MobileCoreServices.framework in Frameworks */,
+				F796E9831752C2AA000008F7 /* SystemConfiguration.framework in Frameworks */,
+				F796E9811752C284000008F7 /* MapKit.framework in Frameworks */,
+				F796E9801752C27C000008F7 /* CoreData.framework in Frameworks */,
+				F796E97F1752C272000008F7 /* CoreLocation.framework in Frameworks */,
+				F796E97E1752C268000008F7 /* UIKit.framework in Frameworks */,
+				F796E97D1752C25B000008F7 /* Security.framework in Frameworks */,
 				F7AD8B5F173A80FE0046E153 /* libErnKit.a in Frameworks */,
 				F7AD8B60173A80FE0046E153 /* libErnKitMapKitIntegration.a in Frameworks */,
 				F7AD8B61173A80FE0046E153 /* libErnKitRestKitIntegration.a in Frameworks */,
 				F7AD8B62173A80FE0046E153 /* libErnKitUIKitIntegration.a in Frameworks */,
-				F792BEA7172D552A00B097C1 /* CoreLocation.framework in Frameworks */,
-				F7F06A32172D02FF00CA5FC4 /* MapKit.framework in Frameworks */,
 				F7F069A7172C992000CA5FC4 /* SenTestingKit.framework in Frameworks */,
-				F7F069A8172C992000CA5FC4 /* UIKit.framework in Frameworks */,
 				F7F069A9172C992000CA5FC4 /* Foundation.framework in Frameworks */,
 				A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */,
 			);
@@ -671,14 +659,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F792BEAD172D57E300B097C1 /* MobileCoreServices.framework in Frameworks */,
-				F792BEAB172D57CF00B097C1 /* SystemConfiguration.framework in Frameworks */,
-				F792BEA9172D57BD00B097C1 /* CoreData.framework in Frameworks */,
-				F7F06B3E172D0E0E00CA5FC4 /* CoreLocation.framework in Frameworks */,
-				F7F06B3D172D0E0A00CA5FC4 /* MapKit.framework in Frameworks */,
-				F7F06B22172D0D8000CA5FC4 /* UIKit.framework in Frameworks */,
+				F796E97C1752C23E000008F7 /* UIKit.framework in Frameworks */,
 				F7F06B23172D0D8000CA5FC4 /* Foundation.framework in Frameworks */,
-				F7F06B24172D0D8000CA5FC4 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
