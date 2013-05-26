@@ -26,20 +26,6 @@
 
 @implementation ERNRoutingTableViewCellFactoryTest
 
--(void)testCellForNilTableViewFromNilObjectNilMappings
-{
-    //given
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:nil];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:nil];
-
-    //then
-    assertThat(cell, notNilValue());
-}
-
 -(void)testCellForNilTableViewFromNilObjectNilMappingsNilDefaultFactory
 {
     //given
@@ -90,22 +76,6 @@
     assertThat(cell, notNilValue());
     [mockDefaultFactory verify];
     [mockFactory verify];
-}
-
--(void)testCellForTableViewFromNilObjectNilMappings
-{
-    //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:nil];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:nil];
-
-    //then
-    assertThat(cell, notNilValue());
-    [mockTableView verify];
 }
 
 -(void)testCellForTableViewFromNilObjectNilMappingsNilDefaultFactory
@@ -166,22 +136,6 @@
     [mockTableView verify];
 }
 
--(void)testCellForNilTableViewFromObjectNilMappings
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:nil];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:mockObject];
-
-    //then
-    assertThat(cell, notNilValue());
-    [mockObject verify];
-}
-
 -(void)testCellForNilTableViewFromObjectNilMappingsNilDefaultFactory
 {
     //given
@@ -237,24 +191,6 @@
     assertThat(cell, notNilValue());
     [mockDefaultFactory verify];
     [mockFactory verify];
-    [mockObject verify];
-}
-
--(void)testCellForTableViewFromObjectNilMappings
-{
-    //given
-    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:nil];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:mockObject];
-
-    //then
-    assertThat(cell, notNilValue());
-    [mockTableView verify];
     [mockObject verify];
 }
 
@@ -362,108 +298,6 @@
     [mockCell verify];
 }
 
--(void)testCellForTableViewFromNilObjectMappings
-{
-    //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    NSString *objectClassName = @"ClassName";
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:nil];
-
-    //then
-    assertThat(cell, notNilValue());
-    [mockFactory verify];
-    [mockTableView verify];
-}
-
--(void)testCellForNilTableViewFromObjectMappings
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    NSString *objectClassName = NSStringFromClass([mockObject class]);
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:mockObject];
-
-    //then
-    assertThat(cell, notNilValue());
-    [mockFactory verify];
-    [mockObject verify];
-}
-
--(void)testCellForTableViewFromObjectMappings
-{
-    //given
-    BOOL conforms = TRUE;
-    id mockCell = [OCMockObject niceMockForClass:[UITableViewCell class]];
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    NSArray *object = @[];
-    NSString *objectClassName = NSStringFromClass([object class]);
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    [[[mockFactory stub]
-      andReturnValue:OCMOCK_VALUE(conforms)]
-     conformsToProtocol:@protocol(ERNTableViewCellFactory)];
-    [[[mockFactory expect] andReturn:mockCell] cellForTableView:mockTableView
-                                                     fromObject:object];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:object];
-
-    //then
-    assertThat(cell, equalTo(mockCell));
-    [mockFactory verify];
-    [mockTableView verify];
-    [mockCell verify];
-}
-
--(void)testCellForTableViewFromObjectMappingsNonMatchingFactory
-{
-    //given
-    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    NSString *objectClassName = @"NonMatchingName";
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
-
-    //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:mockObject];
-
-    //then
-    assertThat(cell, notNilValue());
-    [mockFactory verify];
-    [mockTableView verify];
-    [mockObject verify];
-}
-
--(void)testHeightNilObjectNilMappings
-{
-    //given
-    CGFloat defaultHeight = 34.0f;
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:nil];
-
-    //when
-    CGFloat height = [cellFactory cellHeightForObject:nil
-                                        defaultHeight:defaultHeight];
-
-    //then
-    assertThatFloat(height, equalToFloat(defaultHeight));
-}
-
 -(void)testHeightNilObjectNilMappingsNilDefaultFactory
 {
     //given
@@ -517,23 +351,6 @@
     assertThatFloat(height, equalToFloat(defaultHeight));
     [mockDefaultFactory verify];
     [mockFactory verify];
-}
-
--(void)testHeightObjectNilMappings
-{
-    //given
-    CGFloat defaultHeight = 34.0f;
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:nil];
-
-    //when
-    CGFloat height = [cellFactory cellHeightForObject:mockObject
-                                        defaultHeight:defaultHeight];
-
-    //then
-    assertThatFloat(height, equalToFloat(defaultHeight));
-    [mockObject verify];
 }
 
 -(void)testHeightObjectNilMappingsNilDefaultFactory
@@ -631,54 +448,6 @@
     //then
     assertThatFloat(height, equalToFloat(expectedHeight));
     [mockDefaultFactory verify];
-    [mockFactory verify];
-    [mockObject verify];
-}
-
--(void)testHeightObjectMappings
-{
-    //given
-    BOOL conforms = YES;
-    CGFloat defaultHeight = 34.0f;
-    CGFloat expectedHeight = 22.0f;
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    NSString *objectClassName = NSStringFromClass([mockObject class]);
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    [[[mockFactory stub]
-      andReturnValue:OCMOCK_VALUE(conforms)]
-     conformsToProtocol:@protocol(ERNTableViewCellFactory)];
-    [[[mockFactory expect] andReturnValue:OCMOCK_VALUE(expectedHeight)]
-     cellHeightForObject:mockObject
-     defaultHeight:defaultHeight];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
-
-    //when
-    CGFloat height = [cellFactory cellHeightForObject:mockObject
-                                        defaultHeight:defaultHeight];
-
-    //then
-    assertThatFloat(height, equalToFloat(expectedHeight));
-    [mockFactory verify];
-    [mockObject verify];
-}
-
--(void)testHeightObjectMappingsNonMatchingFactory
-{
-    //given
-    CGFloat defaultHeight = 34.0f;
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    NSString *objectClassName = @"NonMatchingName";
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    id<ERNTableViewCellFactory> cellFactory =
-    [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
-
-    //when
-    CGFloat height = [cellFactory cellHeightForObject:mockObject
-                                        defaultHeight:defaultHeight];
-    
-    //then
-    assertThatFloat(height, equalToFloat(defaultHeight));
     [mockFactory verify];
     [mockObject verify];
 }
