@@ -69,6 +69,7 @@
 		F788B7B7175247D8006226CA /* ERNNullActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7B6175247D8006226CA /* ERNNullActionHandler.m */; };
 		F788B7BA1752888F006226CA /* ERNUrlHostRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7B91752888E006226CA /* ERNUrlHostRoutingAction.m */; };
 		F788B7BD175289F5006226CA /* ERNUrlHostRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7BC175289F5006226CA /* ERNUrlHostRoutingActionTest.m */; };
+		F788B7C417528CC3006226CA /* ERNBinaryToggleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7C317528CC0006226CA /* ERNBinaryToggleAction.m */; };
 		F78C905D1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */; };
 		F78C90631737C4FA00301956 /* ERNTogglingTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90621737C4FA00301956 /* ERNTogglingTableViewManager.m */; };
 		F78C90661737CAF400301956 /* ERNNullTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C90651737CAF400301956 /* ERNNullTableViewManager.m */; };
@@ -403,6 +404,9 @@
 		F788B7B91752888E006226CA /* ERNUrlHostRoutingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNUrlHostRoutingAction.m; sourceTree = "<group>"; };
 		F788B7BB175289F5006226CA /* ERNUrlHostRoutingActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNUrlHostRoutingActionTest.h; sourceTree = "<group>"; };
 		F788B7BC175289F5006226CA /* ERNUrlHostRoutingActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNUrlHostRoutingActionTest.m; sourceTree = "<group>"; };
+		F788B7C117528C55006226CA /* ERNBinaryToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNBinaryToggle.h; sourceTree = "<group>"; };
+		F788B7C217528CBE006226CA /* ERNBinaryToggleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBinaryToggleAction.h; sourceTree = "<group>"; };
+		F788B7C317528CC0006226CA /* ERNBinaryToggleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBinaryToggleAction.m; sourceTree = "<group>"; };
 		F78C905B1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionSheetTransitioner.h; sourceTree = "<group>"; };
 		F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionSheetTransitioner.m; sourceTree = "<group>"; };
 		F78C90611737C4FA00301956 /* ERNTogglingTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTogglingTableViewManager.h; sourceTree = "<group>"; };
@@ -1326,6 +1330,8 @@
 				F7F06A48172D0A9900CA5FC4 /* ERNAction.h */,
 				F796D64B173692C9001A6891 /* ERNActionTogglerAction.h */,
 				F796D64C173692C9001A6891 /* ERNActionTogglerAction.m */,
+				F788B7C217528CBE006226CA /* ERNBinaryToggleAction.h */,
+				F788B7C317528CC0006226CA /* ERNBinaryToggleAction.m */,
 				F796D61017356641001A6891 /* ERNDualAction.h */,
 				F796D61117356641001A6891 /* ERNDualAction.m */,
 				F796D61617356895001A6891 /* ERNLogAction.h */,
@@ -1413,6 +1419,7 @@
 			children = (
 				F7ABC272173518440035B164 /* ERNErrorHandler.h */,
 				F796D64A17368F98001A6891 /* ERNToggler.h */,
+				F788B7C117528C55006226CA /* ERNBinaryToggle.h */,
 				F7F06AA2172D0A9900CA5FC4 /* NSObject+ERNHelper.h */,
 				F7F06AA3172D0A9900CA5FC4 /* NSObject+ERNHelper.m */,
 				F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */,
@@ -1842,6 +1849,7 @@
 				F788B7B4175243C1006226CA /* ERNDefaultUrlMimeFactory.m in Sources */,
 				F788B7B7175247D8006226CA /* ERNNullActionHandler.m in Sources */,
 				F788B7BA1752888F006226CA /* ERNUrlHostRoutingAction.m in Sources */,
+				F788B7C417528CC3006226CA /* ERNBinaryToggleAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
