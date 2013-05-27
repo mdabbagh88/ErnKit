@@ -48,7 +48,6 @@
 		F788B7AC17523B71006226CA /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A117523B71006226CA /* ERNDemoTweet.m */; };
 		F788B7AD17523B71006226CA /* ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A417523B71006226CA /* ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m */; };
 		F788B7AE17523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A717523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
-		F788B7B117523C26006226CA /* MKAnnotationView+ERNDemoTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7B017523C25006226CA /* MKAnnotationView+ERNDemoTwitter.m */; };
 		F788B7BD175289F5006226CA /* ERNUrlHostRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7BC175289F5006226CA /* ERNUrlHostRoutingActionTest.m */; };
 		F796E97A1752C233000008F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
 		F796E97B1752C238000008F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA7019171F0CBA0026D627 /* UIKit.framework */; };
@@ -74,6 +73,7 @@
 		F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */; };
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
 		F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */; };
+		F7E43DC217536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E43DC117536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m */; };
 		F7E52C72173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */; };
 		F7E52C75173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C74173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m */; };
 		F7E52C78173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C77173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m */; };
@@ -234,8 +234,6 @@
 		F788B7A417523B71006226CA /* ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m"; sourceTree = "<group>"; };
 		F788B7A617523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweetMapViewAnnotationViewFactory.h; sourceTree = "<group>"; };
 		F788B7A717523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
-		F788B7AF17523C25006226CA /* MKAnnotationView+ERNDemoTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+ERNDemoTwitter.h"; sourceTree = "<group>"; };
-		F788B7B017523C25006226CA /* MKAnnotationView+ERNDemoTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+ERNDemoTwitter.m"; sourceTree = "<group>"; };
 		F788B7B2175243C1006226CA /* ERNDefaultUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultUrlMimeFactory.h; sourceTree = "<group>"; };
 		F788B7B3175243C1006226CA /* ERNDefaultUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultUrlMimeFactory.m; sourceTree = "<group>"; };
 		F788B7B5175247D7006226CA /* ERNNullActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullActionHandler.h; sourceTree = "<group>"; };
@@ -361,6 +359,8 @@
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F7E43DC017536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+ERNDemoTwitter.h"; sourceTree = "<group>"; };
+		F7E43DC117536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+ERNDemoTwitter.m"; sourceTree = "<group>"; };
 		F7E52C70173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionControllerTest.h; sourceTree = "<group>"; };
 		F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionControllerTest.m; sourceTree = "<group>"; };
 		F7E52C73173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlTogglerControllerTest.h; sourceTree = "<group>"; };
@@ -725,8 +725,6 @@
 			children = (
 				F788B7A617523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.h */,
 				F788B7A717523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m */,
-				F788B7AF17523C25006226CA /* MKAnnotationView+ERNDemoTwitter.h */,
-				F788B7B017523C25006226CA /* MKAnnotationView+ERNDemoTwitter.m */,
 			);
 			path = ViewFactories;
 			sourceTree = "<group>";
@@ -739,6 +737,7 @@
 				F788B79F17523B71006226CA /* Model */,
 				F788B7A217523B71006226CA /* Services */,
 				F788B7A517523B71006226CA /* ViewFactories */,
+				F7E43DBF17536D7D0068703F /* Presenters */,
 				F79AE871172DCA90001F8F23 /* Supporting Files */,
 			);
 			path = Demo;
@@ -1052,6 +1051,15 @@
 				9DB2A764A64E4D56BADF841A /* libPods-ErnKitRestKitIntegration.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7E43DBF17536D7D0068703F /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				F7E43DC017536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.h */,
+				F7E43DC117536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		F7E5CAE4172D295400ACBA63 /* ErnKitRestKitIntegration */ = {
@@ -1446,7 +1454,7 @@
 				F788B7AC17523B71006226CA /* ERNDemoTweet.m in Sources */,
 				F788B7AD17523B71006226CA /* ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m in Sources */,
 				F788B7AE17523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */,
-				F788B7B117523C26006226CA /* MKAnnotationView+ERNDemoTwitter.m in Sources */,
+				F7E43DC217536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
