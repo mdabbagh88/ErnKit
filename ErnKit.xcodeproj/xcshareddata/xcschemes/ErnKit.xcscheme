@@ -3,34 +3,34 @@
    LastUpgradeVersion = "0460"
    version = "1.3">
    <BuildAction
-      parallelizeBuildables = "NO"
-      buildImplicitDependencies = "NO">
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAB87A36B6A2469BB8CC225D"
-               BuildableName = "libPods-Demo.a"
-               BlueprintName = "Pods-Demo"
+               BlueprintIdentifier = "DDE0CCE8D4C54824A7B3FCBA"
+               BuildableName = "libPods-UnitTests.a"
+               BlueprintName = "Pods-UnitTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21518D8938FA4CCCACBCEFD6"
-               BuildableName = "libPods-UnitTests.a"
-               BlueprintName = "Pods-UnitTests"
+               BlueprintIdentifier = "F0818F3B4D984E38824C0605"
+               BuildableName = "libPods-Demo.a"
+               BlueprintName = "Pods-Demo"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
