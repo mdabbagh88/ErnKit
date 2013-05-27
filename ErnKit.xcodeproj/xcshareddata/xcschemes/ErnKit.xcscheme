@@ -14,7 +14,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8EA788D264F34D6DBA515AF7"
+               BlueprintIdentifier = "BF9615F5627F455D88C3B31A"
                BuildableName = "libPods-Demo.a"
                BlueprintName = "Pods-Demo"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -22,86 +22,16 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "178FBC3880FE40CAAD940D4A"
-               BuildableName = "libPods-ErnKitRestKitIntegration.a"
-               BlueprintName = "Pods-ErnKitRestKitIntegration"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A4AAB47309AF45BDB243731E"
+               BlueprintIdentifier = "A677ADBD971C473F803EF503"
                BuildableName = "libPods-UnitTests.a"
                BlueprintName = "Pods-UnitTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7ABC238173510C20035B164"
-               BuildableName = "libErnKit.a"
-               BlueprintName = "ErnKit"
-               ReferencedContainer = "container:ErnKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7ABC2D517351D9B0035B164"
-               BuildableName = "libErnKitUIKitIntegration.a"
-               BlueprintName = "ErnKitUIKitIntegration"
-               ReferencedContainer = "container:ErnKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7ABC27317351C220035B164"
-               BuildableName = "libErnKitMapKitIntegration.a"
-               BlueprintName = "ErnKitMapKitIntegration"
-               ReferencedContainer = "container:ErnKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F796D631173675FF001A6891"
-               BuildableName = "libErnKitRestKitIntegration.a"
-               BlueprintName = "ErnKitRestKitIntegration"
-               ReferencedContainer = "container:ErnKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

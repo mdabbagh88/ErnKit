@@ -1,9 +1,5 @@
 platform :ios, '5.0'
 
-target :ErnKitRestKitIntegration do
-    pod 'RestKit'
-end
-
 target :Demo do
     pod 'ErnKit/Core', :path => './'
     pod 'ErnKit/RestKitIntegration', :path => './'
@@ -15,4 +11,6 @@ end
 target :UnitTests do
     pod 'OCMock'
     pod 'OCHamcrest'
+    pod 'ErnKit'
+    pod 'RestKit'
 end
