@@ -209,10 +209,12 @@
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
     id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
-    [[[mockConfigurator expect] andReturn:mockViewController] createViewControllerForUrl:expectedUrl
-                                                                              mime:expectedMime];
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
+    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
+    [[[mockConfigurator expect] andReturn:mockViewController]
+     createViewControllerForUrl:expectedUrl
+     mime:expectedMime
+     dismisser:mockTransitioner];
     [[mockTransitioner expect] transitionToViewController:mockViewController];
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
                                                            configurator:mockConfigurator];

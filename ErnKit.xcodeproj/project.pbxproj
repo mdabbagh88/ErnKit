@@ -361,6 +361,7 @@
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F7E43DC017536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+ERNDemoTwitter.h"; sourceTree = "<group>"; };
 		F7E43DC117536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+ERNDemoTwitter.m"; sourceTree = "<group>"; };
+		F7E43DC5175371090068703F /* ERNViewControllerDismisser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNViewControllerDismisser.h; sourceTree = "<group>"; };
 		F7E52C70173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBarButtonItemActionControllerTest.h; sourceTree = "<group>"; };
 		F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBarButtonItemActionControllerTest.m; sourceTree = "<group>"; };
 		F7E52C73173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNSegmentedControlTogglerControllerTest.h; sourceTree = "<group>"; };
@@ -944,11 +945,12 @@
 				F7ABC31217351F890035B164 /* ERNViewActionSheetTransitioner.m */,
 				F78C905B1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.h */,
 				F78C905C1737C28300301956 /* ERNBarButtonItemActionSheetTransitioner.m */,
+				F7E43DC5175371090068703F /* ERNViewControllerDismisser.h */,
+				F7ABC31717351F890035B164 /* ERNViewControllerTransitioner.h */,
 				F7ABC31317351F890035B164 /* ERNModalViewControllerTransitioner.h */,
 				F7ABC31417351F890035B164 /* ERNModalViewControllerTransitioner.m */,
 				F7ABC31517351F890035B164 /* ERNNavigationViewControllerTransitioner.h */,
 				F7ABC31617351F890035B164 /* ERNNavigationViewControllerTransitioner.m */,
-				F7ABC31717351F890035B164 /* ERNViewControllerTransitioner.h */,
 				F7ABC31817351F890035B164 /* ERNWindowViewControllerTransitioner.h */,
 				F7ABC31917351F890035B164 /* ERNWindowViewControllerTransitioner.m */,
 			);

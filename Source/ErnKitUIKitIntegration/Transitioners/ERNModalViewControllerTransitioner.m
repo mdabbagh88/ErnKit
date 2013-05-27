@@ -16,6 +16,13 @@
     return [[self alloc] initWithViewController:sourceViewController];
 }
 
+#pragma mark - ERNViewControllerDismisser
+
+-(void)dismissViewController:(UIViewController *)viewController
+{
+    [viewController dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark - ERNViewControllerTransitioner
 
 -(void)transitionToViewController:(UIViewController *)destinationViewController

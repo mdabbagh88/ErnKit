@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
+#import "ERNViewControllerDismisser.h"
 
 @class UIViewController;
 
-@protocol ERNViewControllerTransitioner <NSObject>
+@protocol ERNViewControllerTransitioner <ERNViewControllerDismisser>
 -(void)transitionToViewController:(UIViewController *)viewController;
 @end

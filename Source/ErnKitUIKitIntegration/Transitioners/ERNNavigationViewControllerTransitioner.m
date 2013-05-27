@@ -16,6 +16,13 @@
     return [[self alloc] initWithNavigationController:navigationController];
 }
 
+#pragma mark - ERNViewControllerDismisser
+
+-(void)dismissViewController:(UIViewController *)viewController
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
 #pragma mark - ERNViewControllerTransitioner
 
 -(void)transitionToViewController:(UIViewController *)destinationViewController

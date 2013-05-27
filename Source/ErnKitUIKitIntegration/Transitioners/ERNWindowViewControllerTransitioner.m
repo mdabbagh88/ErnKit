@@ -16,6 +16,13 @@
     return [[self alloc] initWithWindow:window];
 }
 
+#pragma mark - ERNViewControllerDismisser
+
+-(void)dismissViewController:(UIViewController *)viewController
+{
+    [[self window] setRootViewController:[UIViewController new]];
+}
+
 #pragma mark - ERNViewControllerTransitioner
 
 -(void)transitionToViewController:(UIViewController *)viewController
