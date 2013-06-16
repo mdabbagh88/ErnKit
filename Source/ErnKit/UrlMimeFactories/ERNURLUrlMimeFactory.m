@@ -1,4 +1,6 @@
 #import "ERNURLUrlMimeFactory.h"
+#import "ERNResource.h"
+#import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
 static ERNURLUrlMimeFactory *immutableSingleton;
@@ -20,16 +22,13 @@ static ERNURLUrlMimeFactory *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNUrlMimeFactory
+#pragma mark - ERNResourceFactory
 
--(NSURL *)urlForObject:(NSURL *)url
+-(ERNResource *)resourceForObject:(NSURL *)url
 {
-    return url ? url : [NSURL ERN_createNull];
-}
-
--(NSString *)mimeForObject:(NSURL *)url
-{
-    return [[self class] mime];
+    ERNCheckNilAndReturn(url, [ERNResource createNull]);
+    return [ERNResource createWithUrl:url
+                                 mime:[[self class] mime]];
 }
 
 #pragma mark - NSObject

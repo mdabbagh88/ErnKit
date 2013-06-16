@@ -122,12 +122,13 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedURL"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     [[mockAction expect] actionForResource:OCMOCK_ANY];
     id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    [[[mockUrlMimeFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
-    [[[mockUrlMimeFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
+    [[[mockUrlMimeFactory expect] andReturn:resource] resourceForObject:mockObject];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
                                                                     urlMimeFactory:mockUrlMimeFactory
                                                                    repositoryStore:nil];
@@ -145,12 +146,13 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedURL"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     [[mockAction expect] actionForResource:OCMOCK_ANY];
     id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    [[[mockUrlMimeFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
-    [[[mockUrlMimeFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
+    [[[mockUrlMimeFactory expect] andReturn:resource] resourceForObject:mockObject];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     [[mockRepositoryStore expect] storeUrl:expectedUrl
                                    forItem:mockObject];

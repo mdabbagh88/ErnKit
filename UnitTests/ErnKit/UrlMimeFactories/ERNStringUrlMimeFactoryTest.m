@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNStringUrlMimeFactoryTest.h"
 #import "ERNStringUrlMimeFactory.h"
+#import "ERNResource.h"
 
 @implementation ERNStringUrlMimeFactoryTest
 
@@ -26,28 +27,17 @@
     assertThat(factory1, equalTo(factory2));
 }
 
--(void)testMimeNilObject
+-(void)testResourceNilObject
 {
     //given
     id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:nil];
+    ERNResource *resource = [factory resourceForObject:nil];
 
     //then
-    assertThat(mime, notNilValue());
-}
-
--(void)testUrlNilObject
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:nil];
-
-    //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
 }
 
 -(void)testMimeObject
@@ -57,24 +47,11 @@
     id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:mockObject];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(mime, notNilValue());
-    [mockObject verify];
-}
-
--(void)testUrlObject
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:mockObject];
-
-    //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
 }
 
@@ -84,22 +61,11 @@
     id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:@"string"];
+    ERNResource *resource = [factory resourceForObject:@"string"];
 
     //then
-    assertThat(mime, notNilValue());
-}
-
--(void)testUrlStringObject
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:@"string"];
-
-    //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
 }
 
 @end

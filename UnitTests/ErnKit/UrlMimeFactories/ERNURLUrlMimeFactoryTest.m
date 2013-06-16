@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNURLUrlMimeFactoryTest.h"
 #import "ERNURLUrlMimeFactory.h"
+#import "ERNResource.h"
 
 @implementation ERNURLUrlMimeFactoryTest
 
@@ -32,22 +33,11 @@
     id<ERNResourceFactory> factory = [ERNURLUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:nil];
+    ERNResource *resource = [factory resourceForObject:nil];
 
     //then
-    assertThat(mime, notNilValue());
-}
-
--(void)testUrlNilObject
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNURLUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:nil];
-
-    //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
 }
 
 -(void)testMimeObject
@@ -57,24 +47,11 @@
     id<ERNResourceFactory> factory = [ERNURLUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:mockObject];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(mime, notNilValue());
-    [mockObject verify];
-}
-
--(void)testUrlObject
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNURLUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:mockObject];
-
-    //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
 }
 
@@ -85,23 +62,11 @@
     id<ERNResourceFactory> factory = [ERNURLUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:url];
+    ERNResource *resource = [factory resourceForObject:url];
 
     //then
-    assertThat(mime, notNilValue());
-}
-
--(void)testUrlURLObject
-{
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    id<ERNResourceFactory> factory = [ERNURLUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:expectedUrl];
-
-    //then
-    assertThat(url, equalTo(expectedUrl));
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
 }
 
 @end

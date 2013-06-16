@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNNumberUrlMimeFactoryTest.h"
 #import "ERNNumberUrlMimeFactory.h"
+#import "ERNResource.h"
 
 @implementation ERNNumberUrlMimeFactoryTest
 
@@ -26,55 +27,31 @@
     assertThat(factory1, equalTo(factory2));
 }
 
--(void)testMimeNilObject
+-(void)testResourceNilObject
 {
     //given
     id<ERNResourceFactory> factory = [ERNNumberUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:nil];
+    ERNResource *resource = [factory resourceForObject:nil];
 
     //then
-    assertThat(mime, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
 }
 
--(void)testUrlNilObject
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNNumberUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:nil];
-
-    //then
-    assertThat(url, notNilValue());
-}
-
--(void)testMimeObject
+-(void)testResourceObject
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
     id<ERNResourceFactory> factory = [ERNNumberUrlMimeFactory create];
 
     //when
-    NSString *mime = [factory mimeForObject:mockObject];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(mime, notNilValue());
-    [mockObject verify];
-}
-
--(void)testUrlObject
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNNumberUrlMimeFactory create];
-
-    //when
-    NSURL *url = [factory urlForObject:mockObject];
-
-    //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
 }
 

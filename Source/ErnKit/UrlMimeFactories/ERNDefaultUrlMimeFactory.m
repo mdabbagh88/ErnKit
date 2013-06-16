@@ -1,4 +1,5 @@
 #import "ERNDefaultUrlMimeFactory.h"
+#import "ERNResource.h"
 #import "NSURL+ERNHelper.h"
 
 static ERNDefaultUrlMimeFactory *immutableSingleton;
@@ -13,16 +14,13 @@ static ERNDefaultUrlMimeFactory *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNUrlMimeFactory
+#pragma mark - ERNResourceFactory
 
--(NSURL *)urlForObject:(id<NSObject>)object
+-(ERNResource *)resourceForObject:(id<NSObject>)object
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"ernobject://%d", [object hash]]];
-}
-
--(NSString *)mimeForObject:(id<NSObject>)object
-{
-    return @"";
+    return [ERNResource createWithUrl:
+            [NSURL URLWithString:[NSString stringWithFormat:@"ernobject://%d", [object hash]]]
+                                 mime:@""];
 }
 
 #pragma mark - NSObject

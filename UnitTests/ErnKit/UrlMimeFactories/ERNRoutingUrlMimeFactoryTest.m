@@ -3,62 +3,39 @@
 #import <OCMock/OCMock.h>
 #import "ERNRoutingUrlMimeFactoryTest.h"
 #import "ERNRoutingUrlMimeFactory.h"
+#import "ERNResource.h"
 
 @implementation ERNRoutingUrlMimeFactoryTest
 
--(void)testMimeNilObjectNilMappings
+-(void)testResourceNilObjectNilMappings
 {
     //given
     id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
 
     //when
-    NSString *mime = [factory mimeForObject:nil];
+    ERNResource *resource = [factory resourceForObject:nil];
 
     //then
-    assertThat(mime, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
 }
 
--(void)testUrlNilObjectNilMappings
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
-
-    //when
-    NSURL *url = [factory urlForObject:nil];
-
-    //then
-    assertThat(url, notNilValue());
-}
-
--(void)testMimeObjectNilMappings
+-(void)testResourecObjectNilMappings
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
     id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
 
     //when
-    NSString *mime = [factory mimeForObject:mockObject];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(mime, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
 }
 
--(void)testUrlObjectNilMappings
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
-
-    //when
-    NSURL *url = [factory urlForObject:mockObject];
-
-    //then
-    assertThat(url, notNilValue());
-    [mockObject verify];
-}
-
--(void)testMimeNilObjectMappings
+-(void)testResourceNilObjectMappings
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
@@ -67,68 +44,38 @@
     id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
-    NSString *mime = [factory mimeForObject:nil];
+    ERNResource *resource = [factory resourceForObject:nil];
 
     //then
-    assertThat(mime, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
     [mockFactory verify];
 }
 
--(void)testUrlNilObjectMappings
+-(void)testResourceObjectMappings
 {
     //given
+    NSURL *expectedUrl = [NSURL URLWithString:@"expectedURL"];
+    NSString *expectedMime = @"expectedMime";
+    ERNResource *expectedResource = [ERNResource createWithUrl:expectedUrl
+                                                          mime:expectedMime];
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
+    [[[mockFactory expect] andReturn:expectedResource] resourceForObject:mockObject];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
     id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
-    NSURL *url = [factory urlForObject:nil];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(url, notNilValue());
-}
-
--(void)testMimeObjectMappings
-{
-    //given
-    NSString *expectedMime = @"mime";
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    [[[mockFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
-    NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
-
-    //when
-    NSString *mime = [factory mimeForObject:mockObject];
-
-    //then
-    assertThat(mime, equalTo(expectedMime));
+    assertThat(resource, equalTo(expectedResource));
     [mockObject verify];
     [mockFactory verify];
 }
 
--(void)testUrlObjectMappings
-{
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    [[[mockFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
-    NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
-
-    //when
-    NSURL *url = [factory urlForObject:mockObject];
-
-    //then
-    assertThat(url, equalTo(expectedUrl));
-    [mockObject verify];
-    [mockFactory verify];
-}
-
--(void)testUrlObjectNotInMappings
+-(void)testResourceObjectNotInMappings
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
@@ -137,32 +84,16 @@
     id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
-    NSURL *url = [factory urlForObject:mockObject];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(url, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
     [mockFactory verify];
 }
 
--(void)testMimeObjectNotInMappings
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    NSDictionary *mappings = @{@"classname" : mockFactory};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
-
-    //when
-    NSString *mime = [factory mimeForObject:mockObject];
-
-    //then
-    assertThat(mime, notNilValue());
-    [mockObject verify];
-    [mockFactory verify];
-}
-
--(void)testUrlObjectNonFactoryMappings
+-(void)testResourceObjectNonFactoryMappings
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
@@ -170,25 +101,11 @@
     id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
-    NSURL *url = [factory urlForObject:mockObject];
+    ERNResource *resource = [factory resourceForObject:mockObject];
 
     //then
-    assertThat(url, notNilValue());
-    [mockObject verify];
-}
-
--(void)testMimeObjectNonFactoryMappings
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : @""};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
-
-    //when
-    NSString *mime = [factory mimeForObject:mockObject];
-
-    //then
-    assertThat(mime, notNilValue());
+    assertThat([resource mime], notNilValue());
+    assertThat([resource url], notNilValue());
     [mockObject verify];
 }
 

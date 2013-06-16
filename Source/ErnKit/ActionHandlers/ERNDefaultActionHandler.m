@@ -39,21 +39,24 @@
 {
     ERNCheckNilNoReturn(object);
     ERNCheckNilNoReturn([self action]);
-    [self actionForObject:object
-                      url:[[self urlMimeFactory] urlForObject:object]];
+    [[self action] actionForResource:
+     [self storeResource:[self resourceForObject:object]
+                  object:object]];
 }
 
 #pragma mark - private
 
--(void)actionForObject:(id<NSObject>)object
-                   url:(NSURL *)url
+-(ERNResource *)storeResource:(ERNResource *)resource
+                       object:(id<NSObject>)object
 {
-    ERNCheckNilNoReturn(url);
-    [[self repositoryStore] storeUrl:url
+    [[self repositoryStore] storeUrl:[resource url]
                            forItem:object];
-    [[self action] actionForResource:
-     [ERNResource createWithUrl:url
-                           mime:[[self urlMimeFactory] mimeForObject:object]]];
+    return resource;
+}
+
+-(ERNResource *)resourceForObject:(id<NSObject>)object
+{
+    return [[self urlMimeFactory] resourceForObject:object];
 }
 
 #pragma mark - private - accessors

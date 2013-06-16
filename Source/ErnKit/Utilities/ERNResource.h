@@ -5,4 +5,5 @@
 @property (nonatomic, readonly) NSString *mime;
 +(instancetype)createWithUrl:(NSURL *)url
                         mime:(NSString *)mime;
++(instancetype)createNull;
 @end

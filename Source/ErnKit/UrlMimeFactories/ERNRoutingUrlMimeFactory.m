@@ -1,5 +1,6 @@
 #import "ERNRoutingUrlMimeFactory.h"
 #import "ERNNullUrlMimeFactory.h"
+#import "ERNResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
@@ -18,30 +19,19 @@
     return [[self alloc] initWithMappings:mappings];
 }
 
-#pragma mark - ERNUrlMimeFactory
+#pragma mark - ERNResourceFactory
 
--(NSURL *)urlForObject:(id<NSObject>)object
+-(ERNResource *)resourceForObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(object, [NSURL ERN_createNull]);
-    return [self validUrlForObject:[[self factoryForObject:object] urlForObject:object]];
-}
-
--(NSString *)mimeForObject:(id<NSObject>)object
-{
-    ERNCheckNilAndReturn(object, @"");
-    return [self validMimeForObject:[[self factoryForObject:object] mimeForObject:object]];
+    ERNCheckNilAndReturn(object, [ERNResource createNull]);
+    return [self validResource:[[self factoryForObject:object] resourceForObject:object]];
 }
 
 #pragma mark - private
 
--(NSURL *)validUrlForObject:(NSURL *)url
+-(ERNResource *)validResource:(ERNResource *)resource
 {
-    return url ? url : [NSURL ERN_createNull];
-}
-
--(NSString *)validMimeForObject:(NSString *)mime
-{
-    return mime ? mime : @"";
+    return resource ? resource : [ERNResource createNull];
 }
 
 -(id<ERNResourceFactory>)factoryForObject:(id<NSObject>)object
