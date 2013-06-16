@@ -7,7 +7,7 @@
 
 @implementation ERNExternalUrlActionTest
 
--(void)testActionNilApplicationNilUrlNilMime
+-(void)testActionNilApplicationNilResource
 {
     //given
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
@@ -16,7 +16,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionNilApplicationUrlMime
+-(void)testActionNilApplicationResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
@@ -29,7 +29,7 @@
     [action actionForResource:resource];
 }
 
--(void)testActionApplicationNilUrlNilMime
+-(void)testActionApplicationNilResource
 {
     //given
     id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
@@ -42,7 +42,7 @@
     [mockApplication verify];
 }
 
--(void)testActionApplicationUrlMime
+-(void)testActionApplicationResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];

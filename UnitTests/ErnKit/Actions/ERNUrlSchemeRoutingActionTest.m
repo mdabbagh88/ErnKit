@@ -6,7 +6,7 @@
 
 @implementation ERNUrlSchemeRoutingActionTest
 
--(void)testNilSchemesNilUrlNilMime
+-(void)testNilSchemesNilResource
 {
     //given
     id<ERNAction> action = [ERNUrlSchemeRoutingAction createWithActions:nil];
@@ -15,7 +15,7 @@
     [action actionForResource:nil];
 }
 
--(void)testNilSchemesUrlMime
+-(void)testNilSchemesResource
 {
     //given
     id<ERNAction> action = [ERNUrlSchemeRoutingAction createWithActions:nil];
@@ -26,7 +26,7 @@
     [action actionForResource:resource];
 }
 
--(void)testSchemesNilUrlNilMime
+-(void)testSchemesNilResource
 {
     //given
     id<ERNAction> action = [ERNUrlSchemeRoutingAction createWithActions:nil];
@@ -35,7 +35,7 @@
     [action actionForResource:nil];
 }
 
--(void)testSchemesUrlMime
+-(void)testSchemesResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"scheme1://host/path"];
@@ -77,7 +77,7 @@
     [mockAction2 verify];
 }
 
--(void)testNoneSchemesUrlMime
+-(void)testNoneSchemesResource
 {
     //given
     NSDictionary *hosts = @{@"scheme1" : @"",

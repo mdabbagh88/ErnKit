@@ -6,7 +6,7 @@
 
 @implementation ERNMimeRoutingActionTest
 
--(void)testNilMimesNilUrlNilMime
+-(void)testNilMimesNilResource
 {
     //given
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
@@ -15,7 +15,7 @@
     [action actionForResource:nil];
 }
 
--(void)testNilMimesUrlMime
+-(void)testNilMimesResource
 {
     //given
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
@@ -26,7 +26,7 @@
     [action actionForResource:resource];
 }
 
--(void)testMimesNilUrlNilMime
+-(void)testMimesNilResource
 {
     //given
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
@@ -35,7 +35,7 @@
     [action actionForResource:nil];
 }
 
--(void)testMimesUrlMime
+-(void)testMimesResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];
@@ -76,7 +76,7 @@
     [mockAction2 verify];
 }
 
--(void)testNoneMimesUrlMime
+-(void)testNoneMimesResource
 {
     //given
     NSDictionary *mimes = @{@"mime1" : @"",

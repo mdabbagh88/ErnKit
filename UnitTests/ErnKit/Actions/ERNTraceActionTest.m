@@ -6,7 +6,7 @@
 
 @implementation ERNTraceActionTest
 
--(void)testActionNilActionNilUrlNilMime
+-(void)testActionNilActionNilResource
 {
     //given
     id<ERNAction> action = [ERNTraceAction createWithAction:nil];
@@ -15,7 +15,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionNilActionUrlMime
+-(void)testActionNilActionResource
 {
     //given
     id<ERNAction> action = [ERNTraceAction createWithAction:nil];
@@ -26,7 +26,7 @@
     [action actionForResource:resource];
 }
 
--(void)testActionActionNilUrlNilMime
+-(void)testActionActionNilResource
 {
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
@@ -39,7 +39,7 @@
     [mockAction verify];
 }
 
--(void)testActionActionUrlMime
+-(void)testActionActionResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];

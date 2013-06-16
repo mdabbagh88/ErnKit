@@ -1,11 +1,11 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNStringUrlMimeFactoryTest.h"
+#import "ERNStringResourceFactoryTest.h"
 #import "ERNStringResourceFactory.h"
 #import "ERNResource.h"
 
-@implementation ERNStringUrlMimeFactoryTest
+@implementation ERNStringResourceFactoryTest
 
 -(void)testMime
 {

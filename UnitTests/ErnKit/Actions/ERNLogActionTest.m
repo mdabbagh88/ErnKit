@@ -9,7 +9,7 @@
 
 @implementation ERNLogActionTest
 
--(void)testWithNilStringNilUrlNilMime
+-(void)testWithNilStringNilResource
 {
     //given
     id<ERNAction> action = [ERNLogAction createWithLogString:nil];
@@ -18,7 +18,7 @@
     [action actionForResource:nil];
 }
 
--(void)testWithNilStringUrlMime
+-(void)testWithNilStringResource
 {
     //given
     id<ERNAction> action = [ERNLogAction createWithLogString:nil];
@@ -29,7 +29,7 @@
     [action actionForResource:resource];
 }
 
--(void)testWithStringNilUrlNilMime
+-(void)testWithStringNilResource
 {
     //given
     id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
@@ -38,7 +38,7 @@
     [action actionForResource:nil];
 }
 
--(void)testWithStringUrlMime
+-(void)testWithStringResource
 {
     //given
     id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];

@@ -7,7 +7,7 @@
 
 @implementation ERNActionTogglerActionTest
 
--(void)testToggleWithNilActionsToNilUrlNilMime
+-(void)testToggleWithNilActionsToNilResource
 {
     //given
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
@@ -17,7 +17,7 @@
     [actionTogglerAction actionForResource:nil];
 }
 
--(void)testToggleWithNilActionsToUrlMime
+-(void)testToggleWithNilActionsToResource
 {
     //given
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];

@@ -12,7 +12,7 @@
 
 @implementation ERNSegmentedControlActionControllerTest
 
--(void)testConstructorNilSegmentedControlNilActionNilUrlNilMime
+-(void)testConstructorNilSegmentedControlNilActionNilResource
 {
     //given, when, then
     [ERNSegmentedControlActionController createWithSegmentedControl:nil
@@ -59,7 +59,7 @@
     [mockSegmentedControl verify];
 }
 
--(void)testTogglerSegmentedControlTogglerOutOfBoundsUrlMime
+-(void)testTogglerSegmentedControlTogglerOutOfBoundsResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];
@@ -90,7 +90,7 @@
     [mockAction2 verify];
 }
 
--(void)testTogglerSegmentedControlTogglerUrlMime
+-(void)testTogglerSegmentedControlTogglerResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];

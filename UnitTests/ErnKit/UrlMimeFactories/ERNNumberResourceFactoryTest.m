@@ -1,16 +1,16 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNURLUrlMimeFactoryTest.h"
-#import "ERNURLResourceFactory.h"
+#import "ERNNumberResourceFactoryTest.h"
+#import "ERNNumberResourceFactory.h"
 #import "ERNResource.h"
 
-@implementation ERNURLUrlMimeFactoryTest
+@implementation ERNNumberResourceFactoryTest
 
 -(void)testMime
 {
     //given, when
-    NSString *mime = [ERNURLResourceFactory mime];
+    NSString *mime = [ERNNumberResourceFactory mime];
 
     //then
     assertThat(mime, notNilValue());
@@ -19,18 +19,18 @@
 -(void)testSingleton
 {
     //given, when
-    id<ERNResourceFactory> factory1 = [ERNURLResourceFactory create];
-    id<ERNResourceFactory> factory2 = [ERNURLResourceFactory create];
+    id<ERNResourceFactory> factory1 = [ERNNumberResourceFactory create];
+    id<ERNResourceFactory> factory2 = [ERNNumberResourceFactory create];
 
     //then
     assertThat(factory1, notNilValue());
     assertThat(factory1, equalTo(factory2));
 }
 
--(void)testMimeNilObject
+-(void)testResourceNilObject
 {
     //given
-    id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
+    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:nil];
@@ -40,11 +40,11 @@
     assertThat([resource url], notNilValue());
 }
 
--(void)testMimeObject
+-(void)testResourceObject
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
+    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
@@ -53,20 +53,6 @@
     assertThat([resource mime], notNilValue());
     assertThat([resource url], notNilValue());
     [mockObject verify];
-}
-
--(void)testMimeURLObject
-{
-    //given
-    NSURL *url = [NSURL URLWithString:@"url"];
-    id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
-
-    //when
-    ERNResource *resource = [factory resourceForObject:url];
-
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
 }
 
 @end

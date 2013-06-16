@@ -17,7 +17,7 @@
     assertThat(action1, equalTo(action2));
 }
 
--(void)testActionNilUrlNilMime
+-(void)testActionNilResource
 {
     //given
     id<ERNAction> action = [ERNNullAction create];
@@ -26,7 +26,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionUrlMime
+-(void)testActionResource
 {
     //given
     id<ERNAction> action = [ERNNullAction create];

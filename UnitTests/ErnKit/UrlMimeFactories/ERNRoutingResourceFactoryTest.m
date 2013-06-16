@@ -1,11 +1,11 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNRoutingUrlMimeFactoryTest.h"
+#import "ERNRoutingResourceFactoryTest.h"
 #import "ERNRoutingResourceFactory.h"
 #import "ERNResource.h"
 
-@implementation ERNRoutingUrlMimeFactoryTest
+@implementation ERNRoutingResourceFactoryTest
 
 -(void)testResourceNilObjectNilMappings
 {

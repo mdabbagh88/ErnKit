@@ -12,7 +12,7 @@
 
 @implementation ERNBarButtonItemActionControllerTest
 
--(void)testConstructorButtonNilActionNilUrlNilMime
+-(void)testConstructorButtonNilActionNilResource
 {
     //given
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
@@ -28,7 +28,7 @@
     [mockButton verify];
 }
 
--(void)testHandleActionButtonNilActionNilUrlNilMime
+-(void)testHandleActionButtonNilActionNilResource
 {
     //given
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
@@ -46,7 +46,7 @@
     [mockButton verify];
 }
 
--(void)testConstructorButtonActionNilUrlNilMime
+-(void)testConstructorButtonActionNilResource
 {
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
@@ -64,7 +64,7 @@
     [mockAction verify];
 }
 
--(void)testHandleActionButtonActionNilUrlNilMime
+-(void)testHandleActionButtonActionNilResource
 {
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
@@ -84,7 +84,7 @@
     [mockAction verify];
 }
 
--(void)testHandleActionButtonActionUrlMime
+-(void)testHandleActionButtonActionResource
 {
     //given
     NSURL *url = [NSURL URLWithString:@"url"];
@@ -109,7 +109,7 @@
 }
 
 
--(void)testConstructorNilButtonNilActionNilUrlNilMime
+-(void)testConstructorNilButtonNilActionNilResource
 {
     //given, when, then
     [ERNBarButtonItemActionController createWithBarButtonItem:nil

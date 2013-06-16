@@ -7,7 +7,7 @@
 
 @implementation ERNDualActionTest
 
--(void)testWithNilFirstNilSecondNilUrlNilMime
+-(void)testWithNilFirstNilSecondNilResource
 {
     //given
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
@@ -17,7 +17,7 @@
     [action actionForResource:nil];
 }
 
--(void)testWithNilFirstNilSecondUrlMime
+-(void)testWithNilFirstNilSecondResource
 {
     //given
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
@@ -29,7 +29,7 @@
     [action actionForResource:resource];
 }
 
--(void)testWithFirstNilSecondNilUrlNilMime
+-(void)testWithFirstNilSecondNilResource
 {
     //given
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
@@ -43,7 +43,7 @@
     [mockAction1 verify];
 }
 
--(void)testWithFirstNilSecondUrlMime
+-(void)testWithFirstNilSecondResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
@@ -62,7 +62,7 @@
     [mockAction1 verify];
 }
 
--(void)testWithNilFirstSecondNilUrlNilMime
+-(void)testWithNilFirstSecondNilResource
 {
     //given
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
@@ -76,7 +76,7 @@
     [mockAction2 verify];
 }
 
--(void)testWithNilFirstSecondUrlMime
+-(void)testWithNilFirstSecondResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
@@ -95,7 +95,7 @@
     [mockAction2 verify];
 }
 
--(void)testWithFirstSecondNilUrlNilMime
+-(void)testWithFirstSecondNilResource
 {
     //given
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
@@ -111,7 +111,7 @@
     [mockAction2 verify];
 }
 
--(void)testWithFirstSecondUrlMime
+-(void)testWithFirstSecondResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];

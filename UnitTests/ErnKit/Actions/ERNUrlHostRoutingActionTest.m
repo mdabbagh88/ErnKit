@@ -6,7 +6,7 @@
 
 @implementation ERNUrlHostRoutingActionTest
 
--(void)testNilHostsNilUrlNilMime
+-(void)testNilHostsNilResource
 {
     //given
     id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:nil];
@@ -15,7 +15,7 @@
     [action actionForResource:nil];
 }
 
--(void)testNilHostsUrlMime
+-(void)testNilHostsResource
 {
     //given
     id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:nil];
@@ -26,7 +26,7 @@
     [action actionForResource:resource];
 }
 
--(void)testHostsNilUrlNilMime
+-(void)testHostsNilResource
 {
     //given
     id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:nil];
@@ -35,7 +35,7 @@
     [action actionForResource:nil];
 }
 
--(void)testHostsUrlMime
+-(void)testHostsResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"http://host1/path"];
@@ -77,7 +77,7 @@
     [mockAction2 verify];
 }
 
--(void)testNoneHostsUrlMime
+-(void)testNoneHostsResource
 {
     //given
     NSDictionary *hosts = @{@"host1" : @"",

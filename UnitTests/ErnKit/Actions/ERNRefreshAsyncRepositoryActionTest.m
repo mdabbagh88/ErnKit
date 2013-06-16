@@ -7,7 +7,7 @@
 
 @implementation ERNRefreshAsyncRepositoryActionTest
 
--(void)testActionNilUrlNilMimeNilRepository
+-(void)testActionNilResourceNilRepository
 {
     //given
     id<ERNAction> action = [ERNRefreshAsyncRepositoryAction createWithRepository:nil];
@@ -16,7 +16,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionUrlMimeNilRepository
+-(void)testActionResourceNilRepository
 {
     //given
     id<ERNAction> action = [ERNRefreshAsyncRepositoryAction createWithRepository:nil];
@@ -27,7 +27,7 @@
     [action actionForResource:resource];
 }
 
--(void)testActionNilUrlNilMimeRepository
+-(void)testActionNilResourceRepository
 {
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
@@ -41,7 +41,7 @@
     [mockRepository verify];
 }
 
--(void)testActionUrlMimeRepository
+-(void)testActionResourceRepository
 {
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];

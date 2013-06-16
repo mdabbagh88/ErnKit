@@ -9,7 +9,7 @@
 
 @implementation ERNViewControllerActionTest
 
--(void)testActionNilTransitionerNilConfiguratorNilUrlNilMime
+-(void)testActionNilTransitionerNilConfiguratorNilResource
 {
     //given
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
@@ -19,7 +19,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionNilTransitionerNilConfiguratorUrlMime
+-(void)testActionNilTransitionerNilConfiguratorResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
@@ -33,7 +33,7 @@
     [action actionForResource:resource];
 }
 
--(void)testActionTransitionerNilConfiguratorNilUrlNilMime
+-(void)testActionTransitionerNilConfiguratorNilResource
 {
     //given
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
@@ -44,7 +44,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionTransitionerNilConfiguratorUrlMime
+-(void)testActionTransitionerNilConfiguratorResource
 {
     //given
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
@@ -59,7 +59,7 @@
     [action actionForResource:resource];
 }
 
--(void)testActionNilTransitionerConfiguratorNilUrlNilMime
+-(void)testActionNilTransitionerConfiguratorNilResource
 {
     //given
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
@@ -70,7 +70,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionNilTransitionerConfiguratorUrlMime
+-(void)testActionNilTransitionerConfiguratorResource
 {
     //given
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
@@ -86,7 +86,7 @@
 }
 
 
--(void)testActionTransitionerConfiguratorNilUrlNilMime
+-(void)testActionTransitionerConfiguratorNilResource
 {
     //given
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
@@ -98,7 +98,7 @@
     [action actionForResource:nil];
 }
 
--(void)testActionTransitionerConfiguratorUrlMime
+-(void)testActionTransitionerConfiguratorResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
