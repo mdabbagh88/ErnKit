@@ -1,10 +1,10 @@
-#import "ERNDefaultUrlMimeFactory.h"
+#import "ERNDefaultResourceFactory.h"
 #import "ERNResource.h"
 #import "NSURL+ERNHelper.h"
 
-static ERNDefaultUrlMimeFactory *immutableSingleton;
+static ERNDefaultResourceFactory *immutableSingleton;
 
-@implementation ERNDefaultUrlMimeFactory {
+@implementation ERNDefaultResourceFactory {
 }
 
 #pragma mark - public - constructors

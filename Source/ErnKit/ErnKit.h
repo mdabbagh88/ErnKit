@@ -39,7 +39,7 @@
 #import "ERNRepositoryPaginator.h"
 #import "ERNRepositoryStore.h"
 #import "ERNTogglingAsyncItemsRepository.h"
-#import "ERNDefaultUrlMimeFactory.h"
+#import "ERNDefaultResourceFactory.h"
 #import "ERNNullResourceFactory.h"
 #import "ERNNumberResourceFactory.h"
 #import "ERNRoutingResourceFactory.h"

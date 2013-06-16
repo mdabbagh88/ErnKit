@@ -253,8 +253,8 @@
 		F788B7A417523B71006226CA /* ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.m"; sourceTree = "<group>"; };
 		F788B7A617523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDemoTweetMapViewAnnotationViewFactory.h; sourceTree = "<group>"; };
 		F788B7A717523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDemoTweetMapViewAnnotationViewFactory.m; sourceTree = "<group>"; };
-		F788B7B2175243C1006226CA /* ERNDefaultUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultUrlMimeFactory.h; sourceTree = "<group>"; };
-		F788B7B3175243C1006226CA /* ERNDefaultUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultUrlMimeFactory.m; sourceTree = "<group>"; };
+		F788B7B2175243C1006226CA /* ERNDefaultResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultResourceFactory.h; sourceTree = "<group>"; };
+		F788B7B3175243C1006226CA /* ERNDefaultResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultResourceFactory.m; sourceTree = "<group>"; };
 		F788B7B5175247D7006226CA /* ERNNullActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullActionHandler.h; sourceTree = "<group>"; };
 		F788B7B6175247D8006226CA /* ERNNullActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullActionHandler.m; sourceTree = "<group>"; };
 		F788B7B81752888D006226CA /* ERNUrlHostRoutingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNUrlHostRoutingAction.h; sourceTree = "<group>"; };
@@ -1230,8 +1230,8 @@
 				F7F06A9D172D0A9900CA5FC4 /* ERNStringResourceFactory.m */,
 				F7F06A9F172D0A9900CA5FC4 /* ERNURLResourceFactory.h */,
 				F7F06AA0172D0A9900CA5FC4 /* ERNURLResourceFactory.m */,
-				F788B7B2175243C1006226CA /* ERNDefaultUrlMimeFactory.h */,
-				F788B7B3175243C1006226CA /* ERNDefaultUrlMimeFactory.m */,
+				F788B7B2175243C1006226CA /* ERNDefaultResourceFactory.h */,
+				F788B7B3175243C1006226CA /* ERNDefaultResourceFactory.m */,
 			);
 			path = UrlMimeFactories;
 			sourceTree = "<group>";
