@@ -1,11 +1,11 @@
-#import "ERNStringUrlMimeFactory.h"
+#import "ERNStringResourceFactory.h"
 #import "ERNResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
-static ERNStringUrlMimeFactory *immutableSingleton;
+static ERNStringResourceFactory *immutableSingleton;
 
-@implementation ERNStringUrlMimeFactory {
+@implementation ERNStringResourceFactory {
 }
 
 #pragma mark - public

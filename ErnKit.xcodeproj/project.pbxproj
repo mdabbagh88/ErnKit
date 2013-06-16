@@ -429,8 +429,8 @@
 		F7F06A99172D0A9900CA5FC4 /* ERNNumberResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNumberResourceFactory.m; sourceTree = "<group>"; };
 		F7F06A9A172D0A9900CA5FC4 /* ERNRoutingResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingResourceFactory.h; sourceTree = "<group>"; };
 		F7F06A9B172D0A9900CA5FC4 /* ERNRoutingResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingResourceFactory.m; sourceTree = "<group>"; };
-		F7F06A9C172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNStringUrlMimeFactory.h; sourceTree = "<group>"; };
-		F7F06A9D172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNStringUrlMimeFactory.m; sourceTree = "<group>"; };
+		F7F06A9C172D0A9900CA5FC4 /* ERNStringResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNStringResourceFactory.h; sourceTree = "<group>"; };
+		F7F06A9D172D0A9900CA5FC4 /* ERNStringResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNStringResourceFactory.m; sourceTree = "<group>"; };
 		F7F06A9E172D0A9900CA5FC4 /* ERNResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNResourceFactory.h; sourceTree = "<group>"; };
 		F7F06A9F172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNURLUrlMimeFactory.h; sourceTree = "<group>"; };
 		F7F06AA0172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNURLUrlMimeFactory.m; sourceTree = "<group>"; };
@@ -1226,8 +1226,8 @@
 				F7F06A99172D0A9900CA5FC4 /* ERNNumberResourceFactory.m */,
 				F7F06A9A172D0A9900CA5FC4 /* ERNRoutingResourceFactory.h */,
 				F7F06A9B172D0A9900CA5FC4 /* ERNRoutingResourceFactory.m */,
-				F7F06A9C172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.h */,
-				F7F06A9D172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.m */,
+				F7F06A9C172D0A9900CA5FC4 /* ERNStringResourceFactory.h */,
+				F7F06A9D172D0A9900CA5FC4 /* ERNStringResourceFactory.m */,
 				F7F06A9F172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.h */,
 				F7F06AA0172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.m */,
 				F788B7B2175243C1006226CA /* ERNDefaultUrlMimeFactory.h */,

@@ -43,7 +43,7 @@
 #import "ERNNullResourceFactory.h"
 #import "ERNNumberResourceFactory.h"
 #import "ERNRoutingResourceFactory.h"
-#import "ERNStringUrlMimeFactory.h"
+#import "ERNStringResourceFactory.h"
 #import "ERNURLUrlMimeFactory.h"
 #import "ERNResourceFactory.h"
 #import "ERNBinaryToggle.h"

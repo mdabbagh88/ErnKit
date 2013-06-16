@@ -2,7 +2,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import "ERNStringUrlMimeFactoryTest.h"
-#import "ERNStringUrlMimeFactory.h"
+#import "ERNStringResourceFactory.h"
 #import "ERNResource.h"
 
 @implementation ERNStringUrlMimeFactoryTest
@@ -10,7 +10,7 @@
 -(void)testMime
 {
     //given, when
-    NSString *mime = [ERNStringUrlMimeFactory mime];
+    NSString *mime = [ERNStringResourceFactory mime];
 
     //then
     assertThat(mime, notNilValue());
@@ -19,8 +19,8 @@
 -(void)testSingleton
 {
     //given, when
-    id<ERNResourceFactory> factory1 = [ERNStringUrlMimeFactory create];
-    id<ERNResourceFactory> factory2 = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory1 = [ERNStringResourceFactory create];
+    id<ERNResourceFactory> factory2 = [ERNStringResourceFactory create];
 
     //then
     assertThat(factory1, notNilValue());
@@ -30,7 +30,7 @@
 -(void)testResourceNilObject
 {
     //given
-    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:nil];
@@ -44,7 +44,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
@@ -58,7 +58,7 @@
 -(void)testMimeStringObject
 {
     //given
-    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:@"string"];
