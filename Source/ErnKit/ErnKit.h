@@ -41,7 +41,7 @@
 #import "ERNTogglingAsyncItemsRepository.h"
 #import "ERNDefaultUrlMimeFactory.h"
 #import "ERNNullResourceFactory.h"
-#import "ERNNumberUrlMimeFactory.h"
+#import "ERNNumberResourceFactory.h"
 #import "ERNRoutingUrlMimeFactory.h"
 #import "ERNStringUrlMimeFactory.h"
 #import "ERNURLUrlMimeFactory.h"
