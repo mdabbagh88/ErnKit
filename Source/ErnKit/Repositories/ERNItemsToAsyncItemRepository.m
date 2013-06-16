@@ -1,7 +1,7 @@
 #import "ERNItemsToAsyncItemRepository.h"
 #import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
-#import "ERNNullAsyncItemsRepository.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNItemsToAsyncItemRepository ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>repository;
@@ -29,7 +29,7 @@
 
 -(id<ERNAsyncPaginatedItemsRepository>)repository
 {
-    return _repository = _repository ? _repository : [ERNNullAsyncItemsRepository create];
+    return _repository = _repository ? _repository : [ERNNullAsyncPaginatedItemsRepository create];
 }
 
 #pragma mark - private - initializers

@@ -6,17 +6,6 @@
 
 @implementation ERNNullAsyncItemRepositoryTest
 
--(void)testSingleton
-{
-    //given, when
-    id<ERNAsyncItemRepository> repository1 = [ERNNullAsyncItemRepository create];
-    id<ERNAsyncItemRepository> repository2 = [ERNNullAsyncItemRepository create];
-
-    //then
-    assertThat(repository1, notNilValue());
-    assertThat(repository1, equalTo(repository2));
-}
-
 -(void)testItem
 {
     //given

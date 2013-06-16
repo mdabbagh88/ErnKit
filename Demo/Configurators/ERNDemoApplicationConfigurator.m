@@ -1,9 +1,4 @@
 #import <UIKit/UIKit.h>
-#import <ErnKit/ERNMergingAsyncItemsRepository.h>
-#import <ErnKit/ERNTogglingAsyncItemsRepository.h>
-#import <ErnKit/ERNNavigationViewControllerTransitioner.h>
-#import <ErnKit/ERNViewControllerAction.h>
-#import <ErnKit/ERNItemsToAsyncPaginatedItemsRepository.h>
 #import "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.h"
 #import "ERNDemoApplicationConfigurator.h"
 #import "ERNDemoMapViewControllerConfigurator.h"

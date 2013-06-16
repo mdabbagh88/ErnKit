@@ -1,6 +1,6 @@
-#import "ERNAsyncPaginatedItemsRepository.h"
-#import "ERNBaseAsyncRepository.h"
+#import "ERNAsyncItemsRepository.h"
+#import "ERNNullAsyncRepository.h"
 
-@interface ERNNullAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncPaginatedItemsRepository>
+@interface ERNNullAsyncItemsRepository : ERNNullAsyncRepository <ERNAsyncItemsRepository>
 +(instancetype)create;
 @end

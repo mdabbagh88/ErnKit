@@ -1,14 +1,3 @@
-#import <ErnKit/ERNTogglingAsyncItemsRepository.h>
-#import <ErnKit/ERNTableViewController.h>
-#import <ErnKit/ERNTableViewController+ERNAsyncItemsRepository.h>
-#import <ErnKit/ERNRefreshAsyncRepositoryAction.h>
-#import <ErnKit/ERNBarButtonItemActionController.h>
-#import <ErnKit/ERNSegmentedControlTogglerController.h>
-#import <ErnKit/UIViewController+ERNHelper.h>
-#import <ErnKit/ERNDefaultTableViewCellFactory.h>
-#import <ErnKit/ERNErrorHandler.h>
-#import <ErnKit/ERNNullActionHandler.h>
-#import <ErnKit/ERNDefaultTableViewItemManager.h>
 #import "ERNDemoTableViewControllerConfigurator.h"
 
 @interface ERNDemoTableViewControllerConfigurator ()

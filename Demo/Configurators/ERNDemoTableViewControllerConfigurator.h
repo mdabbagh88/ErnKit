@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
-#import <ErnKit/ERNViewControllerConfigurator.h>
-
-@protocol ERNAsyncPaginatedItemsRepository;
-@protocol ERNToggler;
+#import <ErnKit/ErnKit.h>
+#import <ErnKit/UIKitIntegration.h>
 
 @interface ERNDemoTableViewControllerConfigurator : NSObject <ERNViewControllerConfigurator>
 +(instancetype)createWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository

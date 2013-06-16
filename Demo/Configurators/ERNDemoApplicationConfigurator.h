@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
-#import <ErnKit/ERNViewControllerConfigurator.h>
+#import <ErnKit/ErnKit.h>
+#import <ErnKit/UIKitIntegration.h>
 
 @interface ERNDemoApplicationConfigurator : NSObject <ERNViewControllerConfigurator>
 +(instancetype)create;

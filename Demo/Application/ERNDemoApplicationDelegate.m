@@ -1,6 +1,5 @@
-#import <ErnKit/ERNWindowViewControllerTransitioner.h>
-#import <ErnKit/ERNViewControllerAction.h>
-#import <ErnKit/NSURL+ERNHelper.h>
+#import <ErnKit/ErnKit.h>
+#import <ErnKit/UIKitIntegration.h>
 #import "ERNDemoApplicationDelegate.h"
 #import "ERNDemoApplicationConfigurator.h"
 

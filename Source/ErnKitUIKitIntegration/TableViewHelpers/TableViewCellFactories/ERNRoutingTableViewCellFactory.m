@@ -5,21 +5,17 @@
 
 @interface ERNRoutingTableViewCellFactory ()
 @property (nonatomic, readonly, copy) NSDictionary *mappings;
-@property (nonatomic, readonly) id<ERNTableViewCellFactory> defaultFactory;
 @end
 
 @implementation ERNRoutingTableViewCellFactory {
     NSDictionary *_mappings;
-    id<ERNTableViewCellFactory> _defaultFactory;
 }
 
 #pragma mark - public - constructors
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
-                   defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory
 {
-    return [[self alloc] initWithMappings:mappings
-                           defaultFactory:defaultFactory];
+    return [[self alloc] initWithMappings:mappings];
 }
 
 #pragma mark - ERNTableViewCellFactory
@@ -50,7 +46,7 @@
 
 -(id<ERNTableViewCellFactory>)validFactory:(id<ERNTableViewCellFactory>)factory;
 {
-    return [self factoryIsValid:factory] ? factory : [self defaultFactory];
+    return [self factoryIsValid:factory] ? factory : [ERNDefaultTableViewCellFactory create];
 }
 
 -(BOOL)factoryIsValid:(id)factory
@@ -60,13 +56,6 @@
 
 #pragma mark - private - accessors
 
--(id<ERNTableViewCellFactory>)defaultFactory
-{
-    return _defaultFactory = _defaultFactory ?
-    _defaultFactory :
-    [ERNDefaultTableViewCellFactory create];
-}
-
 -(NSDictionary *)mappings
 {
     return _mappings = _mappings ? _mappings : @{};
@@ -75,12 +64,10 @@
 #pragma mark - private - initializers
 
 -(id)initWithMappings:(NSDictionary *)mappings
-       defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory
 {
     self = [self init];
     ERNCheckNil(self);
     _mappings = mappings;
-    _defaultFactory = defaultFactory;
     return self;
 }
 

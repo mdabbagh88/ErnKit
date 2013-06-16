@@ -2,25 +2,14 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import "ERNNullAsyncItemsRepositoryTest.h"
-#import "ERNNullAsyncItemsRepository.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @implementation ERNNullAsyncItemsRepositoryTest
-
--(void)testSingleton
-{
-    //given, when
-    id<ERNAsyncPaginatedItemsRepository> repository1 = [ERNNullAsyncItemsRepository create];
-    id<ERNAsyncPaginatedItemsRepository> repository2 = [ERNNullAsyncItemsRepository create];
-
-    //then
-    assertThat(repository1, notNilValue());
-    assertThat(repository1, equalTo(repository2));
-}
 
 -(void)testItemAtIndex
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when
     id<NSObject> item = [repository itemAtIndex:10];
@@ -33,7 +22,7 @@
 -(void)testEnumerateItemsUsingNilBlock
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when, then
     [repository enumerateItemsUsingBlock:nil];
@@ -42,7 +31,7 @@
 -(void)testEnumerateItemsUsingBlock
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
     __block BOOL called = NO;
 
     //when
@@ -58,7 +47,7 @@
 -(void)testFilteredArrayUsingNilPredicate
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when
     NSArray *array = [repository filteredArrayUsingPredicate:nil];
@@ -72,7 +61,7 @@
 {
     //given
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when
     NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
@@ -86,7 +75,7 @@
 -(void)testTotal
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when
     NSUInteger total = [repository total];
@@ -98,7 +87,7 @@
 -(void)testFetched
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when
     NSUInteger count = [repository count];
@@ -110,7 +99,7 @@
 -(void)testOffset
 {
     //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncItemsRepository create];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
     //when
     NSUInteger offset = [repository offset];

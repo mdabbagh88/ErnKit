@@ -2,6 +2,5 @@
 #import "ERNTableViewCellFactory.h"
 
 @interface ERNRoutingTableViewCellFactory : NSObject <ERNTableViewCellFactory>
-+(instancetype)createWithMappings:(NSDictionary *)mappings
-                   defaultFactory:(id<ERNTableViewCellFactory>)defaultFactory;
++(instancetype)createWithMappings:(NSDictionary *)mappings;
 @end

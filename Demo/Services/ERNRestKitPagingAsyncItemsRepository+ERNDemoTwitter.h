@@ -1,4 +1,4 @@
-#import <ErnKit/ERNRestKitPagingAsyncItemsRepository.h>
+#import <ErnKit/RestKitIntegration.h>
 
 @interface ERNRestKitPagingAsyncItemsRepository (ERNDemoTwitter)
 +(instancetype)createTwitterStatusesForUser:(NSString *)user;

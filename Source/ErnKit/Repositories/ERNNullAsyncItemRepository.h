@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "ERNAsyncItemRepository.h"
-#import "ERNBaseAsyncRepository.h"
+#import "ERNNullAsyncRepository.h"
 
-@interface ERNNullAsyncItemRepository : ERNBaseAsyncRepository <ERNAsyncItemRepository>
+@interface ERNNullAsyncItemRepository : ERNNullAsyncRepository <ERNAsyncItemRepository>
 +(instancetype)create;
 @end

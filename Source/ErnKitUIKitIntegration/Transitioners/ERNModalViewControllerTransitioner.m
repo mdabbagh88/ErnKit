@@ -20,7 +20,8 @@
 
 -(void)dismissViewController:(UIViewController *)viewController
 {
-    [viewController dismissModalViewControllerAnimated:YES];
+    [viewController dismissViewControllerAnimated:YES
+                                       completion:nil];
 }
 
 #pragma mark - ERNViewControllerTransitioner

@@ -1,4 +1,5 @@
-#import <ErnKit/MKAnnotationView+ERNHelper.h>
+#import <ErnKit/ErnKit.h>
+#import <ErnKit/MapKitIntegration.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "MKAnnotationView+ERNDemoTwitter.h"
 #import "ERNDemoTweet.h"

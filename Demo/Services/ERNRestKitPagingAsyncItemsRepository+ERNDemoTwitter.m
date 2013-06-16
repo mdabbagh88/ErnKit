@@ -1,5 +1,4 @@
 #import <RestKit/RestKit.h>
-#import <ErnKit/ERNDefaultRepositoryPaginator.h>
 #import "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.h"
 
 // Tweet data model object, for mapping from json using RestKit

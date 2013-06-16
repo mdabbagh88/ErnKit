@@ -1,20 +1,20 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNDefaultRepositoryStoreTest.h"
-#import "ERNDefaultRepositoryStore.h"
+#import "ERNDefaultRepositoryManagerTest.h"
+#import "ERNDefaultRepositoryManager.h"
 #import "ERNAsyncItemRepository.h"
 
-@interface ERNDefaultRepositoryStore ()
+@interface ERNDefaultRepositoryManager ()
 -(NSMapTable *)repositories;
 @end
 
-@implementation ERNDefaultRepositoryStoreTest
+@implementation ERNDefaultRepositoryManagerTest
 
 -(void)testStoreNilUrlNilItem
 {
     //given
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
     [store storeUrl:nil
@@ -25,7 +25,7 @@
 -(void)testStoreUrlNilItem
 {
     //given
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
     [store storeUrl:[NSURL URLWithString:@"url"]
@@ -39,7 +39,7 @@
 {
     //given
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
     [store storeUrl:nil
@@ -53,7 +53,7 @@
 {
     //given
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
     [store storeUrl:[NSURL URLWithString:@"url"]
@@ -67,40 +67,43 @@
 -(void)testRepositoryForNilUrl
 {
     //given
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
-    id<ERNAsyncItemRepository> repository = [store repositoryForUrl:nil];
+    id<ERNAsyncRepository> repository = [store repositoryForUrl:nil
+                                                           mime:nil];
 
     //then
-    assertThat([[repository item] class], equalTo([NSNull class]));
+    assertThat(repository, notNilValue());
 }
 
 -(void)testRepositoryForUrlNoMatch
 {
     //given
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
-    id<ERNAsyncItemRepository> repository = [store repositoryForUrl:[NSURL URLWithString:@"url"]];
+    id<ERNAsyncRepository> repository = [store repositoryForUrl:[NSURL URLWithString:@"url"]
+                                                               mime:nil];
 
     //then
-    assertThat([[repository item] class], equalTo([NSNull class]));
+    assertThat(repository, notNilValue());
 }
 
 -(void)testRepositoryForUrlMatch
 {
     //given
     id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    ERNDefaultRepositoryStore *store = [ERNDefaultRepositoryStore create];
+    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
     [store storeUrl:[NSURL URLWithString:@"url"]
             forItem:mockItem];
 
     //when
-    id<ERNAsyncItemRepository> repository = [store repositoryForUrl:[NSURL URLWithString:@"url"]];
+    id<ERNAsyncRepository> repository = [store repositoryForUrl:[NSURL URLWithString:@"url"]
+                                                           mime:nil];
 
     //then
-    assertThat([repository item], equalTo(mockItem));
+    assertThat(repository, notNilValue());
 }
 
 @end

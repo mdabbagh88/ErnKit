@@ -40,7 +40,6 @@
     return [[self actions][mime] conformsToProtocol:@protocol(ERNAction)];
 }
 
-
 #pragma mark - private - initializers
 
 -(id)initWithActionsForMimes:(NSDictionary *)actions

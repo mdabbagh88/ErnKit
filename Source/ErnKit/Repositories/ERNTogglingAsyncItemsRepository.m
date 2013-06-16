@@ -1,7 +1,7 @@
 #import "ERNTogglingAsyncItemsRepository.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNErrorHandler.h"
-#import "ERNNullAsyncItemsRepository.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNTogglingAsyncItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>currentRepository;
@@ -116,7 +116,7 @@
 
 -(id<ERNAsyncPaginatedItemsRepository>)validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
-    return [self isValidRepository:repository] ? repository : [ERNNullAsyncItemsRepository create];
+    return [self isValidRepository:repository] ? repository : [ERNNullAsyncPaginatedItemsRepository create];
 }
 
 -(BOOL)isValidRepository:(id<ERNAsyncPaginatedItemsRepository>)repository

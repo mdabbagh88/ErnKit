@@ -1,7 +1,5 @@
 #import "ERNNullAsyncItemsRepository.h"
 
-static ERNNullAsyncItemsRepository *immutableSingleton;
-
 @implementation ERNNullAsyncItemsRepository {
 }
 
@@ -9,7 +7,7 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return [self new];
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -31,44 +29,6 @@ static ERNNullAsyncItemsRepository *immutableSingleton;
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
     return [NSNull null];
-}
-
-#pragma mark - ERNAsyncPaginatedItemsRepository
-
--(NSUInteger)total
-{
-    return 0;
-}
-
--(NSUInteger)offset
-{
-    return 0;
-}
-
-
--(BOOL)hasPrevious
-{
-    return NO;
-}
-
--(BOOL)hasNext
-{
-    return NO;
-}
-
--(void)fetchNext
-{
-}
-
--(void)fetchPrevious
-{
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

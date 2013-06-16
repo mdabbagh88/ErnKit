@@ -1,7 +1,5 @@
 #import "ERNNullAsyncItemRepository.h"
 
-static ERNNullAsyncItemRepository *immutableSingleton;
-
 @implementation ERNNullAsyncItemRepository {
 }
 
@@ -9,7 +7,7 @@ static ERNNullAsyncItemRepository *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return [self new];
 }
 
 #pragma mark - ERNAsyncItemRepository
@@ -17,13 +15,6 @@ static ERNNullAsyncItemRepository *immutableSingleton;
 -(id<NSObject>)item
 {
     return [NSNull null];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end
