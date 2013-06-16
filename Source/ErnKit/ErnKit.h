@@ -44,7 +44,7 @@
 #import "ERNNumberResourceFactory.h"
 #import "ERNRoutingResourceFactory.h"
 #import "ERNStringResourceFactory.h"
-#import "ERNURLUrlMimeFactory.h"
+#import "ERNURLResourceFactory.h"
 #import "ERNResourceFactory.h"
 #import "ERNBinaryToggle.h"
 #import "ERNErrorHandler.h"
