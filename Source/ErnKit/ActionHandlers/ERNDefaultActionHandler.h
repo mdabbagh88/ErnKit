@@ -2,11 +2,11 @@
 #import "ERNActionHandler.h"
 
 @protocol ERNAction;
-@protocol ERNUrlMimeFactory;
+@protocol ERNResourceFactory;
 @protocol ERNRepositoryStore;
 
 @interface ERNDefaultActionHandler : NSObject <ERNActionHandler>
 +(instancetype)createWithAction:(id<ERNAction>)action
-                 urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
+                 urlMimeFactory:(id<ERNResourceFactory>)urlMimeFactory
                 repositoryStore:(id<ERNRepositoryStore>)repositoryStore;
 @end

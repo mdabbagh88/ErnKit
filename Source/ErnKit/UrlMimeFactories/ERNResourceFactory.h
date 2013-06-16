@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@protocol ERNUrlMimeFactory <NSObject>
+@protocol ERNResourceFactory <NSObject>
 -(NSURL *)urlForObject:(id<NSObject>)object;
 -(NSString *)mimeForObject:(id<NSObject>)object;
 @end

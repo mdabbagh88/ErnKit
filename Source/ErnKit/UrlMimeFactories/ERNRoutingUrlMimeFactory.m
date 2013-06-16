@@ -44,19 +44,19 @@
     return mime ? mime : @"";
 }
 
--(id<ERNUrlMimeFactory>)factoryForObject:(id<NSObject>)object
+-(id<ERNResourceFactory>)factoryForObject:(id<NSObject>)object
 {
     return [self validFactory:[self mappings][NSStringFromClass([object class])]];
 }
 
--(id<ERNUrlMimeFactory>)validFactory:(id<ERNUrlMimeFactory>)factory
+-(id<ERNResourceFactory>)validFactory:(id<ERNResourceFactory>)factory
 {
     return [self factoryIsValid:factory] ? factory : [ERNNullUrlMimeFactory create];
 }
 
--(BOOL)factoryIsValid:(id<ERNUrlMimeFactory>)factory
+-(BOOL)factoryIsValid:(id<ERNResourceFactory>)factory
 {
-    return [factory conformsToProtocol:@protocol(ERNUrlMimeFactory)];
+    return [factory conformsToProtocol:@protocol(ERNResourceFactory)];
 }
 
 #pragma mark - private - accessors

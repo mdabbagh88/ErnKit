@@ -9,7 +9,7 @@
 -(void)testMimeNilObjectNilMappings
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
 
     //when
     NSString *mime = [factory mimeForObject:nil];
@@ -21,7 +21,7 @@
 -(void)testUrlNilObjectNilMappings
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
 
     //when
     NSURL *url = [factory urlForObject:nil];
@@ -34,7 +34,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
 
     //when
     NSString *mime = [factory mimeForObject:mockObject];
@@ -48,7 +48,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
 
     //when
     NSURL *url = [factory urlForObject:mockObject];
@@ -62,9 +62,9 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSString *mime = [factory mimeForObject:nil];
@@ -79,9 +79,9 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSURL *url = [factory urlForObject:nil];
@@ -95,10 +95,10 @@
     //given
     NSString *expectedMime = @"mime";
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     [[[mockFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSString *mime = [factory mimeForObject:mockObject];
@@ -114,10 +114,10 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     [[[mockFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSURL *url = [factory urlForObject:mockObject];
@@ -132,9 +132,9 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     NSDictionary *mappings = @{@"classname" : mockFactory};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSURL *url = [factory urlForObject:mockObject];
@@ -149,9 +149,9 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     NSDictionary *mappings = @{@"classname" : mockFactory};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSString *mime = [factory mimeForObject:mockObject];
@@ -167,7 +167,7 @@
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : @""};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSURL *url = [factory urlForObject:mockObject];
@@ -182,7 +182,7 @@
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : @""};
-    id<ERNUrlMimeFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
 
     //when
     NSString *mime = [factory mimeForObject:mockObject];

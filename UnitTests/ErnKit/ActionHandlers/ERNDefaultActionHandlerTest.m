@@ -5,7 +5,7 @@
 #import "ERNDefaultActionHandler.h"
 #import "ERNAction.h"
 #import "NSURL+ERNHelper.h"
-#import "ERNUrlMimeFactory.h"
+#import "ERNResourceFactory.h"
 #import "ERNRepositoryStore.h"
 
 @implementation ERNDefaultActionHandlerTest
@@ -27,7 +27,7 @@
 {
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
                                                                     urlMimeFactory:mockUrlMimeFactory
                                                                    repositoryStore:nil];
@@ -40,7 +40,7 @@
 {
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
                                                                     urlMimeFactory:mockUrlMimeFactory
@@ -53,7 +53,7 @@
 -(void)testActionWithNilActionUrlMimeFactoryRepositoryStoreNilObject
 {
     //given
-    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
                                                                     urlMimeFactory:mockUrlMimeFactory
@@ -125,7 +125,7 @@
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     [[mockAction expect] actionForResource:OCMOCK_ANY];
-    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     [[[mockUrlMimeFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
     [[[mockUrlMimeFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
@@ -148,7 +148,7 @@
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     [[mockAction expect] actionForResource:OCMOCK_ANY];
-    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     [[[mockUrlMimeFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
     [[[mockUrlMimeFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
@@ -171,7 +171,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
-    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
+    id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
                                                                     urlMimeFactory:mockUrlMimeFactory

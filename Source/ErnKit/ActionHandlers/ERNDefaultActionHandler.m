@@ -1,5 +1,5 @@
 #import "ERNDefaultActionHandler.h"
-#import "ERNUrlMimeFactory.h"
+#import "ERNResourceFactory.h"
 #import "ERNNullUrlMimeFactory.h"
 #import "ERNAction.h"
 #import "ERNErrorHandler.h"
@@ -7,18 +7,18 @@
 
 @interface ERNDefaultActionHandler ()
 @property (nonatomic, readonly) id<ERNAction> action;
-@property (nonatomic, readonly) id<ERNUrlMimeFactory> urlMimeFactory;
+@property (nonatomic, readonly) id<ERNResourceFactory> urlMimeFactory;
 @property (nonatomic, readonly) id<ERNRepositoryStore> repositoryStore;
 @end
 
 @implementation ERNDefaultActionHandler {
-    id<ERNUrlMimeFactory> _urlMimeFactory;
+    id<ERNResourceFactory> _urlMimeFactory;
 }
 
 #pragma mark - public - constructors
 
 +(instancetype)createWithAction:(id<ERNAction>)action
-                 urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
+                 urlMimeFactory:(id<ERNResourceFactory>)urlMimeFactory
                 repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
     return [[self alloc] initWithAction:action
@@ -58,7 +58,7 @@
 
 #pragma mark - private - accessors
 
--(id<ERNUrlMimeFactory>)urlMimeFactory
+-(id<ERNResourceFactory>)urlMimeFactory
 {
     return _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory create];
 }
@@ -66,7 +66,7 @@
 #pragma mark - private - initializers
 
 -(id)initWithAction:(id<ERNAction>)action
-     urlMimeFactory:(id<ERNUrlMimeFactory>)urlMimeFactory
+     urlMimeFactory:(id<ERNResourceFactory>)urlMimeFactory
     repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
     self = [self init];

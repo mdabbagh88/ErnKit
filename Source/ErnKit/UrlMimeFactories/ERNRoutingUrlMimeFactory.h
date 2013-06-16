@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "ERNUrlMimeFactory.h"
+#import "ERNResourceFactory.h"
 
-@interface ERNRoutingUrlMimeFactory : NSObject <ERNUrlMimeFactory>
+@interface ERNRoutingUrlMimeFactory : NSObject <ERNResourceFactory>
 +(instancetype)createWithMappings:(NSDictionary *)mappings;
 @end

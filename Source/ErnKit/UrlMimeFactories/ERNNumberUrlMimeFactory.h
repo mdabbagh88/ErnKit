@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "ERNUrlMimeFactory.h"
+#import "ERNResourceFactory.h"
 
-@interface ERNNumberUrlMimeFactory : NSObject <ERNUrlMimeFactory>
+@interface ERNNumberUrlMimeFactory : NSObject <ERNResourceFactory>
 +(NSString *)mime;
 +(instancetype)create;
 @end

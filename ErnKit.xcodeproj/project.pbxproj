@@ -431,7 +431,7 @@
 		F7F06A9B172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingUrlMimeFactory.m; sourceTree = "<group>"; };
 		F7F06A9C172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNStringUrlMimeFactory.h; sourceTree = "<group>"; };
 		F7F06A9D172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNStringUrlMimeFactory.m; sourceTree = "<group>"; };
-		F7F06A9E172D0A9900CA5FC4 /* ERNUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNUrlMimeFactory.h; sourceTree = "<group>"; };
+		F7F06A9E172D0A9900CA5FC4 /* ERNResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNResourceFactory.h; sourceTree = "<group>"; };
 		F7F06A9F172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNURLUrlMimeFactory.h; sourceTree = "<group>"; };
 		F7F06AA0172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNURLUrlMimeFactory.m; sourceTree = "<group>"; };
 		F7F06AA2172D0A9900CA5FC4 /* NSObject+ERNHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ERNHelper.h"; sourceTree = "<group>"; };
@@ -1219,7 +1219,7 @@
 		F7F06A95172D0A9900CA5FC4 /* UrlMimeFactories */ = {
 			isa = PBXGroup;
 			children = (
-				F7F06A9E172D0A9900CA5FC4 /* ERNUrlMimeFactory.h */,
+				F7F06A9E172D0A9900CA5FC4 /* ERNResourceFactory.h */,
 				F7F06A96172D0A9900CA5FC4 /* ERNNullUrlMimeFactory.h */,
 				F7F06A97172D0A9900CA5FC4 /* ERNNullUrlMimeFactory.m */,
 				F7F06A98172D0A9900CA5FC4 /* ERNNumberUrlMimeFactory.h */,

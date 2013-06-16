@@ -18,8 +18,8 @@
 -(void)testSingleton
 {
     //given, when
-    id<ERNUrlMimeFactory> factory1 = [ERNStringUrlMimeFactory create];
-    id<ERNUrlMimeFactory> factory2 = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory1 = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory2 = [ERNStringUrlMimeFactory create];
 
     //then
     assertThat(factory1, notNilValue());
@@ -29,7 +29,7 @@
 -(void)testMimeNilObject
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
     NSString *mime = [factory mimeForObject:nil];
@@ -41,7 +41,7 @@
 -(void)testUrlNilObject
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
     NSURL *url = [factory urlForObject:nil];
@@ -54,7 +54,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNUrlMimeFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
     NSString *mime = [factory mimeForObject:mockObject];
@@ -68,7 +68,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNUrlMimeFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
     NSURL *url = [factory urlForObject:mockObject];
@@ -81,7 +81,7 @@
 -(void)testMimeStringObject
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
     NSString *mime = [factory mimeForObject:@"string"];
@@ -93,7 +93,7 @@
 -(void)testUrlStringObject
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNStringUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNStringUrlMimeFactory create];
 
     //when
     NSURL *url = [factory urlForObject:@"string"];

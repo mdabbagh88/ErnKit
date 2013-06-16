@@ -9,8 +9,8 @@
 -(void)testSingleton
 {
     //given, when
-    id<ERNUrlMimeFactory> factory1 = [ERNNullUrlMimeFactory create];
-    id<ERNUrlMimeFactory> factory2 = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory1 = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory2 = [ERNNullUrlMimeFactory create];
 
     //then
     assertThat(factory1, notNilValue());
@@ -20,7 +20,7 @@
 -(void)testMimeNilObject
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNNullUrlMimeFactory create];
 
     //when
     NSString *mime = [factory mimeForObject:nil];
@@ -32,7 +32,7 @@
 -(void)testUrlNilObject
 {
     //given
-    id<ERNUrlMimeFactory> factory = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNNullUrlMimeFactory create];
 
     //when
     NSURL *url = [factory urlForObject:nil];
@@ -45,7 +45,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNUrlMimeFactory> factory = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNNullUrlMimeFactory create];
 
     //when
     NSString *mime = [factory mimeForObject:mockObject];
@@ -59,7 +59,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNUrlMimeFactory> factory = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNNullUrlMimeFactory create];
 
     //when
     NSURL *url = [factory urlForObject:mockObject];
