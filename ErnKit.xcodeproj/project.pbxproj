@@ -423,8 +423,8 @@
 		F7F06A72172D0A9900CA5FC4 /* ERNItemsToAsyncItemRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemsToAsyncItemRepository.m; sourceTree = "<group>"; };
 		F7F06A73172D0A9900CA5FC4 /* ERNItemToAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemToAsyncItemsRepository.h; sourceTree = "<group>"; };
 		F7F06A74172D0A9900CA5FC4 /* ERNItemToAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemToAsyncItemsRepository.m; sourceTree = "<group>"; };
-		F7F06A96172D0A9900CA5FC4 /* ERNNullUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullUrlMimeFactory.h; sourceTree = "<group>"; };
-		F7F06A97172D0A9900CA5FC4 /* ERNNullUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullUrlMimeFactory.m; sourceTree = "<group>"; };
+		F7F06A96172D0A9900CA5FC4 /* ERNNullResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullResourceFactory.h; sourceTree = "<group>"; };
+		F7F06A97172D0A9900CA5FC4 /* ERNNullResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullResourceFactory.m; sourceTree = "<group>"; };
 		F7F06A98172D0A9900CA5FC4 /* ERNNumberUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNumberUrlMimeFactory.h; sourceTree = "<group>"; };
 		F7F06A99172D0A9900CA5FC4 /* ERNNumberUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNumberUrlMimeFactory.m; sourceTree = "<group>"; };
 		F7F06A9A172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingUrlMimeFactory.h; sourceTree = "<group>"; };
@@ -1220,8 +1220,8 @@
 			isa = PBXGroup;
 			children = (
 				F7F06A9E172D0A9900CA5FC4 /* ERNResourceFactory.h */,
-				F7F06A96172D0A9900CA5FC4 /* ERNNullUrlMimeFactory.h */,
-				F7F06A97172D0A9900CA5FC4 /* ERNNullUrlMimeFactory.m */,
+				F7F06A96172D0A9900CA5FC4 /* ERNNullResourceFactory.h */,
+				F7F06A97172D0A9900CA5FC4 /* ERNNullResourceFactory.m */,
 				F7F06A98172D0A9900CA5FC4 /* ERNNumberUrlMimeFactory.h */,
 				F7F06A99172D0A9900CA5FC4 /* ERNNumberUrlMimeFactory.m */,
 				F7F06A9A172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.h */,

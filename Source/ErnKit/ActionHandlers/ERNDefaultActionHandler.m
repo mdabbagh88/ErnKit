@@ -1,6 +1,6 @@
 #import "ERNDefaultActionHandler.h"
 #import "ERNResourceFactory.h"
-#import "ERNNullUrlMimeFactory.h"
+#import "ERNNullResourceFactory.h"
 #import "ERNAction.h"
 #import "ERNErrorHandler.h"
 #import "ERNRepositoryStore.h"
@@ -63,7 +63,7 @@
 
 -(id<ERNResourceFactory>)urlMimeFactory
 {
-    return _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullUrlMimeFactory create];
+    return _urlMimeFactory = _urlMimeFactory ? _urlMimeFactory : [ERNNullResourceFactory create];
 }
 
 #pragma mark - private - initializers

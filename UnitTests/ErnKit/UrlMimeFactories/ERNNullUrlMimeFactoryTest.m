@@ -3,15 +3,15 @@
 #import <OCMock/OCMock.h>
 #import "ERNNullUrlMimeFactoryTest.h"
 #import "ERNResource.h"
-#import "ERNNullUrlMimeFactory.h"
+#import "ERNNullResourceFactory.h"
 
 @implementation ERNNullUrlMimeFactoryTest
 
 -(void)testSingleton
 {
     //given, when
-    id<ERNResourceFactory> factory1 = [ERNNullUrlMimeFactory create];
-    id<ERNResourceFactory> factory2 = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory1 = [ERNNullResourceFactory create];
+    id<ERNResourceFactory> factory2 = [ERNNullResourceFactory create];
 
     //then
     assertThat(factory1, notNilValue());
@@ -21,7 +21,7 @@
 -(void)testMimeNilObject
 {
     //given
-    id<ERNResourceFactory> factory = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNNullResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:nil];
@@ -35,7 +35,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNNullUrlMimeFactory create];
+    id<ERNResourceFactory> factory = [ERNNullResourceFactory create];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];

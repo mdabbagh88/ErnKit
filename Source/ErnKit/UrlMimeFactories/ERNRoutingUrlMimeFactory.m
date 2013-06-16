@@ -1,5 +1,5 @@
 #import "ERNRoutingUrlMimeFactory.h"
-#import "ERNNullUrlMimeFactory.h"
+#import "ERNNullResourceFactory.h"
 #import "ERNResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
@@ -41,7 +41,7 @@
 
 -(id<ERNResourceFactory>)validFactory:(id<ERNResourceFactory>)factory
 {
-    return [self factoryIsValid:factory] ? factory : [ERNNullUrlMimeFactory create];
+    return [self factoryIsValid:factory] ? factory : [ERNNullResourceFactory create];
 }
 
 -(BOOL)factoryIsValid:(id<ERNResourceFactory>)factory

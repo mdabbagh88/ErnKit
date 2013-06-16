@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ERNResourceFactory.h"
 
-@interface ERNNullUrlMimeFactory : NSObject <ERNResourceFactory>
+@interface ERNNullResourceFactory : NSObject <ERNResourceFactory>
 +(instancetype)create;
 @end
