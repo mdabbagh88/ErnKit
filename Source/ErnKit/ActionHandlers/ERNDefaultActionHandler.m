@@ -48,10 +48,12 @@
 -(void)actionForObject:(id<NSObject>)object
                    url:(NSURL *)url
 {
+    ERNCheckNilNoReturn(url);
     [[self repositoryStore] storeUrl:url
                            forItem:object];
-    [[self action] actionForUrl:url
-                           mime:[[self urlMimeFactory] mimeForObject:object]];
+    [[self action] actionForResource:
+     [ERNResource createWithUrl:url
+                           mime:[[self urlMimeFactory] mimeForObject:object]]];
 }
 
 #pragma mark - private - accessors

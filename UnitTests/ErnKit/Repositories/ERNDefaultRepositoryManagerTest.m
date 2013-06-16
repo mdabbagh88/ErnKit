@@ -70,37 +70,7 @@
     ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
 
     //when
-    id<ERNAsyncRepository> repository = [store repositoryForUrl:nil
-                                                           mime:nil];
-
-    //then
-    assertThat(repository, notNilValue());
-}
-
--(void)testRepositoryForUrlNoMatch
-{
-    //given
-    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
-
-    //when
-    id<ERNAsyncRepository> repository = [store repositoryForUrl:[NSURL URLWithString:@"url"]
-                                                               mime:nil];
-
-    //then
-    assertThat(repository, notNilValue());
-}
-
--(void)testRepositoryForUrlMatch
-{
-    //given
-    id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
-    [store storeUrl:[NSURL URLWithString:@"url"]
-            forItem:mockItem];
-
-    //when
-    id<ERNAsyncRepository> repository = [store repositoryForUrl:[NSURL URLWithString:@"url"]
-                                                           mime:nil];
+    id<ERNAsyncRepository> repository = [store repositoryForResource:nil];
 
     //then
     assertThat(repository, notNilValue());

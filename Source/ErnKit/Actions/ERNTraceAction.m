@@ -19,11 +19,9 @@
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
-    [[self action] actionForUrl:url
-                           mime:mime];
+    [[self action] actionForResource:resource];
 }
 
 -(id<ERNAction>)logActionForAction:(id<ERNAction>)action

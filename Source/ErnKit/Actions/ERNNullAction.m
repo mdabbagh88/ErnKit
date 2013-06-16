@@ -14,8 +14,7 @@ static ERNNullAction *immutableSingleton;
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
 }
 

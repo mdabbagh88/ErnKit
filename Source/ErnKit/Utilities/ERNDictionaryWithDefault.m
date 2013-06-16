@@ -52,6 +52,7 @@
 {
     self = [self initWithObjects:@[]
                          forKeys:@[]];
+    ERNCheckNil(self);
     _defaultValue = defaultValue;
     return self;
 }

@@ -23,16 +23,13 @@
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
     ERNCheckNilNoReturn([self configurator]);
     ERNCheckNilNoReturn([self transitioner]);
-    ERNCheckNilNoReturn(mime);
-    ERNCheckNilNoReturn(url);
+    ERNCheckNilNoReturn(resource);
     [[self transitioner] transitionToViewController:
-     [[self configurator] createViewControllerForUrl:url
-                                                mime:mime
+     [[self configurator] createViewControllerForResource:resource
                                            dismisser:[self transitioner]]];
 }
 

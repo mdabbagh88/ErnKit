@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "ERNResource.h"
 
 @protocol ERNAction <NSObject>
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString*)mime;
+-(void)actionForResource:(ERNResource *)resource;
 @end

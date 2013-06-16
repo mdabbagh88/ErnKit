@@ -22,8 +22,7 @@
     //when
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:nil
-                                                          url:nil
-                                                         mime:nil];
+                                                     resource:nil];
 
     //then
     [mockButton verify];
@@ -38,8 +37,8 @@
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:nil
-                                                          url:nil
-                                                         mime:nil];
+                                                     resource:nil];
+    
     //when
     [controller handleAction];
     
@@ -58,8 +57,7 @@
     //when
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction
-                                                          url:nil
-                                                         mime:nil];
+                                                     resource:nil];
 
     //then
     [mockButton verify];
@@ -76,50 +74,8 @@
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction
-                                                          url:nil
-                                                         mime:nil];
-    //when
-    [controller handleAction];
-
-    //then
-    [mockButton verify];
-    [mockAction verify];
-}
-
--(void)testHandleActionButtonActionNilUrlMime
-{
-    //given
-    NSURL *url = [NSURL URLWithString:@"url"];
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
-    ERNBarButtonItemActionController *controller =
-    [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
-                                                       action:mockAction
-                                                          url:url
-                                                         mime:nil];
-    //when
-    [controller handleAction];
-
-    //then
-    [mockButton verify];
-    [mockAction verify];
-}
-
--(void)testHandleActionButtonActionUrlNilMime
-{
-    //given
-    NSString *mime = @"mime";
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
-    ERNBarButtonItemActionController *controller =
-    [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
-                                                       action:mockAction
-                                                          url:nil
-                                                         mime:mime];
+                                                     resource:nil];
+    
     //when
     [controller handleAction];
 
@@ -134,16 +90,16 @@
     NSURL *url = [NSURL URLWithString:@"url"];
     NSString *mime = @"mime";
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction expect] actionForUrl:url
-                                 mime:mime];
+    ERNResource *resource = [ERNResource createWithUrl:url
+                                                  mime:mime];
+    [[mockAction expect] actionForResource:resource];
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
     [[mockButton expect] setTarget:OCMOCK_ANY];
     [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction
-                                                          url:url
-                                                         mime:mime];
+                                                     resource:resource];
     //when
     [controller handleAction];
 
@@ -158,8 +114,7 @@
     //given, when, then
     [ERNBarButtonItemActionController createWithBarButtonItem:nil
                                                        action:nil
-                                                          url:nil
-                                                         mime:nil];
+                                                     resource:nil];
 }
 
 @end

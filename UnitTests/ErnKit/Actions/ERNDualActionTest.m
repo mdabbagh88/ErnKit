@@ -14,30 +14,7 @@
                                                     secondAction:nil];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testWithNilFirstNilSecondUrlNilMime
-{
-    //given
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:nil];
-
-    //when, then
-    [action actionForUrl:[NSURL ERN_createNull]
-                    mime:nil];
-}
-
--(void)testWithNilFirstNilSecondNilUrlMime
-{
-    //given
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:nil];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 }
 
 -(void)testWithNilFirstNilSecondUrlMime
@@ -45,10 +22,11 @@
     //given
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
                                                     secondAction:nil];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL ERN_createNull]
+                                                  mime:@"mime"];
 
     //when, then
-    [action actionForUrl:[NSURL ERN_createNull]
-                    mime:@"mime"];
+    [action actionForResource:resource];
 }
 
 -(void)testWithFirstNilSecondNilUrlNilMime
@@ -59,38 +37,7 @@
                                                     secondAction:nil];
 
     //when
-    [action actionForUrl:nil
-                    mime:nil];
-
-    //then
-    [mockAction1 verify];
-}
-
--(void)testWithFirstNilSecondUrlNilMime
-{
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:nil];
-
-    //when
-    [action actionForUrl:[NSURL ERN_createNull]
-                    mime:nil];
-
-    //then
-    [mockAction1 verify];
-}
-
--(void)testWithFirstNilSecondNilUrlMime
-{
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:nil];
-
-    //when
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 
     //then
     [mockAction1 verify];
@@ -101,15 +48,15 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
+    [[mockAction1 expect] actionForResource:resource];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
                                                     secondAction:nil];
 
     //when
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 
     //then
     [mockAction1 verify];
@@ -123,38 +70,7 @@
                                                     secondAction:mockAction2];
 
     //when
-    [action actionForUrl:nil
-                    mime:nil];
-
-    //then
-    [mockAction2 verify];
-}
-
--(void)testWithNilFirstSecondUrlNilMime
-{
-    //given
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:mockAction2];
-
-    //when
-    [action actionForUrl:[NSURL ERN_createNull]
-                    mime:nil];
-
-    //then
-    [mockAction2 verify];
-}
-
--(void)testWithNilFirstSecondNilUrlMime
-{
-    //given
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:mockAction2];
-
-    //when
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 
     //then
     [mockAction2 verify];
@@ -165,15 +81,15 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction2 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
+    [[mockAction2 expect] actionForResource:resource];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
                                                     secondAction:mockAction2];
 
     //when
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 
     //then
     [mockAction2 verify];
@@ -188,42 +104,7 @@
                                                     secondAction:mockAction2];
 
     //when
-    [action actionForUrl:nil
-                    mime:nil];
-
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
-}
-
--(void)testWithFirstSecondUrlNilMime
-{
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:mockAction2];
-
-    //when
-    [action actionForUrl:[NSURL ERN_createNull]
-                    mime:nil];
-
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
-}
-
--(void)testWithFirstSecondNilUrlMime
-{
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:mockAction2];
-
-    //when
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 
     //then
     [mockAction1 verify];
@@ -235,18 +116,17 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
-    [[mockAction2 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
+    [[mockAction1 expect] actionForResource:resource];
+    [[mockAction2 expect] actionForResource:resource];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
                                                     secondAction:mockAction2];
 
     //when
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 
     //then
     [mockAction1 verify];

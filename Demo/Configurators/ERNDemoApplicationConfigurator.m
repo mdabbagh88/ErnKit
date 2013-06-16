@@ -3,6 +3,7 @@
 #import "ERNDemoApplicationConfigurator.h"
 #import "ERNDemoMapViewControllerConfigurator.h"
 #import "ERNDemoTableViewControllerConfigurator.h"
+#import "ERNResource.h"
 
 @implementation ERNDemoApplicationConfigurator {
     id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;
@@ -30,17 +31,14 @@
 
 #pragma mark - ERNViewControllerConfigurator
 
--(UIViewController *)createViewControllerForUrl:(NSURL *)url
-                                           mime:(NSString *)mime
-                                      dismisser:(id<ERNViewControllerDismisser>)dismisser
+-(UIViewController *)createViewControllerForResource:(ERNResource *)resource
+                                           dismisser:(id<ERNViewControllerDismisser>)dismisser
 {
     [[self repository] refresh];
 
-    [[self actionMap] actionForUrl:url
-                              mime:mime];
+    [[self actionMap] actionForResource:resource];
 
-    [[self actionTable] actionForUrl:url
-                                mime:mime];
+    [[self actionTable] actionForResource:resource];
 
     [[self navigationControllerMapTab] setTitle:@"Map"];
     [[self navigationControllerTableTab] setTitle:@"Table"];

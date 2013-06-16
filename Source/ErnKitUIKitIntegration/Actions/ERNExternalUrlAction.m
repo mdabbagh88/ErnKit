@@ -18,11 +18,10 @@
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
-    ERNCheckNilNoReturn(url);
-    [[self application] openURL:url];
+    ERNCheckNilNoReturn(resource);
+    [[self application] openURL:[resource url]];
 }
 
 #pragma mark - private - initializers

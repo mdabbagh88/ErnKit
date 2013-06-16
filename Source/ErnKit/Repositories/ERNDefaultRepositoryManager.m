@@ -5,6 +5,7 @@
 #import "ERNNullAsyncItemsRepository.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 #import "ERNObjectAsyncItemRepository.h"
+#import "ERNResource.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNDefaultRepositoryManager ()
@@ -33,28 +34,24 @@
                             forKey:url];
 }
 
--(id<ERNAsyncRepository>)repositoryForUrl:(NSURL *)url
-                                     mime:(NSString *)mime
+-(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncRepository create]);
-    return [self validRepository:[[self repositories] objectForKey:url]];
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
+    return [self validRepository:[[self repositories] objectForKey:[resource url]]];
 }
 
--(id<ERNAsyncItemRepository>)itemRepositoryForUrl:(NSURL *)url
-                                             mime:(NSString *)mime
+-(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncItemRepository create]);
-    return [self validItemRepository:[[self repositories] objectForKey:url]];
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
+    return [self validItemRepository:[[self repositories] objectForKey:[resource url]]];
 }
 
--(id<ERNAsyncItemsRepository>)itemsRepositoryForUrl:(NSURL *)url
-                                               mime:(NSString *)mime
+-(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
 {
     return [ERNNullAsyncItemsRepository create];
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForUrl:(NSURL *)url
-                                                                 mime:(NSString *)mime
+-(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
 {
     return [ERNNullAsyncPaginatedItemsRepository create];
 }

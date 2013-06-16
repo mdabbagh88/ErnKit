@@ -15,38 +15,18 @@
     id<ERNAction> action = [ERNLogAction createWithLogString:nil];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testWithNilStringUrlNilMime
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:nil];
-
-    //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:nil];
-}
-
--(void)testWithNilStringNilUrlMime
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:nil];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 }
 
 -(void)testWithNilStringUrlMime
 {
     //given
     id<ERNAction> action = [ERNLogAction createWithLogString:nil];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                                       mime:@"mime"];
 
     //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:@"mime"];
+    [action actionForResource:resource];
 }
 
 -(void)testWithStringNilUrlNilMime
@@ -55,38 +35,18 @@
     id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testWithStringUrlNilMime
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
-
-    //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:nil];
-}
-
--(void)testWithStringNilUrlMime
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 }
 
 -(void)testWithStringUrlMime
 {
     //given
     id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                                       mime:@"mime"];
 
     //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:@"mime"];
+    [action actionForResource:resource];
 }
 
 @end

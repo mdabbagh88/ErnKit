@@ -14,41 +14,19 @@
 
     //when, then
     [actionTogglerAction setSelectedIndex:5];
-    [actionTogglerAction actionForUrl:nil
-                                 mime:nil];
-}
-
--(void)testToggleWithNilActionsToUrlNilMime
-{
-    //given
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
-
-    //when, then
-    [actionTogglerAction setSelectedIndex:5];
-    [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
-                                 mime:nil];
+    [actionTogglerAction actionForResource:nil];
 }
 
 -(void)testToggleWithNilActionsToUrlMime
 {
     //given
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                  mime:@""];
 
     //when, then
     [actionTogglerAction setSelectedIndex:5];
-    [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
-                                 mime:@""];
-}
-
--(void)testToggleWithNilActionsToNilUrlMime
-{
-    //given
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
-
-    //when, then
-    [actionTogglerAction setSelectedIndex:5];
-    [actionTogglerAction actionForUrl:nil
-                                 mime:@""];
+    [actionTogglerAction actionForResource:resource];
 }
 
 -(void)testToggleWithNoneActions
@@ -56,11 +34,12 @@
     //given
     NSArray *nonActions = @[@"", @[]];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                  mime:@""];
 
     //when, then
     [actionTogglerAction setSelectedIndex:1];
-    [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
-                                 mime:@""];
+    [actionTogglerAction actionForResource:resource];
 }
 
 -(void)testToggleOutsideOfArrayWithNoneActions
@@ -68,11 +47,12 @@
     //given
     NSArray *nonActions = @[@"", @[]];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                  mime:@""];
 
     //when, then
     [actionTogglerAction setSelectedIndex:10];
-    [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
-                                 mime:@""];
+    [actionTogglerAction actionForResource:resource];
 }
 
 -(void)testToggleWithActions
@@ -82,15 +62,15 @@
     NSString *expectedMime = @"mime";
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction2 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
+    [[mockAction2 expect] actionForResource:resource];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
 
     //when, then
     [actionTogglerAction setSelectedIndex:1];
-    [actionTogglerAction actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [actionTogglerAction actionForResource:resource];
 
     [mockAction1 verify];
     [mockAction2 verify];
@@ -102,8 +82,9 @@
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];
     NSString *expectedMime = @"mime";
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
+    [[mockAction1 expect] actionForResource:resource];
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
@@ -111,8 +92,7 @@
     //when, then
     [actionTogglerAction setSelectedIndex:1];
     [actionTogglerAction setSelectedIndex:0];
-    [actionTogglerAction actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [actionTogglerAction actionForResource:resource];
 
     [mockAction1 verify];
     [mockAction2 verify];
@@ -124,15 +104,15 @@
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];
     NSString *expectedMime = @"mime";
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForUrl:expectedUrl
-                                  mime:expectedMime];
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
+    [[mockAction1 expect] actionForResource:resource];
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
 
     //when, then
-    [actionTogglerAction actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [actionTogglerAction actionForResource:resource];
 
     [mockAction1 verify];
     [mockAction2 verify];
@@ -146,11 +126,12 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                  mime:@""];
 
     //when, then
     [actionTogglerAction setSelectedIndex:10];
-    [actionTogglerAction actionForUrl:[NSURL URLWithString:@"url"]
-                                 mime:@""];
+    [actionTogglerAction actionForResource:resource];
 
     [mockAction1 verify];
     [mockAction2 verify];

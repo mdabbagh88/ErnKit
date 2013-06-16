@@ -16,32 +16,7 @@
                                                            configurator:nil];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionNilTransitionerNilConfiguratorUrlNilMime
-{
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
-                                                           configurator:nil];
-
-    //when, then
-    [action actionForUrl:expectedUrl
-                    mime:nil];
-}
-
--(void)testActionNilTransitionerNilConfiguratorNilUrlMime
-{
-    //given
-    NSString *expectedMime = @"expectedMime";
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
-                                                           configurator:nil];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:expectedMime];
+    [action actionForResource:nil];
 }
 
 -(void)testActionNilTransitionerNilConfiguratorUrlMime
@@ -49,12 +24,13 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
                                                            configurator:nil];
 
     //when, then
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 }
 
 -(void)testActionTransitionerNilConfiguratorNilUrlNilMime
@@ -65,34 +41,7 @@
                                                            configurator:nil];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionTransitionerNilConfiguratorUrlNilMime
-{
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                           configurator:nil];
-
-    //when, then
-    [action actionForUrl:expectedUrl
-                    mime:nil];
-}
-
--(void)testActionTransitionerNilConfiguratorNilUrlMime
-{
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
-    NSString *expectedMime = @"expectedMime";
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                           configurator:nil];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:expectedMime];
+    [action actionForResource:nil];
 }
 
 -(void)testActionTransitionerNilConfiguratorUrlMime
@@ -101,12 +50,13 @@
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
                                                            configurator:nil];
 
     //when, then
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 }
 
 -(void)testActionNilTransitionerConfiguratorNilUrlNilMime
@@ -117,34 +67,7 @@
                                                            configurator:mockConfigurator];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionNilTransitionerConfiguratorUrlNilMime
-{
-    //given
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
-                                                           configurator:mockConfigurator];
-
-    //when, then
-    [action actionForUrl:expectedUrl
-                    mime:nil];
-}
-
--(void)testActionNilTransitionerConfiguratorNilUrlMime
-{
-    //given
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
-    NSString *expectedMime = @"expectedMime";
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
-                                                           configurator:mockConfigurator];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:expectedMime];
+    [action actionForResource:nil];
 }
 
 -(void)testActionNilTransitionerConfiguratorUrlMime
@@ -153,12 +76,13 @@
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:nil
                                                            configurator:mockConfigurator];
 
     //when, then
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 }
 
 
@@ -171,36 +95,7 @@
                                                            configurator:mockConfigurator];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionTransitionerConfiguratorUrlNilMime
-{
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                           configurator:mockConfigurator];
-
-    //when, then
-    [action actionForUrl:expectedUrl
-                    mime:nil];
-}
-
--(void)testActionTransitionerConfiguratorNilUrlMime
-{
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
-    NSString *expectedMime = @"expectedMime";
-    id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                           configurator:mockConfigurator];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:expectedMime];
+    [action actionForResource:nil];
 }
 
 -(void)testActionTransitionerConfiguratorUrlMime
@@ -208,20 +103,20 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
     [[[mockConfigurator expect] andReturn:mockViewController]
-     createViewControllerForUrl:expectedUrl
-     mime:expectedMime
+     createViewControllerForResource:resource
      dismisser:mockTransitioner];
     [[mockTransitioner expect] transitionToViewController:mockViewController];
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
                                                            configurator:mockConfigurator];
 
     //when, then
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 
     //then
     [mockConfigurator verify];

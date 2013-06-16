@@ -35,9 +35,8 @@
 
 #pragma mark - ERNViewControllerConfigurator
 
--(UIViewController *)createViewControllerForUrl:(NSURL *)url
-                                           mime:(NSString *)mime
-                                      dismisser:(id<ERNViewControllerDismisser>)dismisser
+-(UIViewController *)createViewControllerForResource:(ERNResource *)resource
+                                           dismisser:(id<ERNViewControllerDismisser>)dismisser
 {
     [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
     [[self feedSegmentedControl] setSelectedSegmentIndex:0];
@@ -45,8 +44,8 @@
     [[[self mapViewController] navigationItem] setTitleView:[self feedSegmentedControl]];
     [[[self mapViewController] navigationItem] setRightBarButtonItem:[self refreshButton]];
     [[self mapViewController] ERN_addMicroController:[self feedController]];
-    [[self mapViewController] ERN_addMicroController:[self createRefreshControllerFromUrl:url
-                                                                                     mime:mime]];
+    [[self mapViewController] ERN_addMicroController:
+     [self createRefreshControllerFromResource:resource]];
     return [self mapViewController];
 }
 
@@ -99,13 +98,11 @@
                                                              toggler:[self toggler]];
 }
 
--(ERNBarButtonItemActionController *)createRefreshControllerFromUrl:(NSURL *)url
-                                                               mime:(NSString *)mime
+-(ERNBarButtonItemActionController *)createRefreshControllerFromResource:(ERNResource *)resource
 {
     return [ERNBarButtonItemActionController createWithBarButtonItem:[self refreshButton]
                                                               action:[self refreshAction]
-                                                                 url:url
-                                                                mime:mime];
+                                                            resource:resource];
 }
 
 #pragma mark - private - initializers

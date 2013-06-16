@@ -25,69 +25,53 @@
 
 #pragma mark - ERNRepositoryFactory
 
--(id<ERNAsyncRepository>)repositoryForUrl:(NSURL *)url
-                                     mime:(NSString *)mime
+-(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
     id<ERNAsyncRepository> repository =
-    [[self firstRepositoryFactory] repositoryForUrl:url
-                                               mime:mime];
+    [[self firstRepositoryFactory] repositoryForResource:resource];
     if (repository && ![repository isKindOfClass:[ERNNullAsyncRepository class]]) {
         return repository;
     }
-    repository = [[self restRepositoryFactory] repositoryForUrl:url
-                                                           mime:mime];
+    repository = [[self restRepositoryFactory] repositoryForResource:resource];
     return repository ? repository : [ERNNullAsyncRepository create];
 }
 
--(id<ERNAsyncItemRepository>)itemRepositoryForUrl:(NSURL *)url
-                                             mime:(NSString *)mime
+-(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncItemRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncItemRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
     id<ERNAsyncItemRepository> repository =
-    [[self firstRepositoryFactory] itemRepositoryForUrl:url
-                                                   mime:mime];
+    [[self firstRepositoryFactory] itemRepositoryForResource:resource];
     if (repository && ![repository isKindOfClass:[ERNNullAsyncItemRepository class]]) {
         return repository;
     }
-    repository = [[self restRepositoryFactory] itemRepositoryForUrl:url
-                                                               mime:mime];
+    repository = [[self restRepositoryFactory] itemRepositoryForResource:resource];
     return repository ? repository : [ERNNullAsyncItemRepository create];
 
 }
 
--(id<ERNAsyncItemsRepository>)itemsRepositoryForUrl:(NSURL *)url
-                                               mime:(NSString *)mime
+-(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncItemsRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncItemsRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemsRepository create]);
     id<ERNAsyncItemsRepository> repository =
-    [[self firstRepositoryFactory] itemsRepositoryForUrl:url
-                                                    mime:mime];
+    [[self firstRepositoryFactory] itemsRepositoryForResource:resource];
     if (repository && ![repository isKindOfClass:[ERNNullAsyncItemsRepository class]]) {
         return repository;
     }
-    repository = [[self restRepositoryFactory] itemsRepositoryForUrl:url
-                                                                mime:mime];
+    repository = [[self restRepositoryFactory] itemsRepositoryForResource:resource];
     return repository ? repository : [ERNNullAsyncItemsRepository create];
 
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForUrl:(NSURL *)url
-                                                                 mime:(NSString *)mime
+-(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncPaginatedItemsRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncPaginatedItemsRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [[self firstRepositoryFactory] paginatedItemsRepositoryForUrl:url
-                                                            mime:mime];
+    [[self firstRepositoryFactory] paginatedItemsRepositoryForResource:resource];
     if (repository && ![repository isKindOfClass:[ERNNullAsyncPaginatedItemsRepository class]]) {
         return repository;
     }
-    repository = [[self restRepositoryFactory] paginatedItemsRepositoryForUrl:url
-                                                                         mime:mime];
+    repository = [[self restRepositoryFactory] paginatedItemsRepositoryForResource:resource];
     return repository ? repository : [ERNNullAsyncPaginatedItemsRepository create];
 
 }

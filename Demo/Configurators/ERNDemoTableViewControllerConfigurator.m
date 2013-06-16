@@ -22,9 +22,8 @@
 
 #pragma mark - ERNViewControllerConfigurator
 
--(UIViewController *)createViewControllerForUrl:(NSURL *)url
-                                           mime:(NSString *)mime
-                                      dismisser:(id<ERNViewControllerDismisser>)dismisser
+-(UIViewController *)createViewControllerForResource:(ERNResource *)resource
+                                           dismisser:(id<ERNViewControllerDismisser>)dismisser
 {
     [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
     [[self feedSegmentedControl] setSelectedSegmentIndex:0];

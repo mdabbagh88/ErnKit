@@ -53,11 +53,9 @@
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
-    [[self currentAction] actionForUrl:url
-                                  mime:mime];
+    [[self currentAction] actionForResource:resource];
 }
 
 #pragma mark - private

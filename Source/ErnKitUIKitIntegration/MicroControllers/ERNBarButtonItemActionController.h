@@ -2,10 +2,10 @@
 
 @class UIBarButtonItem;
 @protocol ERNAction;
+@class ERNResource;
 
 @interface ERNBarButtonItemActionController : NSObject
 +(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem
                                 action:(id<ERNAction>)action
-                                   url:(NSURL *)url
-                                  mime:(NSString *)mime;
+                              resource:(ERNResource *)resource;
 @end

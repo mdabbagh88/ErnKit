@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
 @class UIActionSheet;
+@class ERNResource;
 
 @protocol ERNActionSheetConfigurator <NSObject>
--(UIActionSheet *)createActionSheetForUrl:(NSURL *)url
-                                     mime:(NSString *)mime;
+-(UIActionSheet *)createActionSheetForResource:(ERNResource *)resource;
 @end

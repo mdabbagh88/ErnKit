@@ -105,8 +105,7 @@
     //given
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction expect] actionForUrl:[NSURL ERN_createNull]
-                                 mime:@""];
+    [[mockAction expect] actionForResource:OCMOCK_ANY];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
                                                                     urlMimeFactory:nil
                                                                    repositoryStore:nil];
@@ -125,8 +124,7 @@
     NSString *expectedMime = @"expectedMime";
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction expect] actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [[mockAction expect] actionForResource:OCMOCK_ANY];
     id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
     [[[mockUrlMimeFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
     [[[mockUrlMimeFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
@@ -149,8 +147,7 @@
     NSString *expectedMime = @"expectedMime";
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction expect] actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [[mockAction expect] actionForResource:OCMOCK_ANY];
     id mockUrlMimeFactory = [OCMockObject mockForProtocol:@protocol(ERNUrlMimeFactory)];
     [[[mockUrlMimeFactory expect] andReturn:expectedUrl] urlForObject:mockObject];
     [[[mockUrlMimeFactory expect] andReturn:expectedMime] mimeForObject:mockObject];
@@ -201,11 +198,9 @@
 {
     //given
     NSURL *expectedUrl = [NSURL ERN_createNull];
-    NSString *expectedMime = @"";
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction expect] actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [[mockAction expect] actionForResource:OCMOCK_ANY];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     [[mockRepositoryStore expect] storeUrl:expectedUrl
                                    forItem:mockObject];

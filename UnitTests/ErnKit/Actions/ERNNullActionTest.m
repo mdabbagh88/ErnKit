@@ -23,38 +23,18 @@
     id<ERNAction> action = [ERNNullAction create];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionUrlNilMime
-{
-    //given
-    id<ERNAction> action = [ERNNullAction create];
-
-    //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:nil];
-}
-
--(void)testActionNilUrlMime
-{
-    //given
-    id<ERNAction> action = [ERNNullAction create];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 }
 
 -(void)testActionUrlMime
 {
     //given
     id<ERNAction> action = [ERNNullAction create];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                  mime:@"mime"];
 
     //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:@"mime"];
+    [action actionForResource:resource];
 }
 
 @end

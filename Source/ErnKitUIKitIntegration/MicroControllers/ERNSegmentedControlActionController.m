@@ -3,32 +3,29 @@
 #import "ERNErrorHandler.h"
 #import "ERNAction.h"
 #import "ERNNullAction.h"
+#import "ERNResource.h"
 #import "NSURL+ERNHelper.h"
 #import "NSObject+ERNHelper.h"
 
 @interface ERNSegmentedControlActionController ()
 @property (nonatomic, readonly, copy) NSArray *actions;
-@property (nonatomic, readonly) NSURL *url;
-@property (nonatomic, readonly, copy) NSString *mime;
+@property (nonatomic, readonly) ERNResource *resource;
 @end
 
 @implementation ERNSegmentedControlActionController {
     NSArray *_actions;
-    NSURL *_url;
-    NSString *_mime;
+    ERNResource *_resource;
 }
 
 #pragma mark - public - constructors
 
 +(instancetype)createWithSegmentedControl:(UISegmentedControl *)segmentedControl
                                   actions:(NSArray *)actions
-                                      url:(NSURL *)url
-                                     mime:(NSString *)mime
+                                 resource:(ERNResource *)resource
 {
     return [[self alloc] initWithSegmentedControl:segmentedControl
                                           actions:actions
-                                              url:url
-                                             mime:mime];
+                                         resource:resource];
 }
 
 #pragma mark - private
@@ -56,10 +53,8 @@
 
 -(void)handleAction:(id<ERNAction>)action
 {
-    ERNCheckNilNoReturn([self url]);
-    ERNCheckNilNoReturn([self mime]);
-    [action actionForUrl:[self url]
-                    mime:[self mime]];
+    ERNCheckNilNoReturn([self resource]);
+    [action actionForResource:[self resource]];
 }
 
 #pragma mark - private - accessors
@@ -73,15 +68,12 @@
 
 -(id)initWithSegmentedControl:(UISegmentedControl *)segmentedControl
                       actions:(NSArray *)actions
-                          url:(NSURL *)url
-                         mime:(NSString *)mime
-
+                     resource:(ERNResource *)resource
 {
     self = [self init];
     ERNCheckNil(self);
     _actions = actions;
-    _url = url;
-    _mime = mime;
+    _resource = resource;
     [segmentedControl addTarget:self
                          action:@selector(valueChanged:)
                forControlEvents:UIControlEventValueChanged];

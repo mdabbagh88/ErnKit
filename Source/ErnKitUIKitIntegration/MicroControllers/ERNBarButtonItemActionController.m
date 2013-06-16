@@ -6,8 +6,7 @@
 
 @interface ERNBarButtonItemActionController ()
 @property (nonatomic, readonly) id<ERNAction> action;
-@property (nonatomic, readonly) NSURL *url;
-@property (nonatomic, readonly, copy) NSString *mime;
+@property (nonatomic, readonly) ERNResource *resource;
 @end
 
 @implementation ERNBarButtonItemActionController {
@@ -19,37 +18,31 @@
 
 +(instancetype)createWithBarButtonItem:(UIBarButtonItem *)barButtonItem
                                 action:(id<ERNAction>)action
-                                   url:(NSURL *)url
-                                  mime:(NSString *)mime
+                              resource:(ERNResource *)resource
 {
     return [[self alloc] initWithBarButtonItem:barButtonItem
                                         action:action
-                                           url:url
-                                          mime:mime];
+                                      resource:resource];
 }
 
 #pragma mark - private
 
 -(void)handleAction
 {
-    ERNCheckNilNoReturn([self url]);
-    ERNCheckNilNoReturn([self mime]);
-    [[self action] actionForUrl:[self url]
-                           mime:[self mime]];
+    ERNCheckNilNoReturn([self resource]);
+    [[self action] actionForResource:[self resource]];
 }
 
 #pragma mark - private - initializer
 
 -(id)initWithBarButtonItem:(UIBarButtonItem *)barButtonItem
                     action:(id<ERNAction>)action
-                    url:(NSURL *)url
-                   mime:(NSString *)mime
+                  resource:(ERNResource *)resource
 {
     self = [self init];
     ERNCheckNil(self);
     _action = action;
-    _mime = mime;
-    _url = url;
+    _resource = resource;
     [barButtonItem setTarget:self];
     [barButtonItem setAction:@selector(handleAction)];
     return self;

@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 
 @class UIViewController;
+@class ERNResource;
 @protocol ERNViewControllerDismisser;
 
 @protocol ERNViewControllerConfigurator <NSObject>
--(UIViewController *)createViewControllerForUrl:(NSURL *)url
-                                           mime:(NSString *)mime
-                                      dismisser:(id<ERNViewControllerDismisser>)dismisser;
+-(UIViewController *)createViewControllerForResource:(ERNResource *)resource
+                                           dismisser:(id<ERNViewControllerDismisser>)dismisser;
 @end

@@ -213,6 +213,8 @@
 		F75C2F62176E2BC900E990F6 /* ERNDictionaryWithDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDictionaryWithDefault.m; sourceTree = "<group>"; };
 		F75C2F63176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNMutableDictionaryWithDefault.h; sourceTree = "<group>"; };
 		F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNMutableDictionaryWithDefault.m; sourceTree = "<group>"; };
+		F75C2F66176E43DD00E990F6 /* ERNResource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNResource.h; sourceTree = "<group>"; };
+		F75C2F67176E43DF00E990F6 /* ERNResource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNResource.m; sourceTree = "<group>"; };
 		F762A2B31755D66B0096B5F9 /* ErnKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErnKit.h; sourceTree = "<group>"; };
 		F762A2B41755D67A0096B5F9 /* MapKitIntegration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapKitIntegration.h; sourceTree = "<group>"; };
 		F762A2B51755D68B0096B5F9 /* RestKitIntegration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestKitIntegration.h; sourceTree = "<group>"; };
@@ -1248,6 +1250,8 @@
 				F75C2F62176E2BC900E990F6 /* ERNDictionaryWithDefault.m */,
 				F75C2F63176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.h */,
 				F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */,
+				F75C2F66176E43DD00E990F6 /* ERNResource.h */,
+				F75C2F67176E43DF00E990F6 /* ERNResource.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

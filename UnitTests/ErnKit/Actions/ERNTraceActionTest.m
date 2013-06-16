@@ -12,38 +12,18 @@
     id<ERNAction> action = [ERNTraceAction createWithAction:nil];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionNilActionUrlNilMime
-{
-    //given
-    id<ERNAction> action = [ERNTraceAction createWithAction:nil];
-
-    //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:nil];
-}
-
--(void)testActionNilActionNilUrlMime
-{
-    //given
-    id<ERNAction> action = [ERNTraceAction createWithAction:nil];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 }
 
 -(void)testActionNilActionUrlMime
 {
     //given
     id<ERNAction> action = [ERNTraceAction createWithAction:nil];
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
+                                                  mime:@"mime"];
 
     //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:@"mime"];
+    [action actionForResource:resource];
 }
 
 -(void)testActionActionNilUrlNilMime
@@ -53,36 +33,7 @@
     id<ERNAction> action = [ERNTraceAction createWithAction:mockAction];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-
-    //then
-    [mockAction verify];
-}
-
--(void)testActionActionUrlNilMime
-{
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id<ERNAction> action = [ERNTraceAction createWithAction:mockAction];
-
-    //when, then
-    [action actionForUrl:[NSURL URLWithString:@"url"]
-                    mime:nil];
-
-    //then
-    [mockAction verify];
-}
-
--(void)testActionActionNilUrlMime
-{
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id<ERNAction> action = [ERNTraceAction createWithAction:mockAction];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:@"mime"];
+    [action actionForResource:nil];
 
     //then
     [mockAction verify];
@@ -93,14 +44,14 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"url"];
     NSString *expectedMime = @"mime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction expect] actionForUrl:expectedUrl
-                                 mime:expectedMime];
+    [[mockAction expect] actionForResource:resource];
     id<ERNAction> action = [ERNTraceAction createWithAction:mockAction];
 
     //when, then
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 
     //then
     [mockAction verify];

@@ -4,14 +4,11 @@
 @protocol ERNAsyncItemRepository;
 @protocol ERNAsyncItemsRepository;
 @protocol ERNAsyncPaginatedItemsRepository;
+@class ERNResource;
 
 @protocol ERNRepositoryFactory <NSObject>
--(id<ERNAsyncRepository>)repositoryForUrl:(NSURL *)url
-                                     mime:(NSString *)mime;
--(id<ERNAsyncItemRepository>)itemRepositoryForUrl:(NSURL *)url
-                                             mime:(NSString *)mime;
--(id<ERNAsyncItemsRepository>)itemsRepositoryForUrl:(NSURL *)url
-                                               mime:(NSString *)mime;
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForUrl:(NSURL *)url
-                                                                 mime:(NSString *)mime;
+-(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource;
+-(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource;
+-(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource;
+-(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource;
 @end

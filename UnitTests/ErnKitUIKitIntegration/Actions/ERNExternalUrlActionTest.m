@@ -13,30 +13,7 @@
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
 
     //when, then
-    [action actionForUrl:nil
-                    mime:nil];
-}
-
--(void)testActionNilApplicationUrlNilMime
-{
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
-
-    //when, then
-    [action actionForUrl:expectedUrl
-                    mime:nil];
-}
-
--(void)testActionNilApplicationNilUrlMime
-{
-    //given
-    NSString *expectedMime = @"expectedMime";
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
-
-    //when, then
-    [action actionForUrl:nil
-                    mime:expectedMime];
+    [action actionForResource:nil];
 }
 
 -(void)testActionNilApplicationUrlMime
@@ -44,11 +21,12 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
 
     //when, then
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 }
 
 -(void)testActionApplicationNilUrlNilMime
@@ -58,39 +36,7 @@
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
 
     //when
-    [action actionForUrl:nil
-                    mime:nil];
-
-    //then
-    [mockApplication verify];
-}
-
--(void)testActionApplicationUrlNilMime
-{
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
-    [[mockApplication expect] openURL:expectedUrl];
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
-
-    //when
-    [action actionForUrl:expectedUrl
-                    mime:nil];
-
-    //then
-    [mockApplication verify];
-}
-
--(void)testActionApplicationNilUrlMime
-{
-    //given
-    NSString *expectedMime = @"expectedMime";
-    id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
-
-    //when
-    [action actionForUrl:nil
-                    mime:expectedMime];
+    [action actionForResource:nil];
 
     //then
     [mockApplication verify];
@@ -101,13 +47,14 @@
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
     NSString *expectedMime = @"expectedMime";
+    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
+                                                  mime:expectedMime];
     id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
     [[mockApplication expect] openURL:expectedUrl];
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
 
     //when
-    [action actionForUrl:expectedUrl
-                    mime:expectedMime];
+    [action actionForResource:resource];
 
     //then
     [mockApplication verify];

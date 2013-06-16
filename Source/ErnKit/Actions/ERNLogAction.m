@@ -19,10 +19,12 @@
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
-    NSLog(@"%@ : %@ : %@", [self string], [self validUrl:url], [self validMime:mime]);
+    NSLog(@"%@ : %@ : %@",
+          [self string],
+          [self validUrl:[resource url]],
+          [self validMime:[resource mime]]);
 }
 
 #pragma mark - private

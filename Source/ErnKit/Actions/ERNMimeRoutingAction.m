@@ -19,13 +19,10 @@
 
 #pragma mark - ERNAction
 
--(void)actionForUrl:(NSURL *)url
-               mime:(NSString *)mime
+-(void)actionForResource:(ERNResource *)resource
 {
-    ERNCheckNilNoReturn(mime);
-    ERNCheckNilNoReturn(url);
-    [[self validActionForMime:mime] actionForUrl:url
-                                            mime:mime];
+    ERNCheckNilNoReturn(resource);
+    [[self validActionForMime:[resource mime]] actionForResource:resource];
 }
 
 #pragma mark - private

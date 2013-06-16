@@ -3,6 +3,7 @@
 #import "ERNNullAsyncItemRepository.h"
 #import "ERNNullAsyncItemsRepository.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
+#import "ERNResource.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNMimeRoutingRepositoryFactory ()
@@ -21,44 +22,32 @@
 
 #pragma mark - ERNRepositoryFactory
 
--(id<ERNAsyncRepository>)repositoryForUrl:(NSURL *)url
-                                     mime:(NSString *)mime
+-(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
     return [self validRepository:
-            [[self factoryForMime:mime] repositoryForUrl:url
-                                                    mime:mime]];
+            [[self factoryForMime:[resource mime]] repositoryForResource:resource]];
 }
 
--(id<ERNAsyncItemRepository>)itemRepositoryForUrl:(NSURL *)url
-                                             mime:(NSString *)mime
+-(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncItemRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncItemRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
     return [self validItemRepository:
-            [[self factoryForMime:mime] itemRepositoryForUrl:url
-                                                        mime:mime]];
+            [[self factoryForMime:[resource mime]] itemRepositoryForResource:resource]];
 }
 
--(id<ERNAsyncItemsRepository>)itemsRepositoryForUrl:(NSURL *)url
-                                               mime:(NSString *)mime
+-(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncItemsRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncItemsRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemsRepository create]);
     return [self validItemsRepository:
-            [[self factoryForMime:mime] itemsRepositoryForUrl:url
-                                                         mime:mime]];
+            [[self factoryForMime:[resource mime]] itemsRepositoryForResource:resource]];
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForUrl:(NSURL *)url
-                                                                 mime:(NSString *)mime
+-(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(url, [ERNNullAsyncPaginatedItemsRepository create]);
-    ERNCheckNilAndReturn(mime, [ERNNullAsyncPaginatedItemsRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
     return [self validPaginatedItemsRepository:
-            [[self factoryForMime:mime] paginatedItemsRepositoryForUrl:url
-                                                                  mime:mime]];
+            [[self factoryForMime:[resource mime]] paginatedItemsRepositoryForResource:resource]];
 }
 
 -(id<ERNRepositoryFactory>)factoryForMime:(NSString *)mime
