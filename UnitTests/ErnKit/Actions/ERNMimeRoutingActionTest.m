@@ -21,7 +21,7 @@
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@"mime"];
-
+    
     //when
     [action actionForResource:resource];
 }
@@ -30,7 +30,7 @@
 {
     //given
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
-
+    
     //when
     [action actionForResource:nil];
 }
@@ -48,10 +48,10 @@
     NSDictionary *mimes = @{expectedMime : mockAction1,
                             @"mime2" : mockAction2};
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:mimes];
-
+    
     //when
     [action actionForResource:resource];
-
+    
     //then
     [mockAction1 verify];
     [mockAction2 verify];
@@ -67,10 +67,10 @@
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:mimes];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@"mime3"];
-
+    
     //when
     [action actionForResource:resource];
-
+    
     //then
     [mockAction1 verify];
     [mockAction2 verify];
@@ -84,7 +84,7 @@
     id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:mimes];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url1"]
                                                   mime:@"mime1"];
-
+    
     //when
     [action actionForResource:resource];
 }

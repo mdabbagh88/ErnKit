@@ -14,7 +14,7 @@
     //given
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
                                                            configurator:nil];
-
+    
     //when, then
     [action actionForResource:nil];
 }
@@ -28,7 +28,7 @@
                                                   mime:expectedMime];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
                                                            configurator:nil];
-
+    
     //when, then
     [action actionForResource:resource];
 }
@@ -39,7 +39,7 @@
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNActionSheetTransitioner)];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
                                                            configurator:nil];
-
+    
     //when, then
     [action actionForResource:nil];
 }
@@ -54,7 +54,7 @@
                                                   mime:expectedMime];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
                                                            configurator:nil];
-
+    
     //when, then
     [action actionForResource:resource];
 }
@@ -65,7 +65,7 @@
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
                                                            configurator:mockConfigurator];
-
+    
     //when, then
     [action actionForResource:nil];
 }
@@ -80,7 +80,7 @@
                                                   mime:expectedMime];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
                                                            configurator:mockConfigurator];
-
+    
     //when, then
     [action actionForResource:resource];
 }
@@ -93,7 +93,7 @@
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
                                                            configurator:mockConfigurator];
-
+    
     //when, then
     [action actionForResource:nil];
 }
@@ -112,10 +112,10 @@
     [[mockTransitioner expect] transitionToActionSheet:mockActionSheet];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
                                                            configurator:mockConfigurator];
-
+    
     //when, then
     [action actionForResource:resource];
-
+    
     //then
     [mockConfigurator verify];
     [mockTransitioner verify];

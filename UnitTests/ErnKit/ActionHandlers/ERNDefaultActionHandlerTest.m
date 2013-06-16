@@ -16,9 +16,9 @@
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:nil];
-
+    
     //when, then
     [actionHandler actionForObject:nil];
 }
@@ -29,9 +29,9 @@
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:mockResourceFactory
+                                                                   resourceFactory:mockResourceFactory
                                                                    repositoryStore:nil];
-
+    
     //when, then
     [actionHandler actionForObject:nil];
 }
@@ -43,9 +43,9 @@
     id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:mockResourceFactory
+                                                                   resourceFactory:mockResourceFactory
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when, then
     [actionHandler actionForObject:nil];
 }
@@ -56,9 +56,9 @@
     id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                    urlMimeFactory:mockResourceFactory
+                                                                   resourceFactory:mockResourceFactory
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when, then
     [actionHandler actionForObject:nil];
 }
@@ -68,9 +68,9 @@
     //given
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when, then
     [actionHandler actionForObject:nil];
 }
@@ -81,9 +81,9 @@
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when, then
     [actionHandler actionForObject:nil];
 }
@@ -93,9 +93,9 @@
     //given
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:nil];
-
+    
     //when, then
     [actionHandler actionForObject:mockObject];
 }
@@ -107,12 +107,12 @@
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     [[mockAction expect] actionForResource:OCMOCK_ANY];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:nil];
-
+    
     //when
     [actionHandler actionForObject:mockObject];
-
+    
     //then
     [mockAction verify];
 }
@@ -130,12 +130,12 @@
     id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     [[[mockResourceFactory expect] andReturn:resource] resourceForObject:mockObject];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:mockResourceFactory
+                                                                   resourceFactory:mockResourceFactory
                                                                    repositoryStore:nil];
-
+    
     //when
     [actionHandler actionForObject:mockObject];
-
+    
     //then
     [mockAction verify];
     [mockResourceFactory verify];
@@ -157,12 +157,12 @@
     [[mockRepositoryStore expect] storeUrl:expectedUrl
                                    forItem:mockObject];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:mockResourceFactory
+                                                                   resourceFactory:mockResourceFactory
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when
     [actionHandler actionForObject:mockObject];
-
+    
     //then
     [mockResourceFactory verify];
     [mockAction verify];
@@ -176,9 +176,9 @@
     id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                    urlMimeFactory:mockResourceFactory
+                                                                   resourceFactory:mockResourceFactory
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when
     [actionHandler actionForObject:mockObject];
 }
@@ -189,9 +189,9 @@
     id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when
     [actionHandler actionForObject:mockObject];
 }
@@ -206,14 +206,14 @@
     id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
     [[mockRepositoryStore expect] storeUrl:expectedUrl
                                    forItem:mockObject];
-
+    
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                    urlMimeFactory:nil
+                                                                   resourceFactory:nil
                                                                    repositoryStore:mockRepositoryStore];
-
+    
     //when
     [actionHandler actionForObject:mockObject];
-
+    
     //then
     [mockAction verify];
     [mockRepositoryStore verify];

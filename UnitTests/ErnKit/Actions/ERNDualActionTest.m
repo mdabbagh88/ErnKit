@@ -12,7 +12,7 @@
     //given
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
                                                     secondAction:nil];
-
+    
     //when, then
     [action actionForResource:nil];
 }
@@ -24,7 +24,7 @@
                                                     secondAction:nil];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL ERN_createNull]
                                                   mime:@"mime"];
-
+    
     //when, then
     [action actionForResource:resource];
 }
@@ -35,10 +35,10 @@
     id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
                                                     secondAction:nil];
-
+    
     //when
     [action actionForResource:nil];
-
+    
     //then
     [mockAction1 verify];
 }
@@ -54,10 +54,10 @@
     [[mockAction1 expect] actionForResource:resource];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
                                                     secondAction:nil];
-
+    
     //when
     [action actionForResource:resource];
-
+    
     //then
     [mockAction1 verify];
 }
@@ -68,10 +68,10 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
                                                     secondAction:mockAction2];
-
+    
     //when
     [action actionForResource:nil];
-
+    
     //then
     [mockAction2 verify];
 }
@@ -87,10 +87,10 @@
     [[mockAction2 expect] actionForResource:resource];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
                                                     secondAction:mockAction2];
-
+    
     //when
     [action actionForResource:resource];
-
+    
     //then
     [mockAction2 verify];
 }
@@ -102,10 +102,10 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
                                                     secondAction:mockAction2];
-
+    
     //when
     [action actionForResource:nil];
-
+    
     //then
     [mockAction1 verify];
     [mockAction2 verify];
@@ -124,10 +124,10 @@
     [[mockAction2 expect] actionForResource:resource];
     id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
                                                     secondAction:mockAction2];
-
+    
     //when
     [action actionForResource:resource];
-
+    
     //then
     [mockAction1 verify];
     [mockAction2 verify];

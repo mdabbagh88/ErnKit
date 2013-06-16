@@ -16,7 +16,7 @@
 {
     //given, when, then
     [ERNSegmentedControlActionController createWithSegmentedControl:nil
-                                                             actions:nil
+                                                            actions:nil
                                                            resource:nil];
 }
 
@@ -27,12 +27,12 @@
     [[mockSegmentedControl expect] addTarget:OCMOCK_ANY
                                       action:NSSelectorFromString(@"valueChanged:")
                             forControlEvents:UIControlEventValueChanged];
-
+    
     //when
     [ERNSegmentedControlActionController createWithSegmentedControl:mockSegmentedControl
                                                             actions:nil
                                                            resource:nil];
-
+    
     //then
     [mockSegmentedControl verify];
 }
@@ -51,10 +51,10 @@
     [ERNSegmentedControlActionController createWithSegmentedControl:mockSegmentedControl
                                                             actions:nil
                                                            resource:nil];
-
+    
     //when
     [controller valueChanged:mockSegmentedControl];
-
+    
     //then
     [mockSegmentedControl verify];
 }
@@ -80,10 +80,10 @@
     [ERNSegmentedControlActionController createWithSegmentedControl:mockSegmentedControl
                                                             actions:actions
                                                            resource:resource];
-
+    
     //when
     [controller valueChanged:mockSegmentedControl];
-
+    
     //then
     [mockSegmentedControl verify];
     [mockAction1 verify];
@@ -112,10 +112,10 @@
     [ERNSegmentedControlActionController createWithSegmentedControl:mockSegmentedControl
                                                             actions:actions
                                                            resource:resource];
-
+    
     //when
     [controller valueChanged:mockSegmentedControl];
-
+    
     //then
     [mockSegmentedControl verify];
     [mockAction1 verify];

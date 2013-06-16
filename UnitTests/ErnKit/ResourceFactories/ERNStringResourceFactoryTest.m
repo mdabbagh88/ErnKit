@@ -11,7 +11,7 @@
 {
     //given, when
     NSString *mime = [ERNStringResourceFactory mime];
-
+    
     //then
     assertThat(mime, notNilValue());
 }
@@ -21,7 +21,7 @@
     //given, when
     id<ERNResourceFactory> factory1 = [ERNStringResourceFactory create];
     id<ERNResourceFactory> factory2 = [ERNStringResourceFactory create];
-
+    
     //then
     assertThat(factory1, notNilValue());
     assertThat(factory1, equalTo(factory2));
@@ -31,38 +31,38 @@
 {
     //given
     id<ERNResourceFactory> factory = [ERNStringResourceFactory create];
-
+    
     //when
     ERNResource *resource = [factory resourceForObject:nil];
-
+    
     //then
     assertThat([resource mime], notNilValue());
     assertThat([resource url], notNilValue());
 }
 
--(void)testMimeObject
+-(void)testResourceObject
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
     id<ERNResourceFactory> factory = [ERNStringResourceFactory create];
-
+    
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
-
+    
     //then
     assertThat([resource mime], notNilValue());
     assertThat([resource url], notNilValue());
     [mockObject verify];
 }
 
--(void)testMimeStringObject
+-(void)testResourceStringObject
 {
     //given
     id<ERNResourceFactory> factory = [ERNStringResourceFactory create];
-
+    
     //when
     ERNResource *resource = [factory resourceForObject:@"string"];
-
+    
     //then
     assertThat([resource mime], notNilValue());
     assertThat([resource url], notNilValue());

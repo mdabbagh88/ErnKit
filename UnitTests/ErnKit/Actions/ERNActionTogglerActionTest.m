@@ -11,7 +11,7 @@
 {
     //given
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:5];
     [actionTogglerAction actionForResource:nil];
@@ -23,7 +23,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@""];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:5];
     [actionTogglerAction actionForResource:resource];
@@ -36,7 +36,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@""];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:1];
     [actionTogglerAction actionForResource:resource];
@@ -49,7 +49,7 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@""];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:10];
     [actionTogglerAction actionForResource:resource];
@@ -67,11 +67,11 @@
     [[mockAction2 expect] actionForResource:resource];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:1];
     [actionTogglerAction actionForResource:resource];
-
+    
     [mockAction1 verify];
     [mockAction2 verify];
 }
@@ -88,12 +88,12 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:1];
     [actionTogglerAction setSelectedIndex:0];
     [actionTogglerAction actionForResource:resource];
-
+    
     [mockAction1 verify];
     [mockAction2 verify];
 }
@@ -110,10 +110,10 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSArray *actions = @[mockAction1, mockAction2];
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
-
+    
     //when, then
     [actionTogglerAction actionForResource:resource];
-
+    
     [mockAction1 verify];
     [mockAction2 verify];
 }
@@ -128,11 +128,11 @@
     ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@""];
-
+    
     //when, then
     [actionTogglerAction setSelectedIndex:10];
     [actionTogglerAction actionForResource:resource];
-
+    
     [mockAction1 verify];
     [mockAction2 verify];
 }

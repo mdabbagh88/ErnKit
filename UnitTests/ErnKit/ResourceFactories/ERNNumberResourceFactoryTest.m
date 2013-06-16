@@ -1,45 +1,54 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNNullResourceFactoryTest.h"
+#import "ERNNumberResourceFactoryTest.h"
+#import "ERNNumberResourceFactory.h"
 #import "ERNResource.h"
-#import "ERNNullResourceFactory.h"
 
-@implementation ERNNullResourceFactoryTest
+@implementation ERNNumberResourceFactoryTest
+
+-(void)testMime
+{
+    //given, when
+    NSString *mime = [ERNNumberResourceFactory mime];
+    
+    //then
+    assertThat(mime, notNilValue());
+}
 
 -(void)testSingleton
 {
     //given, when
-    id<ERNResourceFactory> factory1 = [ERNNullResourceFactory create];
-    id<ERNResourceFactory> factory2 = [ERNNullResourceFactory create];
-
+    id<ERNResourceFactory> factory1 = [ERNNumberResourceFactory create];
+    id<ERNResourceFactory> factory2 = [ERNNumberResourceFactory create];
+    
     //then
     assertThat(factory1, notNilValue());
     assertThat(factory1, equalTo(factory2));
 }
 
--(void)testMimeNilObject
+-(void)testResourceNilObject
 {
     //given
-    id<ERNResourceFactory> factory = [ERNNullResourceFactory create];
-
+    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
+    
     //when
     ERNResource *resource = [factory resourceForObject:nil];
-
+    
     //then
     assertThat([resource mime], notNilValue());
     assertThat([resource url], notNilValue());
 }
 
--(void)testMimeObject
+-(void)testResourceObject
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNNullResourceFactory create];
-
+    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
+    
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
-
+    
     //then
     assertThat([resource mime], notNilValue());
     assertThat([resource url], notNilValue());

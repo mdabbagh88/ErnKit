@@ -11,7 +11,7 @@
 {
     //given
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
-
+    
     //when, then
     [action actionForResource:nil];
 }
@@ -24,7 +24,7 @@
     ERNResource *resource = [ERNResource createWithUrl:expectedUrl
                                                   mime:expectedMime];
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
-
+    
     //when, then
     [action actionForResource:resource];
 }
@@ -34,10 +34,10 @@
     //given
     id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
-
+    
     //when
     [action actionForResource:nil];
-
+    
     //then
     [mockApplication verify];
 }
@@ -52,10 +52,10 @@
     id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
     [[mockApplication expect] openURL:expectedUrl];
     id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
-
+    
     //when
     [action actionForResource:resource];
-
+    
     //then
     [mockApplication verify];
 }

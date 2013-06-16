@@ -39,9 +39,9 @@
     return _tableViewController = _tableViewController ?
     _tableViewController :
     [ERNTableViewController createRefreshableWithRepository:[self repository]
-     itemManager:[ERNDefaultTableViewItemManager
-                  createWithCellFactory:[ERNDefaultTableViewCellFactory create]
-                  actionHandler:[ERNNullActionHandler create]]];
+                                                itemManager:[ERNDefaultTableViewItemManager
+                                                             createWithCellFactory:[ERNDefaultTableViewCellFactory create]
+                                                             actionHandler:[ERNNullActionHandler create]]];
 }
 
 -(UISegmentedControl *)feedSegmentedControl

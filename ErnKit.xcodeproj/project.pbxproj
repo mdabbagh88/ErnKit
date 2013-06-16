@@ -510,7 +510,7 @@
 			path = MicroControllers;
 			sourceTree = "<group>";
 		};
-		F71B936A173AFE7700F80B0F /* UrlMimeFactories */ = {
+		F71B936A173AFE7700F80B0F /* ResourceFactories */ = {
 			isa = PBXGroup;
 			children = (
 				F71B936B173AFE8500F80B0F /* ERNNullResourceFactoryTest.h */,
@@ -524,7 +524,7 @@
 				F71B937B173B012B00F80B0F /* ERNURLResourceFactoryTest.h */,
 				F71B937C173B012B00F80B0F /* ERNURLResourceFactoryTest.m */,
 			);
-			path = UrlMimeFactories;
+			path = ResourceFactories;
 			sourceTree = "<group>";
 		};
 		F743889F173B087E00676477 /* Repositories */ = {
@@ -989,7 +989,7 @@
 				F7AD8B80173AC4200046E153 /* ActionHandlers */,
 				F7AD8B8B173AD2AE0046E153 /* Actions */,
 				F743889F173B087E00676477 /* Repositories */,
-				F71B936A173AFE7700F80B0F /* UrlMimeFactories */,
+				F71B936A173AFE7700F80B0F /* ResourceFactories */,
 				F74388D2173BF21C00676477 /* Utilities */,
 			);
 			path = ErnKit;
@@ -1119,7 +1119,7 @@
 				F7F06A43172D0A9900CA5FC4 /* ActionHandlers */,
 				F7F06A47172D0A9900CA5FC4 /* Actions */,
 				F7F06A67172D0A9900CA5FC4 /* Repositories */,
-				F7F06A95172D0A9900CA5FC4 /* UrlMimeFactories */,
+				F7F06A95172D0A9900CA5FC4 /* ResourceFactories */,
 				F7F06AA1172D0A9900CA5FC4 /* Utilities */,
 			);
 			path = ErnKit;
@@ -1216,7 +1216,7 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		F7F06A95172D0A9900CA5FC4 /* UrlMimeFactories */ = {
+		F7F06A95172D0A9900CA5FC4 /* ResourceFactories */ = {
 			isa = PBXGroup;
 			children = (
 				F7F06A9E172D0A9900CA5FC4 /* ERNResourceFactory.h */,
@@ -1233,7 +1233,7 @@
 				F788B7B2175243C1006226CA /* ERNDefaultResourceFactory.h */,
 				F788B7B3175243C1006226CA /* ERNDefaultResourceFactory.m */,
 			);
-			path = UrlMimeFactories;
+			path = ResourceFactories;
 			sourceTree = "<group>";
 		};
 		F7F06AA1172D0A9900CA5FC4 /* Utilities */ = {

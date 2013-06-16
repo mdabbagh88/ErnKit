@@ -18,12 +18,12 @@
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
     [[mockButton expect] setTarget:OCMOCK_ANY];
     [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
-
+    
     //when
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:nil
                                                      resource:nil];
-
+    
     //then
     [mockButton verify];
 }
@@ -53,12 +53,12 @@
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
     [[mockButton expect] setTarget:OCMOCK_ANY];
     [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
-
+    
     //when
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction
                                                      resource:nil];
-
+    
     //then
     [mockButton verify];
     [mockAction verify];
@@ -78,7 +78,7 @@
     
     //when
     [controller handleAction];
-
+    
     //then
     [mockButton verify];
     [mockAction verify];
@@ -102,7 +102,7 @@
                                                      resource:resource];
     //when
     [controller handleAction];
-
+    
     //then
     [mockButton verify];
     [mockAction verify];

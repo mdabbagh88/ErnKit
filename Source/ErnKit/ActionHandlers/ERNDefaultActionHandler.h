@@ -7,6 +7,6 @@
 
 @interface ERNDefaultActionHandler : NSObject <ERNActionHandler>
 +(instancetype)createWithAction:(id<ERNAction>)action
-                 urlMimeFactory:(id<ERNResourceFactory>)urlMimeFactory
+                 resourceFactory:(id<ERNResourceFactory>)resourceFactory
                 repositoryStore:(id<ERNRepositoryStore>)repositoryStore;
 @end

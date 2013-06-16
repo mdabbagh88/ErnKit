@@ -40,7 +40,7 @@
 {
     [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
     [[self feedSegmentedControl] setSelectedSegmentIndex:0];
-
+    
     [[[self mapViewController] navigationItem] setTitleView:[self feedSegmentedControl]];
     [[[self mapViewController] navigationItem] setRightBarButtonItem:[self refreshButton]];
     [[self mapViewController] ERN_addMicroController:[self feedController]];
