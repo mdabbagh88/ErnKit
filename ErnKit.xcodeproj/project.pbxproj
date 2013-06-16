@@ -427,8 +427,8 @@
 		F7F06A97172D0A9900CA5FC4 /* ERNNullResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullResourceFactory.m; sourceTree = "<group>"; };
 		F7F06A98172D0A9900CA5FC4 /* ERNNumberResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNumberResourceFactory.h; sourceTree = "<group>"; };
 		F7F06A99172D0A9900CA5FC4 /* ERNNumberResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNumberResourceFactory.m; sourceTree = "<group>"; };
-		F7F06A9A172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingUrlMimeFactory.h; sourceTree = "<group>"; };
-		F7F06A9B172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingUrlMimeFactory.m; sourceTree = "<group>"; };
+		F7F06A9A172D0A9900CA5FC4 /* ERNRoutingResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingResourceFactory.h; sourceTree = "<group>"; };
+		F7F06A9B172D0A9900CA5FC4 /* ERNRoutingResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingResourceFactory.m; sourceTree = "<group>"; };
 		F7F06A9C172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNStringUrlMimeFactory.h; sourceTree = "<group>"; };
 		F7F06A9D172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNStringUrlMimeFactory.m; sourceTree = "<group>"; };
 		F7F06A9E172D0A9900CA5FC4 /* ERNResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNResourceFactory.h; sourceTree = "<group>"; };
@@ -1224,8 +1224,8 @@
 				F7F06A97172D0A9900CA5FC4 /* ERNNullResourceFactory.m */,
 				F7F06A98172D0A9900CA5FC4 /* ERNNumberResourceFactory.h */,
 				F7F06A99172D0A9900CA5FC4 /* ERNNumberResourceFactory.m */,
-				F7F06A9A172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.h */,
-				F7F06A9B172D0A9900CA5FC4 /* ERNRoutingUrlMimeFactory.m */,
+				F7F06A9A172D0A9900CA5FC4 /* ERNRoutingResourceFactory.h */,
+				F7F06A9B172D0A9900CA5FC4 /* ERNRoutingResourceFactory.m */,
 				F7F06A9C172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.h */,
 				F7F06A9D172D0A9900CA5FC4 /* ERNStringUrlMimeFactory.m */,
 				F7F06A9F172D0A9900CA5FC4 /* ERNURLUrlMimeFactory.h */,

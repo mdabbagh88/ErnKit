@@ -2,7 +2,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import "ERNRoutingUrlMimeFactoryTest.h"
-#import "ERNRoutingUrlMimeFactory.h"
+#import "ERNRoutingResourceFactory.h"
 #import "ERNResource.h"
 
 @implementation ERNRoutingUrlMimeFactoryTest
@@ -10,7 +10,7 @@
 -(void)testResourceNilObjectNilMappings
 {
     //given
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
+    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:nil];
 
     //when
     ERNResource *resource = [factory resourceForObject:nil];
@@ -24,7 +24,7 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:nil];
+    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:nil];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
@@ -41,7 +41,7 @@
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:mappings];
 
     //when
     ERNResource *resource = [factory resourceForObject:nil];
@@ -64,7 +64,7 @@
     id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     [[[mockFactory expect] andReturn:expectedResource] resourceForObject:mockObject];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : mockFactory};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:mappings];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
@@ -81,7 +81,7 @@
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
     NSDictionary *mappings = @{@"classname" : mockFactory};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:mappings];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];
@@ -98,7 +98,7 @@
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : @""};
-    id<ERNResourceFactory> factory = [ERNRoutingUrlMimeFactory createWithMappings:mappings];
+    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:mappings];
 
     //when
     ERNResource *resource = [factory resourceForObject:mockObject];

@@ -1,14 +1,14 @@
-#import "ERNRoutingUrlMimeFactory.h"
+#import "ERNRoutingResourceFactory.h"
 #import "ERNNullResourceFactory.h"
 #import "ERNResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
-@interface ERNRoutingUrlMimeFactory ()
+@interface ERNRoutingResourceFactory ()
 @property (nonatomic, readonly) NSDictionary *mappings;
 @end
 
-@implementation ERNRoutingUrlMimeFactory {
+@implementation ERNRoutingResourceFactory {
     NSDictionary *_mappings;
 }
 

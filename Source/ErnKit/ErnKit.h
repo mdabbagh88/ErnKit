@@ -42,7 +42,7 @@
 #import "ERNDefaultUrlMimeFactory.h"
 #import "ERNNullResourceFactory.h"
 #import "ERNNumberResourceFactory.h"
-#import "ERNRoutingUrlMimeFactory.h"
+#import "ERNRoutingResourceFactory.h"
 #import "ERNStringUrlMimeFactory.h"
 #import "ERNURLUrlMimeFactory.h"
 #import "ERNResourceFactory.h"
