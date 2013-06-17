@@ -14,7 +14,7 @@
     return nullURL;
 }
 
--(BOOL)hasValue
+-(BOOL)ERN_hasValue
 {
     return ![[self absoluteString] isEqualToString:[[[self class] ERN_createNull] absoluteString]];
 }

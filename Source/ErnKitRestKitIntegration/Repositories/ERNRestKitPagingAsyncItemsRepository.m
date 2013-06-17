@@ -60,7 +60,7 @@
 
 -(NSUInteger)total
 {
-    return [[[[self pages] lastObject] nextPage] hasValue] ?
+    return [[[[self pages] lastObject] nextPage] ERN_hasValue] ?
     [[(id<ERNRepositoryPaginator>)[[self pages] lastObject] total] unsignedIntegerValue] :
     [self count] + [self offset];
 }
@@ -81,12 +81,12 @@
 
 -(BOOL)hasPrevious
 {
-    return [[[[self pages] objectAtIndex:0] previousPage] hasValue];
+    return [[[[self pages] objectAtIndex:0] previousPage] ERN_hasValue];
 }
 
 -(BOOL)hasNext
 {
-    return [[[[self pages] lastObject] nextPage] hasValue];
+    return [[[[self pages] lastObject] nextPage] ERN_hasValue];
 }
 
 -(void)fetchNext

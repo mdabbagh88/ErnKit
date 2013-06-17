@@ -2,5 +2,5 @@
 
 @interface NSURL (ERNHelper)
 +(instancetype)ERN_createNull;
--(BOOL)hasValue;
+-(BOOL)ERN_hasValue;
 @end
