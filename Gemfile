@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rake"
-gem "cocoapods"
+gem 'rake', '~>10.0.0'
+gem 'cocoapods', '0.20.2'
 gem 'thin'
-gem "sinatra"
+gem 'sinatra'
