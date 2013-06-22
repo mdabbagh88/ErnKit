@@ -50,13 +50,13 @@
 -(void)setObject:(id)object
           forKey:(id<NSCopying>)key
 {
-    return [[self mutableDictionary] setObject:object
-                                        forKey:key];
+    [[self mutableDictionary] setObject:object
+                                 forKey:key];
 }
 
 -(void)removeObjectForKey:(id)key
 {
-    return [[self mutableDictionary] removeObjectForKey:key];
+    [[self mutableDictionary] removeObjectForKey:key];
 }
 
 #pragma mark - private - initializers
