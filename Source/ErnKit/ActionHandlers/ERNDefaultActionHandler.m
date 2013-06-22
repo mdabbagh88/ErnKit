@@ -26,13 +26,6 @@
                         repositoryStore:repositoryStore];
 }
 
-+(instancetype)createWithAction:(id<ERNAction>)action
-{
-    return [[self alloc] initWithAction:action
-                        resourceFactory:nil
-                        repositoryStore:nil];
-}
-
 #pragma mark - ERNActionHandler
 
 -(void)actionForObject:(id<NSObject>)object
