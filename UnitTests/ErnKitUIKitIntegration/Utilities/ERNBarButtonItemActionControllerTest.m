@@ -16,8 +16,8 @@
 {
     //given
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
+    [(UIBarButtonItem *)[mockButton expect] setTarget:OCMOCK_ANY];
+    [(UIBarButtonItem *)[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
     
     //when
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
@@ -32,8 +32,8 @@
 {
     //given
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
+    [(UIBarButtonItem *)[mockButton expect] setTarget:OCMOCK_ANY];
+    [(UIBarButtonItem *)[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:nil
@@ -51,8 +51,8 @@
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
+    [(UIBarButtonItem *)[mockButton expect] setTarget:OCMOCK_ANY];
+    [(UIBarButtonItem *)[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
     
     //when
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
@@ -69,8 +69,8 @@
     //given
     id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
+    [(UIBarButtonItem *)[mockButton expect] setTarget:OCMOCK_ANY];
+    [(UIBarButtonItem *)[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction
@@ -94,8 +94,8 @@
                                                   mime:mime];
     [[mockAction expect] actionForResource:resource];
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    [[mockButton expect] setTarget:OCMOCK_ANY];
-    [[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
+    [(UIBarButtonItem *)[mockButton expect] setTarget:OCMOCK_ANY];
+    [(UIBarButtonItem *)[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction
