@@ -44,4 +44,22 @@
     [mockTableViewManager verify];
 }
 
+-(void)testSetTableView
+{
+    //given
+    id mockTableView =
+    [OCMockObject niceMockForClass:[UITableView class]];
+    id mockTableViewManager =
+    [OCMockObject niceMockForProtocol:@protocol(ERNTableViewItemManager)];
+    ERNTableViewController *viewController =
+    [ERNTableViewController createWithTableViewManager:mockTableViewManager];
+
+    //when
+    [viewController setTableView:mockTableView];
+
+    //then
+    assertThat([viewController tableView], equalTo(mockTableView));
+    [mockTableViewManager verify];
+}
+
 @end

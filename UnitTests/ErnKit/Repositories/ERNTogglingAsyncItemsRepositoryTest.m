@@ -3,6 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNTogglingAsyncItemsRepositoryTest.h"
 #import "ERNTogglingAsyncItemsRepository.h"
+#import "ERNToggler.h"
 
 @interface ERNBaseAsyncRepository ()
 -(void)testHelperChangeNotificationCenter:(NSNotificationCenter *)notificationCenter;
@@ -13,7 +14,6 @@
 @end
 
 @implementation ERNTogglingAsyncItemsRepositoryTest
-
 
 -(void)testCurrentRepositoryRefreshedNilRepositories
 {
@@ -29,6 +29,25 @@
 
     //then
     [mockNotificationCenter verify];
+}
+
+-(void)testSelectedIndex
+{
+    //given
+    NSUInteger expectedIndex = 5;
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+    id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
+    [[mockNotificationCenter expect] postNotificationName:OCMOCK_ANY object:repository];
+    [repository testHelperChangeNotificationCenter:mockNotificationCenter];
+
+    //when
+    [repository setSelectedIndex:expectedIndex];
+
+    //then
+    [mockNotificationCenter verify];
+    assertThatUnsignedInteger([repository selectedIndex], equalToUnsignedInteger(expectedIndex));
+
 }
 
 -(void)testRefreshNilRepositories
@@ -969,6 +988,238 @@
     [mockRepository1 verify];
     [mockRepository2 verify];
     [mockNotificationCenter verify];
+}
+
+-(void)testFetchNextNilRepositories
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository fetchNext];
+}
+
+-(void)testToggleWithNilRepositoriesFetchNext
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository setSelectedIndex:5];
+    [repository fetchNext];
+}
+
+-(void)testFetchNextRepositories
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository1 expect] fetchNext];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository fetchNext];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testToggleWithRepositoriesFetchNext
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository2 expect] fetchNext];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository setSelectedIndex:1];
+    [repository fetchNext];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testFetchPreviousNilRepositories
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository fetchPrevious];
+}
+
+-(void)testToggleWithNilRepositoriesFetchPrevious
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository setSelectedIndex:5];
+    [repository fetchPrevious];
+}
+
+-(void)testFetchPreviousRepositories
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository1 expect] fetchPrevious];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository fetchPrevious];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testToggleWithRepositoriesFetchPrevious
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository2 expect] fetchPrevious];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository setSelectedIndex:1];
+    [repository fetchPrevious];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testHasPreviousNilRepositories
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository hasPrevious];
+}
+
+-(void)testToggleWithNilRepositoriesHasPrevious
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository setSelectedIndex:5];
+    [repository hasPrevious];
+}
+
+-(void)testHasPreviousRepositories
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository1 expect] hasPrevious];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository hasPrevious];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testToggleWithRepositoriesHasPrevious
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository2 expect] hasPrevious];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository setSelectedIndex:1];
+    [repository hasPrevious];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testHasNextNilRepositories
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository hasNext];
+}
+
+-(void)testToggleWithNilRepositoriesHasNext
+{
+    //given
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:nil];
+
+    //when, then
+    [repository setSelectedIndex:5];
+    [repository hasNext];
+}
+
+-(void)testHasNextRepositories
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository1 expect] hasNext];
+    id mockRepository2 = [OCMockObject mockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository hasNext];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
+}
+
+-(void)testToggleWithRepositoriesHasNext
+{
+    //given
+    id mockRepository1 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockRepository2 = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [[mockRepository2 expect] hasNext];
+    NSArray *repositories = @[mockRepository1, mockRepository2];
+    ERNTogglingAsyncItemsRepository *repository =
+    [ERNTogglingAsyncItemsRepository createWithRepositories:repositories];
+
+    //when
+    [repository setSelectedIndex:1];
+    [repository hasNext];
+
+    //then
+    [mockRepository1 verify];
+    [mockRepository2 verify];
 }
 
 @end

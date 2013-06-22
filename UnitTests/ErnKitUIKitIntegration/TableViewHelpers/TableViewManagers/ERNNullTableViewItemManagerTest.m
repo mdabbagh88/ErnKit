@@ -2,30 +2,30 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
-#import "ERNNullTableViewCellFactoryTest.h"
-#import "ERNNullTableViewCellFactory.h"
+#import "ERNNullTableViewItemManagerTest.h"
+#import "ERNNullTableViewItemManager.h"
 #import "ERNNullTableViewCell.h"
 
-@implementation ERNNullTableViewCellFactoryTest
+@implementation ERNNullTableViewItemManagerTest
 
 -(void)testSingleton
 {
     //given, when
-    id<ERNTableViewCellFactory> factory1 = [ERNNullTableViewCellFactory create];
-    id<ERNTableViewCellFactory> factory2 = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> tableViewItemManager1 = [ERNNullTableViewItemManager create];
+    id<ERNTableViewItemManager> tableViewItemManager2 = [ERNNullTableViewItemManager create];
 
     //then
-    assertThat(factory1, notNilValue());
-    assertThat(factory1, equalTo(factory2));
+    assertThat(tableViewItemManager1, notNilValue());
+    assertThat(tableViewItemManager1, equalTo(tableViewItemManager2));
 }
 
 -(void)testCellForNilTableViewNilObject
 {
     //given
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:nil
+    UITableViewCell *cell = [manager cellForTableView:nil
                                            fromObject:nil];
 
     //then
@@ -36,10 +36,10 @@
 {
     //given
     id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:mockTableView
+    UITableViewCell *cell = [manager cellForTableView:mockTableView
                                            fromObject:nil];
 
     //then
@@ -50,10 +50,10 @@
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:nil
+    UITableViewCell *cell = [manager cellForTableView:nil
                                            fromObject:mockObject];
 
     //then
@@ -66,10 +66,10 @@
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
     id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:mockTableView
+    UITableViewCell *cell = [manager cellForTableView:mockTableView
                                            fromObject:mockObject];
 
     //then
@@ -82,10 +82,10 @@
 {
     //given
     CGFloat defaultHeight = 34.0f;
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    CGFloat height = [factory cellHeightForObject:nil
+    CGFloat height = [manager cellHeightForObject:nil
                                     defaultHeight:defaultHeight];
 
     //then
@@ -97,14 +97,37 @@
     //given
     CGFloat defaultHeight = 34.0f;
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNTableViewCellFactory> factory = [ERNNullTableViewCellFactory create];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    CGFloat height = [factory cellHeightForObject:mockObject
+    CGFloat height = [manager cellHeightForObject:mockObject
                                     defaultHeight:defaultHeight];
 
     //then
     assertThatFloat(height, equalToFloat(defaultHeight));
+    [mockObject verify];
+}
+
+-(void)testActionForNilObject
+{
+    //given
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
+
+    //when, then
+    [manager actionForObject:nil];
+}
+
+-(void)testActionForObject
+{
+    //given
+    id mockObject = [OCMockObject mockForClass:[NSObject class]];
+    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
+
+    //when
+    [manager actionForObject:mockObject];
+
+    //then
+    [mockObject verify];
 }
 
 @end

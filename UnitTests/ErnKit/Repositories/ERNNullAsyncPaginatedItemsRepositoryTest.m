@@ -1,10 +1,10 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNNullAsyncItemsRepositoryTest.h"
+#import "ERNNullAsyncPaginatedItemsRepositoryTest.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 
-@implementation ERNNullAsyncItemsRepositoryTest
+@implementation ERNNullAsyncPaginatedItemsRepositoryTest
 
 -(void)testItemAtIndex
 {
@@ -106,6 +106,48 @@
 
     //then
     assertThatUnsignedInteger(offset, equalToUnsignedInteger(0));
+}
+
+-(void)testHasPrevious
+{
+    //given
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+
+    //when
+    BOOL hasPrevious = [repository hasPrevious];
+
+    //then
+    assertThatBool(hasPrevious, equalToBool(NO));
+}
+
+-(void)testHasNext
+{
+    //given
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+
+    //when
+    BOOL hasNext = [repository hasNext];
+
+    //then
+    assertThatBool(hasNext, equalToBool(NO));
+}
+
+-(void)testFetchNext
+{
+    //given
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+
+    //when, then
+    [repository fetchNext];
+}
+
+-(void)testFetchPrevious
+{
+    //given
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+
+    //when, then
+    [repository fetchPrevious];
 }
 
 @end
