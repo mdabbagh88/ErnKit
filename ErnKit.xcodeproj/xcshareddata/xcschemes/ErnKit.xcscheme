@@ -14,7 +14,35 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ABFF75788B594EB8A8C48A8A"
+               BlueprintIdentifier = "A5EDC2A76D164BC8BF23B010"
+               BuildableName = "libPods-ErnKit.a"
+               BlueprintName = "Pods-ErnKit"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F732921A1775AC31005EEBA8"
+               BuildableName = "libErnKit.a"
+               BlueprintName = "ErnKit"
+               ReferencedContainer = "container:ErnKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AF5265EA9813494B871B1172"
                BuildableName = "libPods-UnitTests.a"
                BlueprintName = "Pods-UnitTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +56,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "50A338ADE9A145CE8C378892"
+               BlueprintIdentifier = "1A5FDC8D956942D4A382C32B"
                BuildableName = "libPods-Demo.a"
                BlueprintName = "Pods-Demo"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,9 +84,9 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F06B20172D0D8000CA5FC4"
-               BuildableName = "TestApp.app"
-               BlueprintName = "TestApp"
+               BlueprintIdentifier = "F7F069A4172C992000CA5FC4"
+               BuildableName = "UnitTests.octest"
+               BlueprintName = "UnitTests"
                ReferencedContainer = "container:ErnKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -70,9 +98,9 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F069A4172C992000CA5FC4"
-               BuildableName = "UnitTests.octest"
-               BlueprintName = "UnitTests"
+               BlueprintIdentifier = "F7F06B20172D0D8000CA5FC4"
+               BuildableName = "TestApp.app"
+               BlueprintName = "TestApp"
                ReferencedContainer = "container:ErnKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

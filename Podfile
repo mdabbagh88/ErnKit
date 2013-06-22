@@ -8,9 +8,11 @@ target :Demo do
     pod 'RestKit'
 end
 
+target :ErnKit do
+    pod 'RestKit'
+end
+
 target :UnitTests do
     pod 'OCMock'
     pod 'OCHamcrest'
-    pod 'ErnKit'
-    pod 'RestKit'
 end
