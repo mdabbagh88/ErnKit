@@ -52,7 +52,7 @@
     id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
     [[mockSourceViewController expect] presentViewController:mockViewController
                                                     animated:YES
-                                                  completion:OCMOCK_ANY];
+                                                  completion:nil];
     id<ERNViewControllerTransitioner> transitioner =
     [ERNModalViewControllerTransitioner createWithSourceViewController:mockSourceViewController];
 
