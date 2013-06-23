@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ERNAction.h"
+#import "ERNBaseUrlRoutingAction.h"
 
-@interface ERNUrlSchemeRoutingAction : NSObject <ERNAction>
-+(instancetype)createWithActions:(NSDictionary *)actions;
+@interface ERNUrlSchemeRoutingAction : ERNBaseUrlRoutingAction <ERNAction>
 @end
