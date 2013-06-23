@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "ERNObservable.h"
 
-@protocol ERNToggler <NSObject>
+@protocol ERNToggler <ERNObservable>
 @property (nonatomic) NSUInteger selectedIndex;
--(void)addObserver:(id)observer
-          selector:(SEL)selector;
--(void)removeObserver:(id)observer;
 @end

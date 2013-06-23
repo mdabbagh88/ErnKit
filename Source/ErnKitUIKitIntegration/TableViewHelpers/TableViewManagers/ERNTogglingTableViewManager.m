@@ -12,7 +12,6 @@
 
 @implementation ERNTogglingTableViewManager {
     NSUInteger _selectedIndex;
-    NSNotificationCenter *_notificationCenter;
 }
 
 #pragma mark - public - constructors
@@ -123,32 +122,12 @@
     _selectedIndex = index;
     [self changeCurrentTableViewManagerToIndex:index];
     [self reloadTableView:[self tableView]];
-    [[self notificationCenter] postNotificationName:[self notificationName]
-                                             object:self];
+    [self notifyObservers];
 }
 
 -(NSUInteger)selectedIndex
 {
     return _selectedIndex;
-}
-
--(void)addObserver:(id)observer
-          selector:(SEL)selector
-{
-    ERNCheckNilNoReturn(observer);
-    ERNCheckNilNoReturn(selector);
-    [[self notificationCenter] addObserver:observer
-                                  selector:selector
-                                      name:[self notificationName]
-                                    object:self];
-}
-
--(void)removeObserver:(id)observer
-{
-    ERNCheckNilNoReturn(observer);
-    [[self notificationCenter] removeObserver:observer
-                                         name:[self notificationName]
-                                       object:self];
 }
 
 #pragma mark - private
@@ -173,22 +152,6 @@
 -(id<ERNTableViewManager>)tableViewManagerAtIndex:(NSUInteger)index
 {
     return [self tableViewManagers][index];
-}
-
-#pragma mark - private
-
--(NSString *)notificationName
-{
-    return NSStringFromClass([self class]);
-}
-
-#pragma mark - private - accessors
-
--(NSNotificationCenter *)notificationCenter
-{
-    return _notificationCenter = _notificationCenter ?
-    _notificationCenter :
-    [NSNotificationCenter new];
 }
 
 #pragma mark - private - initializers

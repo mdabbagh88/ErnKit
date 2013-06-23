@@ -11,7 +11,6 @@
 
 @implementation ERNActionTogglerAction {
     NSUInteger _selectedIndex;
-    NSNotificationCenter *_notificationCenter;
 }
 
 #pragma mark - public - constructors
@@ -34,25 +33,6 @@
     return _selectedIndex;
 }
 
--(void)addObserver:(id)observer
-          selector:(SEL)selector
-{
-    ERNCheckNilNoReturn(observer);
-    ERNCheckNilNoReturn(selector);
-    [[self notificationCenter] addObserver:observer
-                                  selector:selector
-                                      name:[self notificationName]
-                                    object:self];
-}
-
--(void)removeObserver:(id)observer
-{
-    ERNCheckNilNoReturn(observer);
-    [[self notificationCenter] removeObserver:observer
-                                         name:[self notificationName]
-                                       object:self];
-}
-
 #pragma mark - ERNAction
 
 -(void)actionForResource:(ERNResource *)resource
@@ -73,25 +53,7 @@
     [[self actions][index] conformsToProtocol:@protocol(ERNAction)];
 }
 
--(NSString *)notificationName
-{
-    return NSStringFromClass([self class]);
-}
-
--(void)notifyObservers
-{
-    [[self notificationCenter] postNotificationName:[self notificationName]
-                                             object:self];
-}
-
 #pragma mark - private - accessors
-
--(NSNotificationCenter *)notificationCenter
-{
-    return _notificationCenter = _notificationCenter ?
-    _notificationCenter :
-    [NSNotificationCenter new];
-}
 
 -(void)setCurrentAction:(id<ERNAction>)currentAction
 {

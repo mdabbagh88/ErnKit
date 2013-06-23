@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ERNAsyncRepository.h"
+#import "ERNBaseObservable.h"
 
-@interface ERNBaseAsyncRepository : NSObject <ERNAsyncRepository>
--(void)notifyObservers;
+@interface ERNBaseAsyncRepository : ERNBaseObservable <ERNAsyncRepository>
 @end

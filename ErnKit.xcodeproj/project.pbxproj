@@ -128,6 +128,7 @@
 		F74388FC173D320200676477 /* ERNDummyTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388FB173D320200676477 /* ERNDummyTableViewCellTest.m */; };
 		F74388FF173D32D000676477 /* ERNTableViewDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388FE173D32D000676477 /* ERNTableViewDataSourceTest.m */; };
 		F7438902173D3B2A00676477 /* ERNTableViewDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */; };
+		F7504C9F1777441B006EDD9B /* ERNBaseObservable.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504C9E17774214006EDD9B /* ERNBaseObservable.m */; };
 		F7765FD71775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */; };
 		F7765FDA1775F1D40058392C /* ERNNullTableViewItemManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD91775F1D40058392C /* ERNNullTableViewItemManagerTest.m */; };
 		F788B7A817523B71006226CA /* ERNDemoApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B79717523B71006226CA /* ERNDemoApplicationDelegate.m */; };
@@ -305,6 +306,8 @@
 		F74388FE173D32D000676477 /* ERNTableViewDataSourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDataSourceTest.m; sourceTree = "<group>"; };
 		F7438900173D3B2900676477 /* ERNTableViewDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewDelegateTest.h; sourceTree = "<group>"; };
 		F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDelegateTest.m; sourceTree = "<group>"; };
+		F7504C9D17774214006EDD9B /* ERNBaseObservable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNBaseObservable.h; sourceTree = "<group>"; };
+		F7504C9E17774214006EDD9B /* ERNBaseObservable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNBaseObservable.m; sourceTree = "<group>"; };
 		F75C2C52172D36D6008C3B82 /* ErnKitRestKitIntegration-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ErnKitRestKitIntegration-Prefix.pch"; sourceTree = "<group>"; };
 		F75C2F4E176DC8F900E990F6 /* ERNNullAsyncRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncRepository.h; sourceTree = "<group>"; };
 		F75C2F4F176DC8F900E990F6 /* ERNNullAsyncRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncRepository.m; sourceTree = "<group>"; };
@@ -329,6 +332,7 @@
 		F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactoryTest.m; sourceTree = "<group>"; };
 		F7765FD81775F1D40058392C /* ERNNullTableViewItemManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewItemManagerTest.h; sourceTree = "<group>"; };
 		F7765FD91775F1D40058392C /* ERNNullTableViewItemManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewItemManagerTest.m; sourceTree = "<group>"; };
+		F7765FEB177741760058392C /* ERNObservable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNObservable.h; sourceTree = "<group>"; };
 		F781C0201731C82100CED541 /* ERNRepositoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNRepositoryFactory.h; sourceTree = "<group>"; };
 		F787FB6617476598007D751A /* ERNTableViewItemManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNTableViewItemManager.h; sourceTree = "<group>"; };
 		F787FB67174765C0007D751A /* ERNDefaultTableViewItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultTableViewItemManager.h; sourceTree = "<group>"; };
@@ -1370,6 +1374,7 @@
 		F7F06AA1172D0A9900CA5FC4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F7765FEB177741760058392C /* ERNObservable.h */,
 				F7ABC272173518440035B164 /* ERNErrorHandler.h */,
 				F796D64A17368F98001A6891 /* ERNToggler.h */,
 				F788B7C117528C55006226CA /* ERNBinaryToggle.h */,
@@ -1383,6 +1388,8 @@
 				F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */,
 				F75C2F66176E43DD00E990F6 /* ERNResource.h */,
 				F75C2F67176E43DF00E990F6 /* ERNResource.m */,
+				F7504C9D17774214006EDD9B /* ERNBaseObservable.h */,
+				F7504C9E17774214006EDD9B /* ERNBaseObservable.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1727,6 +1734,7 @@
 				F73292751775AC85005EEBA8 /* ERNMapViewController+ERNAsyncItemsRepository.m in Sources */,
 				F73292761775AC85005EEBA8 /* ERNRestKitAsyncItemsRepository.m in Sources */,
 				F73292771775AC85005EEBA8 /* ERNRestKitPagingAsyncItemsRepository.m in Sources */,
+				F7504C9F1777441B006EDD9B /* ERNBaseObservable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

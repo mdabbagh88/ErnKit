@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "ERNObservable.h"
 
-@protocol ERNAsyncRepository <NSObject>
--(void)addObserver:(id)observer
-           selector:(SEL)selector;
--(void)removeObserver:(id)observer;
+@protocol ERNAsyncRepository <ERNObservable>
 -(void)refresh;
 @end

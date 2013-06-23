@@ -18,7 +18,7 @@
     return self;
 }
 
-#pragma mark - ERNAsyncRepository
+#pragma mark - ERNObservable
 
 -(void)addObserver:(id)observer
           selector:(SEL)selector

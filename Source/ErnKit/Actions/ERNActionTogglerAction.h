@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "ERNToggler.h"
 #import "ERNAction.h"
+#import "ERNBaseObservable.h"
 
-@interface ERNActionTogglerAction : NSObject <ERNToggler, ERNAction>
+@interface ERNActionTogglerAction : ERNBaseObservable <ERNToggler, ERNAction>
 +(instancetype)createWithActions:(NSArray *)actions;
 @end
