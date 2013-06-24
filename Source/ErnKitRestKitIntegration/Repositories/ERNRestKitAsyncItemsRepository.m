@@ -1,6 +1,8 @@
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import <RestKit/RestKit.h>
 
 @interface ERNRestKitAsyncItemsRepository ()

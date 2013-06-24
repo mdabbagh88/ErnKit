@@ -62,4 +62,60 @@
     [mockViewController verify];
 }
 
+-(void)testDimissNilViewControllerNilNavigationController
+{
+    //given
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
+
+    //when, then
+    [transitioner dismissViewController:nil];
+}
+
+-(void)testDimissNilViewControllerNavigationController
+{
+    //given
+    id mockNavigationController = [OCMockObject mockForClass:[UINavigationController class]];
+    [[mockNavigationController expect] popViewControllerAnimated:YES];
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:mockNavigationController];
+
+    //when
+    [transitioner dismissViewController:nil];
+
+    //then
+    [mockNavigationController verify];
+}
+
+-(void)testDimissNilNavigationController
+{
+    //given
+    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
+
+    //when
+    [transitioner dismissViewController:mockViewController];
+
+    //then
+    [mockViewController verify];
+}
+
+-(void)testDimissNavigationController
+{
+    //given
+    id mockNavigationController = [OCMockObject mockForClass:[UINavigationController class]];
+    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
+    [[mockNavigationController expect] popViewControllerAnimated:YES];
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:mockNavigationController];
+
+    //when
+    [transitioner dismissViewController:mockViewController];
+
+    //then
+    [mockNavigationController verify];
+    [mockViewController verify];
+}
+
 @end

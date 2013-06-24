@@ -2,7 +2,7 @@
 
 @protocol ERNAction;
 
-@interface ERNBaseUrlRoutingAction : NSObject
+@interface ERNBaseRoutingAction : NSObject
 +(instancetype)createWithActions:(NSDictionary *)actions;
 -(id<ERNAction>)validActionForRouting:(NSString *)routing;
 -(id)initWithActions:(NSDictionary *)actions;

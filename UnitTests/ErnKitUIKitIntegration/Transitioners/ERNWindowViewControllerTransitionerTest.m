@@ -56,6 +56,63 @@
 
     //then
     [mockViewController verify];
+    [mockWindow verify];
+}
+
+-(void)testDismissWithNilWindowNilViewController
+{
+    //given
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNWindowViewControllerTransitioner createWithWindow:nil];
+
+    //when, then
+    [transitioner dismissViewController:nil];
+}
+
+-(void)testDismissWithNilWindowViewController
+{
+    //given
+    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNWindowViewControllerTransitioner createWithWindow:nil];
+
+    //when
+    [transitioner dismissViewController:mockViewController];
+
+    //then
+    [mockViewController verify];
+}
+
+-(void)testDismissWithWindowNilViewController
+{
+    //given
+    id mockWindow = [OCMockObject mockForClass:[UIWindow class]];
+    [[mockWindow expect] setRootViewController:OCMOCK_ANY];
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNWindowViewControllerTransitioner createWithWindow:mockWindow];
+
+    //when
+    [transitioner dismissViewController:nil];
+
+    //then
+    [mockWindow verify];
+}
+
+-(void)testDismissWithWindowViewController
+{
+    //given
+    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
+    id mockWindow = [OCMockObject mockForClass:[UIWindow class]];
+    [[mockWindow expect] setRootViewController:OCMOCK_ANY];
+    id<ERNViewControllerTransitioner> transitioner =
+    [ERNWindowViewControllerTransitioner createWithWindow:mockWindow];
+
+    //when
+    [transitioner dismissViewController:mockViewController];
+
+    //then
+    [mockViewController verify];
+    [mockWindow verify];
 }
 
 @end

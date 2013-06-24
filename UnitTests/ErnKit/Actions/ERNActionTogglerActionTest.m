@@ -7,6 +7,21 @@
 
 @implementation ERNActionTogglerActionTest
 
+-(void)testSelectedIndexWithNilActions
+{
+    //given
+    NSUInteger expectedIndex = 5;
+    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
+    [actionTogglerAction setSelectedIndex:expectedIndex];
+
+    //when
+    NSUInteger selectedIndex = [actionTogglerAction selectedIndex];
+
+    //then
+    assertThatUnsignedInteger(selectedIndex, equalToUnsignedInteger(expectedIndex));
+
+}
+
 -(void)testToggleWithNilActionsToNilResource
 {
     //given

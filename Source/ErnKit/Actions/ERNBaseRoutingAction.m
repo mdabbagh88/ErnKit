@@ -1,13 +1,13 @@
-#import "ERNBaseUrlRoutingAction.h"
+#import "ERNBaseRoutingAction.h"
 #import "ERNAction.h"
 #import "ERNNullAction.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNBaseUrlRoutingAction ()
+@interface ERNBaseRoutingAction ()
 @property (nonatomic, readonly) NSDictionary *actions;
 @end
 
-@implementation ERNBaseUrlRoutingAction {
+@implementation ERNBaseRoutingAction {
 }
 
 #pragma mark - public

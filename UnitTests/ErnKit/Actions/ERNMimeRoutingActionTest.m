@@ -9,7 +9,7 @@
 -(void)testNilMimesNilResource
 {
     //given
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
+    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:nil];
 
     //when
     [action actionForResource:nil];
@@ -18,7 +18,7 @@
 -(void)testNilMimesResource
 {
     //given
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
+    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:nil];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@"mime"];
     
@@ -29,7 +29,7 @@
 -(void)testMimesNilResource
 {
     //given
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:nil];
+    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:nil];
     
     //when
     [action actionForResource:nil];
@@ -47,7 +47,7 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSDictionary *mimes = @{expectedMime : mockAction1,
                             @"mime2" : mockAction2};
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:mimes];
+    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:mimes];
     
     //when
     [action actionForResource:resource];
@@ -64,7 +64,7 @@
     id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
     NSDictionary *mimes = @{@"mime1" : mockAction1,
                             @"mime2" : mockAction2};
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:mimes];
+    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:mimes];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@"mime3"];
     
@@ -81,7 +81,7 @@
     //given
     NSDictionary *mimes = @{@"mime1" : @"",
                             @"mime2" : @[]};
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActionsForMimes:mimes];
+    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:mimes];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url1"]
                                                   mime:@"mime1"];
     

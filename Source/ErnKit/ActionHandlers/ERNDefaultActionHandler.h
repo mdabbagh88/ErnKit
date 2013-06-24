@@ -7,6 +7,6 @@
 
 @interface ERNDefaultActionHandler : NSObject <ERNActionHandler>
 +(instancetype)createWithAction:(id<ERNAction>)action
-                 resourceFactory:(id<ERNResourceFactory>)resourceFactory
+                resourceFactory:(id<ERNResourceFactory>)resourceFactory
                 repositoryStore:(id<ERNRepositoryStore>)repositoryStore;
 @end

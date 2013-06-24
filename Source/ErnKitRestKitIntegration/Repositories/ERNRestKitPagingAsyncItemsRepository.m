@@ -7,6 +7,8 @@
 #import "ERNRepositoryPaginator.h"
 #import "ERNNullRepositoryPaginator.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import <RestKit/RestKit.h>
 
 @interface ERNRestKitPagingAsyncItemsRepository ()

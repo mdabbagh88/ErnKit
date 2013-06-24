@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ERNAction.h"
-#import "ERNBaseUrlRoutingAction.h"
+#import "ERNBaseRoutingAction.h"
 
-@interface ERNUrlHostRoutingAction : ERNBaseUrlRoutingAction <ERNAction>
+@interface ERNUrlHostRoutingAction : ERNBaseRoutingAction <ERNAction>
 @end
