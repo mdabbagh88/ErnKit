@@ -3,6 +3,6 @@
 
 @protocol ERNAsyncItemRepository;
 
-@interface ERNItemToAsyncItemsRepository : ERNConverterAsyncRepository <ERNAsyncPaginatedItemsRepository>
+@interface ERNItemToPaginatedItemsRepository : ERNConverterAsyncRepository <ERNAsyncPaginatedItemsRepository>
 +(instancetype)createWithRepository:(id<ERNAsyncItemRepository>)repository;
 @end

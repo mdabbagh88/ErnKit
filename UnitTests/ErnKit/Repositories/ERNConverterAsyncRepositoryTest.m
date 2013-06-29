@@ -3,95 +3,28 @@
 #import <OCMock/OCMock.h>
 #import "ERNConverterAsyncRepositoryTest.h"
 #import "ERNConverterAsyncRepository.h"
+#import "ERNAsyncRepositoryTest.h"
+#import "ERNMockObserver.h"
 
-@implementation ERNConverterAsyncRepositoryTest
-
--(void)testRefreshNilRepository
-{
-    //given
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
-
-    //when, then
-    [repository refresh];
+@implementation ERNConverterAsyncRepositoryTest {
 }
 
--(void)testAddNilObserverNilSelectorNilRepository
-{
-    //given
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
+#pragma mark - ERNAsyncRepository protocol tests
 
-    //when, then
-    [repository addObserver:nil
-                   selector:nil];
+-(void)testAsyncRepositoryProtocolWithNilRepository
+{
+    [ERNAsyncRepositoryTest testAsyncRepository:
+     [ERNConverterAsyncRepository createWithRepository:nil]];
 }
 
--(void)testAddObserverNilSelectorNilRepository
+-(void)testAsyncRepositoryProtocolWithRepository
 {
-    //given
-    id mockObserver = [OCMockObject mockForClass:[NSObject class]];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
-
-    //when
-    [repository addObserver:mockObserver
-                   selector:nil];
-
-    //then
-    [mockObserver verify];
+    id niceMockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
+    [ERNAsyncRepositoryTest testAsyncRepository:
+     [ERNConverterAsyncRepository createWithRepository:niceMockRepository]];
 }
 
--(void)testAddNilObserverSelectorNilRepository
-{
-    //given
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
-
-    //when, then
-    [repository addObserver:nil
-                   selector:@selector(testAddNilObserverSelectorNilRepository)];
-}
-
--(void)testAddObserverSelectorNilRepository
-{
-    //given
-    id mockObserver = [OCMockObject mockForClass:[NSObject class]];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
-
-    //when
-    [repository addObserver:mockObserver
-                   selector:@selector(testAddNilObserverSelectorNilRepository)];
-
-    //then
-    [mockObserver verify];
-}
-
--(void)testRemoveNilObserverNilRepository
-{
-    //given
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
-
-    //when, then
-    [repository removeObserver:nil];
-
-}
-
--(void)testRemoveObserverNilRepository
-{
-    //given
-    id mockObserver = [OCMockObject mockForClass:[NSObject class]];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:nil];
-
-    //when
-    [repository removeObserver:mockObserver];
-
-    //then
-    [mockObserver verify];
-}
+#pragma mark - class tests
 
 -(void)testRefreshRepository
 {
@@ -108,91 +41,10 @@
     [mockRepository verify];
 }
 
--(void)testAddNilObserverNilSelectorRepository
-{
-    //given
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:mockRepository];
-
-    //when
-    [repository addObserver:nil
-                   selector:nil];
-
-    //then
-    [mockRepository verify];
-}
-
--(void)testAddObserverNilSelectorRepository
-{
-    //given
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    id mockObserver = [OCMockObject mockForClass:[NSObject class]];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:mockRepository];
-
-    //when
-    [repository addObserver:mockObserver
-                   selector:nil];
-
-    //then
-    [mockRepository verify];
-    [mockObserver verify];
-}
-
--(void)testAddNilObserverSelectorRepository
-{
-    //given
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:mockRepository];
-
-    //when
-    [repository addObserver:nil
-                   selector:@selector(testAddNilObserverSelectorNilRepository)];
-
-    //then
-    [mockRepository verify];
-}
-
--(void)testAddObserverSelectorRepository
-{
-    //given
-    id mockObserver = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    [[mockRepository expect] addObserver:mockObserver
-                                selector:@selector(testAddNilObserverSelectorRepository)];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:mockRepository];
-
-    //when
-    [repository addObserver:mockObserver
-                   selector:@selector(testAddNilObserverSelectorRepository)];
-
-    //then
-    [mockRepository verify];
-    [mockObserver verify];
-}
-
--(void)testRemoveNilObserverRepository
-{
-    //given
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    ERNConverterAsyncRepository *repository =
-    [[ERNConverterAsyncRepository alloc] initWithRepository:mockRepository];
-
-    //when
-    [repository removeObserver:nil];
-
-    //then
-    [mockRepository verify];
-
-}
-
 -(void)testRemoveObserverRepository
 {
     //given
-    id mockObserver = [OCMockObject mockForClass:[NSObject class]];
+    id mockObserver = [OCMockObject mockForClass:[ERNMockObserver class]];
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
     [[mockRepository expect] removeObserver:mockObserver];
     ERNConverterAsyncRepository *repository =
@@ -206,5 +58,27 @@
     [mockRepository verify];
 }
 
+-(void)testAddObserverSelectorRepository
+{
+    //given
+    id mockObserver = [OCMockObject mockForClass:[ERNMockObserver class]];
+    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
+    [[mockRepository expect] addObserver:mockObserver
+                                selector:@selector(dummyMethodForSelector)];
+    ERNConverterAsyncRepository *repository =
+    [[ERNConverterAsyncRepository alloc] initWithRepository:mockRepository];
+
+    //when
+    [repository addObserver:mockObserver
+                   selector:@selector(dummyMethodForSelector)];
+
+    //then
+    [mockRepository verify];
+    [mockObserver verify];
+}
+
+-(void)dummyMethodForSelector
+{
+}
 
 @end

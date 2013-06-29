@@ -3,8 +3,19 @@
 #import <OCMock/OCMock.h>
 #import "ERNNullAsyncItemRepositoryTest.h"
 #import "ERNNullAsyncItemRepository.h"
+#import "ERNAsyncItemRepositoryTest.h"
 
-@implementation ERNNullAsyncItemRepositoryTest
+@implementation ERNNullAsyncItemRepositoryTest {
+}
+
+#pragma mark - ERNAsyncItemRepository protocol tests
+
+-(void)testAsyncItemRepositoryProtocol
+{
+    [ERNAsyncItemRepositoryTest testAsyncItemRepository:[ERNNullAsyncItemRepository create]];
+}
+
+#pragma mark - class tests
 
 -(void)testItem
 {
@@ -16,7 +27,6 @@
 
     //then
     assertThat(item, equalTo([NSNull null]));
-
 }
 
 @end

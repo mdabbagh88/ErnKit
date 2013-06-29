@@ -8,6 +8,13 @@
 @implementation ERNConverterAsyncRepository {
 }
 
+#pragma mark - public - constructors
+
++(instancetype)createWithRepository:(id<ERNAsyncRepository>)repository
+{
+    return [[self alloc] initWithRepository:repository];
+}
+
 #pragma mark - public - initializers
 
 -(id)initWithRepository:(id<ERNAsyncRepository>)repository

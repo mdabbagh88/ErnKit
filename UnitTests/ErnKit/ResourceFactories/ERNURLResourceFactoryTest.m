@@ -4,16 +4,23 @@
 #import "ERNURLResourceFactoryTest.h"
 #import "ERNURLResourceFactory.h"
 #import "ERNResource.h"
+#import "ERNResourceFactoryTest.h"
 
-@implementation ERNURLResourceFactoryTest
+@implementation ERNURLResourceFactoryTest {
+}
+
+#pragma mark - ERNResourceFactory protocol tests
+
+-(void)testResourceFactoryProtocol
+{
+    [ERNResourceFactoryTest testResourceFactory:[ERNURLResourceFactory create]];
+}
+
+#pragma mark - class tests
 
 -(void)testMime
 {
-    //given, when
-    NSString *mime = [ERNURLResourceFactory mime];
-
-    //then
-    assertThat(mime, notNilValue());
+    assertThat([ERNURLResourceFactory mime], notNilValue());
 }
 
 -(void)testSingleton
@@ -27,46 +34,24 @@
     assertThat(factory1, equalTo(factory2));
 }
 
--(void)testResourceNilObject
+-(void)testResourceForUrl
 {
-    //given
     id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
-
-    //when
-    ERNResource *resource = [factory resourceForObject:nil];
-
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
-}
-
--(void)testResourceObject
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
-
-    //when
-    ERNResource *resource = [factory resourceForObject:mockObject];
-
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
-    [mockObject verify];
-}
-
--(void)testResourceURLObject
-{
-    //given
     NSURL *url = [NSURL URLWithString:@"url"];
-    id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
 
-    //when
     ERNResource *resource = [factory resourceForObject:url];
 
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
+    assertThat([resource url], equalTo(url));
+    assertThat([resource mime], equalTo([ERNURLResourceFactory mime]));
+}
+
+-(void)testResourceForNonUrl
+{
+    id<ERNResourceFactory> factory = [ERNURLResourceFactory create];
+
+    ERNResource *resource = [factory resourceForObject:@[]];
+
+    assertThat(resource, equalTo([ERNResource createNull]));
 }
 
 @end

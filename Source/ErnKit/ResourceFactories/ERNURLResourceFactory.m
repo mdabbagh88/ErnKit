@@ -27,8 +27,10 @@ static ERNURLResourceFactory *immutableSingleton;
 -(ERNResource *)resourceForObject:(NSURL *)url
 {
     ERNCheckNilAndReturn(url, [ERNResource createNull]);
-    return [ERNResource createWithUrl:url
-                                 mime:[[self class] mime]];
+    return [url isKindOfClass:[NSURL class]] ?
+    [ERNResource createWithUrl:url
+                          mime:[[self class] mime]] :
+    [ERNResource createNull];
 }
 
 #pragma mark - NSObject

@@ -1,12 +1,12 @@
-#import "ERNMergingAsyncItemsRepository.h"
+#import "ERNMergingAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNMergingAsyncItemsRepository ()
+@interface ERNMergingAsyncPaginatedItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> firstRepository;
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> restRepository;
 @end
 
-@implementation ERNMergingAsyncItemsRepository {
+@implementation ERNMergingAsyncPaginatedItemsRepository {
 }
 
 #pragma mark - public - constructors
@@ -87,13 +87,13 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self useFirstOnly] ?
-    [[self firstRepository] itemAtIndex:index] :
-    [self useRestOnly] ?
-    [[self restRepository] itemAtIndex:index] :
-    [self indexInFirst:index] ?
-    [[self firstRepository] itemAtIndex:index] :
-    [[self restRepository] itemAtIndex:index - [[self firstRepository] count]];
+    return [self validItem:[self useFirstOnly] ?
+            [[self firstRepository] itemAtIndex:index] :
+            [self useRestOnly] ?
+            [[self restRepository] itemAtIndex:index] :
+            [self indexInFirst:index] ?
+            [[self firstRepository] itemAtIndex:index] :
+            [[self restRepository] itemAtIndex:index - [[self firstRepository] count]]];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
@@ -110,12 +110,13 @@
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
-    return [self useFirstOnly] ?
-    [[self firstRepository] filteredArrayUsingPredicate:predicate] :
-    [self useRestOnly] ?
-    [[self restRepository] filteredArrayUsingPredicate:predicate] :
-    [[[self firstRepository] filteredArrayUsingPredicate:predicate]
-     arrayByAddingObjectsFromArray:[[self restRepository] filteredArrayUsingPredicate:predicate]];
+    return [self validArray:[self useFirstOnly] ?
+            [[self firstRepository] filteredArrayUsingPredicate:predicate] :
+            [self useRestOnly] ?
+            [[self restRepository] filteredArrayUsingPredicate:predicate] :
+            [[[self firstRepository] filteredArrayUsingPredicate:predicate]
+             arrayByAddingObjectsFromArray:[[self restRepository]
+                                            filteredArrayUsingPredicate:predicate]]];
 }
 
 #pragma mark - ERNAsyncRepository

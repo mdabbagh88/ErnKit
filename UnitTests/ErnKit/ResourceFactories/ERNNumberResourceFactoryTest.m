@@ -4,16 +4,48 @@
 #import "ERNNumberResourceFactoryTest.h"
 #import "ERNNumberResourceFactory.h"
 #import "ERNResource.h"
+#import "ERNResourceFactoryTest.h"
 
-@implementation ERNNumberResourceFactoryTest
+@implementation ERNNumberResourceFactoryTest {
+}
+
+#pragma mark - ERNResourceFactory protocol tests
+
+-(void)testResourceFactoryProtocol
+{
+    [ERNResourceFactoryTest testResourceFactory:[ERNNumberResourceFactory create]];
+}
+
+#pragma mark - class tests
 
 -(void)testMime
 {
-    //given, when
-    NSString *mime = [ERNNumberResourceFactory mime];
-    
-    //then
-    assertThat(mime, notNilValue());
+    assertThat([ERNNumberResourceFactory mime], notNilValue());
+}
+
+-(void)testScheme
+{
+    assertThat([ERNNumberResourceFactory scheme], notNilValue());
+}
+
+
+-(void)testResourceForNonNumber
+{
+    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
+
+    ERNResource *resource = [factory resourceForObject:@[]];
+
+    assertThat(resource, equalTo([ERNResource createNull]));
+}
+
+-(void)testResourceForNumber
+{
+    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
+
+    ERNResource *resource = [factory resourceForObject:@2];
+
+    assertThat([[resource url] scheme], equalTo([ERNNumberResourceFactory scheme]));
+    assertThat([resource mime], equalTo([ERNNumberResourceFactory mime]));
 }
 
 -(void)testSingleton
@@ -25,34 +57,6 @@
     //then
     assertThat(factory1, notNilValue());
     assertThat(factory1, equalTo(factory2));
-}
-
--(void)testResourceNilObject
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
-    
-    //when
-    ERNResource *resource = [factory resourceForObject:nil];
-    
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
-}
-
--(void)testResourceObject
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNNumberResourceFactory create];
-    
-    //when
-    ERNResource *resource = [factory resourceForObject:mockObject];
-    
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
-    [mockObject verify];
 }
 
 @end

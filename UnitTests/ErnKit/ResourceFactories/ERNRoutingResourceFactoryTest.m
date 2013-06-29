@@ -4,36 +4,39 @@
 #import "ERNRoutingResourceFactoryTest.h"
 #import "ERNRoutingResourceFactory.h"
 #import "ERNResource.h"
+#import "ERNResourceFactoryTest.h"
 
-@implementation ERNRoutingResourceFactoryTest
-
--(void)testResourceNilObjectNilMappings
-{
-    //given
-    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:nil];
-    
-    //when
-    ERNResource *resource = [factory resourceForObject:nil];
-    
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
+@implementation ERNRoutingResourceFactoryTest {
 }
 
--(void)testResourecObjectNilMappings
+#pragma mark - ERNResourceFactory protocol tests
+
+-(void)testResourceFactoryProtocolNilMappings
 {
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:nil];
-    
-    //when
-    ERNResource *resource = [factory resourceForObject:mockObject];
-    
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
-    [mockObject verify];
+    [ERNResourceFactoryTest testResourceFactory:
+     [ERNRoutingResourceFactory createWithMappings:nil]];
 }
+
+-(void)testResourceFactoryProtocolMappings
+{
+
+    id mockFactory = [OCMockObject niceMockForProtocol:@protocol(ERNResourceFactory)];
+    NSDictionary *mappings = @{NSStringFromClass([NSObject class]) : mockFactory};
+
+    [ERNResourceFactoryTest testResourceFactory:
+     [ERNRoutingResourceFactory createWithMappings:mappings]];
+}
+
+
+-(void)testResourceFactoryProtocolNonMappings
+{
+    id mockObject = [OCMockObject mockForClass:[NSArray class]];
+    NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : @""};
+    [ERNResourceFactoryTest testResourceFactory:
+     [ERNRoutingResourceFactory createWithMappings:mappings]];
+}
+
+#pragma mark - class tests
 
 -(void)testResourceNilObjectMappings
 {
@@ -87,26 +90,9 @@
     ERNResource *resource = [factory resourceForObject:mockObject];
     
     //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
+    assertThat(resource, notNilValue());
     [mockObject verify];
     [mockFactory verify];
-}
-
--(void)testResourceObjectNonFactoryMappings
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSArray class]];
-    NSDictionary *mappings = @{NSStringFromClass([mockObject class]) : @""};
-    id<ERNResourceFactory> factory = [ERNRoutingResourceFactory createWithMappings:mappings];
-    
-    //when
-    ERNResource *resource = [factory resourceForObject:mockObject];
-    
-    //then
-    assertThat([resource mime], notNilValue());
-    assertThat([resource url], notNilValue());
-    [mockObject verify];
 }
 
 @end

@@ -3,21 +3,27 @@
 #import <OCMock/OCMock.h>
 #import "ERNObjectAsyncItemRepositoryTest.h"
 #import "ERNObjectAsyncItemRepository.h"
+#import "ERNAsyncItemRepositoryTest.h"
 
-@implementation ERNObjectAsyncItemRepositoryTest
-
--(void)testItemNilItem
-{
-    //given
-    id<ERNAsyncItemRepository> repository =
-    [ERNObjectAsyncItemRepository createWithItem:nil];
-
-    //when
-    id<NSObject> item = [repository item];
-
-    //then
-    assertThat(item, equalTo([NSNull null]));
+@implementation ERNObjectAsyncItemRepositoryTest {
 }
+
+#pragma mark - ERNAsyncItemRepository protocol tests
+
+-(void)testAsyncItemRepositoryProtocolWithNilItem
+{
+    [ERNAsyncItemRepositoryTest testAsyncItemRepository:
+     [ERNObjectAsyncItemRepository createWithItem:nil]];
+}
+
+-(void)testAsyncItemRepositoryProtocolWithItem
+{
+    [ERNAsyncItemRepositoryTest testAsyncItemRepository:
+     [ERNObjectAsyncItemRepository createWithItem:
+      [OCMockObject mockForClass:[NSObject class]]]];
+}
+
+#pragma mark - class tests
 
 -(void)testItemItem
 {

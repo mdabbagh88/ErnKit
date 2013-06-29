@@ -4,8 +4,21 @@
 #import <UIKit/UIKit.h>
 #import "ERNTogglingTableViewManagerTest.h"
 #import "ERNTogglingTableViewManager.h"
+#import "ERNTogglerTest.h"
 
-@implementation ERNTogglingTableViewManagerTest
+@implementation ERNTogglingTableViewManagerTest {
+}
+
+#pragma mark - ERNToggler protocol tests
+
+-(void)testTogglerProtocolWithNilTableViewManagersNilTableView
+{
+    [ERNTogglerTest testToggler:
+     [ERNTogglingTableViewManager createWithTableViewManagers:nil
+                                                    tableView:nil]];
+}
+
+#pragma mark - class tests
 
 -(void)testNilTableViewCellForNilIndexPathNilManagersNilTableView
 {

@@ -3,8 +3,20 @@
 #import <OCMock/OCMock.h>
 #import "ERNNullAsyncPaginatedItemsRepositoryTest.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
+#import "ERNAsyncPaginatedItemsRepositoryTest.h"
 
-@implementation ERNNullAsyncPaginatedItemsRepositoryTest
+@implementation ERNNullAsyncPaginatedItemsRepositoryTest {
+}
+
+#pragma mark - ERNAsyncPaginatedItemsRepository protocol test
+
+-(void)testAsyncPaginatedItemsRepositoryProtocol
+{
+    [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
+     [ERNNullAsyncPaginatedItemsRepository create]];
+}
+
+#pragma mark - class tests
 
 -(void)testItemAtIndex
 {
@@ -19,59 +31,6 @@
     
 }
 
--(void)testEnumerateItemsUsingNilBlock
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
-
-    //when, then
-    [repository enumerateItemsUsingBlock:nil];
-}
-
--(void)testEnumerateItemsUsingBlock
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
-    __block BOOL called = NO;
-
-    //when
-    [repository enumerateItemsUsingBlock:
-     ^(id<NSObject> item, NSUInteger index, BOOL *stop) {
-        called = YES;
-     }];
-
-    //then
-    assertThatBool(called, equalToBool(NO));
-}
-
--(void)testFilteredArrayUsingNilPredicate
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
-
-    //when
-    NSArray *array = [repository filteredArrayUsingPredicate:nil];
-
-    //then
-    assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
-}
-
--(void)testFilteredArrayUsingPredicate
-{
-    //given
-    id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
-
-    //when
-    NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
-
-    //then
-    [mockPredicate verify];
-    assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
-}
-
 -(void)testTotal
 {
     //given
@@ -84,7 +43,7 @@
     assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
 }
 
--(void)testFetched
+-(void)testCount
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
@@ -130,24 +89,6 @@
 
     //then
     assertThatBool(hasNext, equalToBool(NO));
-}
-
--(void)testFetchNext
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
-
-    //when, then
-    [repository fetchNext];
-}
-
--(void)testFetchPrevious
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
-
-    //when, then
-    [repository fetchPrevious];
 }
 
 @end

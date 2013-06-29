@@ -3,4 +3,5 @@
 
 @interface ERNConverterAsyncRepository : NSObject <ERNAsyncRepository>
 -(id)initWithRepository:(id<ERNAsyncRepository>)repository;
++(instancetype)createWithRepository:(id<ERNAsyncRepository>)repository;
 @end

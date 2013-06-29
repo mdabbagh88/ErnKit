@@ -1,17 +1,36 @@
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
-#import "ERNItemToAsyncItemsRepositoryTest.h"
-#import "ERNItemToAsyncItemsRepository.h"
+#import "ERNItemToPaginatedItemsRepositoryTest.h"
+#import "ERNItemToPaginatedItemsRepository.h"
 #import "ERNAsyncItemRepository.h"
+#import "ERNAsyncPaginatedItemsRepositoryTest.h"
 
-@implementation ERNItemToAsyncItemsRepositoryTest
+@implementation ERNItemToPaginatedItemsRepositoryTest {
+}
+
+#pragma mark - ERNAsyncPaginatedItemsRepository protocol tests
+
+-(void)testAsyncPaginatedItemsRepositoryProtocolWithNilRepository
+{
+    [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
+     [ERNItemToPaginatedItemsRepository createWithRepository:nil]];
+}
+
+-(void)testAsyncPaginatedItemsRepositoryProtocolWithRepository
+{
+    id niceMockRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncItemRepository)];
+    [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
+     [ERNItemToPaginatedItemsRepository createWithRepository:niceMockRepository]];
+}
+
+#pragma mark - class tests
 
 -(void)testOffsetNilRepository
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
     //when
     NSUInteger offset = [repository offset];
@@ -24,7 +43,7 @@
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
     //when
     NSUInteger total = [repository total];
@@ -37,7 +56,7 @@
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
     //when
     NSUInteger count = [repository count];
@@ -50,7 +69,7 @@
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
     __block NSUInteger called = 0;
 
     //when
@@ -63,16 +82,6 @@
     assertThatUnsignedInteger(called, equalToUnsignedInteger(1));
 }
 
--(void)testEnumerateItemsUsingNilBlockNilRepository
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
-
-    //when, then
-    [repository enumerateItemsUsingBlock:nil];
-}
-
 -(void)testFilteredArrayUsingPredicateNilRepository
 {
     //given
@@ -80,7 +89,7 @@
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
     [[[mockPredicate expect] andReturnValue:@YES] evaluateWithObject:expectedItem];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
     //when
     NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
@@ -92,25 +101,11 @@
     assertThat(array[0], equalTo(expectedItem));
 }
 
--(void)testFilteredArrayUsingNilPredicateNilRepository
-{
-    //given
-    id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
-
-    //when
-    NSArray *array = [repository filteredArrayUsingPredicate:nil];
-
-    //then
-    assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
-}
-
 -(void)testItemAtIndexNilRepository
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
     //when
     id<NSObject> item = [repository itemAtIndex:0];
@@ -124,7 +119,7 @@
 {
     //given
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:nil];
+    [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
     //when
     id<NSObject> item = [repository itemAtIndex:10];
@@ -139,7 +134,7 @@
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
+    [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
 
     //when
     NSUInteger offset = [repository offset];
@@ -153,7 +148,7 @@
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
+    [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
 
     //when
     NSUInteger total = [repository total];
@@ -167,7 +162,7 @@
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
+    [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
 
     //when
     NSUInteger count = [repository count];
@@ -183,7 +178,7 @@
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
     [[[mockRepository expect] andReturn:mockItem] item];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
+    [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
     __block NSUInteger called = 0;
 
     //when
@@ -197,19 +192,6 @@
     assertThatUnsignedInteger(called, equalToUnsignedInteger(1));
 }
 
--(void)testEnumerateItemsUsingNilBlockRepository
-{
-    //given
-    id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
-    [[[mockRepository expect] andReturn:mockItem] item];
-    id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
-
-    //when, then
-    [repository enumerateItemsUsingBlock:nil];
-}
-
 -(void)testFilteredArrayUsingPredicateRepository
 {
     //given
@@ -219,7 +201,7 @@
     id mockPredicate = [OCMockObject mockForClass:[NSPredicate class]];
     [[[mockPredicate expect] andReturnValue:@YES] evaluateWithObject:mockItem];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
+    [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
 
     //when
     NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
@@ -231,29 +213,12 @@
     assertThat(array[0], equalTo(mockItem));
 }
 
--(void)testFilteredArrayUsingNilPredicateRepository
-{
-    //given
-    id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
-    [[[mockRepository expect] andReturn:mockItem] item];
-    id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
-
-    //when
-    NSArray *array = [repository filteredArrayUsingPredicate:nil];
-
-    //then
-    assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
-}
-
--(void)testItemAtIndexRepository
+-(void)testItemAtIndexOutOfBoundsRepository
 {
     //given
     id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncItemRepository)];
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [ERNItemToAsyncItemsRepository createWithRepository:mockRepository];
+    [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
 
     //when
     id<NSObject> item = [repository itemAtIndex:10];

@@ -7,98 +7,81 @@
 #import "NSURL+ERNHelper.h"
 #import "ERNResourceFactory.h"
 #import "ERNRepositoryStore.h"
+#import "ERNActionHandlerTest.h"
 
-@implementation ERNDefaultActionHandlerTest
-
-
--(void)testActionWithActionNilResourceFactoryNilRepositoryStoreNilObject
-{
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                   resourceFactory:nil
-                                                                   repositoryStore:nil];
-    
-    //when, then
-    [actionHandler actionForObject:nil];
+@implementation ERNDefaultActionHandlerTest {
 }
 
--(void)testActionWithActionResourceFactoryNilRepositoryStoreNilObject
-{
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                   resourceFactory:mockResourceFactory
-                                                                   repositoryStore:nil];
-    
-    //when, then
-    [actionHandler actionForObject:nil];
-}
+#pragma mark - ERNActionHandler protocol tests
 
--(void)testActionWithActionResourceFactoryRepositoryStoreNilObject
+-(void)testActionHandlerProtocolWithNilActionNilResourceFactoryNilRepositoryFactory
 {
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                   resourceFactory:mockResourceFactory
-                                                                   repositoryStore:mockRepositoryStore];
-    
-    //when, then
-    [actionHandler actionForObject:nil];
-}
-
--(void)testActionWithNilActionResourceFactoryRepositoryStoreNilObject
-{
-    //given
-    id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                   resourceFactory:mockResourceFactory
-                                                                   repositoryStore:mockRepositoryStore];
-    
-    //when, then
-    [actionHandler actionForObject:nil];
-}
-
--(void)testActionWithNilActionNilResourceFactoryRepositoryStoreNilObject
-{
-    //given
-    id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                   resourceFactory:nil
-                                                                   repositoryStore:mockRepositoryStore];
-    
-    //when, then
-    [actionHandler actionForObject:nil];
-}
-
--(void)testActionWithActionNilResourceFactoryRepositoryStoreNilObject
-{
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:mockAction
-                                                                   resourceFactory:nil
-                                                                   repositoryStore:mockRepositoryStore];
-    
-    //when, then
-    [actionHandler actionForObject:nil];
-}
-
--(void)testActionWithNilActionNilResourceFactoryNilRepositoryStore
-{
-    //given
-    id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
     id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
                                                                    resourceFactory:nil
                                                                    repositoryStore:nil];
-    
-    //when, then
-    [actionHandler actionForObject:mockObject];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
 }
+
+-(void)testActionHandlerProtocolWithActionNilResourceFactoryNilRepositoryFactory
+{
+    id niceMockAction = [OCMockObject niceMockForProtocol:@protocol(ERNAction)];
+    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:niceMockAction
+                                                                   resourceFactory:nil
+                                                                   repositoryStore:nil];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
+}
+
+-(void)testActionHandlerProtocolWithActionResourceFactoryNilRepositoryFactory
+{
+    id niceMockAction = [OCMockObject niceMockForProtocol:@protocol(ERNAction)];
+    id niceMockResourceFactory = [OCMockObject niceMockForProtocol:@protocol(ERNResourceFactory)];
+    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:niceMockAction
+                                                                   resourceFactory:niceMockResourceFactory
+                                                                   repositoryStore:nil];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
+}
+
+-(void)testActionHandlerProtocolWithActionResourceFactoryRepositoryFactory
+{
+    id niceMockAction = [OCMockObject niceMockForProtocol:@protocol(ERNAction)];
+    id niceMockResourceFactory = [OCMockObject niceMockForProtocol:@protocol(ERNResourceFactory)];
+    id niceMockRepositoryStore = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryStore)];
+    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:niceMockAction
+                                                                   resourceFactory:niceMockResourceFactory
+                                                                   repositoryStore:niceMockRepositoryStore];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
+}
+
+-(void)testActionHandlerProtocolWithNilActionResourceFactoryRepositoryFactory
+{
+    id niceMockResourceFactory = [OCMockObject niceMockForProtocol:@protocol(ERNResourceFactory)];
+    id niceMockRepositoryStore = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryStore)];
+    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
+                                                                   resourceFactory:niceMockResourceFactory
+                                                                   repositoryStore:niceMockRepositoryStore];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
+}
+
+-(void)testActionHandlerProtocolWithNilActionNilResourceFactoryRepositoryFactory
+{
+    id niceMockRepositoryStore = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryStore)];
+    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
+                                                                   resourceFactory:nil
+                                                                   repositoryStore:niceMockRepositoryStore];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
+}
+
+-(void)testActionHandlerProtocolWithActionNilResourceFactoryRepositoryFactory
+{
+    id niceMockAction = [OCMockObject niceMockForProtocol:@protocol(ERNAction)];
+    id niceMockRepositoryStore = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryStore)];
+    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:niceMockAction
+                                                                   resourceFactory:nil
+                                                                   repositoryStore:niceMockRepositoryStore];
+    [ERNActionHandlerTest testActionHandler:actionHandler];
+}
+
+#pragma mark - class tests
 
 -(void)testActionWithActionNilResourceFactoryNilRepositoryStore
 {
@@ -167,33 +150,6 @@
     [mockResourceFactory verify];
     [mockAction verify];
     [mockRepositoryStore verify];
-}
-
--(void)testActionWithNilActionResourceFactoryRepositoryStore
-{
-    //given
-    id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
-    id mockResourceFactory = [OCMockObject mockForProtocol:@protocol(ERNResourceFactory)];
-    id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                   resourceFactory:mockResourceFactory
-                                                                   repositoryStore:mockRepositoryStore];
-    
-    //when
-    [actionHandler actionForObject:mockObject];
-}
-
--(void)testActionWithNilActionNilResourceFactoryRepositoryStore
-{
-    //given
-    id mockObject = [OCMockObject mockForProtocol:@protocol(NSObject)];
-    id mockRepositoryStore = [OCMockObject mockForProtocol:@protocol(ERNRepositoryStore)];
-    id<ERNActionHandler> actionHandler = [ERNDefaultActionHandler createWithAction:nil
-                                                                   resourceFactory:nil
-                                                                   repositoryStore:mockRepositoryStore];
-    
-    //when
-    [actionHandler actionForObject:mockObject];
 }
 
 -(void)testActionWithActionNilResourceFactoryRepositoryStore

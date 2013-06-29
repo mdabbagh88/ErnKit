@@ -1,13 +1,13 @@
-#import "ERNItemsToAsyncItemRepository.h"
+#import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 
-@interface ERNItemsToAsyncItemRepository ()
+@interface ERNPaginatedItemsToItemRepository ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>repository;
 @end
 
-@implementation ERNItemsToAsyncItemRepository {
+@implementation ERNPaginatedItemsToItemRepository {
     id<ERNAsyncPaginatedItemsRepository> _repository;
 }
 

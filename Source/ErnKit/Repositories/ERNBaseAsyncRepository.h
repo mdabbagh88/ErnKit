@@ -3,4 +3,5 @@
 #import "ERNBaseObservable.h"
 
 @interface ERNBaseAsyncRepository : ERNBaseObservable <ERNAsyncRepository>
++(instancetype)create;
 @end

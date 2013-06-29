@@ -13,6 +13,8 @@ Pod::Spec.new do |s|
   }
   s.platform     = :ios, '5.0'
   s.requires_arc = true
+  s.default_subspec = 'Core'
+
   s.subspec 'Core' do |core|
     core.source_files = 'Source/ErnKit/**/*.{h,m}'
     core.frameworks = 'Foundation'
@@ -33,5 +35,11 @@ Pod::Spec.new do |s|
     restkit.dependency 'ErnKit/Core'
     restkit.dependency 'RestKit'
     restkit.frameworks = 'Foundation'
+  end
+  s.subspec 'CoreProtocolTest' do |core_test|
+    core_test.source_files = 'ProtocolTests/ErnKit/**/*.{h,m}'
+    core_test.dependency 'OCMock'
+    core_test.dependency 'OCHamcrest'
+    core_test.frameworks = 'Foundation'
   end
 end

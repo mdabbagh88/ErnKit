@@ -1,5 +1,5 @@
 #import "ERNRestKitPagingAsyncItemsRepository.h"
-#import "ERNItemsToAsyncItemRepository.h"
+#import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
@@ -43,7 +43,7 @@
 -(void)refresh
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[ERNItemsToAsyncItemRepository
+    [self setRepository:[ERNPaginatedItemsToItemRepository
                          createWithRepository:[ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
                                                [ERNRestKitAsyncItemsRepository
                                                 createWithUrl:[self url]
@@ -70,7 +70,7 @@
 -(void)fetchPrevious
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[ERNItemsToAsyncItemRepository
+    [self setRepository:[ERNPaginatedItemsToItemRepository
                          createWithRepository:
                          [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
                          [ERNRestKitAsyncItemsRepository
@@ -94,7 +94,7 @@
 -(void)fetchNext
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[ERNItemsToAsyncItemRepository
+    [self setRepository:[ERNPaginatedItemsToItemRepository
                          createWithRepository:
                          [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
                          [ERNRestKitAsyncItemsRepository

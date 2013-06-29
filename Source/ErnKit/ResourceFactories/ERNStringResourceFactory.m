@@ -15,6 +15,11 @@ static ERNStringResourceFactory *immutableSingleton;
     return @"application/x-ern-string";
 }
 
++(NSString *)scheme
+{
+    return @"string";
+}
+
 #pragma mark - public - constructors
 
 +(instancetype)create
@@ -27,9 +32,11 @@ static ERNStringResourceFactory *immutableSingleton;
 -(ERNResource *)resourceForObject:(NSString *)string
 {
     ERNCheckNilAndReturn(string, [ERNResource createNull]);
-    return [ERNResource createWithUrl:
-            [NSURL URLWithString:[NSString stringWithFormat:@"string:%@", string]]
-                                 mime:[[self class] mime]];
+    return [string isKindOfClass:[NSString class]] ?
+    [ERNResource createWithUrl:
+     [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", [[self class] scheme], string]]
+                          mime:[[self class] mime]] :
+    [ERNResource createNull];
 }
 
 -(NSString *)mimeForObject:(NSString *)string

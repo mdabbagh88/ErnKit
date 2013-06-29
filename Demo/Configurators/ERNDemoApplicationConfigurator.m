@@ -9,7 +9,7 @@
     id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;
     id<ERNAsyncPaginatedItemsRepository> _repositorySecondFeed;
     id<ERNAsyncPaginatedItemsRepository> _repositoryBothFeeds;
-    ERNTogglingAsyncItemsRepository *_repository;
+    ERNTogglingAsyncPaginatedItemsRepository *_repository;
     UINavigationController *_navigationControllerMapTab;
     UINavigationController *_navigationControllerTableTab;
     UITabBarController *_tabBarController;
@@ -71,7 +71,7 @@
 {
     return _repositoryBothFeeds = _repositoryBothFeeds ?
     _repositoryBothFeeds :
-    [ERNMergingAsyncItemsRepository createWithFirstRepository:[self repositoryFirstFeed]
+    [ERNMergingAsyncPaginatedItemsRepository createWithFirstRepository:[self repositoryFirstFeed]
                                                restRepository:[self repositorySecondFeed]];
 }
 
@@ -84,11 +84,11 @@
       [self repositorySecondFeed]];
 }
 
--(ERNTogglingAsyncItemsRepository *)repository
+-(ERNTogglingAsyncPaginatedItemsRepository *)repository
 {
     return _repository = _repository ?
     _repository :
-    [ERNTogglingAsyncItemsRepository createWithRepositories:[self repositories]];
+    [ERNTogglingAsyncPaginatedItemsRepository createWithRepositories:[self repositories]];
 }
 
 -(UINavigationController *)navigationControllerMapTab

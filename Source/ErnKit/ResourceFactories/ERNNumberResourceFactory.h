@@ -3,5 +3,6 @@
 
 @interface ERNNumberResourceFactory : NSObject <ERNResourceFactory>
 +(NSString *)mime;
++(NSString *)scheme;
 +(instancetype)create;
 @end

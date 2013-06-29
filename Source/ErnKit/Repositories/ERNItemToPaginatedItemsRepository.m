@@ -1,12 +1,12 @@
-#import "ERNItemToAsyncItemsRepository.h"
+#import "ERNItemToPaginatedItemsRepository.h"
 #import "ERNAsyncItemRepository.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNItemToAsyncItemsRepository ()
+@interface ERNItemToPaginatedItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncItemRepository>repository;
 @end
 
-@implementation ERNItemToAsyncItemsRepository {
+@implementation ERNItemToPaginatedItemsRepository {
 }
 
 #pragma mark - public - constructors

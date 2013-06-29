@@ -15,6 +15,11 @@ static ERNNumberResourceFactory *immutableSingleton;
     return @"application/x-ern-number";
 }
 
++(NSString *)scheme
+{
+    return @"number";
+}
+
 #pragma mark - public - constructors
 
 +(instancetype)create
@@ -27,9 +32,12 @@ static ERNNumberResourceFactory *immutableSingleton;
 -(ERNResource *)resourceForObject:(NSNumber *)number
 {
     ERNCheckNilAndReturn(number, [ERNResource createNull]);
-    return [ERNResource createWithUrl:
-            [NSURL URLWithString:[NSString stringWithFormat:@"number:%@", number]]
-                                 mime:[[self class] mime]];
+    return [number isKindOfClass:[NSNumber class]] ?
+    [ERNResource createWithUrl:
+            [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@",
+                                  [[self class] scheme], number]]
+                          mime:[[self class] mime]] :
+    [ERNResource createNull];
 }
 
 #pragma mark - NSObject

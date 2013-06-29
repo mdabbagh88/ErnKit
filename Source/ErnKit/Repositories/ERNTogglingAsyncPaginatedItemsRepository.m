@@ -1,14 +1,14 @@
-#import "ERNTogglingAsyncItemsRepository.h"
+#import "ERNTogglingAsyncPaginatedItemsRepository.h"
 #import "NSObject+ERNHelper.h"
 #import "ERNErrorHandler.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 
-@interface ERNTogglingAsyncItemsRepository ()
+@interface ERNTogglingAsyncPaginatedItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>currentRepository;
 @property (nonatomic, readonly) NSArray *repositories;
 @end
 
-@implementation ERNTogglingAsyncItemsRepository {
+@implementation ERNTogglingAsyncPaginatedItemsRepository {
     NSUInteger _selectedIndex;
 }
 
@@ -76,7 +76,7 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [[self currentRepository] itemAtIndex:index];
+    return [self validItem:[[self currentRepository] itemAtIndex:index]];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
@@ -88,7 +88,7 @@
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
     ERNCheckNilAndReturn(predicate, @[]);
-    return [[self currentRepository] filteredArrayUsingPredicate:predicate];
+    return [self validArray:[[self currentRepository] filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - ERNAsyncRepository
@@ -145,6 +145,16 @@
 -(void)currentRepositoryRefreshed
 {
     [self notifyObservers];
+}
+
+-(NSArray *)validArray:(NSArray *)array
+{
+    return array ? array : @[];
+}
+
+-(id<NSObject>)validItem:(id<NSObject>)item
+{
+    return item ? item : [NSNull null];
 }
 
 #pragma mark - private - initializers

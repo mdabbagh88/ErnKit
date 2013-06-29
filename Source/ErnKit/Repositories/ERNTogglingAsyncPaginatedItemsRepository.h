@@ -2,6 +2,6 @@
 #import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNToggler.h"
 
-@interface ERNTogglingAsyncItemsRepository : ERNBaseAsyncRepository <ERNAsyncPaginatedItemsRepository, ERNToggler>
+@interface ERNTogglingAsyncPaginatedItemsRepository : ERNBaseAsyncRepository <ERNAsyncPaginatedItemsRepository, ERNToggler>
 +(instancetype)createWithRepositories:(NSArray *)repositories;
 @end
