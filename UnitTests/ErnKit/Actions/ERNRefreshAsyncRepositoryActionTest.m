@@ -4,57 +4,63 @@
 #import "ERNRefreshAsyncRepositoryActionTest.h"
 #import "ERNRefreshAsyncRepositoryAction.h"
 #import "ERNAsyncRepository.h"
+#import "ERNActionTest.h"
 
-@implementation ERNRefreshAsyncRepositoryActionTest
+@interface ERNRefreshAsyncRepositoryActionTest ()
+@property (nonatomic) id<ERNAction> repositoryAction;
+@property (nonatomic) id mockRepository;
+@end
 
--(void)testActionNilResourceNilRepository
-{
-    //given
-    id<ERNAction> action = [ERNRefreshAsyncRepositoryAction createWithRepository:nil];
-    
-    //when, then
-    [action actionForResource:nil];
+@implementation ERNRefreshAsyncRepositoryActionTest {
 }
 
--(void)testActionResourceNilRepository
+#pragma mark - SenTestCase
+
+-(void)setUp
 {
-    //given
-    id<ERNAction> action = [ERNRefreshAsyncRepositoryAction createWithRepository:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@"mime"];
-    
-    //when, then
-    [action actionForResource:resource];
+    [self setMockRepository:[OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)]];
+    [self setRepositoryAction:
+     [ERNRefreshAsyncRepositoryAction createWithRepository:[self mockRepository]]];
 }
+
+-(void)tearDown
+{
+    [[self mockRepository] verify];
+}
+
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocolNilRepository
+{
+    [ERNActionTest testAction:[ERNRefreshAsyncRepositoryAction createWithRepository:nil]];
+}
+
+-(void)testActionProtocolRepository
+{
+    [ERNActionTest testAction:
+     [ERNRefreshAsyncRepositoryAction createWithRepository:
+      [OCMockObject niceMockForProtocol:@protocol(ERNAsyncRepository)]]];
+}
+
+#pragma mark - class tests
 
 -(void)testActionNilResourceRepository
 {
     //given
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    [[mockRepository expect] refresh];
-    id<ERNAction> action = [ERNRefreshAsyncRepositoryAction createWithRepository:mockRepository];
+    [[[self mockRepository] expect] refresh];
     
     //when
-    [action actionForResource:nil];
-    
-    //then
-    [mockRepository verify];
+    [[self repositoryAction] actionForResource:nil];
 }
 
 -(void)testActionResourceRepository
 {
     //given
-    id mockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
-    [[mockRepository expect] refresh];
-    id<ERNAction> action = [ERNRefreshAsyncRepositoryAction createWithRepository:mockRepository];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@"mime"];
-    
+    [[[self mockRepository] expect] refresh];
+
     //when
-    [action actionForResource:resource];
-    
-    //then
-    [mockRepository verify];
+    [[self repositoryAction] actionForResource:
+     [ERNResource createWithUrl:[NSURL URLWithString:@"url"] mime:@"mime"]];
 }
 
 @end

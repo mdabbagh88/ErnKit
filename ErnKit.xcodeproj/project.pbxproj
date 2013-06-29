@@ -129,6 +129,10 @@
 		F74388FC173D320200676477 /* ERNDummyTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388FB173D320200676477 /* ERNDummyTableViewCellTest.m */; };
 		F74388FF173D32D000676477 /* ERNTableViewDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388FE173D32D000676477 /* ERNTableViewDataSourceTest.m */; };
 		F7438902173D3B2A00676477 /* ERNTableViewDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */; };
+		F74D98A1177EE2520002FEB7 /* ERNTogglerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74D98A0177EE2430002FEB7 /* ERNTogglerTest.m */; };
+		F74D98A4177EED120002FEB7 /* ERNBinaryToggleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74D98A3177EED120002FEB7 /* ERNBinaryToggleTest.m */; };
+		F74D98A7177EED8D0002FEB7 /* ERNObservableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74D98A6177EED8D0002FEB7 /* ERNObservableTest.m */; };
+		F74D98AA177EF5620002FEB7 /* ERNMockObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = F74D98A9177EF5620002FEB7 /* ERNMockObserver.m */; };
 		F7504C9F1777441B006EDD9B /* ERNBaseObservable.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504C9E17774214006EDD9B /* ERNBaseObservable.m */; };
 		F7504CA217775C5E006EDD9B /* ERNBaseRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504CA117775AFE006EDD9B /* ERNBaseRoutingAction.m */; };
 		F7765FD71775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */; };
@@ -165,6 +169,7 @@
 		F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */; };
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
 		F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */; };
+		F7E18035177CA301000758E4 /* ERNActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E18034177CA301000758E4 /* ERNActionTest.m */; };
 		F7E43DC217536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E43DC117536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m */; };
 		F7E52C72173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C71173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m */; };
 		F7E52C75173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E52C74173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m */; };
@@ -310,6 +315,14 @@
 		F74388FE173D32D000676477 /* ERNTableViewDataSourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDataSourceTest.m; sourceTree = "<group>"; };
 		F7438900173D3B2900676477 /* ERNTableViewDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewDelegateTest.h; sourceTree = "<group>"; };
 		F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDelegateTest.m; sourceTree = "<group>"; };
+		F74D989F177EE2430002FEB7 /* ERNTogglerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNTogglerTest.h; sourceTree = "<group>"; };
+		F74D98A0177EE2430002FEB7 /* ERNTogglerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNTogglerTest.m; sourceTree = "<group>"; };
+		F74D98A2177EED120002FEB7 /* ERNBinaryToggleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBinaryToggleTest.h; sourceTree = "<group>"; };
+		F74D98A3177EED120002FEB7 /* ERNBinaryToggleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBinaryToggleTest.m; sourceTree = "<group>"; };
+		F74D98A5177EED8D0002FEB7 /* ERNObservableTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNObservableTest.h; sourceTree = "<group>"; };
+		F74D98A6177EED8D0002FEB7 /* ERNObservableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNObservableTest.m; sourceTree = "<group>"; };
+		F74D98A8177EF5620002FEB7 /* ERNMockObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMockObserver.h; sourceTree = "<group>"; };
+		F74D98A9177EF5620002FEB7 /* ERNMockObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMockObserver.m; sourceTree = "<group>"; };
 		F7504C9D17774214006EDD9B /* ERNBaseObservable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNBaseObservable.h; sourceTree = "<group>"; };
 		F7504C9E17774214006EDD9B /* ERNBaseObservable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNBaseObservable.m; sourceTree = "<group>"; };
 		F7504CA017775AFE006EDD9B /* ERNBaseRoutingAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNBaseRoutingAction.h; sourceTree = "<group>"; };
@@ -495,6 +508,8 @@
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F7E18033177CA301000758E4 /* ERNActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNActionTest.h; sourceTree = "<group>"; };
+		F7E18034177CA301000758E4 /* ERNActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNActionTest.m; sourceTree = "<group>"; };
 		F7E43DC017536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+ERNDemoTwitter.h"; sourceTree = "<group>"; };
 		F7E43DC117536D7D0068703F /* MKAnnotationView+ERNDemoTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+ERNDemoTwitter.m"; sourceTree = "<group>"; };
 		F7E43DC5175371090068703F /* ERNViewControllerDismisser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNViewControllerDismisser.h; sourceTree = "<group>"; };
@@ -692,6 +707,14 @@
 		F74388D2173BF21C00676477 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F74D98A8177EF5620002FEB7 /* ERNMockObserver.h */,
+				F74D98A9177EF5620002FEB7 /* ERNMockObserver.m */,
+				F74D98A5177EED8D0002FEB7 /* ERNObservableTest.h */,
+				F74D98A6177EED8D0002FEB7 /* ERNObservableTest.m */,
+				F74D989F177EE2430002FEB7 /* ERNTogglerTest.h */,
+				F74D98A0177EE2430002FEB7 /* ERNTogglerTest.m */,
+				F74D98A2177EED120002FEB7 /* ERNBinaryToggleTest.h */,
+				F74D98A3177EED120002FEB7 /* ERNBinaryToggleTest.m */,
 				F74388D3173BF25100676477 /* NSURL+ErnHelperTest.h */,
 				F74388D4173BF25100676477 /* NSURL+ErnHelperTest.m */,
 				F74388D6173BF32B00676477 /* NSObject+ERNHelperTest.h */,
@@ -1143,6 +1166,8 @@
 		F7AD8B8B173AD2AE0046E153 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				F7E18033177CA301000758E4 /* ERNActionTest.h */,
+				F7E18034177CA301000758E4 /* ERNActionTest.m */,
 				F7AD8B8C173AD2BF0046E153 /* ERNActionTogglerActionTest.h */,
 				F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */,
 				F7AD8B8F173AE1B60046E153 /* ERNDualActionTest.h */,
@@ -1778,6 +1803,7 @@
 				F71B9369173AFA4D00F80B0F /* ERNUrlSchemeRoutingActionTest.m in Sources */,
 				F71B936D173AFE8500F80B0F /* ERNNullResourceFactoryTest.m in Sources */,
 				F71B9374173B006300F80B0F /* ERNNumberResourceFactoryTest.m in Sources */,
+				F74D98A1177EE2520002FEB7 /* ERNTogglerTest.m in Sources */,
 				F71B9377173B010E00F80B0F /* ERNRoutingResourceFactoryTest.m in Sources */,
 				F71B937A173B011A00F80B0F /* ERNStringResourceFactoryTest.m in Sources */,
 				F71B937D173B012B00F80B0F /* ERNURLResourceFactoryTest.m in Sources */,
@@ -1796,6 +1822,7 @@
 				F74388D8173BF32C00676477 /* NSObject+ERNHelperTest.m in Sources */,
 				F74388DB173BF6DF00676477 /* ERNMergingAsyncItemsRepositoryTest.m in Sources */,
 				F74388ED173CEF6600676477 /* ERNActionSheetActionTest.m in Sources */,
+				F7E18035177CA301000758E4 /* ERNActionTest.m in Sources */,
 				F74388F0173CF38900676477 /* ERNExternalUrlActionTest.m in Sources */,
 				F74388F3173CF60C00676477 /* ERNViewControllerActionTest.m in Sources */,
 				F74388F6173CF74C00676477 /* ERNDefaultTableViewCellFactoryTest.m in Sources */,
@@ -1812,12 +1839,15 @@
 				F7E52C84173E657C00A771D3 /* ERNViewActionSheetTransitionerTest.m in Sources */,
 				F7E52C87173E66D300A771D3 /* ERNBarButtonItemActionSheetTransitionerTest.m in Sources */,
 				F7E52C8A173E67E800A771D3 /* ERNNullTableViewManagerTest.m in Sources */,
+				F74D98A7177EED8D0002FEB7 /* ERNObservableTest.m in Sources */,
 				F7E52C8D173E6AB900A771D3 /* ERNRoutingTableViewCellFactoryTest.m in Sources */,
+				F74D98A4177EED120002FEB7 /* ERNBinaryToggleTest.m in Sources */,
 				F7A30860173ED01B0083F020 /* ERNAsyncItemsRepositoryTableViewManagerTest.m in Sources */,
 				F7A30863173ED3C40083F020 /* ERNMergingTableViewManagerTest.m in Sources */,
 				F7A30866173ED3D10083F020 /* ERNTogglingTableViewManagerTest.m in Sources */,
 				F7A3086D173FBE9A0083F020 /* ERNNullMapViewDelegateTest.m in Sources */,
 				F7A30870173FBF9B0083F020 /* ERNNullAnnotationTest.m in Sources */,
+				F74D98AA177EF5620002FEB7 /* ERNMockObserver.m in Sources */,
 				F7A30879173FCAD80083F020 /* UIViewController+ERNHelperTest.m in Sources */,
 				F788B7BD175289F5006226CA /* ERNUrlHostRoutingActionTest.m in Sources */,
 				F73292861775B3E7005EEBA8 /* ERNNullActionHandlerTest.m in Sources */,

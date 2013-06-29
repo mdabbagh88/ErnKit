@@ -4,133 +4,95 @@
 #import "ERNDualActionTest.h"
 #import "ERNDualAction.h"
 #import "NSURL+ERNHelper.h"
+#import "ERNActionTest.h"
 
-@implementation ERNDualActionTest
+@interface ERNDualActionTest ()
+@property (nonatomic) id mockFirstAction;
+@property (nonatomic) id mockSecondAction;
+@property (nonatomic) id niceMockAction;
+@property (nonatomic) ERNResource *resource;
+@end
 
--(void)testWithNilFirstNilSecondNilResource
-{
-    //given
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:nil];
-    
-    //when, then
-    [action actionForResource:nil];
+@implementation ERNDualActionTest {
 }
 
--(void)testWithNilFirstNilSecondResource
+#pragma mark - SenTestCase
+
+-(void)setUp
 {
-    //given
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL ERN_createNull]
-                                                  mime:@"mime"];
-    
-    //when, then
-    [action actionForResource:resource];
+    [self setResource:[ERNResource createWithUrl:[NSURL URLWithString:@"url"] mime:@"mime"]];
+    [self setNiceMockAction:[OCMockObject niceMockForProtocol:@protocol(ERNAction)]];
+    [self setMockFirstAction:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+    [self setMockSecondAction:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
 }
 
--(void)testWithFirstNilSecondNilResource
+-(void)tearDown
 {
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:nil];
-    
-    //when
-    [action actionForResource:nil];
-    
-    //then
-    [mockAction1 verify];
+    [[self mockFirstAction] verify];
+    [[self mockSecondAction] verify];
+    [[self niceMockAction] verify];
 }
+
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocolNilFirstNilSecond
+{
+    [ERNActionTest testAction:[ERNDualAction createWithFirstAction:nil
+                                                      secondAction:nil]];
+}
+
+-(void)testActionProtocolNilFirstSecond
+{
+    [ERNActionTest testAction:[ERNDualAction createWithFirstAction:[self niceMockAction]
+                                                      secondAction:nil]];
+}
+
+-(void)testActionProtocolFirstNilSecond
+{
+    [ERNActionTest testAction:[ERNDualAction createWithFirstAction:nil
+                                                      secondAction:[self niceMockAction]]];
+}
+
+-(void)testActionProtocolFirstSecond
+{
+    [ERNActionTest testAction:[ERNDualAction createWithFirstAction:[self niceMockAction]
+                                                      secondAction:[self niceMockAction]]];
+}
+
+#pragma mark - class tests
 
 -(void)testWithFirstNilSecondResource
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForResource:resource];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:nil];
-    
-    //when
-    [action actionForResource:resource];
-    
-    //then
-    [mockAction1 verify];
-}
+    [[[self mockFirstAction] expect] actionForResource:[self resource]];
+    id<ERNAction> action = [ERNDualAction createWithFirstAction:[self mockFirstAction]
+                                                   secondAction:nil];
 
--(void)testWithNilFirstSecondNilResource
-{
-    //given
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:mockAction2];
-    
     //when
-    [action actionForResource:nil];
-    
-    //then
-    [mockAction2 verify];
+    [action actionForResource:[self resource]];
 }
 
 -(void)testWithNilFirstSecondResource
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction2 expect] actionForResource:resource];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:nil
-                                                    secondAction:mockAction2];
-    
-    //when
-    [action actionForResource:resource];
-    
-    //then
-    [mockAction2 verify];
-}
+    [[[self mockSecondAction] expect] actionForResource:[self resource]];
+    id<ERNAction> action = [ERNDualAction createWithFirstAction:nil
+                                                   secondAction:[self mockSecondAction]];
 
--(void)testWithFirstSecondNilResource
-{
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:mockAction2];
-    
     //when
-    [action actionForResource:nil];
-    
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
+    [action actionForResource:[self resource]];
 }
 
 -(void)testWithFirstSecondResource
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForResource:resource];
-    [[mockAction2 expect] actionForResource:resource];
-    id <ERNAction> action = [ERNDualAction createWithFirstAction:mockAction1
-                                                    secondAction:mockAction2];
-    
+    [[[self mockFirstAction] expect] actionForResource:[self resource]];
+    [[[self mockSecondAction] expect] actionForResource:[self resource]];
+    id<ERNAction> action = [ERNDualAction createWithFirstAction:[self mockFirstAction]
+                                                   secondAction:[self mockSecondAction]];
+
     //when
-    [action actionForResource:resource];
-    
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
+    [action actionForResource:[self resource]];
 }
 
 @end

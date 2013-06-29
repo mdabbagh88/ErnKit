@@ -3,90 +3,77 @@
 #import <OCMock/OCMock.h>
 #import "ERNMimeRoutingActionTest.h"
 #import "ERNMimeRoutingAction.h"
+#import "ERNActionTest.h"
 
-@implementation ERNMimeRoutingActionTest
+@interface ERNMimeRoutingActionTest ()
+@property (nonatomic) id<ERNAction> mimesMimeRoutingAction;
+@property (nonatomic) id mockAction1;
+@property (nonatomic) id mockAction2;
+@end
 
--(void)testNilMimesNilResource
-{
-    //given
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:nil];
-
-    //when
-    [action actionForResource:nil];
+@implementation ERNMimeRoutingActionTest {
 }
 
--(void)testNilMimesResource
+#pragma mark - SenTestCase
+
+-(void)setUp
 {
-    //given
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@"mime"];
-    
-    //when
-    [action actionForResource:resource];
+    [self setMockAction1:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+    [self setMockAction2:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+    [self setMimesMimeRoutingAction:[ERNMimeRoutingAction createWithActions:
+                                     @{@"mime1" : [self mockAction1],
+                                       @"mime2" : [self mockAction2]
+                                       }]];
 }
 
--(void)testMimesNilResource
+-(void)tearDown
 {
-    //given
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:nil];
-    
-    //when
-    [action actionForResource:nil];
+    [[self mockAction1] verify];
+    [[self mockAction2] verify];
 }
+
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocolNilActions
+{
+    [ERNActionTest testAction:[ERNMimeRoutingAction createWithActions:nil]];
+}
+
+-(void)testActionProtocolActions
+{
+    id niceMockAction = [OCMockObject niceMockForProtocol:@protocol(ERNAction)];
+    [ERNActionTest testAction:
+     [ERNMimeRoutingAction createWithActions:@{@"mime1" : niceMockAction,
+                                               @"mime2" : niceMockAction}]];
+}
+
+-(void)testActionProtocolNonActions
+{
+    [ERNActionTest testAction:
+     [ERNMimeRoutingAction createWithActions:@{@"mime1" : @"",
+                                               @"mime2" : @[]}]];
+}
+
+#pragma mark - class tests
 
 -(void)testMimesResource
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime1";
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    [[mockAction1 expect] actionForResource:resource];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSDictionary *mimes = @{expectedMime : mockAction1,
-                            @"mime2" : mockAction2};
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:mimes];
-    
+    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"] mime:@"mime2"];
+    [[[self mockAction2] expect] actionForResource:resource];
+
     //when
-    [action actionForResource:resource];
-    
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
+    [[self mimesMimeRoutingAction] actionForResource:resource];
 }
 
 -(void)testMimesUrlNonExistingMime
 {
     //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSDictionary *mimes = @{@"mime1" : mockAction1,
-                            @"mime2" : mockAction2};
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:mimes];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
                                                   mime:@"mime3"];
-    
-    //when
-    [action actionForResource:resource];
-    
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
-}
 
--(void)testNoneMimesResource
-{
-    //given
-    NSDictionary *mimes = @{@"mime1" : @"",
-                            @"mime2" : @[]};
-    id<ERNAction> action = [ERNMimeRoutingAction createWithActions:mimes];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url1"]
-                                                  mime:@"mime1"];
-    
     //when
-    [action actionForResource:resource];
+    [[self mimesMimeRoutingAction] actionForResource:resource];
 }
 
 @end

@@ -3,91 +3,83 @@
 #import <OCMock/OCMock.h>
 #import "ERNUrlHostRoutingActionTest.h"
 #import "ERNUrlHostRoutingAction.h"
+#import "ERNActionTest.h"
 
-@implementation ERNUrlHostRoutingActionTest
+@interface ERNUrlHostRoutingActionTest ()
+@property (nonatomic) id<ERNAction> actionsAction;
+@property (nonatomic) ERNResource *resource;
+@property (nonatomic) id mockAction1;
+@property (nonatomic) id mockAction2;
+@end
 
--(void)testNilHostsNilResource
-{
-    //given
-    id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:nil];
-
-    //when
-    [action actionForResource:nil];
+@implementation ERNUrlHostRoutingActionTest {
 }
 
--(void)testNilHostsResource
-{
-    //given
-    id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"http://host/path"]
-                                                  mime:@"mime"];
+#pragma mark - SenTestCase
 
-    //when
-    [action actionForResource:resource];
+-(void)setUp
+{
+    [self setResource:[ERNResource createWithUrl:[NSURL URLWithString:@"scheme://host2/path"]
+                                            mime:@"mime"]];
+
+    [self setMockAction1:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+    [self setMockAction2:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+
+    [self setActionsAction:
+     [ERNUrlHostRoutingAction createWithActions:@{@"host1" : [self mockAction1],
+                                                  @"host2" : [self mockAction2]}]];
 }
 
--(void)testHostsNilResource
+-(void)tearDown
 {
-    //given
-    id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:nil];
-
-    //when
-    [action actionForResource:nil];
+    [[self mockAction1] verify];
+    [[self mockAction2] verify];
 }
+
+#pragma mark - ERNAction protocol tests
+
+-(void)testProtocolNilActions
+{
+    [ERNActionTest testAction:[ERNUrlHostRoutingAction createWithActions:nil]];
+}
+
+-(void)testProtocolActions
+{
+    NSDictionary *actions = @{
+                              @"host1" : [OCMockObject niceMockForProtocol:@protocol(ERNAction)],
+                              @"host2" : [OCMockObject niceMockForProtocol:@protocol(ERNAction)]
+                              };
+    [ERNActionTest testAction:[ERNUrlHostRoutingAction createWithActions:actions]];
+}
+
+-(void)testProtocolNoActions
+{
+    NSDictionary *actions = @{
+                              @"host1" : @"",
+                              @"host2" : @[]
+                              };
+    [ERNActionTest testAction:[ERNUrlHostRoutingAction createWithActions:actions]];
+}
+
+#pragma mark - class tests
 
 -(void)testHostsResource
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"http://host1/path"];
-    NSString *expectedHost = @"host1";
-    NSString *expectedMime = @"mime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    [[mockAction1 expect] actionForResource:resource];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSDictionary *hosts = @{expectedHost : mockAction1,
-                            @"host2" : mockAction2};
-    id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:hosts];
+    [[[self mockAction2] expect] actionForResource:[self resource]];
 
     //when
-    [action actionForResource:resource];
-
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
+    [[self actionsAction] actionForResource:[self resource]];
 }
 
 -(void)testHostsUrlNonExistingHost
 {
     //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSDictionary *hosts = @{@"host1" : mockAction1,
-                            @"host2" : mockAction2};
-    id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:hosts];
     ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"http://host3/path"]
                                                   mime:@"mime"];
 
     //when
-    [action actionForResource:resource];
-
-    //then
-    [mockAction1 verify];
-    [mockAction2 verify];
-}
-
--(void)testNoneHostsResource
-{
-    //given
-    NSDictionary *hosts = @{@"host1" : @"",
-                            @"host2" : @[]};
-    id<ERNAction> action = [ERNUrlHostRoutingAction createWithActions:hosts];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"http://host/path"]
-                                                  mime:@"mime"];
-
-    //when
-    [action actionForResource:resource];
+    [[self actionsAction] actionForResource:resource];
 }
 
 @end

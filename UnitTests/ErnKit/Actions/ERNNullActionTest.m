@@ -3,38 +3,24 @@
 #import <OCMock/OCMock.h>
 #import "ERNNullActionTest.h"
 #import "ERNNullAction.h"
+#import "ERNActionTest.h"
 
-@implementation ERNNullActionTest
+@implementation ERNNullActionTest {
+}
+
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocol
+{
+    [ERNActionTest testAction:[ERNNullAction create]];
+}
+
+#pragma mark - class tests
 
 -(void)testSingleton
 {
-    //given, when
-    id<ERNAction> action1 = [ERNNullAction create];
-    id<ERNAction> action2 = [ERNNullAction create];
-
-    //then
-    assertThat(action1, notNilValue());
-    assertThat(action1, equalTo(action2));
-}
-
--(void)testActionNilResource
-{
-    //given
-    id<ERNAction> action = [ERNNullAction create];
-
-    //when, then
-    [action actionForResource:nil];
-}
-
--(void)testActionResource
-{
-    //given
-    id<ERNAction> action = [ERNNullAction create];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@"mime"];
-
-    //when, then
-    [action actionForResource:resource];
+    assertThat([ERNNullAction create], notNilValue());
+    assertThat([ERNNullAction create], equalTo([ERNNullAction create]));
 }
 
 @end

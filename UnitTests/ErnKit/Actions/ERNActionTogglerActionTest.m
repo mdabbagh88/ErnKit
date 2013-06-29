@@ -4,152 +4,155 @@
 #import "ERNActionTogglerActionTest.h"
 #import "ERNActionTogglerAction.h"
 #import "NSObject+ERNHelper.h"
+#import "ERNActionTest.h"
+#import "ERNTogglerTest.h"
 
-@implementation ERNActionTogglerActionTest
+@interface ERNActionTogglerActionTest ()
+@property (nonatomic) ERNActionTogglerAction *nilActionsActionTogglerAction;
+@property (nonatomic) ERNActionTogglerAction *nonActionsActionTogglerAction;
+@property (nonatomic) ERNActionTogglerAction *actionsActionTogglerAction;
+@property (nonatomic) ERNActionTogglerAction *niceActionsActionTogglerAction;
+@property (nonatomic) id mockAction1;
+@property (nonatomic) id mockAction2;
+@property (nonatomic) ERNResource *resource;
+@end
+
+@implementation ERNActionTogglerActionTest {
+}
+
+#pragma mark - SenTestCase
+
+-(void)setUp
+{
+    [self setResource:[ERNResource createWithUrl:[NSURL URLWithString:@"url"] mime:@"mime"]];
+
+    [self setMockAction1:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+    [self setMockAction2:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
+
+    [self setNilActionsActionTogglerAction:[ERNActionTogglerAction createWithActions:nil]];
+    [self setNonActionsActionTogglerAction:[ERNActionTogglerAction createWithActions:@[@"", @[]]]];
+    [self setActionsActionTogglerAction:
+     [ERNActionTogglerAction createWithActions:@[[self mockAction1], [self mockAction2]]]];
+    [self setNiceActionsActionTogglerAction:
+     [ERNActionTogglerAction createWithActions:@[
+                                                 [OCMockObject niceMockForProtocol:@protocol(ERNAction)],
+                                                 [OCMockObject niceMockForProtocol:@protocol(ERNAction)]]]];
+}
+
+-(void)tearDown
+{
+    [[self mockAction1] verify];
+    [[self mockAction2] verify];
+}
+
+#pragma mark - ERNToggler protocol tests
+
+-(void)testTogglerProtocolNilActions
+{
+    [ERNTogglerTest testToggler:[self nilActionsActionTogglerAction]];
+}
+
+-(void)testTogglerProtocolNonActions
+{
+    [ERNTogglerTest testToggler:[self nonActionsActionTogglerAction]];
+}
+
+-(void)testTogglerProtocolActions
+{
+    [ERNTogglerTest testToggler:[self niceActionsActionTogglerAction]];
+}
+
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocolNilActions
+{
+    [ERNActionTest testAction:[self nilActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolNilActionsIndexSet
+{
+    [[self nilActionsActionTogglerAction] setSelectedIndex:1];
+    [ERNActionTest testAction:[self nilActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolNonActions
+{
+    [ERNActionTest testAction:[self nonActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolNonActionsIndexSet
+{
+    [[self nonActionsActionTogglerAction] setSelectedIndex:1];
+    [ERNActionTest testAction:[self nonActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolNonActionsOutsideOfIndexSet
+{
+    [[self nonActionsActionTogglerAction] setSelectedIndex:5];
+    [ERNActionTest testAction:[self nonActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolActions
+{
+    [ERNActionTest testAction:[self niceActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolActionsIndexSet
+{
+    [[self niceActionsActionTogglerAction] setSelectedIndex:1];
+    [ERNActionTest testAction:[self niceActionsActionTogglerAction]];
+}
+
+-(void)testActionProtocolActionsOutsideOfIndexSet
+{
+    [[self actionsActionTogglerAction] setSelectedIndex:UINT_MAX];
+    [ERNActionTest testAction:[self actionsActionTogglerAction]];
+}
+
+#pragma mark - class tests
 
 -(void)testSelectedIndexWithNilActions
 {
     //given
     NSUInteger expectedIndex = 5;
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
-    [actionTogglerAction setSelectedIndex:expectedIndex];
+    [[self nilActionsActionTogglerAction] setSelectedIndex:expectedIndex];
 
     //when
-    NSUInteger selectedIndex = [actionTogglerAction selectedIndex];
+    NSUInteger selectedIndex = [[self nilActionsActionTogglerAction] selectedIndex];
 
     //then
     assertThatUnsignedInteger(selectedIndex, equalToUnsignedInteger(expectedIndex));
 
 }
 
--(void)testToggleWithNilActionsToNilResource
-{
-    //given
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
-    
-    //when, then
-    [actionTogglerAction setSelectedIndex:5];
-    [actionTogglerAction actionForResource:nil];
-}
-
--(void)testToggleWithNilActionsToResource
-{
-    //given
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@""];
-    
-    //when, then
-    [actionTogglerAction setSelectedIndex:5];
-    [actionTogglerAction actionForResource:resource];
-}
-
--(void)testToggleWithNoneActions
-{
-    //given
-    NSArray *nonActions = @[@"", @[]];
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@""];
-    
-    //when, then
-    [actionTogglerAction setSelectedIndex:1];
-    [actionTogglerAction actionForResource:resource];
-}
-
--(void)testToggleOutsideOfArrayWithNoneActions
-{
-    //given
-    NSArray *nonActions = @[@"", @[]];
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:nonActions];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@""];
-    
-    //when, then
-    [actionTogglerAction setSelectedIndex:10];
-    [actionTogglerAction actionForResource:resource];
-}
-
 -(void)testToggleWithActions
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime";
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    [[mockAction2 expect] actionForResource:resource];
-    NSArray *actions = @[mockAction1, mockAction2];
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
+    [[[self mockAction2] expect] actionForResource:[self resource]];
     
-    //when, then
-    [actionTogglerAction setSelectedIndex:1];
-    [actionTogglerAction actionForResource:resource];
-    
-    [mockAction1 verify];
-    [mockAction2 verify];
+    //when
+    [[self actionsActionTogglerAction] setSelectedIndex:1];
+    [[self actionsActionTogglerAction] actionForResource:[self resource]];
 }
 
 -(void)testTwoToggleWithActions
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime";
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    [[mockAction1 expect] actionForResource:resource];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSArray *actions = @[mockAction1, mockAction2];
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
+    [[[self mockAction1] expect] actionForResource:[self resource]];
     
-    //when, then
-    [actionTogglerAction setSelectedIndex:1];
-    [actionTogglerAction setSelectedIndex:0];
-    [actionTogglerAction actionForResource:resource];
-    
-    [mockAction1 verify];
-    [mockAction2 verify];
+    //when
+    [[self actionsActionTogglerAction] setSelectedIndex:1];
+    [[self actionsActionTogglerAction] setSelectedIndex:0];
+    [[self actionsActionTogglerAction] actionForResource:[self resource]];
 }
 
 -(void)testActionWithoutToggleWithActions
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime";
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    [[mockAction1 expect] actionForResource:resource];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSArray *actions = @[mockAction1, mockAction2];
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
+    [[[self mockAction1] expect] actionForResource:[self resource]];
     
-    //when, then
-    [actionTogglerAction actionForResource:resource];
-    
-    [mockAction1 verify];
-    [mockAction2 verify];
-}
-
-
--(void)testToggleOutsideOfArrayWithActions
-{
-    //given
-    id mockAction1 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    id mockAction2 = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    NSArray *actions = @[mockAction1, mockAction2];
-    ERNActionTogglerAction *actionTogglerAction = [ERNActionTogglerAction createWithActions:actions];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@""];
-    
-    //when, then
-    [actionTogglerAction setSelectedIndex:10];
-    [actionTogglerAction actionForResource:resource];
-    
-    [mockAction1 verify];
-    [mockAction2 verify];
+    //when
+    [[self actionsActionTogglerAction] actionForResource:[self resource]];
 }
 
 @end

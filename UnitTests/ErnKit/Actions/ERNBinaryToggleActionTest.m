@@ -5,144 +5,92 @@
 #import "ERNBinaryToggleActionTest.h"
 #import "ERNBinaryToggleAction.h"
 #import "NSObject+ERNHelper.h"
+#import "ERNBinaryToggleTest.h"
+#import "ERNActionTest.h"
 
-@implementation ERNBinaryToggleActionTest
+@interface ERNBinaryToggleActionTest ()
+@property (nonatomic) ERNBinaryToggleAction *nilActionAction;
+@property (nonatomic) ERNBinaryToggleAction *actionAction;
+@property (nonatomic) ERNBinaryToggleAction *niceActionAction;
+@property (nonatomic) id mockAction;
+@property (nonatomic) ERNResource *resource;
+@end
 
--(void)testSelectedSetWithNilAction
-{
-    //given
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:nil];
-    BOOL expectedSelected = NO;
-
-    //when
-    BOOL selected = [binaryToggleAction selected];
-
-    //then
-    assertThatBool(selected, equalToBool(expectedSelected));
+@implementation ERNBinaryToggleActionTest {
 }
 
--(void)testSelectedDefaultWithNilAction
+#pragma mark - SenTestCase
+
+-(void)setUp
 {
-    //given
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:nil];
-    BOOL expectedSelected = YES;
-    [binaryToggleAction setSelected:expectedSelected];
+    [self setResource:[ERNResource createWithUrl:[NSURL URLWithString:@"url"] mime:@"mime"]];
 
-    //when
-    BOOL selected = [binaryToggleAction selected];
+    [self setMockAction:[OCMockObject mockForProtocol:@protocol(ERNAction)]];
 
-    //then
-    assertThatBool(selected, equalToBool(expectedSelected));
-    
+    [self setNilActionAction:[ERNBinaryToggleAction createWithAction:nil]];
+    [self setActionAction:[ERNBinaryToggleAction createWithAction:[self mockAction]]];
+    [self setNiceActionAction:[ERNBinaryToggleAction createWithAction:
+                               [OCMockObject niceMockForProtocol:@protocol(ERNAction)]]];
 }
 
--(void)testSelectedSetWithAction
+-(void)tearDown
 {
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNBinaryToggleAction *binaryToggleAction =
-    [ERNBinaryToggleAction createWithAction:mockAction];
-    BOOL expectedSelected = NO;
-
-    //when
-    BOOL selected = [binaryToggleAction selected];
-
-    //then
-    assertThatBool(selected, equalToBool(expectedSelected));
-    [mockAction verify];
+    [[self mockAction] verify];
 }
 
--(void)testSelectedDefaultWithAction
+#pragma mark - ERNBinaryToggle protocol tests
+
+-(void)testBinaryToggleProtocolNilAction
 {
-    //given
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNBinaryToggleAction *binaryToggleAction =
-    [ERNBinaryToggleAction createWithAction:mockAction];
-    BOOL expectedSelected = YES;
-    [binaryToggleAction setSelected:expectedSelected];
-
-    //when
-    BOOL selected = [binaryToggleAction selected];
-
-    //then
-    assertThatBool(selected, equalToBool(expectedSelected));
-    [mockAction verify];
-
+    [ERNBinaryToggleTest testBinaryToggle:[self nilActionAction]];
 }
 
--(void)testToggleWithNilActionsToNilResource
+-(void)testBinaryToggleProtocolAction
 {
-    //given
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:nil];
-
-    //when, then
-    [binaryToggleAction setSelected:YES];
-    [binaryToggleAction actionForResource:nil];
+    [ERNBinaryToggleTest testBinaryToggle:[self niceActionAction]];
 }
 
--(void)testToggleWithNilActionsToResource
-{
-    //given
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                  mime:@""];
+#pragma mark - ERNAction protocol tests
 
-    //when, then
-    [binaryToggleAction setSelected:YES];
-    [binaryToggleAction actionForResource:resource];
+-(void)testActionProtocolNilAction
+{
+    [ERNActionTest testAction:[self nilActionAction]];
 }
 
--(void)testNoToggleWithAction
+-(void)testActionProtocolNilActionBinaryToggled
 {
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime";
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:mockAction];
-
-    //when, then
-    [binaryToggleAction setSelected:NO];
-    [binaryToggleAction actionForResource:resource];
-
-    [mockAction verify];
+    [[self nilActionAction] setSelected:YES];
+    [ERNActionTest testAction:[self nilActionAction]];
 }
+
+-(void)testActionProtocolActions
+{
+    [ERNActionTest testAction:[self niceActionAction]];
+}
+
+-(void)testActionProtocolActionsBinaryToggled
+{
+    [[self niceActionAction] setSelected:YES];
+    [ERNActionTest testAction:[self niceActionAction]];
+}
+
+#pragma mark - class tests
 
 -(void)testToggleWithAction
 {
     //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime";
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    [[mockAction expect] actionForResource:resource];
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:mockAction];
+    [[[self mockAction] expect] actionForResource:[self resource]];
 
-    //when, then
-    [binaryToggleAction setSelected:YES];
-    [binaryToggleAction actionForResource:resource];
-
-    [mockAction verify];
+    //when
+    [[self actionAction] setSelected:YES];
+    [[self actionAction] actionForResource:[self resource]];
 }
 
 -(void)testTwoToggleWithAction
 {
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"url"];
-    NSString *expectedMime = @"mime";
-    id mockAction = [OCMockObject mockForProtocol:@protocol(ERNAction)];
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    ERNBinaryToggleAction *binaryToggleAction = [ERNBinaryToggleAction createWithAction:mockAction];
-
-    //when, then
-    [binaryToggleAction setSelected:YES];
-    [binaryToggleAction setSelected:NO];
-    [binaryToggleAction actionForResource:resource];
-
-    [mockAction verify];
+    [[self actionAction] setSelected:YES];
+    [[self actionAction] setSelected:NO];
+    [[self actionAction] actionForResource:[self resource]];
 }
 
 @end

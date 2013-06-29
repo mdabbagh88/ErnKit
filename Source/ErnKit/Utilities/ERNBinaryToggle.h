@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "ERNObservable.h"
 
-@protocol ERNBinaryToggle <NSObject>
+@protocol ERNBinaryToggle <ERNObservable>
 @property (nonatomic) BOOL selected;
--(void)addObserver:(id)observer
-          selector:(SEL)selector;
--(void)removeObserver:(id)observer;
 @end

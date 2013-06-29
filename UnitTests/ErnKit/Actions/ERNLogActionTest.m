@@ -3,50 +3,24 @@
 #import <OCMock/OCMock.h>
 #import "ERNLogActionTest.h"
 #import "ERNLogAction.h"
+#import "ERNActionTest.h"
 #import "NSURL+ERNHelper.h"
 
 // Ocular inspection of output only, extract actual printing?
 
-@implementation ERNLogActionTest
-
--(void)testWithNilStringNilResource
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:nil];
-
-    //when, then
-    [action actionForResource:nil];
+@implementation ERNLogActionTest {
 }
 
--(void)testWithNilStringResource
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:nil];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                                       mime:@"mime"];
+#pragma mark - ERNAction protocol tests
 
-    //when, then
-    [action actionForResource:resource];
+-(void)testActionProtocolNilResource
+{
+    [ERNActionTest testAction:[ERNLogAction createWithLogString:nil]];
 }
 
--(void)testWithStringNilResource
+-(void)testActionProtocolResource
 {
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
-
-    //when, then
-    [action actionForResource:nil];
-}
-
--(void)testWithStringResource
-{
-    //given
-    id<ERNAction> action = [ERNLogAction createWithLogString:@"logString"];
-    ERNResource *resource = [ERNResource createWithUrl:[NSURL URLWithString:@"url"]
-                                                                       mime:@"mime"];
-
-    //when, then
-    [action actionForResource:resource];
+    [ERNActionTest testAction:[ERNLogAction createWithLogString:@"logString"]];
 }
 
 @end
