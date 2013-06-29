@@ -1,3 +1,5 @@
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import <RestKit/RestKit.h>
 #import "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.h"
 
