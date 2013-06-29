@@ -5,6 +5,7 @@
 #import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNAsyncItemRepositoryTest.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @implementation ERNPaginatedItemsToItemRepositoryTest {
 }
@@ -19,10 +20,8 @@
 
 -(void)testAsyncItemRepositoryProtocolWithRepository
 {
-    id mockItem = [OCMockObject mockForClass:[NSObject class]];
-    id mockRepository =
-    [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
-    [[[mockRepository stub] andReturn:mockItem] itemAtIndex:0];
+    id<ERNAsyncPaginatedItemsRepository> mockRepository =
+    [ERNNullAsyncPaginatedItemsRepository create];
     [ERNAsyncItemRepositoryTest testAsyncItemRepository:
      [ERNPaginatedItemsToItemRepository createWithRepository:mockRepository]];
 }

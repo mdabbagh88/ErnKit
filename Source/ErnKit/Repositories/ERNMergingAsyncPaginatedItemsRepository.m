@@ -1,5 +1,6 @@
 #import "ERNMergingAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNMergingAsyncPaginatedItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> firstRepository;
@@ -7,6 +8,8 @@
 @end
 
 @implementation ERNMergingAsyncPaginatedItemsRepository {
+    id<ERNAsyncPaginatedItemsRepository> _firstRepository;
+    id<ERNAsyncPaginatedItemsRepository> _restRepository;
 }
 
 #pragma mark - public - constructors
@@ -87,13 +90,13 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self validItem:[self useFirstOnly] ?
+    return [self useFirstOnly] ?
             [[self firstRepository] itemAtIndex:index] :
             [self useRestOnly] ?
             [[self restRepository] itemAtIndex:index] :
             [self indexInFirst:index] ?
             [[self firstRepository] itemAtIndex:index] :
-            [[self restRepository] itemAtIndex:index - [[self firstRepository] count]]];
+            [[self restRepository] itemAtIndex:index - [[self firstRepository] count]];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
@@ -110,13 +113,13 @@
 
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
-    return [self validArray:[self useFirstOnly] ?
+    return [self useFirstOnly] ?
             [[self firstRepository] filteredArrayUsingPredicate:predicate] :
             [self useRestOnly] ?
             [[self restRepository] filteredArrayUsingPredicate:predicate] :
             [[[self firstRepository] filteredArrayUsingPredicate:predicate]
              arrayByAddingObjectsFromArray:[[self restRepository]
-                                            filteredArrayUsingPredicate:predicate]]];
+                                            filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - ERNAsyncRepository
@@ -153,19 +156,23 @@
     return index < [[self firstRepository] count];
 }
 
--(NSArray *)validArray:(NSArray *)array
-{
-    return array ? array : @[];
-}
-
--(id<NSObject>)validItem:(id<NSObject>)item
-{
-    return item ? item : [NSNull null];
-}
-
 -(void)subRepositoriesRefreshed
 {
     [self notifyObservers];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNAsyncPaginatedItemsRepository>)firstRepository
+{
+    return _firstRepository = _firstRepository ? _firstRepository :
+    [ERNNullAsyncPaginatedItemsRepository create];
+}
+
+-(id<ERNAsyncPaginatedItemsRepository>)restRepository
+{
+    return _restRepository = _restRepository ? _restRepository :
+    [ERNNullAsyncPaginatedItemsRepository create];
 }
 
 #pragma mark - private - initializers
@@ -177,10 +184,10 @@
     ERNCheckNil(self);
     _firstRepository = firstRepository;
     _restRepository = restRepository;
-    [_firstRepository addObserver:self
-                         selector:@selector(subRepositoriesRefreshed)];
-    [_restRepository addObserver:self
-                        selector:@selector(subRepositoriesRefreshed)];
+    [[self firstRepository] addObserver:self
+                               selector:@selector(subRepositoriesRefreshed)];
+    [[self restRepository] addObserver:self
+                              selector:@selector(subRepositoriesRefreshed)];
     return self;
 }
 

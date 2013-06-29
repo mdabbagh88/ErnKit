@@ -13,16 +13,18 @@
 +(void)testAsyncRepository:(id<ERNAsyncRepository>)asyncRepository
 {
     [ERNObservableTest testObservable:asyncRepository];
+    [self testRefresh:asyncRepository];
+    [self testRefreshObserving:asyncRepository];
 }
 
--(void)testRefresh:(id<ERNAsyncRepository>)asyncRepository
++(void)testRefresh:(id<ERNAsyncRepository>)asyncRepository
 {
     [asyncRepository refresh];
 }
 
--(void)testRefreshObserving:(id<ERNAsyncRepository>)asyncRepository
++(void)testRefreshObserving:(id<ERNAsyncRepository>)asyncRepository
 {
-    id mockObserver = [OCMockObject mockForClass:[ERNMockObserver class]];
+    id mockObserver = [OCMockObject niceMockForClass:[ERNMockObserver class]];
     [[mockObserver expect] dummyMethodForSelector];
     [asyncRepository addObserver:mockObserver selector:@selector(dummyMethodForSelector)];
     [asyncRepository refresh];

@@ -1,4 +1,5 @@
 #import "ERNConverterAsyncRepository.h"
+#import "ERNNullAsyncRepository.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNConverterAsyncRepository ()
@@ -6,6 +7,7 @@
 @end
 
 @implementation ERNConverterAsyncRepository {
+    id<ERNAsyncRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -45,6 +47,13 @@
 -(void)refresh
 {
     [[self repository] refresh];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNAsyncRepository>)repository
+{
+    return _repository = _repository ? _repository : [ERNNullAsyncRepository create];
 }
 
 @end

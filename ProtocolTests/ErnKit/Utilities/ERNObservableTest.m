@@ -10,6 +10,10 @@
 +(void)testObservable:(id<ERNObservable>)observable
 {
     [self testRemoveNilObserver:observable];
+    [self testRemoveNonAddedObserver:observable];
+    [self testAddAndRemoveObserver:observable];
+    [self testAddAndRemoveObserverWithNilSelector:observable];
+    [self testAddNilObserver:observable];
 }
 
 +(void)testRemoveNilObserver:(id<ERNObservable>)observable

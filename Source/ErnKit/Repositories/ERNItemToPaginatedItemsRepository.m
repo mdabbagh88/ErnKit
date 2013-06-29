@@ -1,19 +1,22 @@
 #import "ERNItemToPaginatedItemsRepository.h"
 #import "ERNAsyncItemRepository.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAsyncItemRepository.h"
 
 @interface ERNItemToPaginatedItemsRepository ()
-@property (nonatomic, readonly) id<ERNAsyncItemRepository>repository;
+@property (nonatomic, readonly) id<ERNAsyncItemRepository> repository;
 @end
 
 @implementation ERNItemToPaginatedItemsRepository {
+    id<ERNAsyncItemRepository> _repository;
 }
 
 #pragma mark - public - constructors
 
 +(instancetype)createWithRepository:(id<ERNAsyncItemRepository>)repository
 {
-    return [[self alloc] initWithItemRepository:repository];
+    return [[self alloc] initWithItemRepository:
+            repository ? repository : [ERNNullAsyncItemRepository create]];
 }
 
 #pragma mark - ERNAsyncItemsRepository

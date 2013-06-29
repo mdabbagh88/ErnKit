@@ -5,6 +5,7 @@
 #import "ERNConverterAsyncRepository.h"
 #import "ERNAsyncRepositoryTest.h"
 #import "ERNMockObserver.h"
+#import "ERNNullAsyncRepository.h"
 
 @implementation ERNConverterAsyncRepositoryTest {
 }
@@ -19,9 +20,9 @@
 
 -(void)testAsyncRepositoryProtocolWithRepository
 {
-    id niceMockRepository = [OCMockObject mockForProtocol:@protocol(ERNAsyncRepository)];
+    id<ERNAsyncRepository> asyncRepository = [ERNNullAsyncRepository create];
     [ERNAsyncRepositoryTest testAsyncRepository:
-     [ERNConverterAsyncRepository createWithRepository:niceMockRepository]];
+     [ERNConverterAsyncRepository createWithRepository:asyncRepository]];
 }
 
 #pragma mark - class tests

@@ -12,13 +12,13 @@
 
 +(void)testBinaryToggle:(id<ERNBinaryToggle>)binaryToggle
 {
+    [ERNObservableTest testObservable:binaryToggle];
     [self testDefaultSelected:binaryToggle];
     [self testSetSelected:binaryToggle];
     [self testSetUnselected:binaryToggle];
     [self testSetSelectedObserving:binaryToggle];
     [self testSetUnSelectedObserving:binaryToggle];
     [self testSelectedNotObserving:binaryToggle];
-    [ERNObservableTest testObservable:binaryToggle];
 }
 
 +(void)testDefaultSelected:(id<ERNBinaryToggle>)binaryToggle

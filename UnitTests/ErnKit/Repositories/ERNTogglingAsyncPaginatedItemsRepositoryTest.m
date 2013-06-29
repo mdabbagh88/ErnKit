@@ -7,6 +7,7 @@
 #import "ERNTogglerTest.h"
 #import "ERNAsyncPaginatedItemsRepositoryTest.h"
 #import "ERNMockObserver.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNTogglingAsyncPaginatedItemsRepository ()
 -(void)currentRepositoryRefreshed;
@@ -40,7 +41,8 @@
 
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithRepositories
 {
-    id mockRepository = [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id<ERNAsyncPaginatedItemsRepository> mockRepository =
+    [ERNNullAsyncPaginatedItemsRepository create];
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
      [ERNTogglingAsyncPaginatedItemsRepository createWithRepositories:
       @[mockRepository, mockRepository]]];

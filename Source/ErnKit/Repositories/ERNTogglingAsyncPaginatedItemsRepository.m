@@ -76,7 +76,7 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self validItem:[[self currentRepository] itemAtIndex:index]];
+    return [[self currentRepository] itemAtIndex:index];
 }
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
@@ -88,7 +88,7 @@
 -(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
 {
     ERNCheckNilAndReturn(predicate, @[]);
-    return [self validArray:[[self currentRepository] filteredArrayUsingPredicate:predicate]];
+    return [[self currentRepository] filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark - ERNAsyncRepository
@@ -98,6 +98,7 @@
     [[self repositories] enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
         [[self validRepository:object] refresh];
     }];
+    [self notifyObservers];
 }
 
 #pragma mark - NSObject
@@ -116,7 +117,8 @@
 
 -(id<ERNAsyncPaginatedItemsRepository>)validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
-    return [self isValidRepository:repository] ? repository : [ERNNullAsyncPaginatedItemsRepository create];
+    return [self isValidRepository:repository] ? repository :
+    [ERNNullAsyncPaginatedItemsRepository create];
 }
 
 -(BOOL)isValidRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
@@ -145,16 +147,6 @@
 -(void)currentRepositoryRefreshed
 {
     [self notifyObservers];
-}
-
--(NSArray *)validArray:(NSArray *)array
-{
-    return array ? array : @[];
-}
-
--(id<NSObject>)validItem:(id<NSObject>)item
-{
-    return item ? item : [NSNull null];
 }
 
 #pragma mark - private - initializers

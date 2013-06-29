@@ -12,12 +12,12 @@
 
 +(void)testToggler:(id<ERNToggler>)toggler
 {
+    [ERNObservableTest testObservable:toggler];
     [self testSetSelectedIndexZero:toggler];
     [self testSetSelectedIndexSomeValue:toggler];
     [self testSetSelectedIndexMaxUnsignedInteger:toggler];
     [self testSetSelectedIndexObserving:toggler];
     [self testSelectedNotObserving:toggler];
-    [ERNObservableTest testObservable:toggler];
 }
 
 +(void)testSetSelectedIndexZero:(id<ERNToggler>)toggler

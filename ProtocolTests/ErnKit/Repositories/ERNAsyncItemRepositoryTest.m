@@ -10,8 +10,8 @@
 
 +(void)testAsyncItemRepository:(id<ERNAsyncItemRepository>)asyncItemRepository
 {
-    [self testItem:asyncItemRepository];
     [ERNAsyncRepositoryTest testAsyncRepository:asyncItemRepository];
+    [self testItem:asyncItemRepository];
 }
 
 +(void)testItem:(id<ERNAsyncItemRepository>)asyncItemRepository
