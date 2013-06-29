@@ -39,9 +39,11 @@
 +(void)testResourceForFactorylessObject:(id<ERNResourceFactory>)resourceFactory
 {
     ERNResource *expectedResource = [ERNResource createNull];
+    BOOL result = YES;
     ERNResource *resource = [resourceFactory resourceForObject:
                              [ERNResourceFactoryTestFactorylessObject new]];
-    assertThat(resource, equalTo(expectedResource));
+    assertThatBool([resource isEqual:expectedResource] ||
+                   [[[resource url] scheme] isEqualToString:@"ernobject"], equalToBool(result));
 }
 
 @end

@@ -107,6 +107,7 @@
 		F73292831775B2DF005EEBA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */; };
 		F73292861775B3E7005EEBA8 /* ERNNullActionHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F73292851775B3E7005EEBA8 /* ERNNullActionHandlerTest.m */; };
 		F741628C177F854C00720A8C /* ERNNullRepositoryPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = F741628B177F854C00720A8C /* ERNNullRepositoryPaginator.m */; };
+		F741628F177F86D400720A8C /* ERNDefaultResourceFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F741628E177F86D400720A8C /* ERNDefaultResourceFactoryTest.m */; };
 		F74388A2173B08A600676477 /* ERNNullRepositoryPaginatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388A1173B08A600676477 /* ERNNullRepositoryPaginatorTest.m */; };
 		F74388A5173B0CB800676477 /* ERNBaseAsyncRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388A4173B0CB800676477 /* ERNBaseAsyncRepositoryTest.m */; };
 		F74388AE173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388AD173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m */; };
@@ -297,6 +298,8 @@
 		F735DD41177F1A1E0030F94B /* ErnKitProtocolTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErnKitProtocolTest.h; sourceTree = "<group>"; };
 		F741628A177F854C00720A8C /* ERNNullRepositoryPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullRepositoryPaginator.h; sourceTree = "<group>"; };
 		F741628B177F854C00720A8C /* ERNNullRepositoryPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullRepositoryPaginator.m; sourceTree = "<group>"; };
+		F741628D177F86D400720A8C /* ERNDefaultResourceFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultResourceFactoryTest.h; sourceTree = "<group>"; };
+		F741628E177F86D400720A8C /* ERNDefaultResourceFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultResourceFactoryTest.m; sourceTree = "<group>"; };
 		F7421DDE1741727B00E3ED5D /* ERNTableViewController+ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNTableViewController+ERNAsyncItemsRepository.h"; sourceTree = "<group>"; };
 		F7421DDF1741727B00E3ED5D /* ERNTableViewController+ERNAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNTableViewController+ERNAsyncItemsRepository.m"; sourceTree = "<group>"; };
 		F74388A0173B08A600676477 /* ERNNullRepositoryPaginatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullRepositoryPaginatorTest.h; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				F71B9379173B011A00F80B0F /* ERNStringResourceFactoryTest.m */,
 				F71B937B173B012B00F80B0F /* ERNURLResourceFactoryTest.h */,
 				F71B937C173B012B00F80B0F /* ERNURLResourceFactoryTest.m */,
+				F741628D177F86D400720A8C /* ERNDefaultResourceFactoryTest.h */,
+				F741628E177F86D400720A8C /* ERNDefaultResourceFactoryTest.m */,
 			);
 			path = ResourceFactories;
 			sourceTree = "<group>";
@@ -1907,6 +1912,7 @@
 				F74388C4173BB9D700676477 /* ERNNullAsyncPaginatedItemsRepositoryTest.m in Sources */,
 				F74388C7173BBC0E00676477 /* ERNObjectAsyncItemRepositoryTest.m in Sources */,
 				F74388CA173BC00500676477 /* ERNDefaultRepositoryManagerTest.m in Sources */,
+				F741628F177F86D400720A8C /* ERNDefaultResourceFactoryTest.m in Sources */,
 				F74388CD173BCEAB00676477 /* ERNTogglingAsyncPaginatedItemsRepositoryTest.m in Sources */,
 				F74388D5173BF25100676477 /* NSURL+ErnHelperTest.m in Sources */,
 				F74388D8173BF32C00676477 /* NSObject+ERNHelperTest.m in Sources */,
