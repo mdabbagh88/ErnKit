@@ -39,11 +39,6 @@ static ERNStringResourceFactory *immutableSingleton;
     [ERNResource createNull];
 }
 
--(NSString *)mimeForObject:(NSString *)string
-{
-    return [[self class] mime];
-}
-
 #pragma mark - NSObject
 
 +(void)initialize
