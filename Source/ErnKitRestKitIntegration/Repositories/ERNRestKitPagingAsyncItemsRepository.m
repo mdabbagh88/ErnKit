@@ -17,7 +17,7 @@
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) NSUInteger windowSize;
 @property (nonatomic, readonly) NSMutableArray *pages;
-@property (nonatomic, readwrite) NSUInteger offset;
+@property (nonatomic, assign) NSUInteger offset;
 @end
 
 @implementation ERNRestKitPagingAsyncItemsRepository {

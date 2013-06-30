@@ -2,5 +2,5 @@
 #import "ERNObservable.h"
 
 @protocol ERNBinaryToggle <ERNObservable>
-@property (nonatomic) BOOL selected;
+@property (nonatomic, assign) BOOL selected;
 @end

@@ -4,7 +4,7 @@
 
 @interface ERNBinaryToggleAction ()
 @property (nonatomic, readonly) id<ERNAction> action;
-@property (nonatomic, readwrite) id<ERNAction> currentAction;
+@property (nonatomic) id<ERNAction> currentAction;
 @end
 
 @implementation ERNBinaryToggleAction {

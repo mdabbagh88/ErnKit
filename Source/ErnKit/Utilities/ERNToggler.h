@@ -2,5 +2,5 @@
 #import "ERNObservable.h"
 
 @protocol ERNToggler <ERNObservable>
-@property (nonatomic) NSUInteger selectedIndex;
+@property (nonatomic, assign) NSUInteger selectedIndex;
 @end
