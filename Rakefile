@@ -6,6 +6,11 @@ task :build do
     sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build"
 end
 
+desc "Build libraries and run oclint"
+task :oclint do
+    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator -reporter json-compilation-database:compile_commands.json ONLY_ACTIVE_ARCH=NO build;oclint-json-compilation-database"
+end
+
 desc "Run unit tests for libraries"
 task :test do
     sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO test"

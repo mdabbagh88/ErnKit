@@ -73,7 +73,8 @@
     return repository  ? repository : [ERNNullAsyncItemsRepository create];
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)validPaginatedItemsRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
+-(id<ERNAsyncPaginatedItemsRepository>)
+validPaginatedItemsRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return repository ? repository : [ERNNullAsyncPaginatedItemsRepository create];
 }

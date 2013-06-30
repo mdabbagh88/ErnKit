@@ -43,11 +43,11 @@
 -(void)refresh
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[ERNPaginatedItemsToItemRepository
-                         createWithRepository:[ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
-                                               [ERNRestKitAsyncItemsRepository
-                                                createWithUrl:[self url]
-                                                responseDescriptor:[self responseDescriptor]]]]];
+    [self setRepository:
+     [ERNPaginatedItemsToItemRepository createWithRepository:
+      [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
+       [ERNRestKitAsyncItemsRepository createWithUrl:[self url]
+                                  responseDescriptor:[self responseDescriptor]]]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
     [[self repository] refresh];

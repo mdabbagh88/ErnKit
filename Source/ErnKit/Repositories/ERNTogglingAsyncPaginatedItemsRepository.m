@@ -115,7 +115,8 @@
     _currentRepository = [self validRepository:[self repositoryAtIndex:index]];
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
+-(id<ERNAsyncPaginatedItemsRepository>)
+validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return [self isValidRepository:repository] ? repository :
     [ERNNullAsyncPaginatedItemsRepository create];
@@ -123,7 +124,8 @@
 
 -(BOOL)isValidRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
-    return repository && [repository conformsToProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    return repository &&
+    [repository conformsToProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositoryAtIndex:(NSUInteger)index
