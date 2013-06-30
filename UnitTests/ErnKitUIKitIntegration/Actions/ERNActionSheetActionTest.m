@@ -6,97 +6,43 @@
 #import "ERNActionSheetAction.h"
 #import "ERNActionSheetConfigurator.h"
 #import "ERNActionSheetTransitioner.h"
+#import "ERNActionTest.h"
 
-@implementation ERNActionSheetActionTest
-
--(void)testActionNilTransitionerNilConfiguratorNilResource
-{
-    //given
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
-                                                           configurator:nil];
-    
-    //when, then
-    [action actionForResource:nil];
+@implementation ERNActionSheetActionTest {
 }
 
--(void)testActionNilTransitionerNilConfiguratorResource
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocolWithNilTransitionerNilConfigurator
 {
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
-                                                           configurator:nil];
-    
-    //when, then
-    [action actionForResource:resource];
+    [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:nil
+                                                              configurator:nil]];
 }
 
--(void)testActionTransitionerNilConfiguratorNilResource
+-(void)testActionProtocolWithTransitionerNilConfigurator
 {
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNActionSheetTransitioner)];
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
-                                                           configurator:nil];
-    
-    //when, then
-    [action actionForResource:nil];
+    id mockTransitioner = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetTransitioner)];
+    [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:mockTransitioner
+                                                           configurator:nil]];
 }
 
--(void)testActionTransitionerNilConfiguratorResource
+-(void)testActionProtocolWithNilTransitionerConfigurator
 {
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNActionSheetTransitioner)];
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
-                                                           configurator:nil];
-    
-    //when, then
-    [action actionForResource:resource];
-}
-
--(void)testActionNilTransitionerConfiguratorNilResource
-{
-    //given
     id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
-                                                           configurator:mockConfigurator];
-    
-    //when, then
-    [action actionForResource:nil];
+    [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:nil
+                                                              configurator:mockConfigurator]];
 }
 
--(void)testActionNilTransitionerConfiguratorResource
+-(void)testActionProtocolWithTransitionerConfigurator
 {
     //given
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:nil
-                                                           configurator:mockConfigurator];
-    
-    //when, then
-    [action actionForResource:resource];
+    id mockTransitioner = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetTransitioner)];
+    id mockConfigurator = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetConfigurator)];
+    [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:mockTransitioner
+                                                              configurator:mockConfigurator]];
 }
 
-
--(void)testActionTransitionerConfiguratorNilResource
-{
-    //given
-    id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNActionSheetTransitioner)];
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
-    id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
-                                                           configurator:mockConfigurator];
-    
-    //when, then
-    [action actionForResource:nil];
-}
+#pragma mark - class tests
 
 -(void)testActionTransitionerConfiguratorResource
 {

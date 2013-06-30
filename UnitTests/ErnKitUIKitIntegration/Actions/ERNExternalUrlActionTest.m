@@ -4,43 +4,25 @@
 #import <UIKit/UIKit.h>
 #import "ERNExternalUrlActionTest.h"
 #import "ERNExternalUrlAction.h"
+#import "ERNActionTest.h"
 
-@implementation ERNExternalUrlActionTest
-
--(void)testActionNilApplicationNilResource
-{
-    //given
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
-    
-    //when, then
-    [action actionForResource:nil];
+@implementation ERNExternalUrlActionTest {
 }
 
--(void)testActionNilApplicationResource
+#pragma mark - ERNAction protocol tests
+
+-(void)testActionProtocolWithNilApplication
 {
-    //given
-    NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
-    NSString *expectedMime = @"expectedMime";
-    ERNResource *resource = [ERNResource createWithUrl:expectedUrl
-                                                  mime:expectedMime];
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:nil];
-    
-    //when, then
-    [action actionForResource:resource];
+    [ERNActionTest testAction:[ERNExternalUrlAction createWithApplication:nil]];
 }
 
--(void)testActionApplicationNilResource
+-(void)testActionProtocolWithApplication
 {
-    //given
-    id mockApplication = [OCMockObject mockForClass:[UIApplication class]];
-    id<ERNAction> action = [ERNExternalUrlAction createWithApplication:mockApplication];
-    
-    //when
-    [action actionForResource:nil];
-    
-    //then
-    [mockApplication verify];
+    id mockApplication = [OCMockObject niceMockForClass:[UIApplication class]];
+    [ERNActionTest testAction:[ERNExternalUrlAction createWithApplication:mockApplication]];
 }
+
+#pragma mark - class tests
 
 -(void)testActionApplicationResource
 {
