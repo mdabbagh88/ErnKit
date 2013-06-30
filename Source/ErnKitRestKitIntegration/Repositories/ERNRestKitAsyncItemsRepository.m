@@ -10,7 +10,6 @@
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) NSOperationQueue *operationQueue;
 @property (nonatomic) NSOperation *currentOperation;
-@property (nonatomic) NSError *lastError;
 @end
 
 @implementation ERNRestKitAsyncItemsRepository {
@@ -50,17 +49,6 @@
 -(NSOperationQueue *)responseQueue
 {
     return [NSOperationQueue currentQueue];
-}
-
--(NSOperationQueue *)createOperationQueue
-{
-    return [self setupOperationQueue:[NSOperationQueue new]];
-}
-
--(NSOperationQueue *)setupOperationQueue:(NSOperationQueue *)operationQueue
-{
-    [operationQueue setMaxConcurrentOperationCount:10];
-    return operationQueue;
 }
 
 -(RKObjectRequestOperation *)requestOperation
@@ -107,7 +95,6 @@
 
 -(void)refreshedWithError:(NSError *)error
 {
-    [self setLastError:error];
     [self setArray:@[]];
 }
 
@@ -120,7 +107,7 @@
 
 -(NSOperationQueue *)operationQueue
 {
-    return _operationQueue = _operationQueue ? _operationQueue : [self createOperationQueue];
+    return _operationQueue = _operationQueue ? _operationQueue : [NSOperationQueue new];
 }
 
 #pragma mark - private - initializers
