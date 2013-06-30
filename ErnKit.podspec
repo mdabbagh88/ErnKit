@@ -42,4 +42,10 @@ Pod::Spec.new do |s|
     core_test.dependency 'OCHamcrest'
     core_test.frameworks = 'Foundation'
   end
+  s.subspec 'UIKitIntegrationProtocolTest' do |uikit_test|
+    uikit_test.source_files = 'ProtocolTests/ErnKitUIKitIntegration/**/*.{h,m}'
+    uikit_test.dependency 'OCMock'
+    uikit_test.dependency 'OCHamcrest'
+    uikit_test.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
+  end
 end

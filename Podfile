@@ -16,4 +16,5 @@ target :UnitTests do
     pod 'OCMock'
     pod 'OCHamcrest'
     pod 'ErnKit/CoreProtocolTest'
+    pod 'ErnKit/UIKitIntegrationProtocolTest'
 end

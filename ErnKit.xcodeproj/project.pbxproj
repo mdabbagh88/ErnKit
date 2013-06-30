@@ -714,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				F735DD25177F1A020030F94B /* ErnKit */,
+				F741629B1780172200720A8C /* ErnKitUIKitIntegration */,
 			);
 			path = ProtocolTests;
 			sourceTree = "<group>";
@@ -797,6 +798,13 @@
 				F7416294177F8A1900720A8C /* ERNNullRepositoryPaginatorTest.m */,
 			);
 			path = RepositoryFactories;
+			sourceTree = "<group>";
+		};
+		F741629B1780172200720A8C /* ErnKitUIKitIntegration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ErnKitUIKitIntegration;
 			sourceTree = "<group>";
 		};
 		F743889F173B087E00676477 /* Repositories */ = {
