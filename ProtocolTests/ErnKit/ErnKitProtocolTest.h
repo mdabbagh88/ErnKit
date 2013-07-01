@@ -9,3 +9,4 @@
 #import "ERNTogglerTest.h"
 #import "ERNObservableTest.h"
 #import "ERNMockObserver.h"
+#import "ERNRepositoryFactoryTest.h"

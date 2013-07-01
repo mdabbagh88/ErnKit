@@ -4,12 +4,23 @@
 #import "ERNDefaultRepositoryManagerTest.h"
 #import "ERNDefaultRepositoryManager.h"
 #import "ERNAsyncItemRepository.h"
+#import "ERNRepositoryManagerTest.h"
 
 @interface ERNDefaultRepositoryManager ()
 -(NSMapTable *)repositories;
 @end
 
-@implementation ERNDefaultRepositoryManagerTest
+@implementation ERNDefaultRepositoryManagerTest {
+}
+
+#pragma mark - ERNRepositoryManager protocol tests
+
+-(void)testRepositoryManagerProtocol
+{
+    [ERNRepositoryManagerTest testRepositoryManager:[ERNDefaultRepositoryManager create]];
+}
+
+#pragma mark - class tests
 
 -(void)testStoreNilUrlNilItem
 {
@@ -62,18 +73,6 @@
     //then
     assertThatUnsignedInteger([[store repositories] count], equalToUnsignedInteger(1));
     assertThat([[[store repositories] objectForKey:[NSURL URLWithString:@"url"]] item], equalTo(mockItem));
-}
-
--(void)testRepositoryForNilUrl
-{
-    //given
-    ERNDefaultRepositoryManager *store = [ERNDefaultRepositoryManager create];
-
-    //when
-    id<ERNAsyncRepository> repository = [store repositoryForResource:nil];
-
-    //then
-    assertThat(repository, notNilValue());
 }
 
 @end

@@ -25,21 +25,25 @@
 
 -(BOOL)hasRepositoryForResource:(ERNResource *)resource
 {
+    ERNCheckNilAndReturn(resource, NO);
     return [[self factoryForMime:[resource mime]] hasRepositoryForResource:resource];
 }
 
 -(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
 {
+    ERNCheckNilAndReturn(resource, NO);
     return [[self factoryForMime:[resource mime]] hasItemRepositoryForResource:resource];
 }
 
 -(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
 {
+    ERNCheckNilAndReturn(resource, NO);
     return [[self factoryForMime:[resource mime]] hasItemsRepositoryForResource:resource];
 }
 
 -(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
 {
+    ERNCheckNilAndReturn(resource, NO);
     return [[self factoryForMime:[resource mime]] hasPaginatedItemsRepositoryForResource:resource];
 }
 
