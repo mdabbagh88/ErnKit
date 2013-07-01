@@ -39,7 +39,6 @@
 {
     self = [self init];
     ERNCheckNil(self);
-    _defaultValue = nil;
     _dictionary = [[NSDictionary alloc] initWithObjects:objects
                                                 forKeys:keys];
     return self;

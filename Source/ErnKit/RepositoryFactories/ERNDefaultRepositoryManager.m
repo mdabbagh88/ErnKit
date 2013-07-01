@@ -7,6 +7,7 @@
 #import "ERNObjectAsyncItemRepository.h"
 #import "ERNResource.h"
 #import "ERNErrorHandler.h"
+#import "NSMapTable+ERNHelper.h"
 
 @interface ERNDefaultRepositoryManager ()
 @property (nonatomic, readonly) NSMapTable *repositories;
@@ -32,6 +33,26 @@
     ERNCheckNilNoReturn(object);
     [[self repositories] setObject:[ERNObjectAsyncItemRepository createWithItem:object]
                             forKey:url];
+}
+
+-(BOOL)hasRepositoryForResource:(ERNResource *)resource
+{
+    return [[self repositories] hasObjectForKey:[resource url]];
+}
+
+-(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+{
+    return [[self repositories] hasObjectForKey:[resource url]];
+}
+
+-(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
+{
+    return NO;
+}
+
+-(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
+{
+    return NO;
 }
 
 -(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource

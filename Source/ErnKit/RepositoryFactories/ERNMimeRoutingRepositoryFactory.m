@@ -5,6 +5,7 @@
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 #import "ERNResource.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullRepositoryFactory.h"
 
 @interface ERNMimeRoutingRepositoryFactory ()
 @property (nonatomic, readonly) NSDictionary *repositoryFactories;
@@ -21,6 +22,26 @@
 }
 
 #pragma mark - ERNRepositoryFactory
+
+-(BOOL)hasRepositoryForResource:(ERNResource *)resource
+{
+    return [[self factoryForMime:[resource mime]] hasRepositoryForResource:resource];
+}
+
+-(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+{
+    return [[self factoryForMime:[resource mime]] hasItemRepositoryForResource:resource];
+}
+
+-(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
+{
+    return [[self factoryForMime:[resource mime]] hasItemsRepositoryForResource:resource];
+}
+
+-(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
+{
+    return [[self factoryForMime:[resource mime]] hasPaginatedItemsRepositoryForResource:resource];
+}
 
 -(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
@@ -50,13 +71,24 @@
             [[self factoryForMime:[resource mime]] paginatedItemsRepositoryForResource:resource]];
 }
 
--(id<ERNRepositoryFactory>)factoryForMime:(NSString *)mime
-{
-    return [[self repositoryFactories] objectForKey:mime];
-}
-
 #pragma mark - private
 
+-(id<ERNRepositoryFactory>)factoryForMime:(NSString *)mime
+{
+    return [self validFactory:[[self repositoryFactories] objectForKey:mime]];
+}
+
+-(id<ERNRepositoryFactory>)validFactory:(id<ERNRepositoryFactory>)repositoryFactory
+{
+    return [self isValidFactory:repositoryFactory] ?
+    repositoryFactory : [ERNNullRepositoryFactory create];
+}
+
+-(BOOL)isValidFactory:(id<ERNRepositoryFactory>)repositoryFactory
+{
+    return repositoryFactory &&
+    [repositoryFactory conformsToProtocol:@protocol(ERNRepositoryFactory)];
+}
 
 -(id<ERNAsyncRepository>)validRepository:(id<ERNAsyncRepository>)repository
 {

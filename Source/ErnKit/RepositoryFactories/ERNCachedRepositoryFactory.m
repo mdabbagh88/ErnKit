@@ -25,55 +25,60 @@
 
 #pragma mark - ERNRepositoryFactory
 
+-(BOOL)hasRepositoryForResource:(ERNResource *)resource
+{
+    return [[self firstRepositoryFactory] hasRepositoryForResource:resource] ||
+    [[self restRepositoryFactory] hasRepositoryForResource:resource];
+}
+
+-(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+{
+    return [[self firstRepositoryFactory] hasItemRepositoryForResource:resource] ||
+    [[self restRepositoryFactory] hasItemRepositoryForResource:resource];
+}
+
+-(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
+{
+    return [[self firstRepositoryFactory] hasItemsRepositoryForResource:resource] ||
+    [[self restRepositoryFactory] hasItemsRepositoryForResource:resource];
+}
+
+-(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
+{
+    return [[self firstRepositoryFactory] hasPaginatedItemsRepositoryForResource:resource] ||
+    [[self restRepositoryFactory] hasPaginatedItemsRepositoryForResource:resource];
+}
+
 -(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
-    id<ERNAsyncRepository> repository =
-    [[self firstRepositoryFactory] repositoryForResource:resource];
-    if (repository && ![repository isKindOfClass:[ERNNullAsyncRepository class]]) {
-        return repository;
-    }
-    repository = [[self restRepositoryFactory] repositoryForResource:resource];
-    return repository ? repository : [ERNNullAsyncRepository create];
+    return [[self firstRepositoryFactory] hasRepositoryForResource:resource] ?
+    [[self firstRepositoryFactory] repositoryForResource:resource] :
+    [[self restRepositoryFactory] repositoryForResource:resource];
 }
 
 -(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
-    id<ERNAsyncItemRepository> repository =
-    [[self firstRepositoryFactory] itemRepositoryForResource:resource];
-    if (repository && ![repository isKindOfClass:[ERNNullAsyncItemRepository class]]) {
-        return repository;
-    }
-    repository = [[self restRepositoryFactory] itemRepositoryForResource:resource];
-    return repository ? repository : [ERNNullAsyncItemRepository create];
-
+    return [[self firstRepositoryFactory] hasItemRepositoryForResource:resource] ?
+    [[self firstRepositoryFactory] itemRepositoryForResource:resource] :
+    [[self restRepositoryFactory] itemRepositoryForResource:resource];
 }
 
 -(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncItemsRepository create]);
-    id<ERNAsyncItemsRepository> repository =
-    [[self firstRepositoryFactory] itemsRepositoryForResource:resource];
-    if (repository && ![repository isKindOfClass:[ERNNullAsyncItemsRepository class]]) {
-        return repository;
-    }
-    repository = [[self restRepositoryFactory] itemsRepositoryForResource:resource];
-    return repository ? repository : [ERNNullAsyncItemsRepository create];
-
+    return [[self firstRepositoryFactory] hasItemsRepositoryForResource:resource] ?
+    [[self firstRepositoryFactory] itemsRepositoryForResource:resource] :
+    [[self restRepositoryFactory] itemsRepositoryForResource:resource];
 }
 
 -(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
-    id<ERNAsyncPaginatedItemsRepository> repository =
-    [[self firstRepositoryFactory] paginatedItemsRepositoryForResource:resource];
-    if (repository && ![repository isKindOfClass:[ERNNullAsyncPaginatedItemsRepository class]]) {
-        return repository;
-    }
-    repository = [[self restRepositoryFactory] paginatedItemsRepositoryForResource:resource];
-    return repository ? repository : [ERNNullAsyncPaginatedItemsRepository create];
-
+    return [[self firstRepositoryFactory] hasPaginatedItemsRepositoryForResource:resource] ?
+    [[self firstRepositoryFactory] paginatedItemsRepositoryForResource:resource] :
+    [[self restRepositoryFactory] paginatedItemsRepositoryForResource:resource];
 }
 
 #pragma mark - private - initializers
