@@ -1,3 +1,4 @@
 #import "ErnKit.h"
 #import "ERNRestKitAsyncItemsRepository.h"
-#import "ERNRestKitPagingAsyncItemsRepository.h"
+#import "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.h"
+#import "ERNRestKitAsyncItemRepositoryFactory.h"

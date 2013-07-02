@@ -1,12 +1,13 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <RestKit/RestKit.h>
-#import "ERNRestKitPagingAsyncItemsRepository+ERNDemoTwitter.h"
+#import <ErnKit/RestKitIntegration.h>
+#import "ERNDefaultAsyncPaginatedItemsRepository+ERNDemoTwitter.h"
 
 // Tweet data model object, for mapping from json using RestKit
 #import "ERNDemoTweet.h"
 
-@implementation ERNRestKitPagingAsyncItemsRepository (ERNDemoTwitter)
+@implementation ERNDefaultAsyncPaginatedItemsRepository (ERNDemoTwitter)
 
 #pragma mark - public - constructors
 
@@ -49,9 +50,10 @@
                                             statusCodes:statusCodes];
     
     // Setup an async repository with the RestKit mapping for twitter and pagination
-    return [ERNRestKitPagingAsyncItemsRepository createWithUrl:url
-                                            responseDescriptor:paginationResponseDescriptor
-                                                    windowSize:20];
+    return [self createWithResource:[ERNResource createWithUrl:url
+                                                          mime:@""]
+                 responseDescriptor:paginationResponseDescriptor
+                         windowSize:20];
 }
 
 @end

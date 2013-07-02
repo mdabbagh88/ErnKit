@@ -4,6 +4,7 @@
 #import "ERNRepositoryFactoryTest.h"
 #import "ERNRepositoryFactory.h"
 #import "ERNResource.h"
+#import "ERNItemRepositoryFactoryTest.h"
 
 @implementation ERNRepositoryFactoryTest {
 }
@@ -12,20 +13,17 @@
 
 +(void)testRepositoryFactory:(id<ERNRepositoryFactory>)repositoryFactory
 {
+    [ERNItemRepositoryFactoryTest testItemRepositoryFactory:repositoryFactory];
     [self testHasRepositoryForNilResource:repositoryFactory];
-    [self testHasItemRepositoryForNilResource:repositoryFactory];
     [self testHasItemsRepositoryForNilResource:repositoryFactory];
     [self testHasPaginatedItemsRepositoryForNilResource:repositoryFactory];
     [self testRepositoryForNilResource:repositoryFactory];
-    [self testItemRepositoryForNilResource:repositoryFactory];
     [self testItemsRepositoryForNilResource:repositoryFactory];
     [self testAsyncPaginatedItemsRepositoryForNilResource:repositoryFactory];
     [self testHasRepositoryForResource:repositoryFactory];
-    [self testHasItemRepositoryForResource:repositoryFactory];
     [self testHasItemsRepositoryForResource:repositoryFactory];
     [self testHasPaginatedItemsRepositoryResource:repositoryFactory];
     [self testRepositoryForResource:repositoryFactory];
-    [self testItemRepositoryForResource:repositoryFactory];
     [self testItemsRepositoryForResource:repositoryFactory];
     [self testAsyncPaginatedItemsRepositoryForResource:repositoryFactory];
 }
@@ -34,12 +32,6 @@
 {
     BOOL expectedResult = NO;
     assertThatBool([repositoryFactory hasRepositoryForResource:nil], equalToBool(expectedResult));
-}
-
-+(void)testHasItemRepositoryForNilResource:(id<ERNRepositoryFactory>)repositoryFactory
-{
-    BOOL expectedResult = NO;
-    assertThatBool([repositoryFactory hasItemRepositoryForResource:nil], equalToBool(expectedResult));
 }
 
 +(void)testHasItemsRepositoryForNilResource:(id<ERNRepositoryFactory>)repositoryFactory
@@ -58,13 +50,6 @@
 {
     id<ERNAsyncRepository> repository =
     [repositoryFactory repositoryForResource:nil];
-    assertThat(repository, notNilValue());
-}
-
-+(void)testItemRepositoryForNilResource:(id<ERNRepositoryFactory>)repositoryFactory
-{
-    id<ERNAsyncItemRepository> repository =
-    [repositoryFactory itemRepositoryForResource:nil];
     assertThat(repository, notNilValue());
 }
 
@@ -88,12 +73,6 @@
     [repositoryFactory hasRepositoryForResource:resource];
 }
 
-+(void)testHasItemRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
-{
-    ERNResource *resource = [ERNResource createNull];
-    [repositoryFactory hasItemRepositoryForResource:resource];
-}
-
 +(void)testHasItemsRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
     ERNResource *resource = [ERNResource createNull];
@@ -111,14 +90,6 @@
     ERNResource *resource = [ERNResource createNull];
     id<ERNAsyncRepository> repository =
     [repositoryFactory repositoryForResource:resource];
-    assertThat(repository, notNilValue());
-}
-
-+(void)testItemRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
-{
-    ERNResource *resource = [ERNResource createNull];
-    id<ERNAsyncItemRepository> repository =
-    [repositoryFactory itemRepositoryForResource:resource];
     assertThat(repository, notNilValue());
 }
 

@@ -1,4 +1,4 @@
-#import "ERNRestKitPagingAsyncItemsRepository.h"
+#import "ERNDefaultAsyncPaginatedItemsRepository.h"
 #import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
@@ -7,21 +7,22 @@
 #import "ERNRepositoryPaginator.h"
 #import "ERNNullRepositoryPaginator.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
-#import <SystemConfiguration/SystemConfiguration.h>
-#import <MobileCoreServices/MobileCoreServices.h>
-#import <RestKit/RestKit.h>
+#import "ERNItemRepositoryFactory.h"
+#import "ERNResource.h"
+#import "ERNNullItemRepositoryFactory.h"
 
-@interface ERNRestKitPagingAsyncItemsRepository ()
+@interface ERNDefaultAsyncPaginatedItemsRepository ()
 @property (nonatomic) id<ERNAsyncItemRepository> repository;
-@property (nonatomic, readonly) RKResponseDescriptor *responseDescriptor;
-@property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) id<ERNItemRepositoryFactory> itemRepositoryFactory;
+@property (nonatomic, readonly) ERNResource *resource;
 @property (nonatomic, readonly) NSUInteger windowSize;
 @property (nonatomic, readonly) NSMutableArray *pages;
 @property (nonatomic, assign) NSUInteger offset;
 @end
 
-@implementation ERNRestKitPagingAsyncItemsRepository {
-    NSURL *_url;
+@implementation ERNDefaultAsyncPaginatedItemsRepository {
+    ERNResource *_resource;
+    id<ERNItemRepositoryFactory> _itemRepositoryFactory;
     NSUInteger _windowSize;
     NSMutableArray *_pages;
     NSUInteger _offset;
@@ -29,13 +30,13 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithUrl:(NSURL *)url
-          responseDescriptor:(RKResponseDescriptor *)responseDescriptor
-                  windowSize:(NSUInteger)windowSize
++(instancetype)createWithResource:(ERNResource *)resource
+            itemRepositoryFactory:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+                       windowSize:(NSUInteger)windowSize
 {
-    return [[self alloc] initWithUrl:url
-                  responseDescriptor:responseDescriptor
-                          windowSize:windowSize];
+    return [[self alloc] initWithResource:resource
+                    itemRepositoryFactory:itemRepositoryFactory
+                               windowSize:windowSize];
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -43,11 +44,7 @@
 -(void)refresh
 {
     [[self repository] removeObserver:self];
-    [self setRepository:
-     [ERNPaginatedItemsToItemRepository createWithRepository:
-      [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
-       [ERNRestKitAsyncItemsRepository createWithUrl:[self url]
-                                  responseDescriptor:[self responseDescriptor]]]]];
+    [self setRepository:[[self itemRepositoryFactory] itemRepositoryForResource:[self resource]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
     [[self repository] refresh];
@@ -70,12 +67,10 @@
 -(void)fetchPrevious
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[ERNPaginatedItemsToItemRepository
-                         createWithRepository:
-                         [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
-                         [ERNRestKitAsyncItemsRepository
-                          createWithUrl:[[[self pages] objectAtIndex:0] previousPage]
-                          responseDescriptor:[self responseDescriptor]]]]];
+    [self setRepository:
+     [[self itemRepositoryFactory] itemRepositoryForResource:
+      [ERNResource createWithUrl:[[[self pages] objectAtIndex:0] previousPage]
+                            mime:@""]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryPreviousPageRefreshed)];
     [[self repository] refresh];
@@ -94,12 +89,10 @@
 -(void)fetchNext
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[ERNPaginatedItemsToItemRepository
-                         createWithRepository:
-                         [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
-                         [ERNRestKitAsyncItemsRepository
-                          createWithUrl:[[[self pages] lastObject] nextPage]
-                          responseDescriptor:[self responseDescriptor]]]]];
+    [self setRepository:
+     [[self itemRepositoryFactory] itemRepositoryForResource:
+      [ERNResource createWithUrl:[[[self pages] lastObject] nextPage]
+                            mime:@""]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryNextPageRefreshed)];
     [[self repository] refresh];
@@ -155,7 +148,7 @@
     NSMutableArray *newArray = [NSMutableArray array];
     [[self pages] enumerateObjectsUsingBlock:
      ^(id<ERNRepositoryPaginator> page, NSUInteger index, BOOL *stop) {
-        [newArray addObjectsFromArray:[page items]];
+         [newArray addObjectsFromArray:[page items]];
      }];
     [self setArray:newArray];
 }
@@ -170,21 +163,27 @@
 
 #pragma mark - private - accessors
 
--(NSURL *)url
+-(ERNResource *)resource
 {
-    return _url = _url ? _url : [NSURL ERN_createNull];
+    return _resource = _resource ? _resource : [ERNResource createNull];
+}
+
+-(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+{
+    return _itemRepositoryFactory = _itemRepositoryFactory ? _itemRepositoryFactory :
+    [ERNNullItemRepositoryFactory create];
 }
 
 #pragma mark - private - initializers
 
--(id)initWithUrl:(NSURL *)url
-responseDescriptor:(RKResponseDescriptor *)responseDescriptor
-      windowSize:(NSUInteger)windowSize
+-(id)initWithResource:(ERNResource *)resource
+itemRepositoryFactory:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+           windowSize:(NSUInteger)windowSize
 {
     self = [super init];
     ERNCheckNil(self);
-    _url = url;
-    _responseDescriptor = responseDescriptor;
+    _resource = resource;
+    _itemRepositoryFactory = itemRepositoryFactory;
     _windowSize = windowSize;
     _pages = [NSMutableArray array];
     _offset = 0;

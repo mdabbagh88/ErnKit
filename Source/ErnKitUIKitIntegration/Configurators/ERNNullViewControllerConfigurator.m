@@ -25,7 +25,7 @@ static ERNNullViewControllerConfigurator *immutableSingleton;
 
 +(void)initialize
 {
-    immutableSingleton = [ERNNullViewControllerConfigurator new];
+    immutableSingleton = [self new];
 }
 
 @end

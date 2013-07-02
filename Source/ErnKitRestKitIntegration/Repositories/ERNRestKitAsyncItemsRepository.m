@@ -1,29 +1,30 @@
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
+#import "ERNResource.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <RestKit/RestKit.h>
 
 @interface ERNRestKitAsyncItemsRepository ()
 @property (nonatomic, readonly) RKResponseDescriptor *responseDescriptor;
-@property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) ERNResource *resource;
 @property (nonatomic, readonly) NSOperationQueue *operationQueue;
 @property (nonatomic) NSOperation *currentOperation;
 @end
 
 @implementation ERNRestKitAsyncItemsRepository {
-    NSURL *_url;
+    ERNResource *_resource;
     NSOperationQueue *_operationQueue;
 }
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithUrl:(NSURL *)url
-          responseDescriptor:(RKResponseDescriptor *)responseDescriptor
++(instancetype)createWithResource:(ERNResource *)resource
+               responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 {
-    return [[self alloc] initWithUrl:url
-                  responseDescriptor:responseDescriptor];
+    return [[self alloc] initWithResource:resource
+                       responseDescriptor:responseDescriptor];
 }
 
 #pragma mark - ERNAsyncItemsRepository
@@ -53,7 +54,7 @@
 
 -(RKObjectRequestOperation *)requestOperation
 {
-    return [self requestOperationWithRequest:[NSURLRequest requestWithURL:[self url]]
+    return [self requestOperationWithRequest:[NSURLRequest requestWithURL:[[self resource] url]]
                           responseDescriptor:[self responseDescriptor]];
 }
 
@@ -100,9 +101,9 @@
 
 #pragma mark - private - accessors
 
--(NSURL *)url
+-(ERNResource *)resource
 {
-    return _url = _url ? _url : [NSURL ERN_createNull];
+    return _resource = _resource ? _resource : [ERNResource createNull];
 }
 
 -(NSOperationQueue *)operationQueue
@@ -112,13 +113,13 @@
 
 #pragma mark - private - initializers
 
--(id)initWithUrl:(NSURL *)url
-responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+-(id)initWithResource:(ERNResource *)resource
+   responseDescriptor:(RKResponseDescriptor *)responseDescriptor
 {
     self = [super init];
     ERNCheckNil(self);
     _responseDescriptor = responseDescriptor;
-    _url = url;
+    _resource = resource;
     return self;
 }
 

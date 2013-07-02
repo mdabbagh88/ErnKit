@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "ERNItemRepositoryFactory.h"
 
 @protocol ERNAsyncRepository;
 @protocol ERNAsyncItemRepository;
@@ -6,7 +7,7 @@
 @protocol ERNAsyncPaginatedItemsRepository;
 @class ERNResource;
 
-@protocol ERNRepositoryFactory <NSObject>
+@protocol ERNRepositoryFactory <ERNItemRepositoryFactory>
 -(BOOL)hasRepositoryForResource:(ERNResource *)resource;
 -(BOOL)hasItemRepositoryForResource:(ERNResource *)resource;
 -(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource;

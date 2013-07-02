@@ -2,8 +2,9 @@
 #import "ERNArrayAsyncItemsRepository.h"
 
 @class RKResponseDescriptor;
+@class ERNResource;
 
 @interface ERNRestKitAsyncItemsRepository : ERNArrayAsyncItemsRepository <ERNAsyncItemsRepository>
-+(instancetype)createWithUrl:(NSURL *)url
-          responseDescriptor:(RKResponseDescriptor *)responseDescriptor;
++(instancetype)createWithResource:(ERNResource *)resource
+               responseDescriptor:(RKResponseDescriptor *)responseDescriptor;
 @end
