@@ -55,13 +55,6 @@
     return NSStringFromClass([self class]);
 }
 
-#ifdef DEBUG
--(void)testHelperChangeNotificationCenter:(NSNotificationCenter *)notificationCenter
-{
-    _notificationCenter = notificationCenter;
-}
-#endif
-
 #pragma mark - private - accessors
 
 -(NSNotificationCenter *)notificationCenter
