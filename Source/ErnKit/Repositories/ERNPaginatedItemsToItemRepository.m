@@ -4,7 +4,7 @@
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNPaginatedItemsToItemRepository ()
-@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>repository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
 @end
 
 @implementation ERNPaginatedItemsToItemRepository {

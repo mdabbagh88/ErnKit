@@ -4,7 +4,7 @@
 #import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNTogglingAsyncPaginatedItemsRepository ()
-@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>currentRepository;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> currentRepository;
 @property (nonatomic, readonly) NSArray *repositories;
 @end
 

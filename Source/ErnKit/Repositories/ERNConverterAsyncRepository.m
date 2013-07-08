@@ -3,7 +3,7 @@
 #import "ERNErrorHandler.h"
 
 @interface ERNConverterAsyncRepository ()
-@property (nonatomic, readonly) id<ERNAsyncRepository>repository;
+@property (nonatomic, readonly) id<ERNAsyncRepository> repository;
 @end
 
 @implementation ERNConverterAsyncRepository {

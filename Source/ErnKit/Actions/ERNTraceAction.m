@@ -4,7 +4,7 @@
 #import "ERNLogAction.h"
 
 @interface ERNTraceAction ()
-@property (nonatomic, readonly) id<ERNAction>action;
+@property (nonatomic, readonly) id<ERNAction> action;
 @end
 
 @implementation ERNTraceAction {

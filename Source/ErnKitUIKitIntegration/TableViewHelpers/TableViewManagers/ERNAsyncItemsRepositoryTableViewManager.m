@@ -8,8 +8,8 @@
 #import "ERNNullTableViewItemManager.h"
 
 @interface ERNAsyncItemsRepositoryTableViewManager ()
-@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository>repository;
-@property (nonatomic, readonly) id<ERNTableViewItemManager>itemManager;
+@property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
+@property (nonatomic, readonly) id<ERNTableViewItemManager> itemManager;
 @end
 
 @implementation ERNAsyncItemsRepositoryTableViewManager {
