@@ -65,7 +65,7 @@
 
 -(id)initWithTableViewManager:(id<ERNTableViewManager>)tableViewManager
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _tableViewManager = tableViewManager;
     return self;

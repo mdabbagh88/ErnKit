@@ -39,7 +39,7 @@
 -(id)initWithTableView:(UITableView *)tableView
             repository:(id<ERNAsyncRepository>)repository
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _repository = repository;
     _tableView = tableView;

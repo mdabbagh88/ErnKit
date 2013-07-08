@@ -155,7 +155,7 @@ validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 
 -(id)initWithRepositories:(NSArray *)repositories
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _repositories = repositories;
     _selectedIndex = 0;

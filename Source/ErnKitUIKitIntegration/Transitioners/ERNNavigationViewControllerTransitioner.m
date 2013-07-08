@@ -36,7 +36,7 @@
 
 -(id)initWithNavigationController:(UINavigationController *)navigationController
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _navigationController = navigationController;
     return self;

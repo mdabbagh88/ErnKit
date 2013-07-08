@@ -180,7 +180,7 @@
 -(id)initWithFirstRepository:(id<ERNAsyncPaginatedItemsRepository>)firstRepository
               restRepository:(id<ERNAsyncPaginatedItemsRepository>)restRepository
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _firstRepository = firstRepository;
     _restRepository = restRepository;

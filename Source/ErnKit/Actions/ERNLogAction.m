@@ -50,7 +50,7 @@
 
 -(id)initWithLogString:(NSString *)string
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _string = string;
     return self;

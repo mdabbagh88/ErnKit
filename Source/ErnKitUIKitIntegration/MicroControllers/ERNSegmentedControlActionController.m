@@ -70,7 +70,7 @@
                       actions:(NSArray *)actions
                      resource:(ERNResource *)resource
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _actions = actions;
     _resource = resource;

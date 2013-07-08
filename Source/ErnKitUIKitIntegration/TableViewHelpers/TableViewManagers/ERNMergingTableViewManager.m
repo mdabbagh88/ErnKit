@@ -201,7 +201,7 @@
 -(id)initWithFirstTableViewManager:(id<ERNTableViewManager>)firstTableViewManager
               restTableViewManager:(id<ERNTableViewManager>)restTableViewManager
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _firstTableViewManager = firstTableViewManager;
     _restTableViewManager = restTableViewManager;

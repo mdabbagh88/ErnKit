@@ -37,7 +37,7 @@
 
 -(id)initWithResponseDescriptor:(RKResponseDescriptor *)responseDescriptor
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _responseDescriptor = responseDescriptor;
     return self;

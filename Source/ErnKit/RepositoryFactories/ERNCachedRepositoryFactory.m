@@ -106,7 +106,7 @@
 -(id)initWithFirst:(id<ERNRepositoryFactory>)firstRepositoryFactory
               rest:(id<ERNRepositoryFactory>)restRepositoryFactory
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _firstRepositoryFactory = firstRepositoryFactory;
     _restRepositoryFactory = restRepositoryFactory;

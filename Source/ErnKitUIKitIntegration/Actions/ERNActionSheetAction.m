@@ -36,7 +36,7 @@
 -(id)initWithTransitioner:(id<ERNActionSheetTransitioner>)transitioner
              configurator:(id<ERNActionSheetConfigurator>)configurator
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _configurator = configurator;
     _transitioner = transitioner;

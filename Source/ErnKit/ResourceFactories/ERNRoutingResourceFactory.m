@@ -60,7 +60,7 @@
 
 -(id)initWithMappings:(NSDictionary *)mappings
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _mappings = mappings;
     return self;

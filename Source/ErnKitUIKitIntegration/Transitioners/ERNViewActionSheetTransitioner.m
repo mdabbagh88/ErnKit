@@ -28,7 +28,7 @@
 
 -(id)initWithView:(UIView *)view
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _view = view;
     return self;

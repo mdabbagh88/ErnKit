@@ -26,7 +26,7 @@
 
 -(id)initWithRepository:(id<ERNAsyncRepository>)repository
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _repository = repository;
     return self;

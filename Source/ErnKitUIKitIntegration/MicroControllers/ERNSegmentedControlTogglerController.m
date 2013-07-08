@@ -39,7 +39,7 @@
                       toggler:(id<ERNToggler>)toggler
 
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _toggler = toggler;
     _segmentedControl = segmentedControl;

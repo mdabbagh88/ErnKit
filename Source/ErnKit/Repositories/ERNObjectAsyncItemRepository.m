@@ -23,7 +23,7 @@
 
 -(id)initWithItem:(id<NSObject>)item
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _item = item;
     return self;

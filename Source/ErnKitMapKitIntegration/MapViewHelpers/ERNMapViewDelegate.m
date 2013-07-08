@@ -50,7 +50,7 @@ didSelectAnnotationView:(MKAnnotationView *)view
 -(id)initWithActionHandler:(id<ERNActionHandler>)actionHandler
                viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _actionHandler = actionHandler;
     _viewFactory = viewFactory;

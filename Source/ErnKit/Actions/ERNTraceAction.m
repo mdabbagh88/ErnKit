@@ -33,7 +33,7 @@
 
 -(id)initWithAction:(id<ERNAction>)action
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _action = [ERNDualAction createWithFirstAction:[self logActionForAction:action]
                                       secondAction:action];

@@ -38,7 +38,7 @@
 
 -(id)initWithViewController:(UIViewController*)sourceViewController
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _sourceViewController = sourceViewController;
     return self;

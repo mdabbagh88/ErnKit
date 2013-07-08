@@ -60,7 +60,7 @@
 -(id)initWithMappings:(NSDictionary *)mappings
        defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _mappings = mappings;
     _defaultFactory = defaultFactory;

@@ -159,7 +159,7 @@
 -(id)initWithTableViewManagers:(NSArray *)tableViewManagers
                      tableView:(UITableView *)tableView
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _tableViewManagers = tableViewManagers;
     _tableView = tableView;

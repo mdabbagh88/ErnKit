@@ -119,7 +119,7 @@ validPaginatedItemsRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 
 -(id)initWithRepositoryFactories:(NSDictionary *)repositoryFactories
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _repositoryFactories = repositoryFactories;
     return self;

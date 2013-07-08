@@ -54,7 +54,7 @@
 
 -(id)initWithMapViewDelegate:(id<MKMapViewDelegate>)mapViewDelegate
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _delegate = mapViewDelegate;
     return self;

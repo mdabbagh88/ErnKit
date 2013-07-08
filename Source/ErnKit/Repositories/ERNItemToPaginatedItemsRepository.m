@@ -96,7 +96,7 @@
 
 -(id)initWithItemRepository:(id<ERNAsyncItemRepository>)repository
 {
-    self = [self initWithRepository:repository];
+    self = [super initWithRepository:repository];
     ERNCheckNil(self);
     _repository = repository;
     return self;

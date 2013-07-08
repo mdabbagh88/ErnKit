@@ -62,7 +62,7 @@
 -(id)initWithCellFactory:(id<ERNTableViewCellFactory>)cellFactory
            actionHandler:(id<ERNActionHandler>)actionHandler
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _cellFactory = cellFactory;
     _actionHandler = actionHandler;

@@ -35,7 +35,7 @@
 
 -(id)initWithWindow:(UIWindow*)window
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _window = window;
     return self;

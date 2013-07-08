@@ -37,7 +37,7 @@
 -(id)initWithObjects:(NSArray *)objects
              forKeys:(NSArray *)keys
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _dictionary = [[NSDictionary alloc] initWithObjects:objects
                                                 forKeys:keys];

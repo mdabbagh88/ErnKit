@@ -32,7 +32,7 @@
 -(id)initWithFirstAction:(id<ERNAction>)firstAction
             secondAction:(id<ERNAction>)secondAction
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _firstAction = firstAction;
     _secondAction = secondAction;

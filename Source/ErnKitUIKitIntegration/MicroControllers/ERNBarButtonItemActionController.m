@@ -39,7 +39,7 @@
                     action:(id<ERNAction>)action
                   resource:(ERNResource *)resource
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _action = action;
     _resource = resource;

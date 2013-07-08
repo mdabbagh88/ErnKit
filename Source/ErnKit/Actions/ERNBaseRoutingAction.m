@@ -33,7 +33,7 @@
 
 -(id)initWithActions:(NSDictionary *)actions
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _actions = actions;
     return self;

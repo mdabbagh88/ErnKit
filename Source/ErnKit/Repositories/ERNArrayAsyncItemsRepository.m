@@ -60,7 +60,7 @@
 
 -(id)initWithArray:(NSArray *)array
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _array = array;
     return self;

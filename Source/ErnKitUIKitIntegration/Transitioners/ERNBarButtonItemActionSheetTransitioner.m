@@ -29,7 +29,7 @@
 
 -(id)initWithBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _barButtonItem = barButtonItem;
     return self;

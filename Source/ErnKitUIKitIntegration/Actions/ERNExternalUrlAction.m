@@ -28,7 +28,7 @@
 
 -(id)initWithApplication:(UIApplication *)application
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _application = application;
     return self;

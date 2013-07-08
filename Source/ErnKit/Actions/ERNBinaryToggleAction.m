@@ -50,7 +50,7 @@
 
 -(id)initWithAction:(id<ERNAction>)action
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _action = action;
     [self setCurrentAction:action];

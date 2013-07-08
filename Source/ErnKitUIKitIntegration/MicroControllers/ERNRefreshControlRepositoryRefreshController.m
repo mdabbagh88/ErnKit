@@ -37,7 +37,7 @@
 -(id)initWithRefreshControl:(UIRefreshControl *)refreshControl
                  repository:(id<ERNAsyncRepository>)repository
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _refreshControl = refreshControl;
     _repository = repository;

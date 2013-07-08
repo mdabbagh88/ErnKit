@@ -48,7 +48,7 @@ static ERNResource *immutableSingletonNull;
 -(id)initWithUrl:(NSURL *)url
             mime:(NSString *)mime
 {
-    self = [self init];
+    self = [super init];
     _url = url;
     _mime = mime;
     return self;

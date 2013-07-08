@@ -38,7 +38,7 @@
 -(id)initWithTransitioner:(id<ERNViewControllerTransitioner>)transitioner
              configurator:(id<ERNViewControllerConfigurator>)configurator
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _configurator = configurator;
     _transitioner = transitioner;

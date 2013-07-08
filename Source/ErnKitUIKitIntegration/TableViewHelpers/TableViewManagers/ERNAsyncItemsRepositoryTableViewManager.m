@@ -100,7 +100,7 @@
 -(id)initWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
             itemManager:(id<ERNTableViewItemManager>)itemManager
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _repository = repository;
     _itemManager = itemManager;

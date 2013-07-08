@@ -75,7 +75,7 @@ typedef const void(^ERNAnnotationZoomer)();
           repository:(id<ERNAsyncItemsRepository>)repository
     annotationZoomer:(ERNAnnotationZoomer)annotationZoomer
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _repository = repository;
     _mapView = mapView;

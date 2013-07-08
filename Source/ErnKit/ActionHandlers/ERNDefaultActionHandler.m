@@ -65,7 +65,7 @@
     resourceFactory:(id<ERNResourceFactory>)resourceFactory
     repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _action = action;
     _repositoryStore = repositoryStore;

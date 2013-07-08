@@ -65,7 +65,7 @@
 
 -(id)initWithActions:(NSArray *)actions
 {
-    self = [self init];
+    self = [super init];
     ERNCheckNil(self);
     _actions = actions;
     _selectedIndex = 0;
