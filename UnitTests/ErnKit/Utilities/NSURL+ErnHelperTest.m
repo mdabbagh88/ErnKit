@@ -4,7 +4,10 @@
 #import "NSURL+ErnHelperTest.h"
 #import "NSURL+ErnHelper.h"
 
-@implementation NSURL_ErnHelperTest
+@implementation NSURL_ErnHelperTest {
+}
+
+#pragma mark - class tests
 
 -(void)testNullSingleton
 {

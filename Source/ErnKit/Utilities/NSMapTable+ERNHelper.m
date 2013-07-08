@@ -2,7 +2,7 @@
 
 @implementation NSMapTable (ERNHelper)
 
--(BOOL)hasObjectForKey:(id)key
+-(BOOL)ERN_hasObjectForKey:(id)key
 {
     return [self objectForKey:key] != nil;
 }

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSMapTable (ERNHelper)
--(BOOL)hasObjectForKey:(id)key;
+-(BOOL)ERN_hasObjectForKey:(id)key;
 @end

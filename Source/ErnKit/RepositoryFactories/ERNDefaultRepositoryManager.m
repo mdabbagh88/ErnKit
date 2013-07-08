@@ -37,12 +37,12 @@
 
 -(BOOL)hasRepositoryForResource:(ERNResource *)resource
 {
-    return [[self repositories] hasObjectForKey:[resource url]];
+    return [[self repositories] ERN_hasObjectForKey:[resource url]];
 }
 
 -(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
 {
-    return [[self repositories] hasObjectForKey:[resource url]];
+    return [[self repositories] ERN_hasObjectForKey:[resource url]];
 }
 
 -(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource

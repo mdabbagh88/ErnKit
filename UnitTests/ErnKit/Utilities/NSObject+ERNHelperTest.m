@@ -4,7 +4,10 @@
 #import "NSObject+ERNHelperTest.h"
 #import "NSObject+ERNHelper.h"
 
-@implementation NSObject_ERNHelperTest
+@implementation NSObject_ERNHelperTest {
+}
+
+#pragma mark - class tests
 
 -(NSUInteger)count
 {

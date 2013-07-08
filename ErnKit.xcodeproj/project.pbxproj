@@ -59,7 +59,6 @@
 		F732924A1775AC85005EEBA8 /* ERNDefaultResourceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7B3175243C1006226CA /* ERNDefaultResourceFactory.m */; };
 		F732924B1775AC85005EEBA8 /* NSObject+ERNHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06AA3172D0A9900CA5FC4 /* NSObject+ERNHelper.m */; };
 		F732924C1775AC85005EEBA8 /* NSURL+ERNHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */; };
-		F732924D1775AC85005EEBA8 /* ERNDictionaryWithDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = F75C2F62176E2BC900E990F6 /* ERNDictionaryWithDefault.m */; };
 		F732924E1775AC85005EEBA8 /* ERNMutableDictionaryWithDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */; };
 		F732924F1775AC85005EEBA8 /* ERNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = F75C2F67176E43DF00E990F6 /* ERNResource.m */; };
 		F73292501775AC85005EEBA8 /* ERNActionSheetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2EF17351F890035B164 /* ERNActionSheetAction.m */; };
@@ -136,6 +135,8 @@
 		F7504CA217775C5E006EDD9B /* ERNBaseRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504CA117775AFE006EDD9B /* ERNBaseRoutingAction.m */; };
 		F76D4153178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4152178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m */; };
 		F76D4166178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4165178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m */; };
+		F76D4169178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4168178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m */; };
+		F76D416C178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D416B178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.m */; };
 		F7765FD71775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */; };
 		F7765FDA1775F1D40058392C /* ERNNullTableViewItemManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD91775F1D40058392C /* ERNNullTableViewItemManagerTest.m */; };
 		F788B7A817523B71006226CA /* ERNDemoApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B79717523B71006226CA /* ERNDemoApplicationDelegate.m */; };
@@ -377,8 +378,6 @@
 		F75C2F4F176DC8F900E990F6 /* ERNNullAsyncRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncRepository.m; sourceTree = "<group>"; };
 		F75C2F50176DCA4500E990F6 /* ERNNullAsyncPaginatedItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncPaginatedItemsRepository.h; sourceTree = "<group>"; };
 		F75C2F51176DCA4500E990F6 /* ERNNullAsyncPaginatedItemsRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncPaginatedItemsRepository.m; sourceTree = "<group>"; };
-		F75C2F61176E2BC900E990F6 /* ERNDictionaryWithDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNDictionaryWithDefault.h; sourceTree = "<group>"; };
-		F75C2F62176E2BC900E990F6 /* ERNDictionaryWithDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDictionaryWithDefault.m; sourceTree = "<group>"; };
 		F75C2F63176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNMutableDictionaryWithDefault.h; sourceTree = "<group>"; };
 		F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNMutableDictionaryWithDefault.m; sourceTree = "<group>"; };
 		F75C2F66176E43DD00E990F6 /* ERNResource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNResource.h; sourceTree = "<group>"; };
@@ -397,6 +396,10 @@
 		F76D4163178B3B310071D8DE /* ERNRepositoryStoreTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ERNRepositoryStoreTest.m; path = RepositoryFactories/ERNRepositoryStoreTest.m; sourceTree = "<group>"; };
 		F76D4164178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultRepositoryPaginatorTest.h; sourceTree = "<group>"; };
 		F76D4165178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultRepositoryPaginatorTest.m; sourceTree = "<group>"; };
+		F76D4167178B40DA0071D8DE /* NSMapTable+ERNHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+ERNHelperTest.h"; sourceTree = "<group>"; };
+		F76D4168178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+ERNHelperTest.m"; sourceTree = "<group>"; };
+		F76D416A178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMutableDictionaryWithDefaultTest.h; sourceTree = "<group>"; };
+		F76D416B178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMutableDictionaryWithDefaultTest.m; sourceTree = "<group>"; };
 		F7765FD51775EFAE0058392C /* ERNNullTableViewCellFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewCellFactoryTest.h; sourceTree = "<group>"; };
 		F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactoryTest.m; sourceTree = "<group>"; };
 		F7765FD81775F1D40058392C /* ERNNullTableViewItemManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewItemManagerTest.h; sourceTree = "<group>"; };
@@ -921,6 +924,10 @@
 				F74388D4173BF25100676477 /* NSURL+ErnHelperTest.m */,
 				F74388D6173BF32B00676477 /* NSObject+ERNHelperTest.h */,
 				F74388D7173BF32C00676477 /* NSObject+ERNHelperTest.m */,
+				F76D4167178B40DA0071D8DE /* NSMapTable+ERNHelperTest.h */,
+				F76D4168178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m */,
+				F76D416A178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.h */,
+				F76D416B178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1662,8 +1669,6 @@
 				F7F06AA3172D0A9900CA5FC4 /* NSObject+ERNHelper.m */,
 				F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */,
 				F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */,
-				F75C2F61176E2BC900E990F6 /* ERNDictionaryWithDefault.h */,
-				F75C2F62176E2BC900E990F6 /* ERNDictionaryWithDefault.m */,
 				F75C2F63176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.h */,
 				F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */,
 				F75C2F66176E43DD00E990F6 /* ERNResource.h */,
@@ -1974,7 +1979,6 @@
 				F703082E177F84CE00F39603 /* ERNCachedRepositoryFactory.m in Sources */,
 				F732924B1775AC85005EEBA8 /* NSObject+ERNHelper.m in Sources */,
 				F732924C1775AC85005EEBA8 /* NSURL+ERNHelper.m in Sources */,
-				F732924D1775AC85005EEBA8 /* ERNDictionaryWithDefault.m in Sources */,
 				F732924E1775AC85005EEBA8 /* ERNMutableDictionaryWithDefault.m in Sources */,
 				F732924F1775AC85005EEBA8 /* ERNResource.m in Sources */,
 				F73292501775AC85005EEBA8 /* ERNActionSheetAction.m in Sources */,
@@ -2050,6 +2054,7 @@
 				F7AD8B86173AC4C30046E153 /* ERNDefaultActionHandlerTest.m in Sources */,
 				F7CAD267178237B5003660F9 /* ERNCachedRepositoryFactoryTest.m in Sources */,
 				F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */,
+				F76D416C178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.m in Sources */,
 				F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */,
 				F7FDCE58178AAB0100268F35 /* ERNDefaultAsyncPaginatedItemsRepositoryTest.m in Sources */,
 				F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */,
@@ -2107,6 +2112,7 @@
 				F76D4153178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m in Sources */,
 				F7A30870173FBF9B0083F020 /* ERNNullAnnotationTest.m in Sources */,
 				F7A30879173FCAD80083F020 /* UIViewController+ERNHelperTest.m in Sources */,
+				F76D4169178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m in Sources */,
 				F788B7BD175289F5006226CA /* ERNUrlHostRoutingActionTest.m in Sources */,
 				F73292861775B3E7005EEBA8 /* ERNNullActionHandlerTest.m in Sources */,
 				F7765FD71775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m in Sources */,
