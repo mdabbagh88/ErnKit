@@ -107,11 +107,6 @@
 
 #pragma mark - private
 
--(BOOL)indexWithinArray:(NSUInteger)index
-{
-    return index < [[self array] count];
-}
-
 -(void)repositoryRefreshed
 {
     [[self pages] removeAllObjects];

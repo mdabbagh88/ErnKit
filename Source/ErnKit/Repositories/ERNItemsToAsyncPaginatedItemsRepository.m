@@ -1,11 +1,13 @@
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAsyncItemsRepository.h"
 
 @interface ERNItemsToAsyncPaginatedItemsRepository ()
 @property (nonatomic, readonly) id<ERNAsyncItemsRepository> repository;
 @end
 
 @implementation ERNItemsToAsyncPaginatedItemsRepository {
+    id<ERNAsyncItemsRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -67,6 +69,13 @@
 {
     ERNCheckNilAndReturn(predicate, @[]);
     return [[self repository] filteredArrayUsingPredicate:predicate];
+}
+
+#pragma mark - private - accessors
+
+-(id<ERNAsyncItemsRepository>)repository
+{
+    return _repository = _repository ? _repository : [ERNNullAsyncItemsRepository create];
 }
 
 #pragma mark - private - initializers
