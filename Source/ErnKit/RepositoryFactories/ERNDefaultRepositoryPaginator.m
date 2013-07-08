@@ -9,6 +9,13 @@
     NSArray *_items;
 }
 
+#pragma mark - public - constructors
+
++(instancetype)create
+{
+    return [self new];
+}
+
 #pragma mark - ERNRepositoryPaginator
 
 -(NSNumber *)total

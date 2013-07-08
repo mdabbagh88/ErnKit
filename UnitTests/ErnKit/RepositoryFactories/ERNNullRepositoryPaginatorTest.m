@@ -3,9 +3,20 @@
 #import <OCMock/OCMock.h>
 #import "ERNNullRepositoryPaginatorTest.h"
 #import "ERNNullRepositoryPaginator.h"
+#import "ERNRepositoryPaginatorTest.h"
 #import "NSURL+ERNHelper.h"
 
-@implementation ERNNullRepositoryPaginatorTest
+@implementation ERNNullRepositoryPaginatorTest {
+}
+
+#pragma mark - ERNRepositoryPaginator protocol tests
+
+-(void)testRepositoryPaginatorProtocol
+{
+    [ERNRepositoryPaginatorTest testRepositoryPaginator:[ERNNullRepositoryPaginator create]];
+}
+
+#pragma mark - class tests
 
 -(void)testSingleton
 {
@@ -30,30 +41,6 @@
     assertThatUnsignedInteger(total, equalToUnsignedInteger(0));
 }
 
--(void)testNextPage
-{
-    //given
-    id<ERNRepositoryPaginator> paginator = [ERNNullRepositoryPaginator create];
-
-    //when
-    NSURL *url = [paginator nextPage];
-
-    //then
-    assertThat(url, equalTo([NSURL ERN_createNull]));
-}
-
--(void)testPreviousPage
-{
-    //given
-    id<ERNRepositoryPaginator> paginator = [ERNNullRepositoryPaginator create];
-
-    //when
-    NSURL *url = [paginator previousPage];
-
-    //then
-    assertThat(url, equalTo([NSURL ERN_createNull]));
-}
-
 -(void)testItems
 {
     //given
@@ -63,7 +50,6 @@
     NSArray *items = [paginator items];
 
     //then
-    assertThat(items, notNilValue());
     assertThatUnsignedInteger([items count], equalToUnsignedInteger(0));
     
 }

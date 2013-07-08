@@ -135,6 +135,7 @@
 		F7504C9F1777441B006EDD9B /* ERNBaseObservable.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504C9E17774214006EDD9B /* ERNBaseObservable.m */; };
 		F7504CA217775C5E006EDD9B /* ERNBaseRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504CA117775AFE006EDD9B /* ERNBaseRoutingAction.m */; };
 		F76D4153178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4152178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m */; };
+		F76D4166178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4165178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m */; };
 		F7765FD71775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */; };
 		F7765FDA1775F1D40058392C /* ERNNullTableViewItemManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7765FD91775F1D40058392C /* ERNNullTableViewItemManagerTest.m */; };
 		F788B7A817523B71006226CA /* ERNDemoApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B79717523B71006226CA /* ERNDemoApplicationDelegate.m */; };
@@ -388,6 +389,14 @@
 		F762A2B61755D69D0096B5F9 /* UIKitIntegration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitIntegration.h; sourceTree = "<group>"; };
 		F76D4151178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemsToAsyncPaginatedItemsRepositoryTest.h; sourceTree = "<group>"; };
 		F76D4152178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemsToAsyncPaginatedItemsRepositoryTest.m; sourceTree = "<group>"; };
+		F76D415C178B3A8F0071D8DE /* ERNRepositoryPaginatorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ERNRepositoryPaginatorTest.h; path = RepositoryFactories/ERNRepositoryPaginatorTest.h; sourceTree = "<group>"; };
+		F76D415D178B3A8F0071D8DE /* ERNRepositoryPaginatorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ERNRepositoryPaginatorTest.m; path = RepositoryFactories/ERNRepositoryPaginatorTest.m; sourceTree = "<group>"; };
+		F76D4160178B3B310071D8DE /* ERNRepositoryManagerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ERNRepositoryManagerTest.h; path = RepositoryFactories/ERNRepositoryManagerTest.h; sourceTree = "<group>"; };
+		F76D4161178B3B310071D8DE /* ERNRepositoryManagerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ERNRepositoryManagerTest.m; path = RepositoryFactories/ERNRepositoryManagerTest.m; sourceTree = "<group>"; };
+		F76D4162178B3B310071D8DE /* ERNRepositoryStoreTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ERNRepositoryStoreTest.h; path = RepositoryFactories/ERNRepositoryStoreTest.h; sourceTree = "<group>"; };
+		F76D4163178B3B310071D8DE /* ERNRepositoryStoreTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ERNRepositoryStoreTest.m; path = RepositoryFactories/ERNRepositoryStoreTest.m; sourceTree = "<group>"; };
+		F76D4164178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultRepositoryPaginatorTest.h; sourceTree = "<group>"; };
+		F76D4165178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultRepositoryPaginatorTest.m; sourceTree = "<group>"; };
 		F7765FD51775EFAE0058392C /* ERNNullTableViewCellFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewCellFactoryTest.h; sourceTree = "<group>"; };
 		F7765FD61775EFAE0058392C /* ERNNullTableViewCellFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactoryTest.m; sourceTree = "<group>"; };
 		F7765FD81775F1D40058392C /* ERNNullTableViewItemManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullTableViewItemManagerTest.h; sourceTree = "<group>"; };
@@ -544,8 +553,8 @@
 		F7AD8B92173AE6FC0046E153 /* ERNLogActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNLogActionTest.h; sourceTree = "<group>"; };
 		F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNLogActionTest.m; sourceTree = "<group>"; };
 		F7C00DAA178383BC0075FE61 /* ERNItemRepositoryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemRepositoryFactory.h; sourceTree = "<group>"; };
-		F7C00DAD1783843D0075FE61 /* ERNItemRepositoryFactoryTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNItemRepositoryFactoryTest.h; sourceTree = "<group>"; };
-		F7C00DAE1783843D0075FE61 /* ERNItemRepositoryFactoryTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNItemRepositoryFactoryTest.m; sourceTree = "<group>"; };
+		F7C00DAD1783843D0075FE61 /* ERNItemRepositoryFactoryTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ERNItemRepositoryFactoryTest.h; path = RepositoryFactories/ERNItemRepositoryFactoryTest.h; sourceTree = "<group>"; };
+		F7C00DAE1783843D0075FE61 /* ERNItemRepositoryFactoryTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ERNItemRepositoryFactoryTest.m; path = RepositoryFactories/ERNItemRepositoryFactoryTest.m; sourceTree = "<group>"; };
 		F7C00DB2178386C90075FE61 /* ERNNullItemRepositoryFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullItemRepositoryFactoryTest.h; sourceTree = "<group>"; };
 		F7C00DB3178386C90075FE61 /* ERNNullItemRepositoryFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullItemRepositoryFactoryTest.m; sourceTree = "<group>"; };
 		F7C00DB51783870F0075FE61 /* ERNNullItemRepositoryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullItemRepositoryFactory.h; sourceTree = "<group>"; };
@@ -571,10 +580,6 @@
 		F7CAD269178237C7003660F9 /* ERNMimeRoutingRepositoryFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMimeRoutingRepositoryFactoryTest.m; sourceTree = "<group>"; };
 		F7CAD26B178237D9003660F9 /* ERNNullRepositoryFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullRepositoryFactoryTest.h; sourceTree = "<group>"; };
 		F7CAD26C178237D9003660F9 /* ERNNullRepositoryFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullRepositoryFactoryTest.m; sourceTree = "<group>"; };
-		F7CAD26E1782380C003660F9 /* ERNRepositoryManagerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNRepositoryManagerTest.h; sourceTree = "<group>"; };
-		F7CAD26F1782380C003660F9 /* ERNRepositoryManagerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNRepositoryManagerTest.m; sourceTree = "<group>"; };
-		F7CAD270178238F3003660F9 /* ERNRepositoryStoreTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNRepositoryStoreTest.h; sourceTree = "<group>"; };
-		F7CAD271178238F3003660F9 /* ERNRepositoryStoreTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNRepositoryStoreTest.m; sourceTree = "<group>"; };
 		F7DA7019171F0CBA0026D627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7DA701B171F0CBA0026D627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7DA701D171F0CBA0026D627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -853,6 +858,8 @@
 				F7416292177F8A1900720A8C /* ERNDefaultRepositoryManagerTest.m */,
 				F7416293177F8A1900720A8C /* ERNNullRepositoryPaginatorTest.h */,
 				F7416294177F8A1900720A8C /* ERNNullRepositoryPaginatorTest.m */,
+				F76D4164178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.h */,
+				F76D4165178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m */,
 				F7CAD265178237B5003660F9 /* ERNCachedRepositoryFactoryTest.h */,
 				F7CAD266178237B5003660F9 /* ERNCachedRepositoryFactoryTest.m */,
 				F7CAD268178237C7003660F9 /* ERNMimeRoutingRepositoryFactoryTest.h */,
@@ -1419,14 +1426,16 @@
 		F7CAD25C178230B4003660F9 /* RepositoryFactories */ = {
 			isa = PBXGroup;
 			children = (
+				F76D4160178B3B310071D8DE /* ERNRepositoryManagerTest.h */,
+				F76D4161178B3B310071D8DE /* ERNRepositoryManagerTest.m */,
+				F76D4162178B3B310071D8DE /* ERNRepositoryStoreTest.h */,
+				F76D4163178B3B310071D8DE /* ERNRepositoryStoreTest.m */,
+				F76D415C178B3A8F0071D8DE /* ERNRepositoryPaginatorTest.h */,
+				F76D415D178B3A8F0071D8DE /* ERNRepositoryPaginatorTest.m */,
 				F7C00DAD1783843D0075FE61 /* ERNItemRepositoryFactoryTest.h */,
 				F7C00DAE1783843D0075FE61 /* ERNItemRepositoryFactoryTest.m */,
 				F7CAD25F17823139003660F9 /* ERNRepositoryFactoryTest.h */,
 				F7CAD26017823139003660F9 /* ERNRepositoryFactoryTest.m */,
-				F7CAD26E1782380C003660F9 /* ERNRepositoryManagerTest.h */,
-				F7CAD26F1782380C003660F9 /* ERNRepositoryManagerTest.m */,
-				F7CAD270178238F3003660F9 /* ERNRepositoryStoreTest.h */,
-				F7CAD271178238F3003660F9 /* ERNRepositoryStoreTest.m */,
 			);
 			name = RepositoryFactories;
 			sourceTree = "<group>";
@@ -2057,6 +2066,7 @@
 				F74388A5173B0CB800676477 /* ERNBaseAsyncRepositoryTest.m in Sources */,
 				F74388AE173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m in Sources */,
 				F74388B1173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m in Sources */,
+				F76D4166178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m in Sources */,
 				F74AB940177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.m in Sources */,
 				F74388BB173BA7F800676477 /* ERNItemToPaginatedItemsRepositoryTest.m in Sources */,
 				F74388BE173BB3F600676477 /* ERNPaginatedItemsToItemRepositoryTest.m in Sources */,

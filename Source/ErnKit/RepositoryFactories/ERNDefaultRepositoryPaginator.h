@@ -2,5 +2,5 @@
 #import "ERNRepositoryPaginator.h"
 
 @interface ERNDefaultRepositoryPaginator : NSObject <ERNRepositoryPaginator>
-
++(instancetype)create;
 @end
