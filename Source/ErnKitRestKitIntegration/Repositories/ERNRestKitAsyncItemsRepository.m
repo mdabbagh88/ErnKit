@@ -33,7 +33,7 @@
 {
     if (![[self currentOperation] isExecuting]) {
         [self setCurrentOperation:[self setupCompletionForOperation:[self requestOperation]
-                                            responseOperationsQueue:[self responseQueue]]];
+                                            responseOperationsQueue:responseQueue()]];
         [[self operationQueue] addOperation:[self currentOperation]];
     }
 }
@@ -47,19 +47,19 @@
 
 #pragma mark - private
 
--(NSOperationQueue *)responseQueue
+static NSOperationQueue *responseQueue(void)
 {
     return [NSOperationQueue currentQueue];
 }
 
 -(RKObjectRequestOperation *)requestOperation
 {
-    return [self requestOperationWithRequest:[NSURLRequest requestWithURL:[[self resource] url]]
-                          responseDescriptor:[self responseDescriptor]];
+    return requestOperation([NSURLRequest requestWithURL:[[self resource] url]],
+                            [self responseDescriptor]);
 }
 
--(RKObjectRequestOperation *)requestOperationWithRequest:(NSURLRequest *)request
-                                      responseDescriptor:(RKResponseDescriptor *)responseDescriptor
+static RKObjectRequestOperation *requestOperation(NSURLRequest *request,
+                                                  RKResponseDescriptor *responseDescriptor)
 {
     return [[RKObjectRequestOperation alloc] initWithRequest:request
                                          responseDescriptors:@[responseDescriptor]];

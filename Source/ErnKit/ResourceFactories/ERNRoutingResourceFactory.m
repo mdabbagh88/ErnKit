@@ -24,27 +24,27 @@
 -(ERNResource *)resourceForObject:(id<NSObject>)object
 {
     ERNCheckNilAndReturn(object, [ERNResource createNull]);
-    return [self validResource:[[self factoryForObject:object] resourceForObject:object]];
+    return validResource([[self factoryForObject:object] resourceForObject:object]);
 }
 
 #pragma mark - private
 
--(ERNResource *)validResource:(ERNResource *)resource
+static ERNResource *validResource(ERNResource *resource)
 {
     return resource ? resource : [ERNResource createNull];
 }
 
 -(id<ERNResourceFactory>)factoryForObject:(id<NSObject>)object
 {
-    return [self validFactory:[self mappings][NSStringFromClass([object class])]];
+    return validFactory([self mappings][NSStringFromClass([object class])]);
 }
 
--(id<ERNResourceFactory>)validFactory:(id<ERNResourceFactory>)factory
+static id<ERNResourceFactory> validFactory(id<ERNResourceFactory> factory)
 {
-    return [self factoryIsValid:factory] ? factory : [ERNNullResourceFactory create];
+    return factoryIsValid(factory) ? factory : [ERNNullResourceFactory create];
 }
 
--(BOOL)factoryIsValid:(id<ERNResourceFactory>)factory
+static BOOL factoryIsValid(id<ERNResourceFactory> factory)
 {
     return [factory conformsToProtocol:@protocol(ERNResourceFactory)];
 }

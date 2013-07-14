@@ -40,10 +40,10 @@
 
 -(id<ERNMapViewAnnotationViewFactory>)validFactory:(id<ERNMapViewAnnotationViewFactory>)factory
 {
-    return [self factoryIsValid:factory] ? factory : [self defaultFactory];
+    return factoryIsValid(factory) ? factory : [self defaultFactory];
 }
 
--(BOOL)factoryIsValid:(id<ERNMapViewAnnotationViewFactory>)factory
+static BOOL factoryIsValid(id<ERNMapViewAnnotationViewFactory>factory)
 {
     return [factory conformsToProtocol:@protocol(ERNMapViewAnnotationViewFactory)];
 }

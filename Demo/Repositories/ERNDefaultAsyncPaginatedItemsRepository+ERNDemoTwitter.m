@@ -45,6 +45,7 @@
                                                withMapping:objectMapping]];
     RKResponseDescriptor *paginationResponseDescriptor =
     [RKResponseDescriptor responseDescriptorWithMapping:paginationObjectMapping
+                                                 method:RKRequestMethodAny
                                             pathPattern:nil
                                                 keyPath:@""
                                             statusCodes:statusCodes];

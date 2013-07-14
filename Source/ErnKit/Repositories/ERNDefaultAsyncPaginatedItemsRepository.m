@@ -110,14 +110,14 @@
 -(void)repositoryRefreshed
 {
     [[self pages] removeAllObjects];
-    [[self pages] addObject:[self validatePaginator:[[self repository] item]]];
+    [[self pages] addObject:validatePaginator([[self repository] item])];
     [self setArray:[[[self pages] objectAtIndex:0] items]];
 }
 
 -(void)repositoryNextPageRefreshed
 {
 
-    [[self pages] addObject:[self validatePaginator:[[self repository] item]]];
+    [[self pages] addObject:validatePaginator([[self repository] item])];
     if (([[[[self pages] lastObject] items] count] + [[self array] count]) >
         [self windowSize]) {
         [self setOffset:[self offset] + [[[[self pages] objectAtIndex:0] items] count]];
@@ -128,7 +128,7 @@
 
 -(void)repositoryPreviousPageRefreshed
 {
-    [[self pages] insertObject:[self validatePaginator:[[self repository] item]]
+    [[self pages] insertObject:validatePaginator([[self repository] item])
                        atIndex:0];
     [self setOffset:[self offset] - [[[[self pages] objectAtIndex:0] items] count]];
     if (([[[[self pages] objectAtIndex:0] items] count] + [[self array] count]) >
@@ -149,7 +149,7 @@
 }
 
 
--(id<ERNRepositoryPaginator>)validatePaginator:(id)paginator
+static id<ERNRepositoryPaginator> validatePaginator(id paginator)
 {
     return paginator && [paginator conformsToProtocol:@protocol(ERNRepositoryPaginator)] ?
     paginator :

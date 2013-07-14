@@ -23,18 +23,18 @@
 {
     NSLog(@"%@ : %@ : %@",
           [self string],
-          [self validUrl:[resource url]],
-          [self validMime:[resource mime]]);
+          validUrl([resource url]),
+          validMime([resource mime]));
 }
 
 #pragma mark - private
 
--(NSURL *)validUrl:(NSURL *)url
+static NSURL *validUrl(NSURL *url)
 {
     return url ? url : [NSURL ERN_createNull];
 }
 
--(NSString *)validMime:(NSString *)mime
+static NSString *validMime(NSString *mime)
 {
     return mime ? mime : @"";
 }

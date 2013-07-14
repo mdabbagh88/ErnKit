@@ -59,10 +59,10 @@ typedef const void(^ERNAnnotationZoomer)();
 
 -(NSArray *)annotationsInRepository
 {
-    return [[self repository] filteredArrayUsingPredicate:[self annotationFilterPredicate]];
+    return [[self repository] filteredArrayUsingPredicate:annotationFilterPredicate()];
 }
 
--(NSPredicate *)annotationFilterPredicate
+static NSPredicate *annotationFilterPredicate(void)
 {
     return [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return [evaluatedObject conformsToProtocol:@protocol(MKAnnotation)];

@@ -118,11 +118,11 @@
 -(id<ERNAsyncPaginatedItemsRepository>)
 validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
-    return [self isValidRepository:repository] ? repository :
+    return isValidRepository(repository) ? repository :
     [ERNNullAsyncPaginatedItemsRepository create];
 }
 
--(BOOL)isValidRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
+static BOOL isValidRepository(id<ERNAsyncPaginatedItemsRepository> repository)
 {
     return repository &&
     [repository conformsToProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];

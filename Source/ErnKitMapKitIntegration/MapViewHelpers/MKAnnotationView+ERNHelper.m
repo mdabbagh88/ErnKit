@@ -28,12 +28,12 @@
 {
     return [self ERN_createAnnotationView:[mapView
                                            dequeueReusableAnnotationViewWithIdentifier:identifier]
-                               annotation:[self ERN_validateAnnotation:annotation]
+                               annotation:validateAnnotation(annotation)
                                identifier:identifier];
     
 }
 
-+(id<MKAnnotation>)ERN_validateAnnotation:(id<MKAnnotation>)annotation
+static id<MKAnnotation> validateAnnotation(id<MKAnnotation> annotation)
 {
     return annotation ? annotation : [ERNNullAnnotation create];
 }

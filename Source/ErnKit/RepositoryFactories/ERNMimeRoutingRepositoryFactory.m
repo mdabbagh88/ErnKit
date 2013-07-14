@@ -79,16 +79,16 @@
 
 -(id<ERNRepositoryFactory>)factoryForMime:(NSString *)mime
 {
-    return [self validFactory:[[self repositoryFactories] objectForKey:mime]];
+    return validFactory([[self repositoryFactories] objectForKey:mime]);
 }
 
--(id<ERNRepositoryFactory>)validFactory:(id<ERNRepositoryFactory>)repositoryFactory
+static id<ERNRepositoryFactory> validFactory(id<ERNRepositoryFactory> repositoryFactory)
 {
-    return [self isValidFactory:repositoryFactory] ?
+    return isValidFactory(repositoryFactory) ?
     repositoryFactory : [ERNNullRepositoryFactory create];
 }
 
--(BOOL)isValidFactory:(id<ERNRepositoryFactory>)repositoryFactory
+static BOOL isValidFactory(id<ERNRepositoryFactory> repositoryFactory)
 {
     return repositoryFactory &&
     [repositoryFactory conformsToProtocol:@protocol(ERNRepositoryFactory)];

@@ -21,9 +21,8 @@ static ERNDefaultTableViewCellFactory *immutableSingleton;
                             fromObject:(id<NSObject>)object
 {
     ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
-    ERNCheckNilAndReturn(block, [self createTableViewCellFromObject:object]);
-    return [self createTableViewCellWithCellReuser:block
-                                        fromObject:object];
+    ERNCheckNilAndReturn(block, createTableViewCellFromObject(object));
+    return createTableViewCellWithCellReuser(block, object);
 }
 
 -(CGFloat)cellHeightForObject:(id<NSObject>)object
@@ -41,26 +40,26 @@ static ERNDefaultTableViewCellFactory *immutableSingleton;
 
 #pragma mark - private
 
--(UITableViewCell *)createTableViewCellFromObject:(id<NSObject>)object
+static UITableViewCell *createTableViewCellFromObject(id<NSObject>object)
 {
-    return [self setupCell:[UITableViewCell createWithCellReuser:
+    return setupCell([UITableViewCell createWithCellReuser:
                             ^UITableViewCell *(NSString *identifier) {
                                 return nil;
                             }
-                                                           style:UITableViewCellStyleDefault]
-                    object:object];
+                                                     style:UITableViewCellStyleDefault],
+                    object);
 }
 
--(UITableViewCell *)createTableViewCellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
-                                           fromObject:(id<NSObject>)object
+static UITableViewCell *
+createTableViewCellWithCellReuser(UITableViewCell *(^block)(NSString *identifier),
+                                  id<NSObject>object)
 {
-    return [self setupCell:[UITableViewCell createWithCellReuser:block
-                                                           style:UITableViewCellStyleDefault]
-                    object:object];
+    return setupCell([UITableViewCell createWithCellReuser:block
+                                                           style:UITableViewCellStyleDefault],
+                     object);
 }
 
--(UITableViewCell *)setupCell:(UITableViewCell *)cell
-                       object:(id<NSObject>)object
+static UITableViewCell *setupCell(UITableViewCell *cell, id<NSObject>object)
 {
     [[cell textLabel] setText:[object description]];
     return cell;

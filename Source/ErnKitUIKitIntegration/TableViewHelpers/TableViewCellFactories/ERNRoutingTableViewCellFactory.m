@@ -39,15 +39,15 @@
 
 -(id<ERNTableViewCellFactory>)factoryForObject:(id<NSObject>)object
 {
-    return [self validFactory:[self mappings][NSStringFromClass([object class])]];
+    return validFactory([self mappings][NSStringFromClass([object class])]);
 }
 
--(id<ERNTableViewCellFactory>)validFactory:(id<ERNTableViewCellFactory>)factory;
+static id<ERNTableViewCellFactory> validFactory(id<ERNTableViewCellFactory> factory)
 {
-    return [self factoryIsValid:factory] ? factory : [ERNDefaultTableViewCellFactory create];
+    return factoryIsValid(factory) ? factory : [ERNDefaultTableViewCellFactory create];
 }
 
--(BOOL)factoryIsValid:(id)factory
+static BOOL factoryIsValid(id factory)
 {
     return [factory conformsToProtocol:@protocol(ERNTableViewCellFactory)];
 }

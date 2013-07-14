@@ -120,7 +120,7 @@
 {
     _selectedIndex = index;
     [self changeCurrentTableViewManagerToIndex:index];
-    [self reloadTableView:[self tableView]];
+    reloadTableView([self tableView]);
     [self notifyObservers];
 }
 
@@ -131,17 +131,17 @@
 
 #pragma mark - private
 
--(void)reloadTableView:(UITableView *)tableView
+static void reloadTableView(UITableView *tableView)
 {
     [tableView reloadData];
 }
 
 -(void)changeCurrentTableViewManagerToIndex:(NSUInteger)index
 {
-    _currentTableViewManager = [self validTableViewManager:[self tableViewManagerAtIndex:index]];
+    _currentTableViewManager = validTableViewManager([self tableViewManagerAtIndex:index]);
 }
 
--(id<ERNTableViewManager>)validTableViewManager:(id<ERNTableViewManager>)tableViewManager
+static id<ERNTableViewManager> validTableViewManager(id<ERNTableViewManager> tableViewManager)
 {
     return tableViewManager && [tableViewManager
                                 conformsToProtocol:@protocol(ERNTableViewManager)] ?

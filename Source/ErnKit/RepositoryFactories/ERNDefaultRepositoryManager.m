@@ -58,13 +58,13 @@
 -(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
-    return [self validRepository:[[self repositories] objectForKey:[resource url]]];
+    return validRepository([[self repositories] objectForKey:[resource url]]);
 }
 
 -(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
-    return [self validItemRepository:[[self repositories] objectForKey:[resource url]]];
+    return validItemRepository([[self repositories] objectForKey:[resource url]]);
 }
 
 -(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
@@ -79,18 +79,18 @@
 
 #pragma mark - private
 
--(NSMapTable *)createRepositories
+static NSMapTable *createRepositories(void)
 {
     return [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
                                  valueOptions:NSPointerFunctionsWeakMemory];
 }
 
--(id<ERNAsyncRepository>)validRepository:(id<ERNAsyncRepository>)repository
+static id<ERNAsyncRepository> validRepository(id<ERNAsyncRepository> repository)
 {
     return repository ? repository : [ERNNullAsyncRepository create];
 }
 
--(id<ERNAsyncItemRepository>)validItemRepository:(id<ERNAsyncItemRepository>)repository
+static id<ERNAsyncItemRepository> validItemRepository(id<ERNAsyncItemRepository> repository)
 {
     return repository ? repository : [ERNNullAsyncItemRepository create];
 }
@@ -99,7 +99,7 @@
 
 -(NSMapTable *)repositories
 {
-    return _repositories = _repositories ? _repositories : [self createRepositories];
+    return _repositories = _repositories ? _repositories : createRepositories();
 }
 
 @end

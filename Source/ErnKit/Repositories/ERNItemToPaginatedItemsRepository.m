@@ -35,8 +35,8 @@
 
 -(id<NSObject>)itemAtIndex:(NSUInteger)index
 {
-    return [self validIndex:index] ?
-    [self validItem:[[self repository] item]] :
+    return validIndex(index) ?
+    validItem([[self repository] item]) :
     [NSNull null];
 }
 
@@ -77,19 +77,19 @@
 
 #pragma mark - private
 
--(BOOL)validIndex:(NSUInteger)index
+static BOOL validIndex(NSUInteger index)
 {
     return index == 0;
 }
 
--(id<NSObject>)validItem:(id<NSObject>)item
+static id<NSObject> validItem(id<NSObject>item)
 {
     return item ? item : [NSNull null];
 }
 
 -(NSArray *)itemToArray
 {
-    return @[[self validItem:[[self repository] item]]];
+    return @[validItem([[self repository] item])];
 }
 
 #pragma mark - private - initializers
