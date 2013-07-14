@@ -251,8 +251,8 @@
     id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id mockIndexPath = [OCMockObject mockForClass:[NSIndexPath class]];
     id mockTableViewManager = [OCMockObject mockForProtocol:@protocol(ERNTableViewManager)];
-    [[[mockTableViewManager expect] andReturn:mockCell] tableView:mockTableView
-                                                 cellForIndexPath:mockIndexPath];
+    [[[mockTableViewManager expect] andReturn:mockCell]  cellForIndexPath:mockIndexPath
+                                                               cellReuser:OCMOCK_ANY];
     id<UITableViewDataSource> dataSource =
     [ERNTableViewDataSource createWithTableViewManager:mockTableViewManager];
 

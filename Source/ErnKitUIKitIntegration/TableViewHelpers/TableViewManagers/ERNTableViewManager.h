@@ -6,8 +6,8 @@
 @class UITableViewCell;
 
 @protocol ERNTableViewManager <NSObject>
--(UITableViewCell *)tableView:(UITableView *)tableView
-             cellForIndexPath:(NSIndexPath *)indexPath;
+-(UITableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath
+                          cellReuser:(UITableViewCell *(^)(NSString *identifier))block;
 -(NSInteger)sections;
 -(NSInteger)rowsInSection:(NSInteger)section;
 @optional

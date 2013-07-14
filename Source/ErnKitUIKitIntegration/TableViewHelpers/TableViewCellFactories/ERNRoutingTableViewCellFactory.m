@@ -20,13 +20,11 @@
 
 #pragma mark - ERNTableViewCellFactory
 
--(UITableViewCell *)cellForTableView:(UITableView *)tableView
-                          fromObject:(id<NSObject>)object
+-(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                            fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
-    ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
-    return [[self factoryForObject:object] cellForTableView:tableView
-                                                 fromObject:object];
+    return [[self factoryForObject:object] cellWithCellReuser:block
+                                                   fromObject:object];
 }
 
 -(CGFloat)cellHeightForObject:(id<NSObject>)object

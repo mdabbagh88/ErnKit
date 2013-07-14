@@ -35,13 +35,12 @@
      [[self repository] itemAtIndex:(NSUInteger)[indexPath row]]];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView
-             cellForIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath
+                          cellReuser:(UITableViewCell *(^)(NSString *identifier))block
 {
-    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
     [self handlePageFetchingForRow:[indexPath row]];
-    return [[self itemManager] cellForTableView:tableView
+    return [[self itemManager] cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
                                      fromObject:[[self repository] itemAtIndex:
                                                  (NSUInteger)[indexPath row]]];
 }

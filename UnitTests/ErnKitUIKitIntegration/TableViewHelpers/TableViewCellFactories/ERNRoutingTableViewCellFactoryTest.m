@@ -10,8 +10,8 @@
 
 @implementation ERNMockTableViewCellFactory
 
--(UITableViewCell *)cellForTableView:(UITableView *)tableView
-                          fromObject:(id<NSObject>)object
+-(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *))block
+                            fromObject:(id<NSObject>)object
 {
     return nil;
 }
@@ -33,8 +33,8 @@
     [ERNRoutingTableViewCellFactory createWithMappings:nil];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:nil];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:nil
+                                                 fromObject:nil];
 
     //then
     assertThat(cell, notNilValue());
@@ -50,8 +50,8 @@
     [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:nil];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:nil
+                                                 fromObject:nil];
 
     //then
     assertThat(cell, notNilValue());
@@ -62,23 +62,23 @@
 -(void)testCellForTableViewFromNilObjectNilMappings
 {
     //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id<ERNTableViewCellFactory> cellFactory =
     [ERNRoutingTableViewCellFactory createWithMappings:nil];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:nil];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }
+                                                 fromObject:nil];
 
     //then
     assertThat(cell, notNilValue());
-    [mockTableView verify];
 }
 
 -(void)testCellForTableViewFromNilObjectMappings
 {
     //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     NSString *objectClassName = @"ClassName";
     id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
     id mockDefaultFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
@@ -86,14 +86,16 @@
     [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:nil];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }
+                                                 fromObject:nil];
 
     //then
     assertThat(cell, notNilValue());
     [mockDefaultFactory verify];
     [mockFactory verify];
-    [mockTableView verify];
 }
 
 -(void)testCellForNilTableViewFromObjectNilMappings
@@ -104,8 +106,8 @@
     [ERNRoutingTableViewCellFactory createWithMappings:nil];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:mockObject];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:nil
+                                                 fromObject:mockObject];
 
     //then
     assertThat(cell, notNilValue());
@@ -117,14 +119,14 @@
     //given
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     NSString *objectClassName = NSStringFromClass([mockObject class]);
-    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
+    id mockFactory = [OCMockObject niceMockForClass:[ERNMockTableViewCellFactory class]];
     id mockDefaultFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
     id<ERNTableViewCellFactory> cellFactory =
     [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:nil
-                                               fromObject:mockObject];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:nil
+                                                 fromObject:mockObject];
 
     //then
     assertThat(cell, notNilValue());
@@ -136,18 +138,19 @@
 -(void)testCellForTableViewFromObjectNilMappings
 {
     //given
-    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     id<ERNTableViewCellFactory> cellFactory =
     [ERNRoutingTableViewCellFactory createWithMappings:nil];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:mockObject];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }
+                                                 fromObject:mockObject];
 
     //then
     assertThat(cell, notNilValue());
-    [mockTableView verify];
     [mockObject verify];
 }
 
@@ -155,13 +158,15 @@
 {
     //given
     BOOL conforms = YES;
+    UITableViewCell *(^mockBlock)(NSString *identifier) = ^UITableViewCell *(NSString *identifier) {
+        return nil;
+    };
     id mockCell = [OCMockObject mockForClass:[UITableViewCell class]];
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id mockObject = [OCMockObject mockForClass:[NSArray class]];
     NSString *objectClassName = NSStringFromClass([mockObject class]);
     id mockFactory = [OCMockObject niceMockForClass:[ERNMockTableViewCellFactory class]];
-    [[[mockFactory expect] andReturn:mockCell] cellForTableView:mockTableView
-                                                     fromObject:mockObject];
+    [[[mockFactory expect] andReturn:mockCell] cellWithCellReuser:mockBlock
+                                                       fromObject:mockObject];
     [[[mockFactory stub]
       andReturnValue:OCMOCK_VALUE(conforms)]
      conformsToProtocol:@protocol(ERNTableViewCellFactory)];
@@ -171,14 +176,13 @@
     [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
 
     //when
-    UITableViewCell *cell = [cellFactory cellForTableView:mockTableView
-                                               fromObject:mockObject];
+    UITableViewCell *cell = [cellFactory cellWithCellReuser:mockBlock
+                                                 fromObject:mockObject];
 
     //then
     assertThat(cell, notNilValue());
     [mockDefaultFactory verify];
     [mockFactory verify];
-    [mockTableView verify];
     [mockObject verify];
     [mockCell verify];
 }

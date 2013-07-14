@@ -18,14 +18,14 @@
     assertThat(tableViewManager1, equalTo(tableViewManager2));
 }
 
--(void)testNilTableViewCellForNilIndexPath
+-(void)testCellForNilIndexPathNilReuser
 {
     //given
     id<ERNTableViewManager> tableViewManager = [ERNNullTableViewManager create];
 
     //when
-    UITableViewCell *cell = [tableViewManager tableView:nil
-                                       cellForIndexPath:nil];
+    UITableViewCell *cell = [tableViewManager cellForIndexPath:nil
+                                                    cellReuser:nil];
 
     //then
     assertThat(cell, notNilValue());
@@ -55,50 +55,52 @@
     assertThatInteger(rows, equalToInteger(0));
 }
 
--(void)testTableViewCellForNilIndexPath
+-(void)testCellForNilIndexPathReuser
 {
     //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id<ERNTableViewManager> tableViewManager = [ERNNullTableViewManager create];
 
     //when
-    UITableViewCell *cell = [tableViewManager tableView:mockTableView
-                                       cellForIndexPath:nil];
+    UITableViewCell *cell = [tableViewManager cellForIndexPath:nil
+                                                    cellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }];
 
     //then
     assertThat(cell, notNilValue());
-    [mockTableView verify];
 }
 
--(void)testNilTableViewCellForIndexPath
+-(void)testCellForIndexPathNilReuser
 {
     //given
     id mockIndexPath = [OCMockObject mockForClass:[NSIndexPath class]];
     id<ERNTableViewManager> tableViewManager = [ERNNullTableViewManager create];
 
     //when
-    UITableViewCell *cell = [tableViewManager tableView:nil
-                                       cellForIndexPath:mockIndexPath];
+    UITableViewCell *cell = [tableViewManager cellForIndexPath:mockIndexPath
+                                                    cellReuser:nil];
 
     //then
     assertThat(cell, notNilValue());
     [mockIndexPath verify];
 }
 
--(void)testTableViewCellForIndexPath
+-(void)testCellForIndexPathReuser
 {
     //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id mockIndexPath = [OCMockObject mockForClass:[NSIndexPath class]];
     id<ERNTableViewManager> tableViewManager = [ERNNullTableViewManager create];
 
     //when
-    UITableViewCell *cell = [tableViewManager tableView:mockTableView
-                                       cellForIndexPath:mockIndexPath];
+    UITableViewCell *cell = [tableViewManager cellForIndexPath:mockIndexPath
+                                                    cellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }];
 
     //then
     assertThat(cell, notNilValue());
-    [mockTableView verify];
     [mockIndexPath verify];
 }
 

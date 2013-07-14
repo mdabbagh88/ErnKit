@@ -15,8 +15,8 @@ static ERNNullTableViewManager *immutableSingleton;
 
 #pragma mark - ERNTableViewManager
 
--(UITableViewCell *)tableView:(UITableView *)tableView
-             cellForIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath
+                          cellReuser:(UITableViewCell *(^)(NSString *identifier))block
 {
     return [ERNNullTableViewCell create];
 }

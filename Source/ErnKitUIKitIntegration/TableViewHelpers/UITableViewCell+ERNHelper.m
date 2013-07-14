@@ -4,29 +4,23 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithStyle:(UITableViewCellStyle)style
++(instancetype)createWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                              style:(UITableViewCellStyle)style
 {
-    return [self createForTableView:nil
-                              style:style];
-}
-
-+(instancetype)createForTableView:(UITableView *)tableView
-                          style:(UITableViewCellStyle)style
-{
-   return [self createForTableView:tableView
-                        identifier:[NSString stringWithFormat:@"%@%d",
-                                    NSStringFromClass([self class]),
-                                    style]
-                             style:style];
+   return [self createWithCellReuser:block
+                          identifier:[NSString stringWithFormat:@"%@%d",
+                                      NSStringFromClass([self class]),
+                                      style]
+                               style:style];
 }
 
 #pragma mark - private
 
-+(instancetype)createForTableView:(UITableView *)tableView
++(instancetype)createWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
                         identifier:(NSString *)identifier
                              style:(UITableViewCellStyle)style
 {
-    return [self createCell:[tableView dequeueReusableCellWithIdentifier:identifier]
+    return [self createCell:block(identifier)
                  identifier:identifier
                       style:style];
 }

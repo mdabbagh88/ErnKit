@@ -2,7 +2,6 @@
 
 @interface UITableViewCell (ERNHelper)
 
-+(instancetype)createForTableView:(UITableView *)tableView
-                            style:(UITableViewCellStyle)style;
-+(instancetype)createWithStyle:(UITableViewCellStyle)style;
++(instancetype)createWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                              style:(UITableViewCellStyle)style;
 @end

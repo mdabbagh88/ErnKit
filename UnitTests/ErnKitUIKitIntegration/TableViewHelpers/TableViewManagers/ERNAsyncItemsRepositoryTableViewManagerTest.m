@@ -15,8 +15,8 @@
                                                       itemManager:nil];
 
     //when
-    UITableViewCell *cell = [manager tableView:nil
-                              cellForIndexPath:nil];
+    UITableViewCell *cell = [manager cellForIndexPath:nil
+                                           cellReuser:nil];
 
     //then
     assertThat(cell, notNilValue());

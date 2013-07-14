@@ -31,13 +31,12 @@
     [[self actionHandler] actionForObject:object];
 }
 
--(UITableViewCell *)cellForTableView:(UITableView *)tableView
-                          fromObject:(id<NSObject>)object
+-(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                            fromObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
-    return [[self cellFactory] cellForTableView:tableView
-                                     fromObject:object];
+    return [[self cellFactory] cellWithCellReuser:block
+                                       fromObject:object];
 }
 
 -(CGFloat)cellHeightForObject:(id<NSObject>)object

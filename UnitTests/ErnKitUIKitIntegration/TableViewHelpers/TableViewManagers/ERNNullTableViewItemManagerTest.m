@@ -25,8 +25,8 @@
     id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [manager cellForTableView:nil
-                                           fromObject:nil];
+    UITableViewCell *cell = [manager cellWithCellReuser:nil
+                                             fromObject:nil];
 
     //then
     assertThat([cell class], equalTo([ERNNullTableViewCell class]));
@@ -35,12 +35,14 @@
 -(void)testCellForTableViewNilObject
 {
     //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [manager cellForTableView:mockTableView
-                                           fromObject:nil];
+    UITableViewCell *cell = [manager cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }
+                                             fromObject:nil];
 
     //then
     assertThat([cell class], equalTo([ERNNullTableViewCell class]));
@@ -53,8 +55,8 @@
     id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [manager cellForTableView:nil
-                                           fromObject:mockObject];
+    UITableViewCell *cell = [manager cellWithCellReuser:nil
+                                             fromObject:mockObject];
 
     //then
     assertThat([cell class], equalTo([ERNNullTableViewCell class]));
@@ -69,8 +71,11 @@
     id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
 
     //when
-    UITableViewCell *cell = [manager cellForTableView:mockTableView
-                                           fromObject:mockObject];
+    UITableViewCell *cell = [manager cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }
+                                             fromObject:mockObject];
 
     //then
     assertThat([cell class], equalTo([ERNNullTableViewCell class]));

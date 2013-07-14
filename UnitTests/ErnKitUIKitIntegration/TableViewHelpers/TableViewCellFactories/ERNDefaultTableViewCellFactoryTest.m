@@ -19,42 +19,44 @@
     assertThat(factory1, equalTo(factory2));
 }
 
--(void)testCellForNilTableViewNilObject
+-(void)testCellForNilReuserNilObject
 {
     //given
     id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:nil
-                                           fromObject:nil];
+    UITableViewCell *cell = [factory cellWithCellReuser:nil
+                                             fromObject:nil];
 
     //then
     assertThat([cell class], equalTo([ERNNullTableViewCell class]));
 }
 
--(void)testCellForTableViewNilObject
+-(void)testCellForReuserNilObject
 {
     //given
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
     id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:mockTableView
-                                           fromObject:nil];
+    UITableViewCell *cell = [factory cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return nil;
+                             }
+                                             fromObject:nil];
 
     //then
     assertThat([cell class], equalTo([ERNNullTableViewCell class]));
 }
 
--(void)testCellForNilTableViewObject
+-(void)testCellForNilReuserViewObject
 {
     //given
     id mockObject = [OCMockObject mockForClass:[NSObject class]];
     id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:nil
-                                           fromObject:mockObject];
+    UITableViewCell *cell = [factory cellWithCellReuser:nil
+                                             fromObject:mockObject];
 
     //then
     assertThat([cell class], equalTo([UITableViewCell class]));
@@ -70,18 +72,17 @@
     [[mockLabel expect] setText:[mockObject description]];
     id mockTableViewCell = [OCMockObject mockForClass:[UITableViewCell class]];
     [[[mockTableViewCell expect] andReturn:mockLabel] textLabel];
-    id mockTableView = [OCMockObject mockForClass:[UITableView class]];
-    [[[mockTableView expect] andReturn:mockTableViewCell] dequeueReusableCellWithIdentifier:OCMOCK_ANY];
     id<ERNTableViewCellFactory> factory = [ERNDefaultTableViewCellFactory create];
 
     //when
-    UITableViewCell *cell = [factory cellForTableView:mockTableView
-                                           fromObject:mockObject];
-
+    UITableViewCell *cell = [factory cellWithCellReuser:
+                             ^UITableViewCell *(NSString *identifier) {
+                                 return mockTableViewCell;
+                             }
+                                             fromObject:mockObject];
     //then
     assertThat(cell, equalTo(mockTableViewCell));
     [mockObject verify];
-    [mockTableView verify];
     [mockTableViewCell verify];
 }
 

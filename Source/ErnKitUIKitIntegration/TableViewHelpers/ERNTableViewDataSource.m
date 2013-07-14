@@ -27,8 +27,11 @@
 {
     ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
-    return [[self tableViewManager] tableView:tableView
-                             cellForIndexPath:indexPath];
+    return [[self tableViewManager] cellForIndexPath:indexPath
+                                          cellReuser:
+            ^UITableViewCell *(NSString *identifier) {
+                return [tableView dequeueReusableCellWithIdentifier:identifier];
+            }];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

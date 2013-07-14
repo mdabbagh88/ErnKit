@@ -25,8 +25,8 @@ static ERNNullTableViewItemManager *immutableSingleton;
     return defaultHeight;
 }
 
--(UITableViewCell *)cellForTableView:(UITableView *)tableView
-                          fromObject:(id<NSObject>)object
+-(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                            fromObject:(id<NSObject>)object
 {
     return [ERNNullTableViewCell create];
 }

@@ -17,13 +17,13 @@ static ERNDefaultTableViewCellFactory *immutableSingleton;
 
 #pragma mark - ERNTableViewCellFactory
 
--(UITableViewCell *)cellForTableView:(UITableView *)tableView
-                          fromObject:(id<NSObject>)object
+-(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                            fromObject:(id<NSObject>)object
 {
     ERNCheckNilAndReturn(object, [ERNNullTableViewCell create]);
-    ERNCheckNilAndReturn(tableView, [self createTableViewCellFromObject:object]);
-    return [self createTableViewCellForTableView:tableView
-                                      fromObject:object];
+    ERNCheckNilAndReturn(block, [self createTableViewCellFromObject:object]);
+    return [self createTableViewCellWithCellReuser:block
+                                        fromObject:object];
 }
 
 -(CGFloat)cellHeightForObject:(id<NSObject>)object
@@ -43,15 +43,19 @@ static ERNDefaultTableViewCellFactory *immutableSingleton;
 
 -(UITableViewCell *)createTableViewCellFromObject:(id<NSObject>)object
 {
-    return [self setupCell:[UITableViewCell createWithStyle:UITableViewCellStyleDefault]
+    return [self setupCell:[UITableViewCell createWithCellReuser:
+                            ^UITableViewCell *(NSString *identifier) {
+                                return nil;
+                            }
+                                                           style:UITableViewCellStyleDefault]
                     object:object];
 }
 
--(UITableViewCell *)createTableViewCellForTableView:(UITableView *)tableView
-                                         fromObject:(id<NSObject>)object
+-(UITableViewCell *)createTableViewCellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
+                                           fromObject:(id<NSObject>)object
 {
-    return [self setupCell:[UITableViewCell createForTableView:tableView
-                                                         style:UITableViewCellStyleDefault]
+    return [self setupCell:[UITableViewCell createWithCellReuser:block
+                                                           style:UITableViewCellStyleDefault]
                     object:object];
 }
 

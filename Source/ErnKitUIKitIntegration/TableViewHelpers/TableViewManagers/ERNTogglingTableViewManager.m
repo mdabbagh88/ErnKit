@@ -35,13 +35,12 @@
     return [[self currentTableViewManager] rowsInSection:section];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView
-             cellForIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath
+                          cellReuser:(UITableViewCell *(^)(NSString *identifier))block
 {
-    ERNCheckNilAndReturn(tableView, [ERNNullTableViewCell create]);
     ERNCheckNilAndReturn(indexPath, [ERNNullTableViewCell create]);
-    return [[self currentTableViewManager] tableView:tableView
-                                    cellForIndexPath:indexPath];
+    return [[self currentTableViewManager] cellForIndexPath:indexPath
+                                                 cellReuser:block];
 }
 
 -(void)actionForIndexPath:(NSIndexPath *)indexPath
