@@ -7,6 +7,7 @@ static ERNResource *immutableSingletonNull;
 @implementation ERNResource {
     NSURL *_url;
     NSString *_mime;
+    id<NSObject> _object;
 }
 
 #pragma mark - public - constructors
@@ -15,7 +16,17 @@ static ERNResource *immutableSingletonNull;
                         mime:(NSString *)mime
 {
     return [[self alloc] initWithUrl:url
-                                mime:mime];
+                                mime:mime
+                              object:nil];
+}
+
++(instancetype)createWithUrl:(NSURL *)url
+                        mime:(NSString *)mime
+                      object:(id<NSObject>)object
+{
+    return [[self alloc] initWithUrl:url
+                                mime:mime
+                              object:object];
 }
 
 +(instancetype)createNull
@@ -47,10 +58,12 @@ static ERNResource *immutableSingletonNull;
 
 -(id)initWithUrl:(NSURL *)url
             mime:(NSString *)mime
+          object:(id<NSObject>)object
 {
     self = [super init];
     _url = url;
     _mime = mime;
+    _object = object;
     return self;
 }
 

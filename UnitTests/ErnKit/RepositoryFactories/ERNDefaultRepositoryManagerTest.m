@@ -7,7 +7,7 @@
 #import "ERNRepositoryManagerTest.h"
 
 @interface ERNDefaultRepositoryManager ()
--(NSMapTable *)repositories;
+-(NSMapTable *)objects;
 @end
 
 @implementation ERNDefaultRepositoryManagerTest {
@@ -30,7 +30,7 @@
     //when
     [store storeUrl:nil
             forItem:nil];
-    assertThatUnsignedInteger([[store repositories] count], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(0));
 }
 
 -(void)testStoreUrlNilItem
@@ -43,7 +43,7 @@
             forItem:nil];
 
     //then
-    assertThatUnsignedInteger([[store repositories] count], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(0));
 }
 
 -(void)testStoreNilUrlItem
@@ -57,7 +57,7 @@
             forItem:mockItem];
 
     //then
-    assertThatUnsignedInteger([[store repositories] count], equalToUnsignedInteger(0));
+    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(0));
 }
 
 -(void)testStoreUrlItem
@@ -71,8 +71,8 @@
             forItem:mockItem];
 
     //then
-    assertThatUnsignedInteger([[store repositories] count], equalToUnsignedInteger(1));
-    assertThat([[[store repositories] objectForKey:[NSURL URLWithString:@"url"]] item], equalTo(mockItem));
+    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(1));
+    assertThat([[store objects] objectForKey:[NSURL URLWithString:@"url"]], equalTo(mockItem));
 }
 
 @end

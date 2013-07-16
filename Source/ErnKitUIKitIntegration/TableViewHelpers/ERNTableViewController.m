@@ -31,6 +31,14 @@
     [self setupTableView:[self tableView]];
 }
 
+#pragma mark - NSObject
+
+-(void)dealloc
+{
+    [[self tableView] setDelegate:nil];
+    [[self tableView] setDataSource:nil];
+}
+
 #pragma mark - private
 
 -(void)setupTableView:(UITableView *)tableView

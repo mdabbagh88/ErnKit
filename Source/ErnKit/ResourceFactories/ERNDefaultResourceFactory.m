@@ -20,7 +20,8 @@ static ERNDefaultResourceFactory *immutableSingleton;
 {
     return [ERNResource createWithUrl:
             [NSURL URLWithString:[NSString stringWithFormat:@"ernobject://%d", [object hash]]]
-                                 mime:@""];
+                                 mime:@""
+                               object:object];
 }
 
 #pragma mark - NSObject

@@ -10,11 +10,11 @@
 #import "NSMapTable+ERNHelper.h"
 
 @interface ERNDefaultRepositoryManager ()
-@property (nonatomic, readonly) NSMapTable *repositories;
+@property (nonatomic, readonly) NSMapTable *objects;
 @end
 
 @implementation ERNDefaultRepositoryManager {
-    NSMapTable *_repositories;
+    NSMapTable *_objects;
 }
 
 #pragma mark - public - constructors
@@ -31,18 +31,18 @@
 {
     ERNCheckNilNoReturn(url);
     ERNCheckNilNoReturn(object);
-    [[self repositories] setObject:[ERNObjectAsyncItemRepository createWithItem:object]
-                            forKey:url];
+    [[self objects] setObject:object
+                       forKey:url];
 }
 
 -(BOOL)hasRepositoryForResource:(ERNResource *)resource
 {
-    return [[self repositories] ERN_hasObjectForKey:[resource url]];
+    return [[self objects] ERN_hasObjectForKey:[resource url]];
 }
 
 -(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
 {
-    return [[self repositories] ERN_hasObjectForKey:[resource url]];
+    return [[self objects] ERN_hasObjectForKey:[resource url]];
 }
 
 -(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
@@ -58,13 +58,15 @@
 -(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
-    return validRepository([[self repositories] objectForKey:[resource url]]);
+    return validRepository([ERNObjectAsyncItemRepository createWithItem:
+                           [[self objects] objectForKey:[resource url]]]);
 }
 
 -(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
-    return validItemRepository([[self repositories] objectForKey:[resource url]]);
+    return validItemRepository([ERNObjectAsyncItemRepository createWithItem:
+                               [[self objects] objectForKey:[resource url]]]);
 }
 
 -(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
@@ -79,7 +81,7 @@
 
 #pragma mark - private
 
-static NSMapTable *createRepositories(void)
+static NSMapTable *createObjects(void)
 {
     return [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
                                  valueOptions:NSPointerFunctionsWeakMemory];
@@ -97,9 +99,9 @@ static id<ERNAsyncItemRepository> validItemRepository(id<ERNAsyncItemRepository>
 
 #pragma mark - private - accessors
 
--(NSMapTable *)repositories
+-(NSMapTable *)objects
 {
-    return _repositories = _repositories ? _repositories : createRepositories();
+    return _objects = _objects ? _objects : createObjects();
 }
 
 @end
