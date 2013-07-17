@@ -1,6 +1,6 @@
 #import "ERNRoutingResourceFactory.h"
 #import "ERNNullResourceFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
@@ -23,7 +23,7 @@
 
 -(ERNResource *)resourceForObject:(id<NSObject>)object
 {
-    ERNCheckNilAndReturn(object, [ERNResource createNull]);
+    ERNCheckNilAndReturn(object, [ERNNullResource create]);
     return validResource([[self factoryForObject:object] resourceForObject:object]);
 }
 
@@ -31,7 +31,7 @@
 
 static ERNResource *validResource(ERNResource *resource)
 {
-    return resource ? resource : [ERNResource createNull];
+    return resource ? resource : [ERNNullResource create];
 }
 
 -(id<ERNResourceFactory>)factoryForObject:(id<NSObject>)object

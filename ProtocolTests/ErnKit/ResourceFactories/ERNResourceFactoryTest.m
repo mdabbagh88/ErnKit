@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNResourceFactoryTest.h"
 #import "ERNResourceFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 
 @interface ERNResourceFactoryTestFactorylessObject : NSObject
 @end
@@ -38,7 +38,7 @@
 
 +(void)testResourceForFactorylessObject:(id<ERNResourceFactory>)resourceFactory
 {
-    ERNResource *expectedResource = [ERNResource createNull];
+    ERNResource *expectedResource = [ERNNullResource create];
     BOOL result = YES;
     ERNResource *resource = [resourceFactory resourceForObject:
                              [ERNResourceFactoryTestFactorylessObject new]];

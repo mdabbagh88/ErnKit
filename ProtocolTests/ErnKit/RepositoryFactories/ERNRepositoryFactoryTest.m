@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNRepositoryFactoryTest.h"
 #import "ERNRepositoryFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNItemRepositoryFactoryTest.h"
 
 @implementation ERNRepositoryFactoryTest {
@@ -69,25 +69,25 @@
 
 +(void)testHasRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     [repositoryFactory hasRepositoryForResource:resource];
 }
 
 +(void)testHasItemsRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     [repositoryFactory hasItemsRepositoryForResource:resource];
 }
 
 +(void)testHasPaginatedItemsRepositoryResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     [repositoryFactory hasPaginatedItemsRepositoryForResource:resource];
 }
 
 +(void)testRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNAsyncRepository> repository =
     [repositoryFactory repositoryForResource:resource];
     assertThat(repository, notNilValue());
@@ -95,7 +95,7 @@
 
 +(void)testItemsRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNAsyncItemsRepository> repository =
     [repositoryFactory itemsRepositoryForResource:resource];
     assertThat(repository, notNilValue());
@@ -103,7 +103,7 @@
 
 +(void)testAsyncPaginatedItemsRepositoryForResource:(id<ERNRepositoryFactory>)repositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNAsyncPaginatedItemsRepository> repository =
     [repositoryFactory paginatedItemsRepositoryForResource:resource];
     assertThat(repository, notNilValue());

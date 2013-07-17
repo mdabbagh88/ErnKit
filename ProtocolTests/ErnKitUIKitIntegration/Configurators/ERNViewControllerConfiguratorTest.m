@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNViewControllerConfiguratorTest.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 
 @implementation ERNViewControllerConfiguratorTest {
 }
@@ -41,7 +41,7 @@
 +(void)testCreateViewControllerForResourceNilDismisser:
 (id<ERNViewControllerConfigurator>)viewControllerConfigurator
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     UIViewController *viewController =
     [viewControllerConfigurator createViewControllerForResource:resource
                                                       dismisser:nil];
@@ -52,7 +52,7 @@
 +(void)testCreateViewControllerForResourceDismisser:
 (id<ERNViewControllerConfigurator>)viewControllerConfigurator
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNViewControllerDismisser> mockDismisser =
     [OCMockObject mockForProtocol:@protocol(ERNViewControllerDismisser)];
     UIViewController *viewController =

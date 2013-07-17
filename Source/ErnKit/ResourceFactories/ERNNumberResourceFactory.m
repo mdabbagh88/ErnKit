@@ -1,5 +1,5 @@
 #import "ERNNumberResourceFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
@@ -31,13 +31,13 @@ static ERNNumberResourceFactory *immutableSingleton;
 
 -(ERNResource *)resourceForObject:(NSNumber *)number
 {
-    ERNCheckNilAndReturn(number, [ERNResource createNull]);
+    ERNCheckNilAndReturn(number, [ERNNullResource create]);
     return [number isKindOfClass:[NSNumber class]] ?
     [ERNResource createWithUrl:
             [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@",
                                   [[self class] scheme], number]]
                           mime:[[self class] mime]] :
-    [ERNResource createNull];
+    [ERNNullResource create];
 }
 
 #pragma mark - NSObject

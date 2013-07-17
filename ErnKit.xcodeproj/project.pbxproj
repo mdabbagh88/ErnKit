@@ -130,6 +130,7 @@
 		F74388FC173D320200676477 /* ERNDummyTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388FB173D320200676477 /* ERNDummyTableViewCellTest.m */; };
 		F74388FF173D32D000676477 /* ERNTableViewDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388FE173D32D000676477 /* ERNTableViewDataSourceTest.m */; };
 		F7438902173D3B2A00676477 /* ERNTableViewDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */; };
+		F748546C179736A000513862 /* ERNNullResource.m in Sources */ = {isa = PBXBuildFile; fileRef = F748546B179736A000513862 /* ERNNullResource.m */; };
 		F74AB940177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F74AB93F177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.m */; };
 		F7504C9F1777441B006EDD9B /* ERNBaseObservable.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504C9E17774214006EDD9B /* ERNBaseObservable.m */; };
 		F7504CA217775C5E006EDD9B /* ERNBaseRoutingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7504CA117775AFE006EDD9B /* ERNBaseRoutingAction.m */; };
@@ -367,6 +368,8 @@
 		F74388FE173D32D000676477 /* ERNTableViewDataSourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDataSourceTest.m; sourceTree = "<group>"; };
 		F7438900173D3B2900676477 /* ERNTableViewDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewDelegateTest.h; sourceTree = "<group>"; };
 		F7438901173D3B2900676477 /* ERNTableViewDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewDelegateTest.m; sourceTree = "<group>"; };
+		F748546A179736A000513862 /* ERNNullResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullResource.h; sourceTree = "<group>"; };
+		F748546B179736A000513862 /* ERNNullResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullResource.m; sourceTree = "<group>"; };
 		F74AB93E177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAsyncItemsRepositoryTest.h; sourceTree = "<group>"; };
 		F74AB93F177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullAsyncItemsRepositoryTest.m; sourceTree = "<group>"; };
 		F7504C9D17774214006EDD9B /* ERNBaseObservable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNBaseObservable.h; sourceTree = "<group>"; };
@@ -1673,6 +1676,8 @@
 				F75C2F64176E31FD00E990F6 /* ERNMutableDictionaryWithDefault.m */,
 				F75C2F66176E43DD00E990F6 /* ERNResource.h */,
 				F75C2F67176E43DF00E990F6 /* ERNResource.m */,
+				F748546A179736A000513862 /* ERNNullResource.h */,
+				F748546B179736A000513862 /* ERNNullResource.m */,
 				F7504C9D17774214006EDD9B /* ERNBaseObservable.h */,
 				F7504C9E17774214006EDD9B /* ERNBaseObservable.m */,
 				F73694E21781576F00DB2AF9 /* NSMapTable+ERNHelper.h */,
@@ -2019,6 +2024,7 @@
 				F732926E1775AC85005EEBA8 /* ERNRoutingMapViewAnnotationViewFactory.m in Sources */,
 				F732926F1775AC85005EEBA8 /* ERNMapViewController.m in Sources */,
 				F73292701775AC85005EEBA8 /* ERNMapViewDelegate.m in Sources */,
+				F748546C179736A000513862 /* ERNNullResource.m in Sources */,
 				F73292711775AC85005EEBA8 /* ERNNullMapViewDelegate.m in Sources */,
 				F703082F177F84CE00F39603 /* ERNDefaultRepositoryManager.m in Sources */,
 				F73292721775AC85005EEBA8 /* ERNNullAnnotation.m in Sources */,

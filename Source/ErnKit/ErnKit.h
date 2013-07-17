@@ -57,3 +57,5 @@
 #import "NSMapTable+ERNHelper.h"
 #import "ERNMutableDictionaryWithDefault.h"
 #import "ERNDefaultAsyncPaginatedItemsRepository.h"
+#import "ERNResource.h"
+#import "ERNNullResource.h"

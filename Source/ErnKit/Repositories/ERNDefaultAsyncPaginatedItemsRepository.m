@@ -8,7 +8,7 @@
 #import "ERNNullRepositoryPaginator.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
 #import "ERNItemRepositoryFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNNullItemRepositoryFactory.h"
 
 @interface ERNDefaultAsyncPaginatedItemsRepository ()
@@ -160,7 +160,7 @@ static id<ERNRepositoryPaginator> validatePaginator(id paginator)
 
 -(ERNResource *)resource
 {
-    return _resource = _resource ? _resource : [ERNResource createNull];
+    return _resource = _resource ? _resource : [ERNNullResource create];
 }
 
 -(id<ERNItemRepositoryFactory>)itemRepositoryFactory

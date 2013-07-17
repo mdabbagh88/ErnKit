@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNNumberResourceFactoryTest.h"
 #import "ERNNumberResourceFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNResourceFactoryTest.h"
 
 @implementation ERNNumberResourceFactoryTest {
@@ -35,7 +35,7 @@
 
     ERNResource *resource = [factory resourceForObject:@[]];
 
-    assertThat(resource, equalTo([ERNResource createNull]));
+    assertThat(resource, instanceOf([ERNNullResource class]));
 }
 
 -(void)testResourceForNumber

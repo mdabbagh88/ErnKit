@@ -4,7 +4,7 @@
 #import "ERNDefaultAsyncPaginatedItemsRepositoryTest.h"
 #import "ERNDefaultAsyncPaginatedItemsRepository.h"
 #import "ERNAsyncPaginatedItemsRepositoryTest.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNAsyncItemRepository.h"
 #import "ERNItemRepositoryFactory.h"
 #import "ERNNullAsyncItemRepository.h"
@@ -25,14 +25,14 @@
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithResourceNilItemRepositoryFactoryMaxWindowSize
 {
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
-     [ERNDefaultAsyncPaginatedItemsRepository createWithResource:[ERNResource createNull]
+     [ERNDefaultAsyncPaginatedItemsRepository createWithResource:[ERNNullResource create]
                                            itemRepositoryFactory:nil
                                                       windowSize:UINT_MAX]];
 }
 
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithResourceItemRepositoryFactoryMaxWindowSize
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNAsyncItemRepository> itemRepository = [ERNNullAsyncItemRepository create];
     id mockItemRepositoryFactory =
     [OCMockObject niceMockForProtocol:@protocol(ERNItemRepositoryFactory)];
@@ -62,7 +62,7 @@
 
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithResourceItemRepositoryFactoryWindowSize
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNAsyncItemRepository> itemRepository = [ERNNullAsyncItemRepository create];
     id mockItemRepositoryFactory =
     [OCMockObject niceMockForProtocol:@protocol(ERNItemRepositoryFactory)];

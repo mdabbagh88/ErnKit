@@ -1,7 +1,7 @@
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <RestKit/RestKit.h>
@@ -103,7 +103,7 @@ static RKObjectRequestOperation *requestOperation(NSURLRequest *request,
 
 -(ERNResource *)resource
 {
-    return _resource = _resource ? _resource : [ERNResource createNull];
+    return _resource = _resource ? _resource : [ERNNullResource create];
 }
 
 -(NSOperationQueue *)operationQueue

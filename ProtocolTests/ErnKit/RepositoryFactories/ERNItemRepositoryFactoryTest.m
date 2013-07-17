@@ -3,7 +3,7 @@
 #import <OCMock/OCMock.h>
 #import "ERNItemRepositoryFactoryTest.h"
 #import "ERNItemRepositoryFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 
 @implementation ERNItemRepositoryFactoryTest {
 }
@@ -33,13 +33,13 @@
 
 +(void)testHasItemRepositoryForResource:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     [itemRepositoryFactory hasItemRepositoryForResource:resource];
 }
 
 +(void)testItemRepositoryForResource:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
 {
-    ERNResource *resource = [ERNResource createNull];
+    ERNResource *resource = [ERNNullResource create];
     id<ERNAsyncItemRepository> repository =
     [itemRepositoryFactory itemRepositoryForResource:resource];
     assertThat(repository, notNilValue());

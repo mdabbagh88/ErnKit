@@ -1,5 +1,5 @@
 #import "ERNURLResourceFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
@@ -26,11 +26,11 @@ static ERNURLResourceFactory *immutableSingleton;
 
 -(ERNResource *)resourceForObject:(NSURL *)url
 {
-    ERNCheckNilAndReturn(url, [ERNResource createNull]);
+    ERNCheckNilAndReturn(url, [ERNNullResource create]);
     return [url isKindOfClass:[NSURL class]] ?
     [ERNResource createWithUrl:url
                           mime:[[self class] mime]] :
-    [ERNResource createNull];
+    [ERNNullResource create];
 }
 
 #pragma mark - NSObject

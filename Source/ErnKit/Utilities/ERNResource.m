@@ -2,8 +2,6 @@
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 
-static ERNResource *immutableSingletonNull;
-
 @implementation ERNResource {
     NSURL *_url;
     NSString *_mime;
@@ -29,20 +27,7 @@ static ERNResource *immutableSingletonNull;
                               object:object];
 }
 
-+(instancetype)createNull
-{
-    return immutableSingletonNull;
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingletonNull = [self createWithUrl:[NSURL ERN_createNull]
-                                            mime:@""];
-}
-
-#pragma mark - private - accessors
+#pragma mark - public - accessors
 
 -(NSURL *)url
 {

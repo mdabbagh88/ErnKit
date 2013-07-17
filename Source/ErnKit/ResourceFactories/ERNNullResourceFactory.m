@@ -1,5 +1,5 @@
 #import "ERNNullResourceFactory.h"
-#import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "NSURL+ERNHelper.h"
 
 static ERNNullResourceFactory *immutableSingleton;
@@ -18,7 +18,7 @@ static ERNNullResourceFactory *immutableSingleton;
 
 -(ERNResource *)resourceForObject:(id<NSObject>)object
 {
-    return [ERNResource createNull];
+    return [ERNNullResource create];
 }
 
 #pragma mark - NSObject
