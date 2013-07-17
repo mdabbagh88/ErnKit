@@ -18,7 +18,7 @@
 
 #pragma mark - ERNViewControllerDismisser
 
--(void)dismissViewController:(UIViewController *)viewController
+-(void)dismissViewController:(UIViewController *)__unused viewController
 {
     [[self navigationController] popViewControllerAnimated:YES];
 }

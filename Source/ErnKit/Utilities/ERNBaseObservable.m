@@ -29,7 +29,7 @@
      [[self notificationCenter] addObserverForName:[self notificationName]
                                            object:self
                                             queue:[NSOperationQueue currentQueue]
-                                       usingBlock:^(NSNotification *note) {
+                                       usingBlock:^(__unused NSNotification *note) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                                            [observer performSelector:selector];

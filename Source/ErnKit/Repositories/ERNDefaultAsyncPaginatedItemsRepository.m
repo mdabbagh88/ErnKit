@@ -142,7 +142,7 @@
 {
     NSMutableArray *newArray = [NSMutableArray array];
     [[self pages] enumerateObjectsUsingBlock:
-     ^(id<ERNRepositoryPaginator> page, NSUInteger index, BOOL *stop) {
+     ^(id<ERNRepositoryPaginator> page, __unused NSUInteger index, __unused BOOL *stop) {
          [newArray addObjectsFromArray:[page items]];
      }];
     [self setArray:newArray];

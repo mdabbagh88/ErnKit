@@ -64,7 +64,7 @@ typedef const void(^ERNAnnotationZoomer)();
 
 static NSPredicate *annotationFilterPredicate(void)
 {
-    return [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+    return [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, __unused NSDictionary *bindings) {
         return [evaluatedObject conformsToProtocol:@protocol(MKAnnotation)];
     }];
 }

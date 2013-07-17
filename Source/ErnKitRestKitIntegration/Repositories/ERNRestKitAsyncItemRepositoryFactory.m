@@ -20,7 +20,7 @@
 
 #pragma mark - ERNItemRepositoryFactory
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasItemRepositoryForResource:(ERNResource *)__unused resource
 {
     return YES;
 }

@@ -22,7 +22,7 @@
 
 #pragma mark - MKMapViewDelegate
 
--(void)mapView:(MKMapView *)mapView
+-(void)mapView:(MKMapView *)__unused mapView
 didSelectAnnotationView:(MKAnnotationView *)view
 {
     [self didSelectAnnotation:[view annotation]];

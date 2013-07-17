@@ -34,18 +34,18 @@
             }];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)__unused tableView
 {
     return [[self tableViewManager] sections];
 }
 
--(NSInteger)tableView:(UITableView *)tableView
+-(NSInteger)tableView:(UITableView *)__unused tableView
 numberOfRowsInSection:(NSInteger)section
 {
     return [[self tableViewManager] rowsInSection:section];
 }
 
--(NSString *)tableView:(UITableView *)tableView
+-(NSString *)tableView:(UITableView *)__unused tableView
 titleForFooterInSection:(NSInteger)section
 {
     return [self canHandleTitleForFooterInSection] ?
@@ -53,7 +53,7 @@ titleForFooterInSection:(NSInteger)section
     @"";
 }
 
--(NSString *)tableView:(UITableView *)tableView
+-(NSString *)tableView:(UITableView *)__unused tableView
 titleForHeaderInSection:(NSInteger)section
 {
     return [self canHandleTitleForHeaderInSection] ?

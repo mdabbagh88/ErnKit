@@ -95,7 +95,8 @@
 
 -(void)refresh
 {
-    [[self repositories] enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
+    [[self repositories] enumerateObjectsUsingBlock:
+     ^(id object, __unused NSUInteger index, __unused BOOL *stop) {
         [[self validRepository:object] refresh];
     }];
     [self notifyObservers];

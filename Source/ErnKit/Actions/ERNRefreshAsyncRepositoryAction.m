@@ -17,7 +17,7 @@
 
 #pragma mark - ERNAction
 
--(void)actionForResource:(ERNResource *)resource
+-(void)actionForResource:(ERNResource *)__unused resource
 {
     [[self repository] refresh];
 }

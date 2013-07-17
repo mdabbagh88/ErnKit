@@ -6,6 +6,7 @@
 #import "ERNErrorHandler.h"
 #import "ERNNullTableViewCell.h"
 #import "ERNNullTableViewItemManager.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 
 @interface ERNAsyncItemsRepositoryTableViewManager ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
@@ -15,6 +16,7 @@
 @implementation ERNAsyncItemsRepositoryTableViewManager {
     id<ERNTableViewCellFactory> _cellFactory;
     id<ERNTableViewItemManager> _itemManager;
+    id<ERNAsyncPaginatedItemsRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -56,10 +58,10 @@
 
 -(NSInteger)sections
 {
-    return [self repository] ? 1 : 0;
+    return 1;
 }
 
--(NSInteger)rowsInSection:(NSInteger)section
+-(NSInteger)rowsInSection:(NSInteger)__unused section
 {
     return (NSInteger)[[self repository] count];
 }
@@ -87,6 +89,11 @@
 }
 
 #pragma mark - private - accessors
+
+-(id<ERNAsyncPaginatedItemsRepository>)repository
+{
+    return _repository = _repository ? _repository : [ERNNullAsyncPaginatedItemsRepository create];
+}
 
 -(id<ERNTableViewItemManager>)itemManager
 {

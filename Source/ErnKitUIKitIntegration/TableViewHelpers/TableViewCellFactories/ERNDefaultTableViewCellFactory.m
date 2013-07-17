@@ -25,7 +25,7 @@ static ERNDefaultTableViewCellFactory *immutableSingleton;
     return createTableViewCellWithCellReuser(block, object);
 }
 
--(CGFloat)cellHeightForObject:(id<NSObject>)object
+-(CGFloat)cellHeightForObject:(id<NSObject>)__unused object
                 defaultHeight:(CGFloat)defaultHeight
 {
     return defaultHeight;
@@ -43,7 +43,7 @@ static ERNDefaultTableViewCellFactory *immutableSingleton;
 static UITableViewCell *createTableViewCellFromObject(id<NSObject>object)
 {
     return setupCell([UITableViewCell createWithCellReuser:
-                            ^UITableViewCell *(NSString *identifier) {
+                            ^UITableViewCell *(__unused NSString *identifier) {
                                 return nil;
                             }
                                                      style:UITableViewCellStyleDefault],

@@ -15,8 +15,8 @@ static ERNNullTableViewManager *immutableSingleton;
 
 #pragma mark - ERNTableViewManager
 
--(UITableViewCell *)cellForIndexPath:(NSIndexPath *)indexPath
-                          cellReuser:(UITableViewCell *(^)(NSString *identifier))block
+-(UITableViewCell *)cellForIndexPath:(NSIndexPath *)__unused indexPath
+                          cellReuser:(UITableViewCell *(^)(__unused NSString *identifier))__unused block
 {
     return [ERNNullTableViewCell create];
 }
@@ -26,7 +26,7 @@ static ERNNullTableViewManager *immutableSingleton;
     return 0;
 }
 
--(NSInteger)rowsInSection:(NSInteger)section
+-(NSInteger)rowsInSection:(NSInteger)__unused section
 {
     return 0;
 }

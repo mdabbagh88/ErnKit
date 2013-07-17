@@ -16,7 +16,7 @@ static ERNNullResourceFactory *immutableSingleton;
 
 #pragma mark - ERNResourceFactory
 
--(ERNResource *)resourceForObject:(id<NSObject>)object
+-(ERNResource *)resourceForObject:(id<NSObject>)__unused object
 {
     return [ERNNullResource create];
 }

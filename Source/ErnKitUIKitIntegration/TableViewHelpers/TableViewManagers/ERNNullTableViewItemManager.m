@@ -15,18 +15,18 @@ static ERNNullTableViewItemManager *immutableSingleton;
 
 #pragma mark - ERNTableViewItemManager
 
--(void)actionForObject:(id<NSObject>)object
+-(void)actionForObject:(id<NSObject>)__unused object
 {
 }
 
--(CGFloat)cellHeightForObject:(id<NSObject>)object
-                defaultHeight:(CGFloat)defaultHeight
+-(CGFloat)cellHeightForObject:(id<NSObject>)__unused object
+                defaultHeight:(CGFloat)__unused defaultHeight
 {
     return defaultHeight;
 }
 
--(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
-                            fromObject:(id<NSObject>)object
+-(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(__unused NSString *identifier))__unused block
+                            fromObject:(id<NSObject>)__unused object
 {
     return [ERNNullTableViewCell create];
 }

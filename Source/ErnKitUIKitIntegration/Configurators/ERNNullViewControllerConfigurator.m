@@ -15,8 +15,8 @@ static ERNNullViewControllerConfigurator *immutableSingleton;
 
 #pragma mark - ERNViewControllerConfigurator
 
--(UIViewController *)createViewControllerForResource:(ERNResource *)resource
-                                           dismisser:(id<ERNViewControllerDismisser>)dismisser
+-(UIViewController *)createViewControllerForResource:(ERNResource *) __unused resource
+                                           dismisser:(id<ERNViewControllerDismisser>)__unused dismisser
 {
     return [UIViewController new];
 }

@@ -12,11 +12,11 @@
 
 #pragma mark - ERNAsyncItemsRepository
 
--(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block
+-(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)__unused block
 {
 }
 
--(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)predicate
+-(NSArray *)filteredArrayUsingPredicate:(NSPredicate *)__unused predicate
 {
     return @[];
 }
@@ -26,7 +26,7 @@
     return 0;
 }
 
--(id<NSObject>)itemAtIndex:(NSUInteger)index
+-(id<NSObject>)itemAtIndex:(NSUInteger)__unused index
 {
     return [NSNull null];
 }

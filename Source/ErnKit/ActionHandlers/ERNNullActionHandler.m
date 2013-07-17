@@ -14,7 +14,7 @@ static ERNNullActionHandler *immutableSingleton;
 
 #pragma mark - ERNActionHandler
 
--(void)actionForObject:(id<NSObject>)object
+-(void)actionForObject:(id<NSObject>) __unused object
 {
 }
 

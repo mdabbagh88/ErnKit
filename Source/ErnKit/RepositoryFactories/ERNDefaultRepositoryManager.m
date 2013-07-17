@@ -45,12 +45,12 @@
     return [[self objects] ERN_hasObjectForKey:[resource url]];
 }
 
--(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasItemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
 
--(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
@@ -69,12 +69,12 @@
                                [[self objects] objectForKey:[resource url]]]);
 }
 
--(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncItemsRepository create];
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncPaginatedItemsRepository create];
 }

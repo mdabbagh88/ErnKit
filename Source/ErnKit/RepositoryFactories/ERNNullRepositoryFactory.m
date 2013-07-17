@@ -18,42 +18,42 @@ static ERNNullRepositoryFactory *immutableSingleton;
 
 #pragma mark - ERNRepositoryFactory
 
--(BOOL)hasRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasItemRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
 
--(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasItemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
 
--(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
 
--(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncRepository create];
 }
 
--(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncItemRepository create];
 }
 
--(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncItemsRepository create];
 }
 
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncPaginatedItemsRepository create];
 }

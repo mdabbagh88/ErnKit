@@ -28,21 +28,21 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
                            defaultHeight:[tableView rowHeight]];
 }
 
--(CGFloat)tableView:(UITableView *)tableView
+-(CGFloat)tableView:(UITableView *)__unused tableView
 heightForHeaderInSection:(NSInteger)section
 {
     return [self heightForHeaderInSection:section
                             defaultHeight:0];
 }
 
--(CGFloat)tableView:(UITableView *)tableView
+-(CGFloat)tableView:(UITableView *)__unused tableView
 heightForFooterInSection:(NSInteger)section
 {
     return [self heightForFooterInSection:section
                             defaultHeight:0];
 }
 
--(UIView *)tableView:(UITableView *)tableView
+-(UIView *)tableView:(UITableView *)__unused tableView
 viewForHeaderInSection:(NSInteger)section
 {
     return [self canHandleViewForHeaderInSection] ?
@@ -50,7 +50,7 @@ viewForHeaderInSection:(NSInteger)section
     nil;
 }
 
--(UIView *)tableView:(UITableView *)tableView
+-(UIView *)tableView:(UITableView *)__unused tableView
 viewForFooterInSection:(NSInteger)section
 {
     return [self canHandleViewForFooterInSection] ?

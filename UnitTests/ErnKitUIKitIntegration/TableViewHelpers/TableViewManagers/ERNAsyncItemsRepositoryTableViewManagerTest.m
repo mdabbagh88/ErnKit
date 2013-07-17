@@ -33,7 +33,7 @@
     NSInteger sections = [manager sections];
 
     //then
-    assertThatInteger(sections, equalToInteger(0));
+    assertThatInteger(sections, equalToInteger(1));
 }
 
 -(void)testRowsInSectionNilRepository

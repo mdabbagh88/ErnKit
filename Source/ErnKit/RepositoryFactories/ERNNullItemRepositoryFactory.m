@@ -15,12 +15,12 @@ static ERNNullItemRepositoryFactory *immutableSingleton;
 
 #pragma mark - ERNRepositoryFactory
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+-(BOOL)hasItemRepositoryForResource:(ERNResource *)__unused resource
 {
     return NO;
 }
 
--(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncItemRepository create];
 }

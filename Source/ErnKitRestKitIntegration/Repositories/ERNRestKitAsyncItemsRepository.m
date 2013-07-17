@@ -71,7 +71,7 @@ static RKObjectRequestOperation *requestOperation(NSURLRequest *request,
     __weak ERNRestKitAsyncItemsRepository *blockSelf = self;
 
     [operation setCompletionBlockWithSuccess:
-     ^(RKObjectRequestOperation *completionOperation, RKMappingResult *mappingResult) {
+     ^(__unused RKObjectRequestOperation *completionOperation, RKMappingResult *mappingResult) {
          [responseOperationQueue addOperationWithBlock:
           ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
@@ -79,7 +79,7 @@ static RKObjectRequestOperation *requestOperation(NSURLRequest *request,
           }];
      }
                                      failure:
-     ^(RKObjectRequestOperation *completionOperation, NSError *error) {
+     ^(__unused RKObjectRequestOperation *completionOperation, NSError *error) {
          [responseOperationQueue addOperationWithBlock:
           ^(){
               ERNRestKitAsyncItemsRepository *localBlockSelf = blockSelf;
@@ -94,7 +94,7 @@ static RKObjectRequestOperation *requestOperation(NSURLRequest *request,
     [self setArray:items];
 }
 
--(void)refreshedWithError:(NSError *)error
+-(void)refreshedWithError:(NSError *)__unused error
 {
     [self setArray:@[]];
 }

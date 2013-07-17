@@ -24,7 +24,7 @@ static MKCoordinateRegion adjustRegion(MKCoordinateRegion region)
     __block CLLocationCoordinate2D topLeftCoord = CLLocationCoordinate2DMake(-90, 180);
     __block CLLocationCoordinate2D bottomRightCoord = CLLocationCoordinate2DMake(90, -180);
     [[self annotations] enumerateObjectsUsingBlock:
-     ^(id<MKAnnotation> annotation, NSUInteger index, BOOL *stop) {
+     ^(id<MKAnnotation> annotation, __unused NSUInteger index, __unused BOOL *stop) {
          CLLocationCoordinate2D coordinate = [annotation coordinate];
          topLeftCoord.longitude = fmin(topLeftCoord.longitude,
                                        coordinate.longitude);
