@@ -58,11 +58,7 @@
     id<ERNAsyncPaginatedItemsRepository> repository =
     [ERNItemToPaginatedItemsRepository createWithRepository:nil];
 
-    //when
-    NSUInteger count = [repository count];
-
-    //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(1));
+    assertThat(repository, hasCountOf(1));
 }
 
 -(void)testEnumerateItemsUsingBlockNilRepository
@@ -97,7 +93,7 @@
     //then
     [mockPredicate verify];
     assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(1));
+    assertThat(array, hasCountOf(1));
     assertThat(array[0], equalTo(expectedItem));
 }
 
@@ -112,7 +108,7 @@
 
     //then
     assertThat(item, notNilValue());
-    assertThat([item class], equalTo([NSNull class]));
+    assertThat(item, instanceOf([NSNull class]));
 }
 
 -(void)testItemAtIndexOutOfBoundsNilRepository
@@ -126,7 +122,7 @@
 
     //then
     assertThat(item, notNilValue());
-    assertThat([item class], equalTo([NSNull class]));
+    assertThat(item, instanceOf([NSNull class]));
 }
 
 -(void)testOffsetRepository
@@ -164,11 +160,7 @@
     id<ERNAsyncPaginatedItemsRepository> repository =
     [ERNItemToPaginatedItemsRepository createWithRepository:mockRepository];
 
-    //when
-    NSUInteger count = [repository count];
-
-    //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(1));
+    assertThat(repository, hasCountOf(1));
 }
 
 -(void)testEnumerateItemsUsingBlockRepository
@@ -209,7 +201,7 @@
     //then
     [mockPredicate verify];
     assertThat(array, notNilValue());
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(1));
+    assertThat(array, hasCountOf(1));
     assertThat(array[0], equalTo(mockItem));
 }
 
@@ -225,6 +217,7 @@
 
     //then
     assertThat(item, notNilValue());
-    assertThat([item class], equalTo([NSNull class]));
+    assertThat(item, instanceOf([NSNull class]));
 }
+
 @end

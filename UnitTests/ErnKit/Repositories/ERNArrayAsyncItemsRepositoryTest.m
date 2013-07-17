@@ -119,15 +119,10 @@
 
 -(void)testCountArray
 {
-    //given
     NSArray *initArray = @[@"one", @"two"];
     ERNArrayAsyncItemsRepository *repository = [ERNArrayAsyncItemsRepository createWithArray:initArray];
 
-    //when
-    NSUInteger count = [repository count];
-
-    //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger([initArray count]));
+    assertThat(repository, hasCountOf([initArray count]));
 }
 
 -(void)testItemAtIndexOutOfIndexArray
@@ -140,7 +135,7 @@
     id item = [repository itemAtIndex:12];
 
     //then
-    assertThat([item class], equalTo([NSNull class]));
+    assertThat(item, instanceOf([NSNull class]));
 }
 
 -(void)testItemAtIndexArray

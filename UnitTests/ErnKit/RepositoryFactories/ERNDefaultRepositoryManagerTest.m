@@ -30,7 +30,7 @@
     //when
     [store storeUrl:nil
             forItem:nil];
-    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(0));
+    assertThat([store objects], hasCountOf(0));
 }
 
 -(void)testStoreUrlNilItem
@@ -43,7 +43,7 @@
             forItem:nil];
 
     //then
-    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(0));
+    assertThat([store objects], isEmpty());
 }
 
 -(void)testStoreNilUrlItem
@@ -57,7 +57,7 @@
             forItem:mockItem];
 
     //then
-    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(0));
+    assertThat([store objects], isEmpty());
 }
 
 -(void)testStoreUrlItem
@@ -71,7 +71,7 @@
             forItem:mockItem];
 
     //then
-    assertThatUnsignedInteger([[store objects] count], equalToUnsignedInteger(1));
+    assertThat([store objects], hasCountOf(1));
     assertThat([[store objects] objectForKey:[NSURL URLWithString:@"url"]], equalTo(mockItem));
 }
 

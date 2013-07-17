@@ -35,7 +35,7 @@
     NSArray *returnArray = [array ERN_guaranteeSelectorResponse:@selector(testHasNotSelector)];
 
     //then
-    assertThat(returnArray, equalTo(nil));
+    assertThat(returnArray, nilValue());
 }
 
 @end

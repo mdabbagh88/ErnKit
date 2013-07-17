@@ -26,7 +26,7 @@
     id<NSObject> item = [repository item];
 
     //then
-    assertThat(item, equalTo([NSNull null]));
+    assertThat(item, instanceOf([NSNull class]));
 }
 
 @end

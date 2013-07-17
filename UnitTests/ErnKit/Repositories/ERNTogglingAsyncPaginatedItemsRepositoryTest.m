@@ -199,7 +199,7 @@
     [repository setSelectedIndex:1];
 
     //then
-    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(expectedfetched));
+    assertThat(repository, hasCountOf(expectedfetched));
     [mockRepository1 verify];
     [mockRepository2 verify];
 }
@@ -217,7 +217,7 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThatUnsignedInteger([repository count], equalToUnsignedInteger(0));
+    assertThat(repository, isEmpty());
     [mockRepository1 verify];
     [mockRepository2 verify];
 }
@@ -335,7 +335,7 @@
     [repository setSelectedIndex:5];
 
     //then
-    assertThat([[repository itemAtIndex:5] class], equalTo([[NSNull null] class]));
+    assertThat([repository itemAtIndex:5], instanceOf([NSNull class]));
     [mockRepository1 verify];
     [mockRepository2 verify];
 }
@@ -434,7 +434,7 @@
     NSArray *array = [repository filteredArrayUsingPredicate:mockPredicate];
 
     //then
-    assertThatUnsignedInteger([array count], equalToUnsignedInteger(0));
+    assertThat(array, isEmpty());
     [mockRepository1 verify];
     [mockRepository2 verify];
 }

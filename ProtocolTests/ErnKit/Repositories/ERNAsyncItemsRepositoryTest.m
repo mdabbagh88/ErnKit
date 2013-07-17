@@ -130,7 +130,7 @@
     NSUInteger expectedCount = 0;
     NSArray *filteredArray = [asyncItemsRepository filteredArrayUsingPredicate:nil];
     assertThat(filteredArray, notNilValue());
-    assertThatUnsignedInteger([filteredArray count], equalToUnsignedInteger(expectedCount));
+    assertThat(filteredArray, isEmpty());
 }
 
 +(void)testFilteredArrayUsingNilPredicateNotObserving:(id<ERNAsyncItemsRepository>)asyncItemsRepository

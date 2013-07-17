@@ -29,7 +29,7 @@
                                              fromObject:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
 }
 
 -(void)testCellWithReuserNilObject
@@ -45,7 +45,7 @@
                                              fromObject:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
 }
 
 -(void)testCellWithNilReuserObject
@@ -59,7 +59,7 @@
                                              fromObject:mockObject];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockObject verify];
 }
 
@@ -77,7 +77,7 @@
                                              fromObject:mockObject];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockObject verify];
 }
 

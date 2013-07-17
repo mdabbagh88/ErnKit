@@ -20,7 +20,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
 }
 
 -(void)testCellForRowAtNilIndexPathTableViewWithNilManager
@@ -35,7 +35,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockTableView verify];
 }
 
@@ -51,7 +51,7 @@
                             cellForRowAtIndexPath:mockIndexPath];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockIndexPath verify];
 }
 
@@ -68,7 +68,7 @@
                             cellForRowAtIndexPath:mockIndexPath];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockTableView verify];
     [mockIndexPath verify];
 }
@@ -204,7 +204,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockTableViewManager verify];
 }
 
@@ -221,7 +221,7 @@
                             cellForRowAtIndexPath:nil];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockTableView verify];
     [mockTableViewManager verify];
 }
@@ -239,7 +239,7 @@
                             cellForRowAtIndexPath:mockIndexPath];
 
     //then
-    assertThat([cell class], equalTo([ERNNullTableViewCell class]));
+    assertThat(cell, instanceOf([ERNNullTableViewCell class]));
     [mockIndexPath verify];
     [mockTableViewManager verify];
 }

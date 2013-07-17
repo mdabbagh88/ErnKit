@@ -59,7 +59,7 @@
 
     id object = [dictionary objectForKey:@"keyWithoutObject"];
 
-    assertThat(object, equalTo(defaultObject));
+    assertThat(object, nilValue());
 }
 
 -(void)testGetKeyWithObjectWithNilDefault

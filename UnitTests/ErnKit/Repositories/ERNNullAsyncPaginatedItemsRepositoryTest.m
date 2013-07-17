@@ -27,7 +27,7 @@
     id<NSObject> item = [repository itemAtIndex:10];
 
     //then
-    assertThat(item, equalTo([NSNull null]));
+    assertThat(item, instanceOf([NSNull class]));
     
 }
 
@@ -48,11 +48,7 @@
     //given
     id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
 
-    //when
-    NSUInteger count = [repository count];
-
-    //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(0));
+    assertThat(repository, isEmpty());
 }
 
 -(void)testOffset
