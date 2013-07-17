@@ -50,7 +50,7 @@
     NSArray *items = [paginator items];
 
     //then
-    assertThatUnsignedInteger([items count], equalToUnsignedInteger(0));
+    assertThat(items, isEmpty());
     
 }
 

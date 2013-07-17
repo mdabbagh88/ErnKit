@@ -175,11 +175,7 @@
     ERNTogglingAsyncPaginatedItemsRepository *repository =
     [ERNTogglingAsyncPaginatedItemsRepository createWithRepositories:repositories];
 
-    //when
-    NSUInteger count = [repository count];
-
-    //then
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedfetched));
+    assertThat(repository, hasCountOf(expectedfetched));
     [mockRepository1 verify];
     [mockRepository2 verify];
 }

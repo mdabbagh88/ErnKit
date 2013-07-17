@@ -85,9 +85,7 @@
     [dictionary setObject:@"object" forKey:@"key1"];
     [dictionary setObject:@"object" forKey:@"key2"];
 
-    NSUInteger count = [dictionary count];
-
-    assertThatUnsignedInteger(count, equalToUnsignedInteger(expectedCount));
+    assertThat(dictionary, hasCountOf(expectedCount));
 }
 
 -(void)testRemoveKeyWithObjectWithDefault
