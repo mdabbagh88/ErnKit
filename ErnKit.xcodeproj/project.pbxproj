@@ -116,6 +116,9 @@
 		F73D1E3A179B07F4009D5DDF /* ERNNullMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F73D1E39179B07F4009D5DDF /* ERNNullMapViewAnnotationViewFactory.m */; };
 		F73D1E3E179B0E41009D5DDF /* ERNNullMapViewAnnotationViewFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F73D1E3D179B0E41009D5DDF /* ERNNullMapViewAnnotationViewFactoryTest.m */; };
 		F73D1E41179B0F41009D5DDF /* ERNRoutingMapViewAnnotationViewFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F73D1E40179B0F41009D5DDF /* ERNRoutingMapViewAnnotationViewFactoryTest.m */; };
+		F73D1E44179B1335009D5DDF /* ERNRefreshableListConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F73D1E42179B1335009D5DDF /* ERNRefreshableListConfigurator.m */; };
+		F73D1E47179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73D1E46179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.m */; };
+		F73D1E4A179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F73D1E49179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.m */; };
 		F741628C177F854C00720A8C /* ERNNullRepositoryPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = F741628B177F854C00720A8C /* ERNNullRepositoryPaginator.m */; };
 		F741628F177F86D400720A8C /* ERNDefaultResourceFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F741628E177F86D400720A8C /* ERNDefaultResourceFactoryTest.m */; };
 		F7416295177F8A1900720A8C /* ERNDefaultRepositoryManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7416292177F8A1900720A8C /* ERNDefaultRepositoryManagerTest.m */; };
@@ -363,6 +366,12 @@
 		F73D1E3D179B0E41009D5DDF /* ERNNullMapViewAnnotationViewFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullMapViewAnnotationViewFactoryTest.m; sourceTree = "<group>"; };
 		F73D1E3F179B0F41009D5DDF /* ERNRoutingMapViewAnnotationViewFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRoutingMapViewAnnotationViewFactoryTest.h; sourceTree = "<group>"; };
 		F73D1E40179B0F41009D5DDF /* ERNRoutingMapViewAnnotationViewFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRoutingMapViewAnnotationViewFactoryTest.m; sourceTree = "<group>"; };
+		F73D1E42179B1335009D5DDF /* ERNRefreshableListConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRefreshableListConfigurator.m; sourceTree = "<group>"; };
+		F73D1E43179B1335009D5DDF /* ERNRefreshableListConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshableListConfigurator.h; sourceTree = "<group>"; };
+		F73D1E45179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNViewControllerTitleItemRepositoryController.h; sourceTree = "<group>"; };
+		F73D1E46179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNViewControllerTitleItemRepositoryController.m; sourceTree = "<group>"; };
+		F73D1E48179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRefreshableListConfiguratorTest.h; sourceTree = "<group>"; };
+		F73D1E49179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRefreshableListConfiguratorTest.m; sourceTree = "<group>"; };
 		F741628A177F854C00720A8C /* ERNNullRepositoryPaginator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullRepositoryPaginator.h; sourceTree = "<group>"; };
 		F741628B177F854C00720A8C /* ERNNullRepositoryPaginator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullRepositoryPaginator.m; sourceTree = "<group>"; };
 		F741628D177F86D400720A8C /* ERNDefaultResourceFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDefaultResourceFactoryTest.h; sourceTree = "<group>"; };
@@ -807,6 +816,8 @@
 				F70A6A291742B2B6004095C1 /* ERNSegmentedControlTogglerController.m */,
 				F787FB7317479067007D751A /* ERNTableViewRepositoryRefreshController.h */,
 				F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */,
+				F73D1E45179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.h */,
+				F73D1E46179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.m */,
 			);
 			path = MicroControllers;
 			sourceTree = "<group>";
@@ -1407,6 +1418,8 @@
 				F7ABC2F617351F890035B164 /* ERNViewControllerConfigurator.h */,
 				F7CAD1DE178200EE003660F9 /* ERNNullViewControllerConfigurator.h */,
 				F7CAD1DF178200EE003660F9 /* ERNNullViewControllerConfigurator.m */,
+				F73D1E43179B1335009D5DDF /* ERNRefreshableListConfigurator.h */,
+				F73D1E42179B1335009D5DDF /* ERNRefreshableListConfigurator.m */,
 				F7DD7322179A719700ECAD9B /* ERNNullActionSheetConfigurator.h */,
 				F7DD7323179A719700ECAD9B /* ERNNullActionSheetConfigurator.m */,
 			);
@@ -1603,6 +1616,8 @@
 			children = (
 				F7CAD2621782317C003660F9 /* ERNNullViewControllerConfiguratorTest.h */,
 				F7CAD2631782317C003660F9 /* ERNNullViewControllerConfiguratorTest.m */,
+				F73D1E48179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.h */,
+				F73D1E49179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.m */,
 				F7DD731F179A713500ECAD9B /* ERNNullActionSheetConfiguratorTest.h */,
 				F7DD7320179A713500ECAD9B /* ERNNullActionSheetConfiguratorTest.m */,
 			);
@@ -2107,6 +2122,7 @@
 				F7030831177F84CE00F39603 /* ERNMimeRoutingRepositoryFactory.m in Sources */,
 				F732922D1775AC85005EEBA8 /* ERNMimeRoutingAction.m in Sources */,
 				F73D1E3A179B07F4009D5DDF /* ERNNullMapViewAnnotationViewFactory.m in Sources */,
+				F73D1E44179B1335009D5DDF /* ERNRefreshableListConfigurator.m in Sources */,
 				F73D1E21179A8224009D5DDF /* ERNNullActionSheetTransitioner.m in Sources */,
 				F732922E1775AC85005EEBA8 /* ERNNullAction.m in Sources */,
 				F732922F1775AC85005EEBA8 /* ERNRefreshAsyncRepositoryAction.m in Sources */,
@@ -2162,6 +2178,7 @@
 				F73694E41781576F00DB2AF9 /* NSMapTable+ERNHelper.m in Sources */,
 				F73292601775AC85005EEBA8 /* UITableViewCell+ERNHelper.m in Sources */,
 				F73292611775AC85005EEBA8 /* ERNTableViewController+ERNAsyncItemsRepository.m in Sources */,
+				F73D1E47179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.m in Sources */,
 				F73292621775AC85005EEBA8 /* ERNViewActionSheetTransitioner.m in Sources */,
 				F73292631775AC85005EEBA8 /* ERNBarButtonItemActionSheetTransitioner.m in Sources */,
 				F73292641775AC85005EEBA8 /* ERNModalViewControllerTransitioner.m in Sources */,
@@ -2244,6 +2261,7 @@
 				F741628F177F86D400720A8C /* ERNDefaultResourceFactoryTest.m in Sources */,
 				F74388CD173BCEAB00676477 /* ERNTogglingAsyncPaginatedItemsRepositoryTest.m in Sources */,
 				F74388D5173BF25100676477 /* NSURL+ErnHelperTest.m in Sources */,
+				F73D1E4A179B136A009D5DDF /* ERNRefreshableListConfiguratorTest.m in Sources */,
 				F7C00DB4178386C90075FE61 /* ERNNullItemRepositoryFactoryTest.m in Sources */,
 				F74388D8173BF32C00676477 /* NSObject+ERNHelperTest.m in Sources */,
 				F74388DB173BF6DF00676477 /* ERNMergingAsyncPaginatedItemsRepositoryTest.m in Sources */,

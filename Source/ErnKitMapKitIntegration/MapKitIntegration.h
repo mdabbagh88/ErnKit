@@ -10,3 +10,4 @@
 #import "ERNMapViewAnnotationViewFactory.h"
 #import "ERNRoutingMapViewAnnotationViewFactory.h"
 #import "ERNMapViewRepositoryRefreshController.h"
+#import "ERNNullMapViewAnnotationViewFactory.h"
