@@ -3,47 +3,28 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNViewActionSheetTransitionerTest.h"
+#import "ERNActionSheetTransitionerTest.h"
 #import "ERNViewActionSheetTransitioner.h"
 
-@implementation ERNViewActionSheetTransitionerTest
-
--(void)testTransitionToNilActionSheetNilView
-{
-    //given
-    id<ERNActionSheetTransitioner> transitioner =
-    [ERNViewActionSheetTransitioner createWithView:nil];
-
-    //when, then
-    [transitioner transitionToActionSheet:nil];
+@implementation ERNViewActionSheetTransitionerTest {
 }
 
--(void)testTransitionToNilActionSheetView
+#pragma mark - ERNActionSheetTransition protocol tests
+
+-(void)testViewControllerTransitionProtocolWithNilView
 {
-    //given
-    id mockView = [OCMockObject mockForClass:[UIView class]];
-    id<ERNActionSheetTransitioner> transitioner =
-    [ERNViewActionSheetTransitioner createWithView:mockView];
-
-    //when
-    [transitioner transitionToActionSheet:nil];
-
-    //then
-    [mockView verify];
+    [ERNActionSheetTransitionerTest testActionSheetTransitioner:
+     [ERNViewActionSheetTransitioner createWithView:nil]];
 }
 
--(void)testTransitionToActionSheetNilView
+-(void)testViewControllerTransitionProtocolWithView
 {
-    //given
-    id mockActionSheet = [OCMockObject mockForClass:[UIActionSheet class]];
-    id<ERNActionSheetTransitioner> transitioner =
-    [ERNViewActionSheetTransitioner createWithView:nil];
-
-    //when
-    [transitioner transitionToActionSheet:mockActionSheet];
-
-    //then
-    [mockActionSheet verify];
+    id mockView = [OCMockObject niceMockForClass:[UINavigationController class]];
+    [ERNActionSheetTransitionerTest testActionSheetTransitioner:
+     [ERNViewActionSheetTransitioner createWithView:mockView]];
 }
+
+#pragma mark - class tests
 
 -(void)testTransitionToActionSheetView
 {

@@ -3,13 +3,13 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNRoutingTableViewCellFactoryTest.h"
+#import "ERNTableViewCellFactoryTest.h"
 #import "ERNRoutingTableViewCellFactory.h"
 
 @interface ERNMockTableViewCellFactory : NSObject <ERNTableViewCellFactory>
 @end
 
 @implementation ERNMockTableViewCellFactory
-
 -(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *))block
                             fromObject:(id<NSObject>)object
 {
@@ -24,7 +24,26 @@
 
 @end
 
-@implementation ERNRoutingTableViewCellFactoryTest
+@implementation ERNRoutingTableViewCellFactoryTest {
+}
+
+#pragma mark - ERNTableViewCellFactory protocol tests
+
+-(void)testTableViewCellFactoryProtocolWithNilMappings
+{
+    [ERNTableViewCellFactoryTest testTableViewCellFactory:
+     [ERNRoutingTableViewCellFactory createWithMappings:nil]];
+}
+
+-(void)testTableViewCellFactoryProtocolWithMappings
+{
+    NSString *objectClassName = @"ClassName";
+    id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
+    [ERNTableViewCellFactoryTest testTableViewCellFactory:
+     [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}]];
+}
+
+#pragma mark - class tests
 
 -(void)testCellForNilTableViewFromNilObjectNilMappings
 {
@@ -45,7 +64,6 @@
     //given
     NSString *objectClassName = @"ClassName";
     id mockFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
-    id mockDefaultFactory = [OCMockObject mockForClass:[ERNMockTableViewCellFactory class]];
     id<ERNTableViewCellFactory> cellFactory =
     [ERNRoutingTableViewCellFactory createWithMappings:@{objectClassName : mockFactory}];
 
@@ -55,7 +73,6 @@
 
     //then
     assertThat(cell, notNilValue());
-    [mockDefaultFactory verify];
     [mockFactory verify];
 }
 

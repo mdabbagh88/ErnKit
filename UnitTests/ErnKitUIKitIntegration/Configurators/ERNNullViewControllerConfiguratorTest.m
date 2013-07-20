@@ -17,4 +17,17 @@
      [ERNNullViewControllerConfigurator create]];
 }
 
+#pragma mark - class tests
+
+-(void)testSingleton
+{
+    //given, when
+    id<ERNViewControllerConfigurator> configurator1 = [ERNNullViewControllerConfigurator create];
+    id<ERNViewControllerConfigurator> configurator2 = [ERNNullViewControllerConfigurator create];
+
+    //then
+    assertThat(configurator1, notNilValue());
+    assertThat(configurator1, equalTo(configurator2));
+}
+
 @end

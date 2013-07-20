@@ -3,44 +3,28 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNWindowViewControllerTransitionerTest.h"
+#import "ERNViewControllerTransitionerTest.h"
 #import "ERNWindowViewControllerTransitioner.h"
 
-@implementation ERNWindowViewControllerTransitionerTest
-
--(void)testTransitionWithNilWindowNilViewController
-{
-    //given
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNWindowViewControllerTransitioner createWithWindow:nil];
-
-    //when, then
-    [transitioner transitionToViewController:nil];
+@implementation ERNWindowViewControllerTransitionerTest {
 }
 
--(void)testTransitionWithNilWindowViewController
+#pragma mark - ERNViewControllerTransition protocol tests
+
+-(void)testViewControllerTransitionProtocolWithNilWindow
 {
-    //given
-    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNWindowViewControllerTransitioner createWithWindow:nil];
-
-    //when
-    [transitioner transitionToViewController:mockViewController];
-
-    //then
-    [mockViewController verify];
+    [ERNViewControllerTransitionerTest testViewControllerTransitioner:
+     [ERNWindowViewControllerTransitioner createWithWindow:nil]];
 }
 
--(void)testTransitionWithWindowNilViewController
+-(void)testViewControllerTransitionProtocolWithWindow
 {
-    //given
-    id mockWindow = [OCMockObject mockForClass:[UIWindow class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNWindowViewControllerTransitioner createWithWindow:mockWindow];
-
-    //when, then
-    [transitioner transitionToViewController:nil];
+    id mockWindow = [OCMockObject niceMockForClass:[UIWindow class]];
+    [ERNViewControllerTransitionerTest testViewControllerTransitioner:
+     [ERNWindowViewControllerTransitioner createWithWindow:mockWindow]];
 }
+
+#pragma mark - class tests
 
 -(void)testTransitionWithWindowViewController
 {
@@ -57,30 +41,6 @@
     //then
     [mockViewController verify];
     [mockWindow verify];
-}
-
--(void)testDismissWithNilWindowNilViewController
-{
-    //given
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNWindowViewControllerTransitioner createWithWindow:nil];
-
-    //when, then
-    [transitioner dismissViewController:nil];
-}
-
--(void)testDismissWithNilWindowViewController
-{
-    //given
-    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNWindowViewControllerTransitioner createWithWindow:nil];
-
-    //when
-    [transitioner dismissViewController:mockViewController];
-
-    //then
-    [mockViewController verify];
 }
 
 -(void)testDismissWithWindowNilViewController

@@ -3,9 +3,45 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNMergingTableViewManagerTest.h"
+#import "ERNTableViewManagerTest.h"
 #import "ERNMergingTableViewManager.h"
+#import "ERNNullTableViewManager.h"
 
-@implementation ERNMergingTableViewManagerTest
+@implementation ERNMergingTableViewManagerTest {
+}
+
+#pragma mark - ERNTableViewManager protocol tests
+
+-(void)testTableViewManagerProtocolWithNilFirstNilRest
+{
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNMergingTableViewManager createWithFirstTableViewManager:nil
+                                            restTableViewManager:nil]];
+}
+
+-(void)testTableViewManagerProtocolWithNilFirstRest
+{
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNMergingTableViewManager createWithFirstTableViewManager:nil
+                                            restTableViewManager:[ERNNullTableViewManager create]]];
+}
+
+-(void)testTableViewManagerProtocolWithFirstNilRest
+{
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNMergingTableViewManager createWithFirstTableViewManager:[ERNNullTableViewManager create]
+                                            restTableViewManager:nil]];
+}
+
+-(void)testTableViewManagerProtocolWithFirstRest
+{
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNMergingTableViewManager createWithFirstTableViewManager:[ERNNullTableViewManager create]
+                                            restTableViewManager:[ERNNullTableViewManager create]]];
+}
+
+#pragma mark - class tests
+
 -(void)testNilTableViewCellForNilIndexPathNilFirstNilRest
 {
     //given

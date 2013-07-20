@@ -3,7 +3,9 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNTogglingTableViewManagerTest.h"
+#import "ERNTableViewManagerTest.h"
 #import "ERNTogglingTableViewManager.h"
+#import "ERNNullTableViewManager.h"
 #import "ERNTogglerTest.h"
 
 @implementation ERNTogglingTableViewManagerTest {
@@ -16,6 +18,52 @@
     [ERNTogglerTest testToggler:
      [ERNTogglingTableViewManager createWithTableViewManagers:nil
                                                     tableView:nil]];
+}
+
+#pragma mark - ERNTableViewManager protocol tests
+
+-(void)testTableViewManagerProtocolWithNilTableViewManagersNilTableView
+{
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNTogglingTableViewManager createWithTableViewManagers:nil
+                                                    tableView:nil]];
+}
+
+-(void)testTableViewManagerProtocolWithNilTableViewManagersTableView
+{
+    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNTogglingTableViewManager createWithTableViewManagers:nil
+                                                    tableView:mockTableView]];
+}
+
+-(void)testTableViewManagerProtocolWithTableViewManagersNilTableView
+{
+    NSArray *tableViewManagers = @[[ERNNullTableViewManager create],
+                                   [ERNNullTableViewManager create]];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNTogglingTableViewManager createWithTableViewManagers:tableViewManagers
+                                                    tableView:nil]];
+}
+
+-(void)testTableViewManagerProtocolWithTableViewManagersTableView
+{
+    NSArray *tableViewManagers = @[[ERNNullTableViewManager create],
+                                   [ERNNullTableViewManager create]];
+    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNTogglingTableViewManager createWithTableViewManagers:tableViewManagers
+                                                    tableView:mockTableView]];
+}
+
+-(void)testTableViewManagerProtocolWithNonTableViewManagersTableView
+{
+    NSArray *tableViewManagers = @[@"",
+                                   @""];
+    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNTogglingTableViewManager createWithTableViewManagers:tableViewManagers
+                                                    tableView:mockTableView]];
 }
 
 #pragma mark - class tests

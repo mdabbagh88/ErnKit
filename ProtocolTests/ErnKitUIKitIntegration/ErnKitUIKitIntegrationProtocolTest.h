@@ -1,2 +1,8 @@
 #import "ERNViewControllerConfiguratorTest.h"
 #import "ERNActionSheetConfiguratorTest.h"
+#import "ERNTableViewCellFactoryTest.h"
+#import "ERNTableViewManagerTest.h"
+#import "ERNTableViewItemManagerTest.h"
+#import "ERNActionSheetTransitionerTest.h"
+#import "ERNViewControllerDismisserTest.h"
+#import "ERNViewControllerTransitionerTest.h"

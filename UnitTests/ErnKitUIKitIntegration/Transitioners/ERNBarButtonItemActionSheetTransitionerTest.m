@@ -3,47 +3,28 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNBarButtonItemActionSheetTransitionerTest.h"
+#import "ERNActionSheetTransitionerTest.h"
 #import "ERNBarButtonItemActionSheetTransitioner.h"
 
-@implementation ERNBarButtonItemActionSheetTransitionerTest
-
--(void)testTransitionToNilActionSheetNilBarButtonItem
-{
-    //given
-    id<ERNActionSheetTransitioner> transitioner =
-    [ERNBarButtonItemActionSheetTransitioner createWithBarButtonItem:nil];
-
-    //when, then
-    [transitioner transitionToActionSheet:nil];
+@implementation ERNBarButtonItemActionSheetTransitionerTest {
 }
 
--(void)testTransitionToNilActionSheetBarButtonItem
+#pragma mark - ERNActionSheetTransition protocol tests
+
+-(void)testViewControllerTransitionProtocolWithNilBarButtonItem
 {
-    //given
-    id mockBarButtonItem = [OCMockObject mockForClass:[UIBarButtonItem class]];
-    id<ERNActionSheetTransitioner> transitioner =
-    [ERNBarButtonItemActionSheetTransitioner createWithBarButtonItem:mockBarButtonItem];
-
-    //when
-    [transitioner transitionToActionSheet:nil];
-
-    //then
-    [mockBarButtonItem verify];
+    [ERNActionSheetTransitionerTest testActionSheetTransitioner:
+     [ERNBarButtonItemActionSheetTransitioner createWithBarButtonItem:nil]];
 }
 
--(void)testTransitionToActionSheetNilBarButtonItem
+-(void)testViewControllerTransitionProtocolWithBarButtonItem
 {
-    //given
-    id mockActionSheet = [OCMockObject mockForClass:[UIActionSheet class]];
-    id<ERNActionSheetTransitioner> transitioner =
-    [ERNBarButtonItemActionSheetTransitioner createWithBarButtonItem:nil];
-
-    //when
-    [transitioner transitionToActionSheet:mockActionSheet];
-
-    //then
-    [mockActionSheet verify];
+    id mockBarButtonItem = [OCMockObject niceMockForClass:[UIBarButtonItem class]];
+    [ERNActionSheetTransitionerTest testActionSheetTransitioner:
+     [ERNBarButtonItemActionSheetTransitioner createWithBarButtonItem:mockBarButtonItem]];
 }
+
+#pragma mark - class tests
 
 -(void)testTransitionToActionSheetBarButtonItem
 {

@@ -3,47 +3,29 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNModalViewControllerTransitionerTest.h"
+#import "ERNViewControllerTransitionerTest.h"
 #import "ERNModalViewControllerTransitioner.h"
 
-@implementation ERNModalViewControllerTransitionerTest
-
--(void)testTransitionToNilViewControllerNilSourceViewController
-{
-    //given
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNModalViewControllerTransitioner createWithSourceViewController:nil];
-
-    //when, then
-    [transitioner transitionToViewController:nil];
+@implementation ERNModalViewControllerTransitionerTest {
 }
 
--(void)testTransitionToNilViewControllerSourceViewController
+#pragma mark - ERNViewControllerTransition protocol tests
+
+-(void)testViewControllerTransitionProtocolWithNilSourceViewController
 {
-    //given
-    id mockSourceViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNModalViewControllerTransitioner createWithSourceViewController:mockSourceViewController];
-
-    //when
-    [transitioner transitionToViewController:nil];
-
-    //then
-    [mockSourceViewController verify];
+    [ERNViewControllerTransitionerTest testViewControllerTransitioner:
+     [ERNModalViewControllerTransitioner createWithSourceViewController:nil]];
 }
 
--(void)testTransitionToViewControllerNilSourceViewController
+-(void)testViewControllerTransitionProtocolWithSourceViewController
 {
-    //given
-    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNModalViewControllerTransitioner createWithSourceViewController:nil];
-
-    //when
-    [transitioner transitionToViewController:mockViewController];
-
-    //then
-    [mockViewController verify];
+    id mockSourceViewController = [OCMockObject niceMockForClass:[UIViewController class]];
+    [ERNViewControllerTransitionerTest testViewControllerTransitioner:
+     [ERNModalViewControllerTransitioner createWithSourceViewController:
+      mockSourceViewController]];
 }
+
+#pragma mark - class tests
 
 -(void)testTransitionToViewControllerSourceViewController
 {
@@ -62,31 +44,6 @@
     //then
     [mockSourceViewController verify];
     [mockViewController verify];
-}
-
-
--(void)testDismissNilViewControllerNilSourceViewController
-{
-    //given
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNModalViewControllerTransitioner createWithSourceViewController:nil];
-
-    //when, then
-    [transitioner dismissViewController:nil];
-}
-
--(void)testDismissNilViewControllerSourceViewController
-{
-    //given
-    id mockSourceViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNModalViewControllerTransitioner createWithSourceViewController:mockSourceViewController];
-
-    //when
-    [transitioner dismissViewController:nil];
-
-    //then
-    [mockSourceViewController verify];
 }
 
 -(void)testDismissViewControllerNilSourceViewController

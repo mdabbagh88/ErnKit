@@ -3,10 +3,22 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNDefaultTableViewCellFactoryTest.h"
+#import "ERNTableViewCellFactoryTest.h"
 #import "ERNDefaultTableViewCellFactory.h"
 #import "ERNNullTableViewCell.h"
 
-@implementation ERNDefaultTableViewCellFactoryTest
+@implementation ERNDefaultTableViewCellFactoryTest {
+}
+
+#pragma mark - ERNTableViewCellFactory protocol tests
+
+-(void)testTableViewCellFactoryProtocol
+{
+    [ERNTableViewCellFactoryTest testTableViewCellFactory:
+     [ERNDefaultTableViewCellFactory create]];
+}
+
+#pragma mark - class tests
 
 -(void)testSingleton
 {

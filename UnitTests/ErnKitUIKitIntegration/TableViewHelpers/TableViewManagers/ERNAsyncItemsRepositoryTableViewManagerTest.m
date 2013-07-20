@@ -3,24 +3,51 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNAsyncItemsRepositoryTableViewManagerTest.h"
+#import "ERNTableViewManagerTest.h"
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
 
-@implementation ERNAsyncItemsRepositoryTableViewManagerTest
-
--(void)testNilTableViewCellForNilIndexPathNilRepository
-{
-    //given
-    id<ERNTableViewManager> manager =
-    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
-                                                      itemManager:nil];
-
-    //when
-    UITableViewCell *cell = [manager cellForIndexPath:nil
-                                           cellReuser:nil];
-
-    //then
-    assertThat(cell, notNilValue());
+@implementation ERNAsyncItemsRepositoryTableViewManagerTest {
 }
+
+#pragma mark - ERNTableViewManager protocol tests
+
+-(void)testTableViewManagerProtocolWithNilRepositoryNilItemManager
+{
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                       itemManager:nil]];
+}
+
+-(void)testTableViewManagerProtocolWithRepositoryNilItemManager
+{
+    id mockRepository =
+    [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNAsyncItemsRepositoryTableViewManager createWithRepository:mockRepository
+                                                       itemManager:nil]];
+}
+
+-(void)testTableViewManagerProtocolWithNilRepositoryItemManager
+{
+    id mockItemManager =
+    [OCMockObject niceMockForProtocol:@protocol(ERNTableViewItemManager)];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
+                                                       itemManager:mockItemManager]];
+}
+
+-(void)testTableViewManagerProtocolWithRepositoryItemManager
+{
+    id mockRepository =
+    [OCMockObject niceMockForProtocol:@protocol(ERNAsyncPaginatedItemsRepository)];
+    id mockItemManager =
+    [OCMockObject niceMockForProtocol:@protocol(ERNTableViewItemManager)];
+    [ERNTableViewManagerTest testTableViewManager:
+     [ERNAsyncItemsRepositoryTableViewManager createWithRepository:mockRepository
+                                                       itemManager:mockItemManager]];
+}
+
+#pragma mark - class tests
 
 -(void)testSectionsNilRepository
 {
@@ -48,17 +75,6 @@
 
     //then
     assertThatInteger(rows, equalToInteger(0));
-}
-
--(void)testActionForNilIndexPathNilRepository
-{
-    //given
-    id<ERNTableViewManager> manager =
-    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:nil
-                                                      itemManager:nil];
-
-    //when
-    [manager actionForIndexPath:nil];
 }
 
 @end

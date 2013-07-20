@@ -3,47 +3,29 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNNavigationViewControllerTransitionerTest.h"
+#import "ERNViewControllerTransitionerTest.h"
 #import "ERNNavigationViewControllerTransitioner.h"
 
-@implementation ERNNavigationViewControllerTransitionerTest
-
--(void)testTransitionToNilViewControllerNilNavigationController
-{
-    //given
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
-
-    //when, then
-    [transitioner transitionToViewController:nil];
+@implementation ERNNavigationViewControllerTransitionerTest {
 }
 
--(void)testTransitionToNilViewControllerNavigationController
+#pragma mark - ERNViewControllerTransition protocol tests
+
+-(void)testViewControllerTransitionProtocolWithNilNavigationController
 {
-    //given
-    id mockNavigationController = [OCMockObject mockForClass:[UINavigationController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNNavigationViewControllerTransitioner createWithNavigationController:mockNavigationController];
-
-    //when
-    [transitioner transitionToViewController:nil];
-
-    //then
-    [mockNavigationController verify];
+    [ERNViewControllerTransitionerTest testViewControllerTransitioner:
+     [ERNNavigationViewControllerTransitioner createWithNavigationController:nil]];
 }
 
--(void)testTransitionToViewControllerNilNavigationController
+-(void)testViewControllerTransitionProtocolWithNavigationController
 {
-    //given
-    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
-
-    //when
-    [transitioner transitionToViewController:mockViewController];
-
-    //then
-    [mockViewController verify];
+    id mockNavigationController = [OCMockObject niceMockForClass:[UINavigationController class]];
+    [ERNViewControllerTransitionerTest testViewControllerTransitioner:
+     [ERNNavigationViewControllerTransitioner createWithNavigationController:
+      mockNavigationController]];
 }
+
+#pragma mark - class tests
 
 -(void)testTransitionToViewControllerNavigationController
 {
@@ -62,16 +44,6 @@
     [mockViewController verify];
 }
 
--(void)testDimissNilViewControllerNilNavigationController
-{
-    //given
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
-
-    //when, then
-    [transitioner dismissViewController:nil];
-}
-
 -(void)testDimissNilViewControllerNavigationController
 {
     //given
@@ -85,20 +57,6 @@
 
     //then
     [mockNavigationController verify];
-}
-
--(void)testDimissNilNavigationController
-{
-    //given
-    id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
-    id<ERNViewControllerTransitioner> transitioner =
-    [ERNNavigationViewControllerTransitioner createWithNavigationController:nil];
-
-    //when
-    [transitioner dismissViewController:mockViewController];
-
-    //then
-    [mockViewController verify];
 }
 
 -(void)testDimissNavigationController

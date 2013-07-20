@@ -3,10 +3,22 @@
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import "ERNNullTableViewItemManagerTest.h"
+#import "ERNTableViewItemManagerTest.h"
 #import "ERNNullTableViewItemManager.h"
 #import "ERNNullTableViewCell.h"
 
-@implementation ERNNullTableViewItemManagerTest
+@implementation ERNNullTableViewItemManagerTest {
+}
+
+#pragma mark - ERNTableViewItemManager protocol tests
+
+-(void)testTableViewItemManagerProtocol
+{
+    [ERNTableViewItemManagerTest testTableViewItemManager:
+     [ERNNullTableViewItemManager create]];
+}
+
+#pragma mark - class tests
 
 -(void)testSingleton
 {
@@ -110,28 +122,6 @@
 
     //then
     assertThatFloat(height, equalToFloat(defaultHeight));
-    [mockObject verify];
-}
-
--(void)testActionForNilObject
-{
-    //given
-    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
-
-    //when, then
-    [manager actionForObject:nil];
-}
-
--(void)testActionForObject
-{
-    //given
-    id mockObject = [OCMockObject mockForClass:[NSObject class]];
-    id<ERNTableViewItemManager> manager = [ERNNullTableViewItemManager create];
-
-    //when
-    [manager actionForObject:mockObject];
-
-    //then
     [mockObject verify];
 }
 
