@@ -2,6 +2,5 @@
 #import "ERNMapViewAnnotationViewFactory.h"
 
 @interface ERNRoutingMapViewAnnotationViewFactory : NSObject <ERNMapViewAnnotationViewFactory>
-+(instancetype)createWithMappings:(NSDictionary *)mappings
-                   defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory;
++(instancetype)createWithMappings:(NSDictionary *)mappings;
 @end

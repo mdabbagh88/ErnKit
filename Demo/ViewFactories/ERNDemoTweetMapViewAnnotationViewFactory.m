@@ -15,11 +15,11 @@
 
 #pragma mark - ERNMapViewAnnotationViewFactory
 
--(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
-                               fromAnnotation:(id<MKAnnotation>)annotation
+-(MKAnnotationView *)annotationViewWithViewReuser:(MKAnnotationView *(^)(NSString *))block
+                                   fromAnnotation:(id<MKAnnotation>)annotation
 {
-    return [MKAnnotationView createTwitterForMapView:mapView
-                                      fromAnnotation:(ERNDemoTweet *)annotation];
+    return [MKAnnotationView createTwitterWithViewReuser:(MKAnnotationView *(^)(NSString *))block
+                                          fromAnnotation:(ERNDemoTweet *)annotation];
 }
 
 @end

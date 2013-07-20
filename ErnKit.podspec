@@ -48,4 +48,10 @@ Pod::Spec.new do |s|
     uikit_test.dependency 'OCHamcrest'
     uikit_test.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
   end
+  s.subspec 'MapKitIntegrationProtocolTest' do |mapkit_test|
+    mapkit_test.source_files = 'ProtocolTests/ErnKitMapKitIntegration/**/*.{h,m}'
+    mapkit_test.dependency 'OCMock'
+    mapkit_test.dependency 'OCHamcrest'
+    mapkit_test.frameworks = 'Foundation', 'UIKit', 'CoreGraphics', 'MapKit'
+  end
 end

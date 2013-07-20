@@ -3,6 +3,6 @@
 @class ERNDemoTweet;
 
 @interface MKAnnotationView (ERNDemoTwitter)
-+(instancetype)createTwitterForMapView:(MKMapView *)mapView
-                        fromAnnotation:(ERNDemoTweet *)annotation;
++(instancetype)createTwitterWithViewReuser:(MKAnnotationView *(^)(NSString *))block
+                            fromAnnotation:(ERNDemoTweet *)annotation;
 @end

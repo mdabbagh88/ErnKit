@@ -33,8 +33,11 @@ didSelectAnnotationView:(MKAnnotationView *)view
 {
     ERNCheckNil(mapView);
     ERNCheckNil(annotation);
-    return [[self viewFactory] annotationViewForMapView:mapView
-                                         fromAnnotation:annotation];
+    return [[self viewFactory] annotationViewWithViewReuser:
+            ^MKAnnotationView *(NSString *identifier) {
+                return [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+            }
+                                             fromAnnotation:annotation];
 }
 
 #pragma mark - private

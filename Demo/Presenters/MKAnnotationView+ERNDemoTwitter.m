@@ -6,11 +6,11 @@
 
 @implementation MKAnnotationView (ERNDemoTwitter)
 
-+(instancetype)createTwitterForMapView:(MKMapView *)mapView
-                        fromAnnotation:(ERNDemoTweet *)annotation
++(instancetype)createTwitterWithViewReuser:(MKAnnotationView *(^)(NSString *))block
+                            fromAnnotation:(ERNDemoTweet *)annotation
 {
     // Setup and annotation view, reusing current annotations from the map if possible
-    MKAnnotationView *annotationView = [self ERN_createForMapView:mapView
+    MKAnnotationView *annotationView = [self ERN_createWithViewReuser:(MKAnnotationView *(^)(NSString *))block
                                                        annotation:annotation];
 
     // Setup an image view, using the image url from the ERNDemoTweet class

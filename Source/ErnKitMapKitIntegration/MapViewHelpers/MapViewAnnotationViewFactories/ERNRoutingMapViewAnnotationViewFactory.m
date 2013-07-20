@@ -1,9 +1,9 @@
 #import <MapKit/MapKit.h>
 #import "ERNRoutingMapViewAnnotationViewFactory.h"
+#import "ERNNullMapViewAnnotationViewFactory.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNRoutingMapViewAnnotationViewFactory ()
-@property (nonatomic, readonly) id<ERNMapViewAnnotationViewFactory> defaultFactory;
 @property (nonatomic, readonly, copy) NSDictionary *mappings;
 @end
 
@@ -14,33 +14,32 @@
 #pragma mark - public - constructors
 
 +(instancetype)createWithMappings:(NSDictionary *)mappings
-                   defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
 {
-    return [[self alloc] initWithMappings:mappings
-                           defaultFactory:defaultFactory];
+    return [[self alloc] initWithMappings:mappings];
 }
 
 #pragma mark - ERNMapViewAnnotationViewFactory
 
--(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
-                               fromAnnotation:(id<MKAnnotation>)annotation
+-(MKAnnotationView *)annotationViewWithViewReuser:(MKAnnotationView *(^)(NSString *identifier))block
+                                   fromAnnotation:(id<MKAnnotation>)annotation
 {
-    ERNCheckNil(mapView);
-    ERNCheckNil(annotation);
-    return [[self factoryForAnnotation:annotation] annotationViewForMapView:mapView
-                                                             fromAnnotation:annotation];
+    ERNCheckNilAndReturn(annotation, [MKPinAnnotationView new]);
+    ERNCheckNilAndReturn(block, [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                                reuseIdentifier:@""]);
+    return [[self factoryForAnnotation:annotation] annotationViewWithViewReuser:block
+                                                                 fromAnnotation:annotation];
 }
 
 #pragma mark - private
 
 -(id<ERNMapViewAnnotationViewFactory>)factoryForAnnotation:(id<MKAnnotation>)annotation
 {
-    return [self validFactory:[self mappings][NSStringFromClass([annotation class])]];
+    return validFactory([self mappings][NSStringFromClass([annotation class])]);
 }
 
--(id<ERNMapViewAnnotationViewFactory>)validFactory:(id<ERNMapViewAnnotationViewFactory>)factory
+static id<ERNMapViewAnnotationViewFactory> validFactory(id<ERNMapViewAnnotationViewFactory>factory)
 {
-    return factoryIsValid(factory) ? factory : [self defaultFactory];
+    return factoryIsValid(factory) ? factory : [ERNNullMapViewAnnotationViewFactory create];
 }
 
 static BOOL factoryIsValid(id<ERNMapViewAnnotationViewFactory>factory)
@@ -58,12 +57,10 @@ static BOOL factoryIsValid(id<ERNMapViewAnnotationViewFactory>factory)
 #pragma mark - private - initializers
 
 -(id)initWithMappings:(NSDictionary *)mappings
-       defaultFactory:(id<ERNMapViewAnnotationViewFactory>)defaultFactory
 {
     self = [super init];
     ERNCheckNil(self);
     _mappings = mappings;
-    _defaultFactory = defaultFactory;
     return self;
 }
 

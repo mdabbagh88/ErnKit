@@ -13,7 +13,7 @@ static ERNNullTableViewCellFactory *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNNullTableViewCellFactory
+#pragma mark - ERNTableViewCellFactory
 
 -(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))__unused block
                             fromObject:(id<NSObject>)__unused object

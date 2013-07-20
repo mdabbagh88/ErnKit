@@ -20,7 +20,7 @@
                         identifier:(NSString *)identifier
                              style:(UITableViewCellStyle)style
 {
-    return [self createCell:block(identifier)
+    return [self createCell:block ? block(identifier) : nil
                  identifier:identifier
                       style:style];
 }

@@ -5,6 +5,6 @@
 @protocol MKAnnotation;
 
 @protocol ERNMapViewAnnotationViewFactory <NSObject>
--(MKAnnotationView *)annotationViewForMapView:(MKMapView *)mapView
-                               fromAnnotation:(id<MKAnnotation>)annotation;
+-(MKAnnotationView *)annotationViewWithViewReuser:(MKAnnotationView *(^)(NSString *identifier))block
+                                   fromAnnotation:(id<MKAnnotation>)annotation;
 @end
