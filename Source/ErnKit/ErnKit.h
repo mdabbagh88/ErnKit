@@ -30,7 +30,6 @@
 #import "ERNDefaultRepositoryPaginator.h"
 #import "ERNDefaultRepositoryManager.h"
 #import "ERNItemToPaginatedItemsRepository.h"
-#import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
 #import "ERNMergingAsyncPaginatedItemsRepository.h"
 #import "ERNNullAsyncItemRepository.h"

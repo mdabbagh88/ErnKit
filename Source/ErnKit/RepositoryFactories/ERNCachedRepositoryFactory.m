@@ -34,57 +34,12 @@
     [[self restRepositoryFactory] hasRepositoryForResource:resource];
 }
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryForResource:(ERNResource *)resource
 {
-    ERNCheckNilAndReturn(resource, NO);
-    return [[self firstRepositoryFactory] hasItemRepositoryForResource:resource] ||
-    [[self restRepositoryFactory] hasItemRepositoryForResource:resource];
-}
-
--(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, NO);
-    return [[self firstRepositoryFactory] hasItemsRepositoryForResource:resource] ||
-    [[self restRepositoryFactory] hasItemsRepositoryForResource:resource];
-}
-
--(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, NO);
-    return [[self firstRepositoryFactory] hasPaginatedItemsRepositoryForResource:resource] ||
-    [[self restRepositoryFactory] hasPaginatedItemsRepositoryForResource:resource];
-}
-
--(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
     return [[self firstRepositoryFactory] hasRepositoryForResource:resource] ?
     [[self firstRepositoryFactory] repositoryForResource:resource] :
     [[self restRepositoryFactory] repositoryForResource:resource];
-}
-
--(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
-    return [[self firstRepositoryFactory] hasItemRepositoryForResource:resource] ?
-    [[self firstRepositoryFactory] itemRepositoryForResource:resource] :
-    [[self restRepositoryFactory] itemRepositoryForResource:resource];
-}
-
--(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemsRepository create]);
-    return [[self firstRepositoryFactory] hasItemsRepositoryForResource:resource] ?
-    [[self firstRepositoryFactory] itemsRepositoryForResource:resource] :
-    [[self restRepositoryFactory] itemsRepositoryForResource:resource];
-}
-
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
-    return [[self firstRepositoryFactory] hasPaginatedItemsRepositoryForResource:resource] ?
-    [[self firstRepositoryFactory] paginatedItemsRepositoryForResource:resource] :
-    [[self restRepositoryFactory] paginatedItemsRepositoryForResource:resource];
 }
 
 #pragma mark - private - accessors

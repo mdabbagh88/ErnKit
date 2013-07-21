@@ -17,6 +17,13 @@
     return [[self alloc] initWithItemsRepository:repository];
 }
 
+#pragma mark - public - accessors
+
+-(id<NSObject>)item
+{
+    return [[self repository] item];
+}
+
 #pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(NSUInteger)total

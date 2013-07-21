@@ -19,6 +19,13 @@
     return [[self alloc] initWithRepositories:repositories];
 }
 
+#pragma mark - public - accessors
+
+-(id<NSObject>)item
+{
+    return [[self currentRepository] item];
+}
+
 #pragma mark - ERNToggler
 
 -(void)setSelectedIndex:(NSUInteger)index

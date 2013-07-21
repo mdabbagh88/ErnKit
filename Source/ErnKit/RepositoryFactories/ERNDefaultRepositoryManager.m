@@ -4,6 +4,7 @@
 #import "ERNNullAsyncItemRepository.h"
 #import "ERNNullAsyncItemsRepository.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
+#import "ERNItemToPaginatedItemsRepository.h"
 #import "ERNObjectAsyncItemRepository.h"
 #import "ERNResource.h"
 #import "ERNErrorHandler.h"
@@ -40,43 +41,12 @@
     return [[self objects] ERN_hasObjectForKey:[resource url]];
 }
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryForResource:(ERNResource *)resource
 {
-    return [[self objects] ERN_hasObjectForKey:[resource url]];
-}
-
--(BOOL)hasItemsRepositoryForResource:(ERNResource *)__unused resource
-{
-    return NO;
-}
-
--(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)__unused resource
-{
-    return NO;
-}
-
--(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
-    return validRepository([ERNObjectAsyncItemRepository createWithItem:
-                           [[self objects] objectForKey:[resource url]]]);
-}
-
--(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
-    return validItemRepository([ERNObjectAsyncItemRepository createWithItem:
-                               [[self objects] objectForKey:[resource url]]]);
-}
-
--(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)__unused resource
-{
-    return [ERNNullAsyncItemsRepository create];
-}
-
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)__unused resource
-{
-    return [ERNNullAsyncPaginatedItemsRepository create];
+    ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
+    return [ERNItemToPaginatedItemsRepository createWithRepository:
+            [ERNObjectAsyncItemRepository createWithItem:
+             [[self objects] objectForKey:[resource url]]]];
 }
 
 #pragma mark - private
@@ -85,16 +55,6 @@ static NSMapTable *createObjects(void)
 {
     return [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
                                  valueOptions:NSPointerFunctionsWeakMemory];
-}
-
-static id<ERNAsyncRepository> validRepository(id<ERNAsyncRepository> repository)
-{
-    return repository ? repository : [ERNNullAsyncRepository create];
-}
-
-static id<ERNAsyncItemRepository> validItemRepository(id<ERNAsyncItemRepository> repository)
-{
-    return repository ? repository : [ERNNullAsyncItemRepository create];
 }
 
 #pragma mark - private - accessors

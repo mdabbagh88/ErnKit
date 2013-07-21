@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
-#import "ERNAsyncRepository.h"
+#import "ERNAsyncItemRepository.h"
 
 typedef void (^ERNRepositoryEnumerationBlock)(id<NSObject> item, NSUInteger index, BOOL *stop);
 
-@protocol ERNAsyncItemsRepository <ERNAsyncRepository>
+@protocol ERNAsyncItemsRepository <ERNAsyncItemRepository>
 @property (nonatomic, readonly, assign) NSUInteger count;
 -(id<NSObject>)itemAtIndex:(NSUInteger)index;
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block;

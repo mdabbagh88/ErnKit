@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 #import "ERNArrayAsyncItemsRepository.h"
 
-@protocol ERNItemRepositoryFactory;
+@protocol ERNRepositoryFactory;
 @class ERNResource;
 
 @interface ERNDefaultAsyncPaginatedItemsRepository : ERNArrayAsyncItemsRepository <
 ERNAsyncPaginatedItemsRepository>
 +(instancetype)createWithResource:(ERNResource *)resource
-            itemRepositoryFactory:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+                repositoryFactory:(id<ERNRepositoryFactory>)repositoryFactory
                        windowSize:(NSUInteger)windowSize;
 @end

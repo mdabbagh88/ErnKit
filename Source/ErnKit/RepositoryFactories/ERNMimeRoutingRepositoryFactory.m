@@ -29,50 +29,11 @@
     return [[self factoryForMime:[resource mime]] hasRepositoryForResource:resource];
 }
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, NO);
-    return [[self factoryForMime:[resource mime]] hasItemRepositoryForResource:resource];
-}
-
--(BOOL)hasItemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, NO);
-    return [[self factoryForMime:[resource mime]] hasItemsRepositoryForResource:resource];
-}
-
--(BOOL)hasPaginatedItemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, NO);
-    return [[self factoryForMime:[resource mime]] hasPaginatedItemsRepositoryForResource:resource];
-}
-
--(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncRepository create]);
-    return [self validRepository:
-            [[self factoryForMime:[resource mime]] repositoryForResource:resource]];
-}
-
--(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemRepository create]);
-    return [self validItemRepository:
-            [[self factoryForMime:[resource mime]] itemRepositoryForResource:resource]];
-}
-
--(id<ERNAsyncItemsRepository>)itemsRepositoryForResource:(ERNResource *)resource
-{
-    ERNCheckNilAndReturn(resource, [ERNNullAsyncItemsRepository create]);
-    return [self validItemsRepository:
-            [[self factoryForMime:[resource mime]] itemsRepositoryForResource:resource]];
-}
-
--(id<ERNAsyncPaginatedItemsRepository>)paginatedItemsRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryForResource:(ERNResource *)resource
 {
     ERNCheckNilAndReturn(resource, [ERNNullAsyncPaginatedItemsRepository create]);
-    return [self validPaginatedItemsRepository:
-            [[self factoryForMime:[resource mime]] paginatedItemsRepositoryForResource:resource]];
+    return [self validRepository:
+            [[self factoryForMime:[resource mime]] repositoryForResource:resource]];
 }
 
 #pragma mark - private
@@ -94,23 +55,7 @@ static BOOL isValidFactory(id<ERNRepositoryFactory> repositoryFactory)
     [repositoryFactory conformsToProtocol:@protocol(ERNRepositoryFactory)];
 }
 
--(id<ERNAsyncRepository>)validRepository:(id<ERNAsyncRepository>)repository
-{
-    return repository ? repository : [ERNNullAsyncRepository create];
-}
-
--(id<ERNAsyncItemRepository>)validItemRepository:(id<ERNAsyncItemRepository>)repository
-{
-    return repository ? repository : [ERNNullAsyncItemRepository create];
-}
-
--(id<ERNAsyncItemsRepository>)validItemsRepository:(id<ERNAsyncItemsRepository>)repository
-{
-    return repository  ? repository : [ERNNullAsyncItemsRepository create];
-}
-
--(id<ERNAsyncPaginatedItemsRepository>)
-validPaginatedItemsRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
+-(id<ERNAsyncPaginatedItemsRepository>)validRepository:(id<ERNAsyncPaginatedItemsRepository>)repository
 {
     return repository ? repository : [ERNNullAsyncPaginatedItemsRepository create];
 }

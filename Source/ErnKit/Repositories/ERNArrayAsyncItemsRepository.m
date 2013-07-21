@@ -25,6 +25,11 @@
     [self notifyObservers];
 }
 
+-(id<NSObject>)item
+{
+    return [self itemAtIndex:0];
+}
+
 #pragma mark - ERNAsyncItemsRepository
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block

@@ -19,6 +19,13 @@
             repository ? repository : [ERNNullAsyncItemRepository create]];
 }
 
+#pragma mark - public - accessors
+
+-(id<NSObject>)item
+{
+    return [[self repository] item];
+}
+
 #pragma mark - ERNAsyncItemsRepository
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)block

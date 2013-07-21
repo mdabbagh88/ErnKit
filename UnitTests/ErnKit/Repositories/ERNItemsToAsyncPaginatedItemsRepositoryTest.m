@@ -6,7 +6,6 @@
 #import "ERNAsyncPaginatedItemsRepositoryTest.h"
 #import "ERNResource.h"
 #import "ERNAsyncItemRepository.h"
-#import "ERNItemRepositoryFactory.h"
 #import "ERNNullAsyncItemsRepository.h"
 
 @implementation ERNItemsToAsyncPaginatedItemsRepositoryTest {

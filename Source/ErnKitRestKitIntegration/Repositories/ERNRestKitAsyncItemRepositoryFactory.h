@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "ERNItemRepositoryFactory.h"
+#import "ERNRepositoryFactory.h"
 
 @class RKResponseDescriptor;
 
-@interface ERNRestKitAsyncItemRepositoryFactory : NSObject <ERNItemRepositoryFactory>
+@interface ERNRestKitAsyncItemRepositoryFactory : NSObject <ERNRepositoryFactory>
 +(instancetype)createWithResponseDescriptor:(RKResponseDescriptor *)responseDescriptor;
 @end

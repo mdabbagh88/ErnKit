@@ -9,8 +9,8 @@
                        windowSize:(NSUInteger)windowSize
 {
     return [self createWithResource:resource
-              itemRepositoryFactory:[ERNRestKitAsyncItemRepositoryFactory
-                                     createWithResponseDescriptor:responseDescriptor]
+                  repositoryFactory:
+            [ERNRestKitAsyncItemRepositoryFactory createWithResponseDescriptor:responseDescriptor]
                          windowSize:windowSize];
 }
 

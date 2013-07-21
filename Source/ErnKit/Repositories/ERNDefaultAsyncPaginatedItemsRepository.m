@@ -1,5 +1,4 @@
 #import "ERNDefaultAsyncPaginatedItemsRepository.h"
-#import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
@@ -7,13 +6,12 @@
 #import "ERNRepositoryPaginator.h"
 #import "ERNNullRepositoryPaginator.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
-#import "ERNItemRepositoryFactory.h"
 #import "ERNNullResource.h"
-#import "ERNNullItemRepositoryFactory.h"
+#import "ERNNullRepositoryFactory.h"
 
 @interface ERNDefaultAsyncPaginatedItemsRepository ()
 @property (nonatomic) id<ERNAsyncItemRepository> repository;
-@property (nonatomic, readonly) id<ERNItemRepositoryFactory> itemRepositoryFactory;
+@property (nonatomic, readonly) id<ERNRepositoryFactory> repositoryFactory;
 @property (nonatomic, readonly) ERNResource *resource;
 @property (nonatomic, readonly) NSUInteger windowSize;
 @property (nonatomic, readonly) NSMutableArray *pages;
@@ -22,7 +20,7 @@
 
 @implementation ERNDefaultAsyncPaginatedItemsRepository {
     ERNResource *_resource;
-    id<ERNItemRepositoryFactory> _itemRepositoryFactory;
+    id<ERNRepositoryFactory> _repositoryFactory;
     NSUInteger _windowSize;
     NSMutableArray *_pages;
     NSUInteger _offset;
@@ -31,11 +29,11 @@
 #pragma mark - public - constructors
 
 +(instancetype)createWithResource:(ERNResource *)resource
-            itemRepositoryFactory:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+                repositoryFactory:(id<ERNRepositoryFactory>)repositoryFactory
                        windowSize:(NSUInteger)windowSize
 {
     return [[self alloc] initWithResource:resource
-                    itemRepositoryFactory:itemRepositoryFactory
+                        repositoryFactory:repositoryFactory
                                windowSize:windowSize];
 }
 
@@ -44,7 +42,7 @@
 -(void)refresh
 {
     [[self repository] removeObserver:self];
-    [self setRepository:[[self itemRepositoryFactory] itemRepositoryForResource:[self resource]]];
+    [self setRepository:[[self repositoryFactory] repositoryForResource:[self resource]]];
     [[self repository] addObserver:self
                           selector:@selector(repositoryRefreshed)];
     [[self repository] refresh];
@@ -68,7 +66,7 @@
 {
     [[self repository] removeObserver:self];
     [self setRepository:
-     [[self itemRepositoryFactory] itemRepositoryForResource:
+     [[self repositoryFactory] repositoryForResource:
       [ERNResource createWithUrl:[[[self pages] objectAtIndex:0] previousPage]
                             mime:@""]]];
     [[self repository] addObserver:self
@@ -90,7 +88,7 @@
 {
     [[self repository] removeObserver:self];
     [self setRepository:
-     [[self itemRepositoryFactory] itemRepositoryForResource:
+     [[self repositoryFactory] repositoryForResource:
       [ERNResource createWithUrl:[[[self pages] lastObject] nextPage]
                             mime:@""]]];
     [[self repository] addObserver:self
@@ -163,22 +161,22 @@ static id<ERNRepositoryPaginator> validatePaginator(id paginator)
     return _resource = _resource ? _resource : [ERNNullResource create];
 }
 
--(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+-(id<ERNRepositoryFactory>)repositoryFactory
 {
-    return _itemRepositoryFactory = _itemRepositoryFactory ? _itemRepositoryFactory :
-    [ERNNullItemRepositoryFactory create];
+    return _repositoryFactory = _repositoryFactory ? _repositoryFactory :
+    [ERNNullRepositoryFactory create];
 }
 
 #pragma mark - private - initializers
 
 -(id)initWithResource:(ERNResource *)resource
-itemRepositoryFactory:(id<ERNItemRepositoryFactory>)itemRepositoryFactory
+    repositoryFactory:(id<ERNRepositoryFactory>)repositoryFactory
            windowSize:(NSUInteger)windowSize
 {
     self = [super init];
     ERNCheckNil(self);
     _resource = resource;
-    _itemRepositoryFactory = itemRepositoryFactory;
+    _repositoryFactory = repositoryFactory;
     _windowSize = windowSize;
     _pages = [NSMutableArray array];
     _offset = 0;

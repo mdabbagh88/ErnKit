@@ -5,9 +5,9 @@
 #import "ERNDefaultAsyncPaginatedItemsRepository.h"
 #import "ERNAsyncPaginatedItemsRepositoryTest.h"
 #import "ERNNullResource.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 #import "ERNAsyncItemRepository.h"
-#import "ERNItemRepositoryFactory.h"
-#import "ERNNullAsyncItemRepository.h"
+#import "ERNRepositoryFactory.h"
 
 @implementation ERNDefaultAsyncPaginatedItemsRepositoryTest {
 }
@@ -18,7 +18,7 @@
 {
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
      [ERNDefaultAsyncPaginatedItemsRepository createWithResource:nil
-                                           itemRepositoryFactory:nil
+                                               repositoryFactory:nil
                                                       windowSize:UINT_MAX]];
 }
 
@@ -26,36 +26,30 @@
 {
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
      [ERNDefaultAsyncPaginatedItemsRepository createWithResource:[ERNNullResource create]
-                                           itemRepositoryFactory:nil
+                                               repositoryFactory:nil
                                                       windowSize:UINT_MAX]];
 }
 
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithResourceItemRepositoryFactoryMaxWindowSize
 {
     ERNResource *resource = [ERNNullResource create];
-    id<ERNAsyncItemRepository> itemRepository = [ERNNullAsyncItemRepository create];
-    id mockItemRepositoryFactory =
-    [OCMockObject niceMockForProtocol:@protocol(ERNItemRepositoryFactory)];
-    [[[mockItemRepositoryFactory stub]
-      andReturn:itemRepository]
-     itemRepositoryForResource:resource];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+    id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
+    [[[mockRepositoryFactory stub] andReturn:repository] repositoryForResource:resource];
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
      [ERNDefaultAsyncPaginatedItemsRepository createWithResource:resource
-                                           itemRepositoryFactory:mockItemRepositoryFactory
+                                           repositoryFactory:mockRepositoryFactory
                                                       windowSize:UINT_MAX]];
 }
 
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithNilResourceItemRepositoryFactoryMaxWindowSize
 {
-    id<ERNAsyncItemRepository> itemRepository = [ERNNullAsyncItemRepository create];
-    id mockItemRepositoryFactory =
-    [OCMockObject niceMockForProtocol:@protocol(ERNItemRepositoryFactory)];
-    [[[mockItemRepositoryFactory stub]
-      andReturn:itemRepository]
-     itemRepositoryForResource:OCMOCK_ANY];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+    id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
+    [[[mockRepositoryFactory stub] andReturn:repository] repositoryForResource:OCMOCK_ANY];
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
      [ERNDefaultAsyncPaginatedItemsRepository createWithResource:nil
-                                           itemRepositoryFactory:mockItemRepositoryFactory
+                                               repositoryFactory:mockRepositoryFactory
                                                       windowSize:UINT_MAX]];
 }
 
@@ -63,15 +57,12 @@
 -(void)testAsyncPaginatedItemsRepositoryProtocolWithResourceItemRepositoryFactoryWindowSize
 {
     ERNResource *resource = [ERNNullResource create];
-    id<ERNAsyncItemRepository> itemRepository = [ERNNullAsyncItemRepository create];
-    id mockItemRepositoryFactory =
-    [OCMockObject niceMockForProtocol:@protocol(ERNItemRepositoryFactory)];
-    [[[mockItemRepositoryFactory stub]
-      andReturn:itemRepository]
-     itemRepositoryForResource:resource];
+    id<ERNAsyncPaginatedItemsRepository> repository = [ERNNullAsyncPaginatedItemsRepository create];
+    id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
+    [[[mockRepositoryFactory stub] andReturn:repository] repositoryForResource:resource];
     [ERNAsyncPaginatedItemsRepositoryTest testAsyncPaginatedItemsRepository:
      [ERNDefaultAsyncPaginatedItemsRepository createWithResource:resource
-                                           itemRepositoryFactory:mockItemRepositoryFactory
+                                               repositoryFactory:mockRepositoryFactory
                                                       windowSize:10]];
 }
 

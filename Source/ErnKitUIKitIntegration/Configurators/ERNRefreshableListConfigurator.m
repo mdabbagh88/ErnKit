@@ -26,7 +26,7 @@
                                            dismisser:(id<ERNViewControllerDismisser>) __unused dismisser
 {
     id<ERNAsyncPaginatedItemsRepository> repository =
-    [[self repositoryFactory] paginatedItemsRepositoryForResource:resource];
+    [[self repositoryFactory] repositoryForResource:resource];
     [repository refresh];
 
     return [self setupViewController:

@@ -1,6 +1,5 @@
 #import "ERNRestKitAsyncItemRepositoryFactory.h"
 #import "ERNRestKitAsyncItemsRepository.h"
-#import "ERNPaginatedItemsToItemRepository.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
 
@@ -20,17 +19,16 @@
 
 #pragma mark - ERNItemRepositoryFactory
 
--(BOOL)hasItemRepositoryForResource:(ERNResource *)__unused resource
+-(BOOL)hasRepositoryForResource:(ERNResource *)__unused resource
 {
     return YES;
 }
 
--(id<ERNAsyncItemRepository>)itemRepositoryForResource:(ERNResource *)resource
+-(id<ERNAsyncPaginatedItemsRepository>)repositoryForResource:(ERNResource *)resource
 {
-    return [ERNPaginatedItemsToItemRepository createWithRepository:
-            [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
-             [ERNRestKitAsyncItemsRepository createWithResource:resource
-                                             responseDescriptor:[self responseDescriptor]]]];
+    return [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
+            [ERNRestKitAsyncItemsRepository createWithResource:resource
+                                            responseDescriptor:[self responseDescriptor]]];
 }
 
 #pragma mark - private - initializers

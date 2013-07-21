@@ -21,6 +21,13 @@
                                   restRepository:restRepository];
 }
 
+#pragma mark - public - accessors
+
+-(id<NSObject>)item
+{
+    return [[self firstRepository] item];
+}
+
 #pragma mark - ERNAsyncPaginatedItemsRepository
 
 -(NSUInteger)total

@@ -2,7 +2,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import "ERNAsyncItemsRepositoryTest.h"
-#import "ERNAsyncRepositoryTest.h"
+#import "ERNAsyncItemRepositoryTest.h"
 #import "ERNMockObserver.h"
 
 @implementation ERNAsyncItemsRepositoryTest {
@@ -12,7 +12,7 @@
 
 +(void)testAsyncItemsRepository:(id<ERNAsyncItemsRepository>)asyncItemsRepository
 {
-    [ERNAsyncRepositoryTest testAsyncRepository:asyncItemsRepository];
+    [ERNAsyncItemRepositoryTest testAsyncItemRepository:asyncItemsRepository];
     [self testCount:asyncItemsRepository];
     [self testCountNotObserving:asyncItemsRepository];
     [self testItemAtIndexZero:asyncItemsRepository];

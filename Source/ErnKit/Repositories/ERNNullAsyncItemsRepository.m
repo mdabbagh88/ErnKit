@@ -10,6 +10,13 @@
     return [self new];
 }
 
+#pragma mark - public - accessors
+
+-(id<NSObject>)item
+{
+    return [NSNull null];
+}
+
 #pragma mark - ERNAsyncItemsRepository
 
 -(void)enumerateItemsUsingBlock:(ERNRepositoryEnumerationBlock)__unused block

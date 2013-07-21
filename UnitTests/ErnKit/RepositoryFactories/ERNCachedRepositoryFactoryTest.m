@@ -46,14 +46,8 @@
 -(id)createMockRepositoryFactory
 {
     id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
-    [[[mockRepositoryFactory stub] andReturn:[ERNNullAsyncRepository create]]
-     repositoryForResource:OCMOCK_ANY];
-    [[[mockRepositoryFactory stub] andReturn:[ERNNullAsyncItemRepository create]]
-     itemRepositoryForResource:OCMOCK_ANY];
-    [[[mockRepositoryFactory stub] andReturn:[ERNNullAsyncItemsRepository create]]
-     itemsRepositoryForResource:OCMOCK_ANY];
-    [[[mockRepositoryFactory stub] andReturn:[ERNNullAsyncPaginatedItemsRepository create]]
-     paginatedItemsRepositoryForResource:OCMOCK_ANY];
+    [[[mockRepositoryFactory stub]
+      andReturn:[ERNNullAsyncPaginatedItemsRepository create]] repositoryForResource:OCMOCK_ANY];
     return mockRepositoryFactory;
 }
 
