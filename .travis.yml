@@ -1,7 +1,8 @@
 language: objective-c
 before_install:
     - brew update
-    - brew install xctool --HEAD
+    - brew uninstall xctool
+    - brew install xctool
     - bundle install
     - pod install
 script:
