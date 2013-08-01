@@ -15,6 +15,7 @@
 		F7030830177F84CE00F39603 /* ERNDefaultRepositoryPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7030827177F84B100F39603 /* ERNDefaultRepositoryPaginator.m */; };
 		F7030831177F84CE00F39603 /* ERNMimeRoutingRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7030829177F84B100F39603 /* ERNMimeRoutingRepositoryFactory.m */; };
 		F71182F11778275F00A94C6F /* ERNBinaryToggleActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71182F01778275F00A94C6F /* ERNBinaryToggleActionTest.m */; };
+		F714FF3217A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.m in Sources */ = {isa = PBXBuildFile; fileRef = F714FF3117A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.m */; };
 		F71B935D173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */; };
 		F71B9360173AF58100F80B0F /* ERNNullActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B935F173AF58100F80B0F /* ERNNullActionTest.m */; };
 		F71B9363173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9362173AF69000F80B0F /* ERNRefreshAsyncRepositoryActionTest.m */; };
@@ -268,6 +269,8 @@
 		F70A6A291742B2B6004095C1 /* ERNSegmentedControlTogglerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNSegmentedControlTogglerController.m; sourceTree = "<group>"; };
 		F71182EF1778275F00A94C6F /* ERNBinaryToggleActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNBinaryToggleActionTest.h; sourceTree = "<group>"; };
 		F71182F01778275F00A94C6F /* ERNBinaryToggleActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNBinaryToggleActionTest.m; sourceTree = "<group>"; };
+		F714FF3017A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNHideNavigationBarOnUncaughtTapController.h; sourceTree = "<group>"; };
+		F714FF3117A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNHideNavigationBarOnUncaughtTapController.m; sourceTree = "<group>"; };
 		F71B935B173AEDDC00F80B0F /* ERNMimeRoutingActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMimeRoutingActionTest.h; sourceTree = "<group>"; };
 		F71B935C173AEDDC00F80B0F /* ERNMimeRoutingActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMimeRoutingActionTest.m; sourceTree = "<group>"; };
 		F71B935E173AF58100F80B0F /* ERNNullActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullActionTest.h; sourceTree = "<group>"; };
@@ -800,6 +803,8 @@
 				F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */,
 				F73D1E45179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.h */,
 				F73D1E46179B135B009D5DDF /* ERNViewControllerTitleItemRepositoryController.m */,
+				F714FF3017A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.h */,
+				F714FF3117A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.m */,
 			);
 			path = MicroControllers;
 			sourceTree = "<group>";
@@ -2092,6 +2097,7 @@
 				F732922A1775AC85005EEBA8 /* ERNBinaryToggleAction.m in Sources */,
 				F732922B1775AC85005EEBA8 /* ERNDualAction.m in Sources */,
 				F732922C1775AC85005EEBA8 /* ERNLogAction.m in Sources */,
+				F714FF3217A58AF200B84D74 /* ERNHideNavigationBarOnUncaughtTapController.m in Sources */,
 				F7CAD1E0178200EE003660F9 /* ERNNullViewControllerConfigurator.m in Sources */,
 				F7030831177F84CE00F39603 /* ERNMimeRoutingRepositoryFactory.m in Sources */,
 				F732922D1775AC85005EEBA8 /* ERNMimeRoutingAction.m in Sources */,

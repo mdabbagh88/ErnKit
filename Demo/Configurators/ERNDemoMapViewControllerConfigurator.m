@@ -8,6 +8,8 @@
 #import <ErnKit/ERNAsyncPaginatedItemsRepository.h>
 #import "ERNDemoMapViewControllerConfigurator.h"
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
+#import "ERNHideNavigationBarOnUncaughtTapController.h"
+#import "UIViewController+ERNHelper.h"
 
 @interface ERNDemoMapViewControllerConfigurator ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
@@ -46,7 +48,11 @@
     [[self mapViewController] ERN_addMicroController:[self feedController]];
     [[self mapViewController] ERN_addMicroController:
      [self createRefreshControllerFromResource:resource]];
-    return [self mapViewController];
+    UIViewController *viewController = [self mapViewController];
+    ERNHideNavigationBarOnUncaughtTapController *tapController =
+    [ERNHideNavigationBarOnUncaughtTapController createWithViewController:viewController];
+    [viewController ERN_addMicroController:tapController];
+    return viewController;
 }
 
 #pragma mark - private - accessors
