@@ -1,5 +1,4 @@
 #import "ERNDefaultAsyncPaginatedItemsRepository.h"
-#import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
 #import "NSObject+ERNHelper.h"
