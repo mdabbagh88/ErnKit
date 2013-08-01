@@ -1,4 +1,5 @@
 #import "ERNNullMapViewAnnotationViewFactory.h"
+#import "ERNNullAnnotation.h"
 #import <MapKit/MapKit.h>
 
 static ERNNullMapViewAnnotationViewFactory *immutableSingleton;
@@ -8,17 +9,18 @@ static ERNNullMapViewAnnotationViewFactory *immutableSingleton;
 
 #pragma mark - public - constructors
 
-    +(instancetype)create
-    {
-        return immutableSingleton;
-    }
++(instancetype)create
+{
+    return immutableSingleton;
+}
 
 #pragma mark - ERNMapViewAnnotationViewFactory
 
 -(MKAnnotationView *)annotationViewWithViewReuser:(MKAnnotationView *(^)(NSString *identifier)) __unused block
                                    fromAnnotation:(id<MKAnnotation>) __unused annotation
 {
-    return [MKPinAnnotationView new];
+    return [[MKPinAnnotationView alloc] initWithAnnotation:[ERNNullAnnotation create]
+                                           reuseIdentifier:NSStringFromClass([ERNNullAnnotation class])];
 }
 
 #pragma mark - NSObject

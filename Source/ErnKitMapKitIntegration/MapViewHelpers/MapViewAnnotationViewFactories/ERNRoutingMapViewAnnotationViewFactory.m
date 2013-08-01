@@ -2,6 +2,7 @@
 #import "ERNRoutingMapViewAnnotationViewFactory.h"
 #import "ERNNullMapViewAnnotationViewFactory.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAnnotation.h"
 
 @interface ERNRoutingMapViewAnnotationViewFactory ()
 @property (nonatomic, readonly, copy) NSDictionary *mappings;
@@ -23,7 +24,9 @@
 -(MKAnnotationView *)annotationViewWithViewReuser:(MKAnnotationView *(^)(NSString *identifier))block
                                    fromAnnotation:(id<MKAnnotation>)annotation
 {
-    ERNCheckNilAndReturn(annotation, [MKPinAnnotationView new]);
+    ERNCheckNilAndReturn(annotation,
+                         [[MKPinAnnotationView alloc] initWithAnnotation:[ERNNullAnnotation create]
+                                                         reuseIdentifier:NSStringFromClass([ERNNullAnnotation class])]);
     ERNCheckNilAndReturn(block, [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                                 reuseIdentifier:@""]);
     return [[self factoryForAnnotation:annotation] annotationViewWithViewReuser:block
