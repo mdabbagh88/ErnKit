@@ -157,7 +157,7 @@
 		F788B7AA17523B71006226CA /* ERNDemoMapViewControllerConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B79C17523B71006226CA /* ERNDemoMapViewControllerConfigurator.m */; };
 		F788B7AB17523B71006226CA /* ERNDemoTableViewControllerConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B79E17523B71006226CA /* ERNDemoTableViewControllerConfigurator.m */; };
 		F788B7AC17523B71006226CA /* ERNDemoTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A117523B71006226CA /* ERNDemoTweet.m */; };
-		F788B7AD17523B71006226CA /* ERNDefaultAsyncPaginatedItemsRepository+ERNDemoTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A417523B71006226CA /* ERNDefaultAsyncPaginatedItemsRepository+ERNDemoTwitter.m */; };
+		F788B7AD17523B71006226CA /* ERNDefaultAsyncPaginatedItemsRepository+ERNDemoTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A417523B71006226CA /* ERNDefaultAsyncPaginatedItemsRepository+ERNDemoTwitter.m */; settings = {COMPILER_FLAGS = "-Wno-pedantic"; }; };
 		F788B7AE17523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7A717523B71006226CA /* ERNDemoTweetMapViewAnnotationViewFactory.m */; };
 		F788B7BD175289F5006226CA /* ERNUrlHostRoutingActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7BC175289F5006226CA /* ERNUrlHostRoutingActionTest.m */; };
 		F796E97A1752C233000008F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
