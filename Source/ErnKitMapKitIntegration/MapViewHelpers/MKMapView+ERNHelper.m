@@ -6,7 +6,7 @@
 
 -(void)ERN_zoomToFitMapAnnotations
 {
-    [self setRegion:adjustRegion([self regionThatFits:[self ERN_calculateZoomRegion]])
+    [self setRegion:adjustRegion([self ERN_calculateZoomRegion])
            animated:YES];
 }
 
