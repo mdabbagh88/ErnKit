@@ -6,9 +6,6 @@
 @end
 
 @implementation ERNDemoTableViewControllerConfigurator {
-    UIViewController *_tableViewController;
-    UISegmentedControl *_feedSegmentedControl;
-    ERNSegmentedControlTogglerController *_feedController;
 }
 
 #pragma mark - public - constructors
@@ -25,38 +22,49 @@
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser
 {
-    [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [[self feedSegmentedControl] setSelectedSegmentIndex:0];
-    [[[self tableViewController] navigationItem] setTitleView:[self feedSegmentedControl]];
-    [[self tableViewController] ERN_addMicroController:[self feedController]];
-    return [self tableViewController];
-}
+    UIViewController *viewController = [UIViewController new];
 
-#pragma mark - private - accessors
-
--(UIViewController *)tableViewController
-{
-    return _tableViewController = _tableViewController ?
-    _tableViewController :
-    [ERNTableViewController createRefreshableWithRepository:[self repository]
-                                                itemManager:[ERNDefaultTableViewItemManager
-                                                             createWithCellFactory:[ERNDefaultTableViewCellFactory create]
-                                                             actionHandler:[ERNNullActionHandler create]]];
-}
-
--(UISegmentedControl *)feedSegmentedControl
-{
-    return _feedSegmentedControl = _feedSegmentedControl ?
-    _feedSegmentedControl :
+    UISegmentedControl *feedSegmentedControl =
     [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Demo", @"Demo Two"]];
-}
+    [feedSegmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [feedSegmentedControl setSelectedSegmentIndex:0];
 
--(ERNSegmentedControlTogglerController *)feedController
-{
-    return _feedController = _feedController ?
-    _feedController :
-    [ERNSegmentedControlTogglerController createWithSegmentedControl:[self feedSegmentedControl]
+    ERNSegmentedControlTogglerController *feedController =
+    [ERNSegmentedControlTogglerController createWithSegmentedControl:feedSegmentedControl
                                                              toggler:[self toggler]];
+
+    ERNDefaultTableViewItemManager *itemManager =
+    [ERNDefaultTableViewItemManager createWithCellFactory:[ERNDefaultTableViewCellFactory create]
+                                            actionHandler:[ERNNullActionHandler create]];
+    ERNAsyncItemsRepositoryTableViewManager *tableViewManager =
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:[self repository]
+                                                      itemManager:itemManager];
+    id<UITableViewDelegate>delegate =
+    [ERNTableViewDelegate createWithTableViewManager:tableViewManager];
+    id<UITableViewDataSource>dataSource =
+    [ERNTableViewDataSource createWithTableViewManager:tableViewManager];
+    ERNTableViewMicroController *tableViewMicroController =
+    [ERNTableViewMicroController createWithTableViewDelegate:delegate
+                                         tableViewDataSource:dataSource
+                                                   superView:[viewController view]];
+
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    ERNRefreshControlRepositoryRefreshController *refreshDragController =
+    [ERNRefreshControlRepositoryRefreshController createWithRefreshControl:refreshControl
+                                                                repository:[self repository]];
+    [[tableViewMicroController tableView] addSubview:refreshControl];
+
+    ERNTableViewRepositoryRefreshController *refreshActionController =
+    [ERNTableViewRepositoryRefreshController createWithTableView:[tableViewMicroController tableView]
+                                                      repository:[self repository]];
+
+    [[viewController navigationItem] setTitleView:feedSegmentedControl];
+    [viewController ERN_addMicroController:feedController];
+    [viewController ERN_addMicroController:refreshDragController];
+    [viewController ERN_addMicroController:tableViewMicroController];
+    [viewController ERN_addMicroController:refreshActionController];
+    
+    return viewController;
 }
 
 #pragma mark - private - initializer

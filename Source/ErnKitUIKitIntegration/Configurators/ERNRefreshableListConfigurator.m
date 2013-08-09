@@ -29,16 +29,27 @@
     [[self repositoryFactory] repositoryForResource:resource];
     [repository refresh];
 
-    return [self setupViewController:
-            [ERNTableViewController createRefreshableWithRepository:repository
-                                                        itemManager:[self itemManager]]];
-}
+    UIViewController *viewController = [UIViewController new];
 
-#pragma mark - private
-
--(UIViewController *)setupViewController:(UIViewController *)viewController
-{
     [viewController setTitle:[self title]];
+    ERNAsyncItemsRepositoryTableViewManager *tableViewManager =
+    [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
+                                                      itemManager:[self itemManager]];
+    id<UITableViewDelegate>delegate =
+    [ERNTableViewDelegate createWithTableViewManager:tableViewManager];
+    id<UITableViewDataSource>dataSource =
+    [ERNTableViewDataSource createWithTableViewManager:tableViewManager];
+    ERNTableViewMicroController *tableViewMicroController =
+    [ERNTableViewMicroController createWithTableViewDelegate:delegate
+                                         tableViewDataSource:dataSource
+                                                   superView:[viewController view]];
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    ERNRefreshControlRepositoryRefreshController *controller =
+    [ERNRefreshControlRepositoryRefreshController createWithRefreshControl:refreshControl
+                                                                repository:repository];
+    [[tableViewMicroController tableView] addSubview:refreshControl];
+    [viewController ERN_addMicroController:controller];
+    [viewController ERN_addMicroController:tableViewMicroController];
     return viewController;
 }
 
