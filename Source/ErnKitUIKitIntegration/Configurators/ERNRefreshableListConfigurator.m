@@ -44,12 +44,17 @@
                                          tableViewDataSource:dataSource
                                                    superView:[viewController view]];
     UIRefreshControl *refreshControl = [UIRefreshControl new];
-    ERNRefreshControlRepositoryRefreshController *controller =
+    ERNRefreshControlRepositoryRefreshController *refreshDragController =
     [ERNRefreshControlRepositoryRefreshController createWithRefreshControl:refreshControl
                                                                 repository:repository];
+    ERNTableViewRepositoryRefreshController *refreshActionController =
+    [ERNTableViewRepositoryRefreshController createWithTableView:[tableViewMicroController tableView]
+                                                      repository:repository];
+
     [[tableViewMicroController tableView] addSubview:refreshControl];
-    [viewController ERN_addMicroController:controller];
+    [viewController ERN_addMicroController:refreshDragController];
     [viewController ERN_addMicroController:tableViewMicroController];
+    [viewController ERN_addMicroController:refreshActionController];
     return viewController;
 }
 
