@@ -22,6 +22,13 @@
                                        superView:superView];
 }
 
+#pragma mark - NSObject
+
+-(void)dealloc
+{
+    [[self mapView] setDelegate:nil];
+}
+
 #pragma mark - private - accessors
 
 -(id<MKMapViewDelegate>)delegate
