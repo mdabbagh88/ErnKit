@@ -1,14 +1,14 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "ERNMapViewController.h"
+#import "ERNMapViewMicroController.h"
 #import "ERNNullMapViewDelegate.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNMapViewController ()
+@interface ERNMapViewMicroController ()
 @property (nonatomic, readonly) id<MKMapViewDelegate> delegate;
 @end
 
-@implementation ERNMapViewController {
+@implementation ERNMapViewMicroController {
     id<MKMapViewDelegate> _delegate;
     MKMapView *_mapView;
 }
@@ -16,26 +16,10 @@
 #pragma mark - public - constructors
 
 +(instancetype)createWithMapViewDelegate:(id<MKMapViewDelegate>)mapViewDelegate
+                               superView:(UIView *)superView
 {
-    return [[self alloc] initWithMapViewDelegate:mapViewDelegate];
-}
-
-#pragma mark - UIViewController
-
--(void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self setupMapView];
-}
-
--(void)setupMapView
-{
-    [[self mapView] setDelegate:[self delegate]];
-    [[self mapView] setFrame:[[self view] bounds]];
-    [[self mapView] setAutoresizingMask:
-     UIViewAutoresizingFlexibleWidth |
-     UIViewAutoresizingFlexibleHeight];
-    [[self view] addSubview:[self mapView]];
+    return [[self alloc] initWithMapViewDelegate:mapViewDelegate
+                                       superView:superView];
 }
 
 #pragma mark - private - accessors
@@ -45,18 +29,20 @@
     return _delegate = _delegate ? _delegate : [ERNNullMapViewDelegate create];
 }
 
--(MKMapView *)mapView
-{
-    return _mapView = _mapView ? _mapView : [MKMapView new];
-}
-
 #pragma mark - private - initializers
 
 -(id)initWithMapViewDelegate:(id<MKMapViewDelegate>)mapViewDelegate
+                   superView:(UIView *)superView
 {
     self = [super init];
     ERNCheckNil(self);
     _delegate = mapViewDelegate;
+    _mapView = [MKMapView new];
+    [_mapView setDelegate:[self delegate]];
+    [_mapView setFrame:[superView bounds]];
+    [_mapView setAutoresizingMask:
+     UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    [superView addSubview:_mapView];
     return self;
 }
 

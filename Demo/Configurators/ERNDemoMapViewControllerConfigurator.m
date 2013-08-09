@@ -1,5 +1,4 @@
-#import <ErnKit/ERNMapViewController.h>
-#import <ErnKit/ERNMapViewController+ERNAsyncItemsRepository.h>
+#import <ErnKit/ERNMapViewMicroController.h>
 #import <ErnKit/ERNRefreshAsyncRepositoryAction.h>
 #import <ErnKit/ERNBarButtonItemActionController.h>
 #import <ErnKit/ERNSegmentedControlTogglerController.h>
@@ -17,13 +16,8 @@
 @end
 
 @implementation ERNDemoMapViewControllerConfigurator {
-    id<ERNMapViewAnnotationViewFactory> _annotationViewFactory;
-    UIViewController *_mapViewController;
     id<ERNAction> _refreshAction;
     UIBarButtonItem *_refreshButton;
-    UISegmentedControl *_feedSegmentedControl;
-    ERNSegmentedControlTogglerController *_feedController;
-    ERNBarButtonItemActionController *_refreshController;
 }
 
 #pragma mark - public - constructors
@@ -40,77 +34,50 @@
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser
 {
-    [[self feedSegmentedControl] setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [[self feedSegmentedControl] setSelectedSegmentIndex:0];
-    
-    [[[self mapViewController] navigationItem] setTitleView:[self feedSegmentedControl]];
-    [[[self mapViewController] navigationItem] setRightBarButtonItem:[self refreshButton]];
-    [[self mapViewController] ERN_addMicroController:[self feedController]];
-    [[self mapViewController] ERN_addMicroController:
-     [self createRefreshControllerFromResource:resource]];
-    UIViewController *viewController = [self mapViewController];
+    UIViewController *viewController = [UIViewController new];
+
+    UISegmentedControl *feedSegmentedControl =
+    [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Demo", @"Demo Two"]];
+    [feedSegmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [feedSegmentedControl setSelectedSegmentIndex:0];
+
+    ERNSegmentedControlTogglerController *feedController =
+    [ERNSegmentedControlTogglerController createWithSegmentedControl:feedSegmentedControl
+                                                             toggler:[self toggler]];
+
+    ERNMapViewMicroController *mapViewMicroController =
+    [ERNMapViewMicroController createWithMapViewDelegate:
+     [ERNMapViewDelegate createWithActionHandler:[ERNNullActionHandler create]
+                                     viewFactory:[ERNDemoTweetMapViewAnnotationViewFactory create]]
+                                               superView:[viewController view]];
+
+    ERNMapViewRepositoryRefreshController *refreshActionController =
+    [ERNMapViewRepositoryRefreshController createAutoZoomingWithMapView:[mapViewMicroController mapView]
+                                                             repository:[self repository]];
+
+    UIBarButtonItem *refreshButton =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                  target:nil
+                                                  action:nil];
+    id<ERNAction> refreshAction =
+    [ERNRefreshAsyncRepositoryAction createWithRepository:[self repository]];
+
+    ERNBarButtonItemActionController *refreshButtonController =
+    [ERNBarButtonItemActionController createWithBarButtonItem:refreshButton
+                                                       action:refreshAction
+                                                     resource:resource];
+
+    [[viewController navigationItem] setTitleView:feedSegmentedControl];
+    [[viewController navigationItem] setRightBarButtonItem:refreshButton];
+    [viewController ERN_addMicroController:feedController];
+    [viewController ERN_addMicroController:refreshButtonController];
+    [viewController ERN_addMicroController:refreshActionController];
+    [viewController ERN_addMicroController:mapViewMicroController];
     ERNHideNavigationBarOnUncaughtTapController *tapController =
     [ERNHideNavigationBarOnUncaughtTapController createWithViewController:viewController];
     [viewController ERN_addMicroController:tapController];
     return viewController;
 }
-
-#pragma mark - private - accessors
-
--(id<ERNMapViewAnnotationViewFactory>)annotationViewFactory
-{
-    return _annotationViewFactory = _annotationViewFactory ?
-    _annotationViewFactory :
-    [ERNDemoTweetMapViewAnnotationViewFactory create];
-}
-
--(UIViewController *)mapViewController
-{
-    return _mapViewController = _mapViewController ?
-    _mapViewController :
-    [ERNMapViewController createAutoZoomingWithRepository:[self repository]
-                                            actionHandler:nil
-                                              viewFactory:[self annotationViewFactory]];
-}
-
--(id<ERNAction>)refreshAction
-{
-    return _refreshAction = _refreshAction ?
-    _refreshAction :
-    [ERNRefreshAsyncRepositoryAction createWithRepository:[self repository]];
-}
-
--(UIBarButtonItem *)refreshButton
-{
-    return _refreshButton = _refreshButton ?
-    _refreshButton :
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                  target:nil
-                                                  action:nil];
-}
-
--(UISegmentedControl *)feedSegmentedControl
-{
-    return _feedSegmentedControl = _feedSegmentedControl ?
-    _feedSegmentedControl :
-    [[UISegmentedControl alloc] initWithItems:@[@"Both", @"Demo", @"Demo Two"]];
-}
-
--(ERNSegmentedControlTogglerController *)feedController
-{
-    return _feedController = _feedController ?
-    _feedController :
-    [ERNSegmentedControlTogglerController createWithSegmentedControl:[self feedSegmentedControl]
-                                                             toggler:[self toggler]];
-}
-
--(ERNBarButtonItemActionController *)createRefreshControllerFromResource:(ERNResource *)resource
-{
-    return [ERNBarButtonItemActionController createWithBarButtonItem:[self refreshButton]
-                                                              action:[self refreshAction]
-                                                            resource:resource];
-}
-
 #pragma mark - private - initializers
 
 -(id)initWithRepository:(id<ERNAsyncPaginatedItemsRepository>)repository

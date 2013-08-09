@@ -1,7 +1,6 @@
 #import "ErnKit.h"
 #import "UIKitIntegration.h"
-#import "ERNMapViewController+ERNAsyncItemsRepository.h"
-#import "ERNMapViewController.h"
+#import "ERNMapViewMicroController.h"
 #import "ERNMapViewDelegate.h"
 #import "ERNNullAnnotation.h"
 #import "ERNNullMapViewDelegate.h"

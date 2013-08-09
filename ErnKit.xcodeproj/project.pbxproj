@@ -92,13 +92,12 @@
 		F732926C1775AC85005EEBA8 /* UIViewController+ERNHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A30875173FC6FB0083F020 /* UIViewController+ERNHelper.m */; };
 		F732926D1775AC85005EEBA8 /* ERNMapViewRepositoryRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB8A1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m */; };
 		F732926E1775AC85005EEBA8 /* ERNRoutingMapViewAnnotationViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2AF17351CBF0035B164 /* ERNRoutingMapViewAnnotationViewFactory.m */; };
-		F732926F1775AC85005EEBA8 /* ERNMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2A717351CBF0035B164 /* ERNMapViewController.m */; };
+		F732926F1775AC85005EEBA8 /* ERNMapViewMicroController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2A717351CBF0035B164 /* ERNMapViewMicroController.m */; };
 		F73292701775AC85005EEBA8 /* ERNMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2A917351CBF0035B164 /* ERNMapViewDelegate.m */; };
 		F73292711775AC85005EEBA8 /* ERNNullMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74388AA173B12FA00676477 /* ERNNullMapViewDelegate.m */; };
 		F73292721775AC85005EEBA8 /* ERNNullAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2AB17351CBF0035B164 /* ERNNullAnnotation.m */; };
 		F73292731775AC85005EEBA8 /* MKAnnotationView+ERNHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2B517351CBF0035B164 /* MKAnnotationView+ERNHelper.m */; };
 		F73292741775AC85005EEBA8 /* MKMapView+ERNHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABC2B717351CBF0035B164 /* MKMapView+ERNHelper.m */; };
-		F73292751775AC85005EEBA8 /* ERNMapViewController+ERNAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F787FB831747E08E007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m */; };
 		F73292761775AC85005EEBA8 /* ERNRestKitAsyncItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F100471739B38800FD3E29 /* ERNRestKitAsyncItemsRepository.m */; settings = {COMPILER_FLAGS = "-Wno-pedantic"; }; };
 		F73292801775AE7A005EEBA8 /* libErnKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F732921B1775AC31005EEBA8 /* libErnKit.a */; };
 		F73292811775B149005EEBA8 /* libErnKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F732921B1775AC31005EEBA8 /* libErnKit.a */; };
@@ -471,8 +470,6 @@
 		F787FB71174789D8007D751A /* ERNNullTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNNullTableViewCellFactory.m; sourceTree = "<group>"; };
 		F787FB7317479067007D751A /* ERNTableViewRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNTableViewRepositoryRefreshController.h; sourceTree = "<group>"; };
 		F787FB7417479068007D751A /* ERNTableViewRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNTableViewRepositoryRefreshController.m; sourceTree = "<group>"; };
-		F787FB821747E08D007D751A /* ERNMapViewController+ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNMapViewController+ERNAsyncItemsRepository.h"; sourceTree = "<group>"; };
-		F787FB831747E08E007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNMapViewController+ERNAsyncItemsRepository.m"; sourceTree = "<group>"; };
 		F787FB891747E5D4007D751A /* ERNMapViewRepositoryRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewRepositoryRefreshController.h; sourceTree = "<group>"; };
 		F787FB8A1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewRepositoryRefreshController.m; sourceTree = "<group>"; };
 		F787FB8D1748FC12007D751A /* ERNAsyncItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAsyncItemsRepository.h; sourceTree = "<group>"; };
@@ -552,8 +549,8 @@
 		F7A30877173FCAD80083F020 /* UIViewController+ERNHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ERNHelperTest.h"; sourceTree = "<group>"; };
 		F7A30878173FCAD80083F020 /* UIViewController+ERNHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ERNHelperTest.m"; sourceTree = "<group>"; };
 		F7ABC272173518440035B164 /* ERNErrorHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNErrorHandler.h; sourceTree = "<group>"; };
-		F7ABC2A617351CBF0035B164 /* ERNMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewController.h; sourceTree = "<group>"; };
-		F7ABC2A717351CBF0035B164 /* ERNMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewController.m; sourceTree = "<group>"; };
+		F7ABC2A617351CBF0035B164 /* ERNMapViewMicroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewMicroController.h; sourceTree = "<group>"; };
+		F7ABC2A717351CBF0035B164 /* ERNMapViewMicroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewMicroController.m; sourceTree = "<group>"; };
 		F7ABC2A817351CBF0035B164 /* ERNMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewDelegate.h; sourceTree = "<group>"; };
 		F7ABC2A917351CBF0035B164 /* ERNMapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewDelegate.m; sourceTree = "<group>"; };
 		F7ABC2AA17351CBF0035B164 /* ERNNullAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNNullAnnotation.h; sourceTree = "<group>"; };
@@ -1189,6 +1186,8 @@
 		F787FB881747E5D2007D751A /* MicroControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7ABC2A617351CBF0035B164 /* ERNMapViewMicroController.h */,
+				F7ABC2A717351CBF0035B164 /* ERNMapViewMicroController.m */,
 				F787FB891747E5D4007D751A /* ERNMapViewRepositoryRefreshController.h */,
 				F787FB8A1747E5D4007D751A /* ERNMapViewRepositoryRefreshController.m */,
 			);
@@ -1324,8 +1323,6 @@
 			isa = PBXGroup;
 			children = (
 				F7ABC2AC17351CBF0035B164 /* MapViewAnnotationViewFactories */,
-				F7ABC2A617351CBF0035B164 /* ERNMapViewController.h */,
-				F7ABC2A717351CBF0035B164 /* ERNMapViewController.m */,
 				F7ABC2A817351CBF0035B164 /* ERNMapViewDelegate.h */,
 				F7ABC2A917351CBF0035B164 /* ERNMapViewDelegate.m */,
 				F74388A9173B12FA00676477 /* ERNNullMapViewDelegate.h */,
@@ -1336,8 +1333,6 @@
 				F7ABC2B517351CBF0035B164 /* MKAnnotationView+ERNHelper.m */,
 				F7ABC2B617351CBF0035B164 /* MKMapView+ERNHelper.h */,
 				F7ABC2B717351CBF0035B164 /* MKMapView+ERNHelper.m */,
-				F787FB821747E08D007D751A /* ERNMapViewController+ERNAsyncItemsRepository.h */,
-				F787FB831747E08E007D751A /* ERNMapViewController+ERNAsyncItemsRepository.m */,
 			);
 			path = MapViewHelpers;
 			sourceTree = "<group>";
@@ -2172,7 +2167,7 @@
 				F732926C1775AC85005EEBA8 /* UIViewController+ERNHelper.m in Sources */,
 				F732926D1775AC85005EEBA8 /* ERNMapViewRepositoryRefreshController.m in Sources */,
 				F732926E1775AC85005EEBA8 /* ERNRoutingMapViewAnnotationViewFactory.m in Sources */,
-				F732926F1775AC85005EEBA8 /* ERNMapViewController.m in Sources */,
+				F732926F1775AC85005EEBA8 /* ERNMapViewMicroController.m in Sources */,
 				F73292701775AC85005EEBA8 /* ERNMapViewDelegate.m in Sources */,
 				F748546C179736A000513862 /* ERNNullResource.m in Sources */,
 				F73292711775AC85005EEBA8 /* ERNNullMapViewDelegate.m in Sources */,
@@ -2180,7 +2175,6 @@
 				F73292721775AC85005EEBA8 /* ERNNullAnnotation.m in Sources */,
 				F73292731775AC85005EEBA8 /* MKAnnotationView+ERNHelper.m in Sources */,
 				F73292741775AC85005EEBA8 /* MKMapView+ERNHelper.m in Sources */,
-				F73292751775AC85005EEBA8 /* ERNMapViewController+ERNAsyncItemsRepository.m in Sources */,
 				F73292761775AC85005EEBA8 /* ERNRestKitAsyncItemsRepository.m in Sources */,
 				F7504C9F1777441B006EDD9B /* ERNBaseObservable.m in Sources */,
 				F7504CA217775C5E006EDD9B /* ERNBaseRoutingAction.m in Sources */,
