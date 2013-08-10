@@ -16,8 +16,6 @@
 @end
 
 @implementation ERNDemoMapViewControllerConfigurator {
-    id<ERNAction> _refreshAction;
-    UIBarButtonItem *_refreshButton;
 }
 
 #pragma mark - public - constructors
