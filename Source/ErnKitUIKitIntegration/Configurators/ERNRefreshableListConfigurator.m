@@ -1,4 +1,17 @@
 #import "ERNRefreshableListConfigurator.h"
+#import "ERNRepositoryFactory.h"
+#import "ERNAsyncPaginatedItemsRepository.h"
+#import "ERNViewController.h"
+#import "ERNRefreshAsyncRepositoryAction.h"
+#import "ERNNullAction.h"
+#import "ERNAsyncItemsRepositoryTableViewManager.h"
+#import "ERNTableViewDelegate.h"
+#import "ERNTableViewDataSource.h"
+#import "ERNTableViewMicroController.h"
+#import "ERNRefreshControlRepositoryRefreshController.h"
+#import "ERNTableViewRepositoryRefreshController.h"
+#import "UIViewController+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNRefreshableListConfigurator ()
 @property (nonatomic, readonly) id<ERNRepositoryFactory> repositoryFactory;
@@ -27,11 +40,15 @@
 {
     id<ERNAsyncPaginatedItemsRepository> repository =
     [[self repositoryFactory] repositoryForResource:resource];
-    [repository refresh];
 
-    UIViewController *viewController = [UIViewController new];
+    id<ERNAction> appearAction = [ERNRefreshAsyncRepositoryAction createWithRepository:repository];
+    id<ERNAction> disappearAction = [ERNNullAction create];
 
+    ERNViewController *viewController = [ERNViewController createWithResource:resource
+                                                                 appearAction:appearAction
+                                                              disappearAction:disappearAction];
     [viewController setTitle:[self title]];
+
     ERNAsyncItemsRepositoryTableViewManager *tableViewManager =
     [ERNAsyncItemsRepositoryTableViewManager createWithRepository:repository
                                                       itemManager:[self itemManager]];
