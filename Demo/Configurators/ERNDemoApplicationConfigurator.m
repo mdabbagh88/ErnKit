@@ -6,20 +6,7 @@
 #import "ERNResource.h"
 
 @implementation ERNDemoApplicationConfigurator {
-    id<ERNAsyncPaginatedItemsRepository> _repositoryFirstFeed;
     id<ERNAsyncPaginatedItemsRepository> _repositorySecondFeed;
-    id<ERNAsyncPaginatedItemsRepository> _repositoryBothFeeds;
-    ERNTogglingAsyncPaginatedItemsRepository *_repository;
-    UINavigationController *_navigationControllerMapTab;
-    UINavigationController *_navigationControllerTableTab;
-    UITabBarController *_tabBarController;
-    id<ERNViewControllerTransitioner> _navigationTransitionerMapTab;
-    id<ERNViewControllerTransitioner> _navigationTransitionerTableTab;
-    id<ERNViewControllerConfigurator> _configuratorMap;
-    id<ERNViewControllerConfigurator> _configuratorTable;
-    id<ERNAction> _actionMap;
-    id<ERNAction> _actionTable;
-    NSArray *_repositories;
 }
 
 #pragma mark - public - constructors
@@ -34,130 +21,59 @@
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser
 {
-    [[self repository] refresh];
+    UINavigationController *navigationControllerMapTab = [UINavigationController new];
+    UINavigationController *navigationControllerTableTab = [UINavigationController new];
 
-    [[self actionMap] actionForResource:resource];
+    UITabBarController *tabBarController = [UITabBarController new];
+    [tabBarController setViewControllers:@[navigationControllerMapTab,
+                                           navigationControllerTableTab]];
 
-    [[self actionTable] actionForResource:resource];
+    id<ERNAsyncPaginatedItemsRepository> repositoryFirstFeed =
+    [ERNDefaultAsyncPaginatedItemsRepository createTwitterStatusesForUser:@"demo"];
 
-    [[self navigationControllerMapTab] setTitle:@"Map"];
-    [[self navigationControllerTableTab] setTitle:@"Table"];
+    id<ERNAsyncPaginatedItemsRepository>repositorySecondFeed =
+    [ERNDefaultAsyncPaginatedItemsRepository createTwitterStatusesForUser:@"demotwo"];
 
-    [[self tabBarController] setViewControllers:@[
-    [self navigationControllerMapTab],
-     [self navigationControllerTableTab]]
-     ];
+    id<ERNAsyncPaginatedItemsRepository> repositoryBothFeeds =
+    [ERNMergingAsyncPaginatedItemsRepository createWithFirstRepository:repositoryFirstFeed
+                                                        restRepository:repositorySecondFeed];
 
-   return [self tabBarController];
-}
+    NSArray *repositories = @[repositoryBothFeeds,
+                              repositoryFirstFeed,
+                              repositorySecondFeed];
 
-#pragma mark - private - accessors
+    ERNTogglingAsyncPaginatedItemsRepository *repository =
+    [ERNTogglingAsyncPaginatedItemsRepository createWithRepositories:repositories];
 
--(id<ERNAsyncPaginatedItemsRepository>)repositoryFirstFeed
-{
-    return _repositoryFirstFeed = _repositoryFirstFeed ?
-    _repositoryFirstFeed : [ERNDefaultAsyncPaginatedItemsRepository
-                            createTwitterStatusesForUser:@"demo"];
-}
+    id<ERNViewControllerConfigurator> tableConfigurator =
+    [ERNDemoTableViewControllerConfigurator createWithRepository:repository
+                                                         toggler:repository];
 
--(id<ERNAsyncPaginatedItemsRepository>)repositorySecondFeed
-{
-    return _repositorySecondFeed = _repositorySecondFeed ?
-    _repositorySecondFeed :[ERNDefaultAsyncPaginatedItemsRepository
-                            createTwitterStatusesForUser:@"demotwo"];
-}
+    id<ERNViewControllerTransitioner> navigationTransitionerTableTab =
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:
+     navigationControllerTableTab];
 
--(id<ERNAsyncPaginatedItemsRepository>)repositoryBothFeeds
-{
-    return _repositoryBothFeeds = _repositoryBothFeeds ?
-    _repositoryBothFeeds :
-    [ERNMergingAsyncPaginatedItemsRepository createWithFirstRepository:[self repositoryFirstFeed]
-                                               restRepository:[self repositorySecondFeed]];
-}
+    id<ERNAction> tableAction =
+    [ERNViewControllerAction createWithTransitioner:navigationTransitionerTableTab
+                                       configurator:tableConfigurator];
 
--(NSArray *)repositories
-{
-    return _repositories = _repositories ?
-    _repositories :
-    @[[self repositoryBothFeeds],
-      [self repositoryFirstFeed],
-      [self repositorySecondFeed]];
-}
+    id<ERNViewControllerConfigurator> mapConfigurator =
+    [ERNDemoMapViewControllerConfigurator createWithRepository:repository
+                                                       toggler:repository];
 
--(ERNTogglingAsyncPaginatedItemsRepository *)repository
-{
-    return _repository = _repository ?
-    _repository :
-    [ERNTogglingAsyncPaginatedItemsRepository createWithRepositories:[self repositories]];
-}
+    id<ERNViewControllerTransitioner> navigationTransitionerMapTab =
+    [ERNNavigationViewControllerTransitioner createWithNavigationController:navigationControllerMapTab];
 
--(UINavigationController *)navigationControllerMapTab
-{
-   return _navigationControllerMapTab = _navigationControllerMapTab ?
-    _navigationControllerMapTab :
-    [UINavigationController new];
-}
+    id<ERNAction> mapAction =
+    [ERNViewControllerAction createWithTransitioner:navigationTransitionerMapTab
+                                       configurator:mapConfigurator];
 
--(UINavigationController *)navigationControllerTableTab
-{
-   return _navigationControllerTableTab = _navigationControllerTableTab ?
-    _navigationControllerTableTab :
-    [UINavigationController new];
-}
-
--(id<ERNViewControllerTransitioner>)navigationTransitionerMapTab
-{
-   return _navigationTransitionerMapTab = _navigationTransitionerMapTab ?
-    _navigationTransitionerMapTab :
-    [ERNNavigationViewControllerTransitioner
-     createWithNavigationController:[self navigationControllerMapTab]];
-}
-
--(id<ERNViewControllerTransitioner>)navigationTransitionerTableTab
-{
-   return _navigationTransitionerTableTab = _navigationTransitionerTableTab ?
-    _navigationTransitionerTableTab :
-    [ERNNavigationViewControllerTransitioner
-     createWithNavigationController:[self navigationControllerTableTab]];
-}
-
--(id<ERNViewControllerConfigurator>)configuratorMap
-{
-   return _configuratorMap = _configuratorMap ?
-    _configuratorMap :
-    [ERNDemoMapViewControllerConfigurator createWithRepository:[self repository]
-                                                       toggler:[self repository]];
-}
-
--(id<ERNViewControllerConfigurator>)configuratorTable
-{
-   return _configuratorTable = _configuratorTable ?
-    _configuratorTable :
-    [ERNDemoTableViewControllerConfigurator createWithRepository:[self repository]
-                                                         toggler:[self repository]];
-}
-
--(id<ERNAction>)actionMap
-{
-   return _actionMap = _actionMap ?
-    _actionMap :
-    [ERNViewControllerAction createWithTransitioner:[self navigationTransitionerMapTab]
-                                       configurator:[self configuratorMap]];
-}
-
--(id<ERNAction>)actionTable
-{
-   return _actionTable = _actionTable ?
-    _actionTable :
-    [ERNViewControllerAction createWithTransitioner:[self navigationTransitionerTableTab]
-                                       configurator:[self configuratorTable]];
-}
-
--(UITabBarController *)tabBarController
-{
-    return _tabBarController = _tabBarController ?
-    _tabBarController :
-    [UITabBarController new];
+    [mapAction actionForResource:resource];
+    [tableAction actionForResource:resource];
+    [navigationControllerMapTab setTitle:@"Map"];
+    [navigationControllerTableTab setTitle:@"Table"];
+    [repository refresh];
+    return tabBarController;
 }
 
 @end
