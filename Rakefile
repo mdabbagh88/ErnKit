@@ -14,6 +14,9 @@ end
 desc "Run unit tests for libraries"
 task :test do
     sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator6.1 test CONFIGURATION_TEMP_DIR='Build'"
+    sh "lcov -c -d ./Build/ErnKit.build/Objects-normal/i386 -o ./Build/coverage.info"
+    sh "lcov --remove ./Build/coverage.info \"/Applications*\" -o ./Build/coverage.info"
+    sh "genhtml ./Build/coverage.info -o ./Build/Coverage"
 end
 
 desc "Clean"
