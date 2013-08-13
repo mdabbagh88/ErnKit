@@ -1,6 +1,7 @@
 # ErnKit
 
 [![Build Status](https://travis-ci.org/ernstsson/ErnKit.png?branch=master)](https://travis-ci.org/ernstsson/ErnKit)
+[![Coverage Status](https://coveralls.io/repos/ernstsson/ErnKit/badge.png)](https://coveralls.io/r/ernstsson/ErnKit)
 
 ErnKit is a framework with a set of helper classes / protocols and a sample 
 project showing how an iOS project can be broken down into isolated and unit 

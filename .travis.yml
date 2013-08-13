@@ -3,6 +3,7 @@ before_install:
     - brew update
     - brew uninstall xctool
     - brew install xctool
+    - brew install python
     - bundle install
     - pod install
     - sudo pip install cpp-coveralls --use-mirrors
