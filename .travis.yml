@@ -11,5 +11,5 @@ before_install:
 script:
     - rake
 after_success:
-  - coveralls
+  - coveralls -e UnitTests -e Pods -e ProtocolTests -e Demo
 
