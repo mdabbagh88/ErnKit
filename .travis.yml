@@ -10,5 +10,5 @@ before_install:
 script:
     - rake
 after_success:
-  - coveralls -r Build/ErnKit.build/Objects-normal/i386
+  - coveralls
 
