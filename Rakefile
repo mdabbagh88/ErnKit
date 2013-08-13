@@ -13,7 +13,7 @@ end
 
 desc "Run unit tests for libraries"
 task :test do
-    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator test"
+    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator6.1 test CONFIGURATION_TEMP_DIR='Build'"
 end
 
 desc "Clean"

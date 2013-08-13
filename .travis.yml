@@ -5,5 +5,9 @@ before_install:
     - brew install xctool
     - bundle install
     - pod install
+    - sudo pip install cpp-coveralls --use-mirrors
 script:
     - rake
+after_success:
+  - coveralls -r Build/ErnKit.build/Objects-normal/i386
+
