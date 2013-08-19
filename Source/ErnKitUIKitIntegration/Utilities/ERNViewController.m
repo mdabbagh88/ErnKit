@@ -28,13 +28,15 @@
 
 #pragma mark - UIViewController
 
--(void)viewDidAppear:(BOOL)__unused animated
+-(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [[self appearAction] actionForResource:[self resource]];
 }
 
--(void)viewDidDisappear:(BOOL)__unused animated
+-(void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [[self disappearAction] actionForResource:[self resource]];
 }
 
@@ -58,8 +60,8 @@
 #pragma mark - private - initializers
 
 -(id)initWithResource:(ERNResource *)resource
-                        appearAction:(id<ERNAction>)appearAction
-                        disappearAction:(id<ERNAction>)disappearAction
+         appearAction:(id<ERNAction>)appearAction
+      disappearAction:(id<ERNAction>)disappearAction
 {
     self = [super init];
     ERNCheckNil(self);
