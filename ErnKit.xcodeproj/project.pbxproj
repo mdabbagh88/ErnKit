@@ -187,6 +187,7 @@
 		F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */; };
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
 		F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */; };
+		F7B5EB2D17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */; };
 		F7C00DBA17838AC70075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DB917838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m */; };
 		F7C00DBD17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DBC17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.m */; };
 		F7C00DC017838E150075FE61 /* ERNRestKitAsyncItemRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DBF17838E150075FE61 /* ERNRestKitAsyncItemRepositoryFactory.m */; };
@@ -620,6 +621,8 @@
 		F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDualActionTest.m; sourceTree = "<group>"; };
 		F7AD8B92173AE6FC0046E153 /* ERNLogActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNLogActionTest.h; sourceTree = "<group>"; };
 		F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNLogActionTest.m; sourceTree = "<group>"; };
+		F7B5EB2B17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.h"; sourceTree = "<group>"; };
+		F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m"; sourceTree = "<group>"; };
 		F7C00DB817838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNDefaultAsyncPaginatedItemsRepository.h; sourceTree = "<group>"; };
 		F7C00DB917838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultAsyncPaginatedItemsRepository.m; sourceTree = "<group>"; };
 		F7C00DBB17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.h"; sourceTree = "<group>"; };
@@ -1575,6 +1578,8 @@
 		F7C00DA6178380B60075FE61 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				F7B5EB2B17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.h */,
+				F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */,
 			);
 			name = Repositories;
 			sourceTree = "<group>";
@@ -2287,6 +2292,7 @@
 				F764EA0417B6588000B43727 /* ERNBlockActionTest.m in Sources */,
 				F7A3086D173FBE9A0083F020 /* ERNNullMapViewDelegateTest.m in Sources */,
 				F7CAD26A178237C7003660F9 /* ERNMimeRoutingRepositoryFactoryTest.m in Sources */,
+				F7B5EB2D17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m in Sources */,
 				F76D4153178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m in Sources */,
 				F7A30870173FBF9B0083F020 /* ERNNullAnnotationTest.m in Sources */,
 				F7A30879173FCAD80083F020 /* UIViewController+ERNHelperTest.m in Sources */,
