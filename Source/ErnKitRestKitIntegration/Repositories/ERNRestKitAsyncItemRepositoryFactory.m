@@ -19,8 +19,9 @@
 
 #pragma mark - ERNItemRepositoryFactory
 
--(BOOL)hasRepositoryForResource:(ERNResource *)__unused resource
+-(BOOL)hasRepositoryForResource:(ERNResource *) resource
 {
+    ERNCheckNilAndReturn(resource, NO);
     return YES;
 }
 

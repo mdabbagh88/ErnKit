@@ -188,6 +188,7 @@
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
 		F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */; };
 		F7B5EB2D17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */; };
+		F7B5EB3017C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2F17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m */; };
 		F7C00DBA17838AC70075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DB917838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m */; };
 		F7C00DBD17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DBC17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.m */; };
 		F7C00DC017838E150075FE61 /* ERNRestKitAsyncItemRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DBF17838E150075FE61 /* ERNRestKitAsyncItemRepositoryFactory.m */; };
@@ -623,6 +624,8 @@
 		F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNLogActionTest.m; sourceTree = "<group>"; };
 		F7B5EB2B17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.h"; sourceTree = "<group>"; };
 		F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m"; sourceTree = "<group>"; };
+		F7B5EB2E17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNRestKitAsyncItemRepositoryFactoryTest.h; sourceTree = "<group>"; };
+		F7B5EB2F17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNRestKitAsyncItemRepositoryFactoryTest.m; sourceTree = "<group>"; };
 		F7C00DB817838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNDefaultAsyncPaginatedItemsRepository.h; sourceTree = "<group>"; };
 		F7C00DB917838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNDefaultAsyncPaginatedItemsRepository.m; sourceTree = "<group>"; };
 		F7C00DBB17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.h"; sourceTree = "<group>"; };
@@ -1580,6 +1583,8 @@
 			children = (
 				F7B5EB2B17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.h */,
 				F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */,
+				F7B5EB2E17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.h */,
+				F7B5EB2F17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m */,
 			);
 			name = Repositories;
 			sourceTree = "<group>";
@@ -2273,6 +2278,7 @@
 				F7DD7321179A713500ECAD9B /* ERNNullActionSheetConfiguratorTest.m in Sources */,
 				F74388FC173D320200676477 /* ERNDummyTableViewCellTest.m in Sources */,
 				F74388FF173D32D000676477 /* ERNTableViewDataSourceTest.m in Sources */,
+				F7B5EB3017C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m in Sources */,
 				F7438902173D3B2A00676477 /* ERNTableViewDelegateTest.m in Sources */,
 				F7E52C72173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m in Sources */,
 				F7E52C75173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m in Sources */,
