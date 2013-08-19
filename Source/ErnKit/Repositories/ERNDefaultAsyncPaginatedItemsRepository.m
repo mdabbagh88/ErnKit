@@ -1,7 +1,6 @@
 #import "ERNDefaultAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
-#import "NSObject+ERNHelper.h"
 #import "ERNRepositoryPaginator.h"
 #import "ERNNullRepositoryPaginator.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
@@ -115,25 +114,33 @@
 {
 
     [[self pages] addObject:validatePaginator([[self repository] item])];
-    if (([[[[self pages] lastObject] items] count] + [[self array] count]) >
-        [self windowSize]) {
+    if ([self windowSizeWillGetBiggerByNewNextPage]) {
         [self setOffset:[self offset] + [[[[self pages] objectAtIndex:0] items] count]];
         [[self pages] removeObjectAtIndex:0];
     }
     [self refreshArray];
 }
 
+-(BOOL)windowSizeWillGetBiggerByNewNextPage
+{
+    return ([[[[self pages] lastObject] items] count] + [[self array] count]) > [self windowSize];
+}
+
 -(void)repositoryPreviousPageRefreshed
 {
-    [[self pages] insertObject:validatePaginator([[self repository] item])
-                       atIndex:0];
+    [[self pages] insertObject:validatePaginator([[self repository] item]) atIndex:0];
     [self setOffset:[self offset] - [[[[self pages] objectAtIndex:0] items] count]];
-    if (([[[[self pages] objectAtIndex:0] items] count] + [[self array] count]) >
-        [self windowSize]) {
+    if ([self windowSizeWillGetBiggerByNewPreviousPage]) {
         [[self pages] removeLastObject];
     }
     [self refreshArray];
 }
+
+-(BOOL)windowSizeWillGetBiggerByNewPreviousPage
+{
+    return ([[[[self pages] objectAtIndex:0] items] count] + [[self array] count]) > [self windowSize];
+}
+
 
 -(void)refreshArray
 {

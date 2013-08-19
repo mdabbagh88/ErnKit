@@ -5,7 +5,6 @@
 #import "ERNNullAction.h"
 #import "ERNResource.h"
 #import "NSURL+ERNHelper.h"
-#import "NSObject+ERNHelper.h"
 
 @interface ERNSegmentedControlActionController ()
 @property (nonatomic, readonly, copy) NSArray *actions;

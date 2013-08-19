@@ -1,7 +1,6 @@
 #import "ERNActionTogglerAction.h"
 #import "ERNAction.h"
 #import "ERNErrorHandler.h"
-#import "NSObject+ERNHelper.h"
 #import "ERNNullAction.h"
 
 @interface ERNActionTogglerAction ()

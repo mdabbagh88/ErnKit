@@ -1,5 +1,4 @@
 #import "MKAnnotationView+ERNHelper.h"
-#import "NSObject+ERNHelper.h"
 #import "ERNNullAnnotation.h"
 
 @implementation MKAnnotationView (ERNHelper)

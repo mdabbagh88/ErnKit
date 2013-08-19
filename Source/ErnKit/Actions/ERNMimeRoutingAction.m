@@ -1,5 +1,4 @@
 #import "ERNMimeRoutingAction.h"
-#import "NSObject+ERNHelper.h"
 #import "ERNErrorHandler.h"
 
 @implementation ERNMimeRoutingAction {
