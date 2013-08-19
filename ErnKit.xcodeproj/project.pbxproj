@@ -187,8 +187,8 @@
 		F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B8D173AD2BF0046E153 /* ERNActionTogglerActionTest.m */; };
 		F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B90173AE1B60046E153 /* ERNDualActionTest.m */; };
 		F7AD8B94173AE6FD0046E153 /* ERNLogActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD8B93173AE6FD0046E153 /* ERNLogActionTest.m */; };
-		F7B5EB2D17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */; };
-		F7B5EB3017C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2F17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m */; };
+		F7B5EB2D17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2C17C29A3300CF91A6 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegrationTest.m */; settings = {COMPILER_FLAGS = "-Wno-pedantic"; }; };
+		F7B5EB3017C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B5EB2F17C29C1100CF91A6 /* ERNRestKitAsyncItemRepositoryFactoryTest.m */; settings = {COMPILER_FLAGS = "-Wno-pedantic"; }; };
 		F7C00DBA17838AC70075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DB917838AC30075FE61 /* ERNDefaultAsyncPaginatedItemsRepository.m */; };
 		F7C00DBD17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DBC17838D680075FE61 /* ERNDefaultAsyncPaginatedItemsRepository+RestKitIntegration.m */; };
 		F7C00DC017838E150075FE61 /* ERNRestKitAsyncItemRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C00DBF17838E150075FE61 /* ERNRestKitAsyncItemRepositoryFactory.m */; };
