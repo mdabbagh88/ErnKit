@@ -32,9 +32,7 @@
 -(void)refresh
 {
     if (![[self currentOperation] isExecuting]) {
-        [self setCurrentOperation:[self setupCompletionForOperation:[self requestOperation]
-                                            responseOperationsQueue:responseQueue()]];
-        [[self operationQueue] addOperation:[self currentOperation]];
+        [self enqueueOperation];
     }
 }
 
@@ -46,6 +44,14 @@
 }
 
 #pragma mark - private
+
+-(void)enqueueOperation
+{
+    [self setCurrentOperation:[self setupCompletionForOperation:[self requestOperation]
+                                        responseOperationsQueue:responseQueue()]];
+    [[self operationQueue] addOperation:[self currentOperation]];
+
+}
 
 static NSOperationQueue *responseQueue(void)
 {
