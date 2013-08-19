@@ -34,9 +34,10 @@
     _viewController = viewController;
     UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc]
                                       initWithTarget:self action:@selector(hideBars)];
-    for (UIGestureRecognizer *recognizer in viewController.view.gestureRecognizers) {
-        [tapRecognizer requireGestureRecognizerToFail:recognizer];
-    }
+    [[[viewController view] gestureRecognizers]enumerateObjectsUsingBlock:
+     ^(UIGestureRecognizer *recognizer, __unused NSUInteger index, __unused BOOL *stop) {
+         [tapRecognizer requireGestureRecognizerToFail:recognizer];
+     }];
     [viewController.view addGestureRecognizer:tapRecognizer];
     return self;
 }
