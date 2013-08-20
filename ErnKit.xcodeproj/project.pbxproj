@@ -26,6 +26,8 @@
 		F71B9377173B010E00F80B0F /* ERNRoutingResourceFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9376173B010E00F80B0F /* ERNRoutingResourceFactoryTest.m */; };
 		F71B937A173B011A00F80B0F /* ERNStringResourceFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B9379173B011A00F80B0F /* ERNStringResourceFactoryTest.m */; };
 		F71B937D173B012B00F80B0F /* ERNURLResourceFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B937C173B012B00F80B0F /* ERNURLResourceFactoryTest.m */; };
+		F71C3CAE17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71C3CAD17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.m */; };
+		F71C3CB117C34CBF0030E909 /* ERNMapViewMicroControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F71C3CB017C34CBF0030E909 /* ERNMapViewMicroControllerTest.m */; };
 		F732921C1775AC31005EEBA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA701B171F0CBA0026D627 /* Foundation.framework */; };
 		F73292271775AC85005EEBA8 /* ERNDefaultActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F06A46172D0A9900CA5FC4 /* ERNDefaultActionHandler.m */; };
 		F73292281775AC85005EEBA8 /* ERNNullActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F788B7B6175247D8006226CA /* ERNNullActionHandler.m */; };
@@ -297,6 +299,10 @@
 		F71B9379173B011A00F80B0F /* ERNStringResourceFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNStringResourceFactoryTest.m; sourceTree = "<group>"; };
 		F71B937B173B012B00F80B0F /* ERNURLResourceFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNURLResourceFactoryTest.h; sourceTree = "<group>"; };
 		F71B937C173B012B00F80B0F /* ERNURLResourceFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNURLResourceFactoryTest.m; sourceTree = "<group>"; };
+		F71C3CAC17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewRepositoryRefreshControllerTest.h; sourceTree = "<group>"; };
+		F71C3CAD17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewRepositoryRefreshControllerTest.m; sourceTree = "<group>"; };
+		F71C3CAF17C34CBF0030E909 /* ERNMapViewMicroControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNMapViewMicroControllerTest.h; sourceTree = "<group>"; };
+		F71C3CB017C34CBF0030E909 /* ERNMapViewMicroControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNMapViewMicroControllerTest.m; sourceTree = "<group>"; };
 		F726A663172E5B7D006520AF /* NSURL+ERNHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ERNHelper.h"; sourceTree = "<group>"; };
 		F726A664172E5B7D006520AF /* NSURL+ERNHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ERNHelper.m"; sourceTree = "<group>"; };
 		F732921B1775AC31005EEBA8 /* libErnKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libErnKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -850,6 +856,17 @@
 			path = ResourceFactories;
 			sourceTree = "<group>";
 		};
+		F71C3CAB17C34C700030E909 /* MicroControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F71C3CAC17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.h */,
+				F71C3CAD17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.m */,
+				F71C3CAF17C34CBF0030E909 /* ERNMapViewMicroControllerTest.h */,
+				F71C3CB017C34CBF0030E909 /* ERNMapViewMicroControllerTest.m */,
+			);
+			path = MicroControllers;
+			sourceTree = "<group>";
+		};
 		F735DD24177F1A020030F94B /* ProtocolTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1298,6 +1315,7 @@
 		F7A30867173EEC8C0083F020 /* ErnKitMapKitIntegration */ = {
 			isa = PBXGroup;
 			children = (
+				F71C3CAB17C34C700030E909 /* MicroControllers */,
 				F7A30868173EEC8C0083F020 /* MapViewHelpers */,
 			);
 			path = ErnKitMapKitIntegration;
@@ -2262,6 +2280,7 @@
 				F73D1E3E179B0E41009D5DDF /* ERNNullMapViewAnnotationViewFactoryTest.m in Sources */,
 				F74388AE173B14EA00676477 /* ERNArrayAsyncItemsRepositoryTest.m in Sources */,
 				F74388B1173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m in Sources */,
+				F71C3CB117C34CBF0030E909 /* ERNMapViewMicroControllerTest.m in Sources */,
 				F76D4166178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m in Sources */,
 				F74AB940177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.m in Sources */,
 				F74388BB173BA7F800676477 /* ERNItemToPaginatedItemsRepositoryTest.m in Sources */,
@@ -2288,6 +2307,7 @@
 				F7438902173D3B2A00676477 /* ERNTableViewDelegateTest.m in Sources */,
 				F7E52C72173D5C2900A771D3 /* ERNBarButtonItemActionControllerTest.m in Sources */,
 				F7E52C75173D638900A771D3 /* ERNSegmentedControlTogglerControllerTest.m in Sources */,
+				F71C3CAE17C34CAB0030E909 /* ERNMapViewRepositoryRefreshControllerTest.m in Sources */,
 				F7E52C78173D688C00A771D3 /* ERNSegmentedControlActionControllerTest.m in Sources */,
 				F7E52C7B173D6B9300A771D3 /* ERNWindowViewControllerTransitionerTest.m in Sources */,
 				F7E52C7E173E615900A771D3 /* ERNModalViewControllerTransitionerTest.m in Sources */,
