@@ -25,6 +25,7 @@
 {
     ERNCheckNilNoReturn(observer);
     ERNCheckNilNoReturn(selector);
+    __weak id<NSObject> weakObserver = observer;
     [[self observers] setObject:
      [[self notificationCenter] addObserverForName:[self notificationName]
                                            object:self
@@ -32,7 +33,8 @@
                                        usingBlock:^(__unused NSNotification *note) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                                           [observer performSelector:selector];
+                                           id<NSObject> blockObserver = weakObserver;
+                                           [blockObserver performSelector:selector];
 #pragma clang diagnostic pop
                                        }]
                          forKey:observer];
@@ -46,6 +48,15 @@
                                          name:[self notificationName]
                                        object:self];
     [[self observers] removeObjectForKey:observer];
+}
+
+-(void)dealloc
+{
+    for (id observer in [self observers]) {
+    [[self notificationCenter] removeObserver:observer
+                                         name:[self notificationName]
+                                       object:self];
+    }
 }
 
 #pragma mark - private
@@ -66,7 +77,7 @@
 
 -(NSMapTable *)observers
 {
-    return _observers = _observers ? _observers : [NSMapTable strongToStrongObjectsMapTable];
+    return _observers = _observers ? _observers : [NSMapTable weakToStrongObjectsMapTable];
 }
 
 @end
