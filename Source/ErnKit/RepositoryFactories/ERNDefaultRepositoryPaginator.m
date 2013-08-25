@@ -20,7 +20,7 @@
 
 -(NSNumber *)total
 {
-    return _total = _total ? _total : [NSNumber numberWithUnsignedInteger:UINT_MAX];
+    return _total = _total ? _total : @UINT_MAX;
 }
 
 -(NSURL *)nextPage
