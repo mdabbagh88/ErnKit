@@ -154,6 +154,8 @@
 		F764EA0A17B65E8200B43727 /* ERNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F764EA0917B65E8200B43727 /* ERNViewController.m */; };
 		F7692E0C17CA12A6004998B9 /* ERNStoreResourceObjectAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7692E0B17CA12A6004998B9 /* ERNStoreResourceObjectAction.m */; };
 		F7692E1017CA16CF004998B9 /* ERNDualObjectAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F7692E0F17CA16CF004998B9 /* ERNDualObjectAction.m */; };
+		F7692E1317CA354D004998B9 /* ERNStoreResourceObjectActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7692E1217CA354D004998B9 /* ERNStoreResourceObjectActionTest.m */; };
+		F7692E1617CA3558004998B9 /* ERNDualObjectActionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7692E1517CA3558004998B9 /* ERNDualObjectActionTest.m */; };
 		F76D4153178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4152178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m */; };
 		F76D4166178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4165178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m */; };
 		F76D4169178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76D4168178B40DA0071D8DE /* NSMapTable+ERNHelperTest.m */; };
@@ -477,6 +479,10 @@
 		F7692E0D17CA15A3004998B9 /* ERNAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNAction.h; sourceTree = "<group>"; };
 		F7692E0E17CA16CF004998B9 /* ERNDualObjectAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDualObjectAction.h; sourceTree = "<group>"; };
 		F7692E0F17CA16CF004998B9 /* ERNDualObjectAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDualObjectAction.m; sourceTree = "<group>"; };
+		F7692E1117CA354D004998B9 /* ERNStoreResourceObjectActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNStoreResourceObjectActionTest.h; sourceTree = "<group>"; };
+		F7692E1217CA354D004998B9 /* ERNStoreResourceObjectActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNStoreResourceObjectActionTest.m; sourceTree = "<group>"; };
+		F7692E1417CA3558004998B9 /* ERNDualObjectActionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNDualObjectActionTest.h; sourceTree = "<group>"; };
+		F7692E1517CA3558004998B9 /* ERNDualObjectActionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNDualObjectActionTest.m; sourceTree = "<group>"; };
 		F76D4151178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERNItemsToAsyncPaginatedItemsRepositoryTest.h; sourceTree = "<group>"; };
 		F76D4152178AB1290071D8DE /* ERNItemsToAsyncPaginatedItemsRepositoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERNItemsToAsyncPaginatedItemsRepositoryTest.m; sourceTree = "<group>"; };
 		F76D415C178B3A8F0071D8DE /* ERNRepositoryPaginatorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ERNRepositoryPaginatorTest.h; path = RepositoryFactories/ERNRepositoryPaginatorTest.h; sourceTree = "<group>"; };
@@ -1570,6 +1576,10 @@
 				F7AD8B85173AC4C30046E153 /* ERNActionObjectActionTest.m */,
 				F73292841775B3E7005EEBA8 /* ERNNullObjectActionTest.h */,
 				F73292851775B3E7005EEBA8 /* ERNNullObjectActionTest.m */,
+				F7692E1117CA354D004998B9 /* ERNStoreResourceObjectActionTest.h */,
+				F7692E1217CA354D004998B9 /* ERNStoreResourceObjectActionTest.m */,
+				F7692E1417CA3558004998B9 /* ERNDualObjectActionTest.h */,
+				F7692E1517CA3558004998B9 /* ERNDualObjectActionTest.m */,
 			);
 			path = ObjectActions;
 			sourceTree = "<group>";
@@ -2311,6 +2321,7 @@
 				F7CAD267178237B5003660F9 /* ERNCachedRepositoryFactoryTest.m in Sources */,
 				F7E8355A17C6989000F1C2AD /* UIViewController+ERNHelperTest.m in Sources */,
 				F7AD8B8E173AD2BF0046E153 /* ERNActionTogglerActionTest.m in Sources */,
+				F7692E1317CA354D004998B9 /* ERNStoreResourceObjectActionTest.m in Sources */,
 				F76D416C178B40F10071D8DE /* ERNMutableDictionaryWithDefaultTest.m in Sources */,
 				F7AD8B91173AE1B60046E153 /* ERNDualActionTest.m in Sources */,
 				F7FDCE58178AAB0100268F35 /* ERNDefaultAsyncPaginatedItemsRepositoryTest.m in Sources */,
@@ -2334,6 +2345,7 @@
 				F74388B1173B9ACE00676477 /* ERNConverterAsyncRepositoryTest.m in Sources */,
 				F71C3CB117C34CBF0030E909 /* ERNMapViewMicroControllerTest.m in Sources */,
 				F76D4166178B3E940071D8DE /* ERNDefaultRepositoryPaginatorTest.m in Sources */,
+				F7692E1617CA3558004998B9 /* ERNDualObjectActionTest.m in Sources */,
 				F74AB940177F70FD00D2A4E1 /* ERNNullAsyncItemsRepositoryTest.m in Sources */,
 				F74388BB173BA7F800676477 /* ERNItemToPaginatedItemsRepositoryTest.m in Sources */,
 				F74388C1173BB89700676477 /* ERNNullAsyncItemRepositoryTest.m in Sources */,

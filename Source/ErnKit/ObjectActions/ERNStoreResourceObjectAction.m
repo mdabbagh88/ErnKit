@@ -36,7 +36,7 @@
 #pragma mark - private
 
 -(void)storeResource:(ERNResource *)resource
-                       object:(id<NSObject>)object
+              object:(id<NSObject>)object
 {
     [[self repositoryStore] storeUrl:[resource url]
                              forItem:object];
