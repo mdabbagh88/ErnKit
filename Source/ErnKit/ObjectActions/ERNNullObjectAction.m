@@ -1,8 +1,8 @@
-#import "ERNNullActionHandler.h"
+#import "ERNNullObjectAction.h"
 
-static ERNNullActionHandler *immutableSingleton;
+static ERNNullObjectAction *immutableSingleton;
 
-@implementation ERNNullActionHandler {
+@implementation ERNNullObjectAction {
 }
 
 #pragma mark - public - constructors
@@ -12,7 +12,7 @@ static ERNNullActionHandler *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNActionHandler
+#pragma mark - ERNObjectAction
 
 -(void)actionForObject:(id<NSObject>) __unused object
 {

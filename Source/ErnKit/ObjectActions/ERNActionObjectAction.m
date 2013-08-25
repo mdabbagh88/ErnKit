@@ -1,17 +1,16 @@
-#import "ERNDefaultActionHandler.h"
+#import "ERNActionObjectAction.h"
 #import "ERNResourceFactory.h"
 #import "ERNNullResourceFactory.h"
 #import "ERNAction.h"
 #import "ERNErrorHandler.h"
 #import "ERNRepositoryStore.h"
 
-@interface ERNDefaultActionHandler ()
+@interface ERNActionObjectAction ()
 @property (nonatomic, readonly) id<ERNAction> action;
 @property (nonatomic, readonly) id<ERNResourceFactory> resourceFactory;
-@property (nonatomic, readonly) id<ERNRepositoryStore> repositoryStore;
 @end
 
-@implementation ERNDefaultActionHandler {
+@implementation ERNActionObjectAction {
     id<ERNResourceFactory> _resourceFactory;
 }
 
@@ -19,33 +18,21 @@
 
 +(instancetype)createWithAction:(id<ERNAction>)action
                 resourceFactory:(id<ERNResourceFactory>)resourceFactory
-                repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
     return [[self alloc] initWithAction:action
-                        resourceFactory:resourceFactory
-                        repositoryStore:repositoryStore];
+                        resourceFactory:resourceFactory];
 }
 
-#pragma mark - ERNActionHandler
+#pragma mark - ERNObjectAction
 
 -(void)actionForObject:(id<NSObject>)object
 {
     ERNCheckNilNoReturn(object);
     ERNCheckNilNoReturn([self action]);
-    [[self action] actionForResource:
-     [self storeResource:[self resourceForObject:object]
-                  object:object]];
+    [[self action] actionForResource:[self resourceForObject:object]];
 }
 
 #pragma mark - private
-
--(ERNResource *)storeResource:(ERNResource *)resource
-                       object:(id<NSObject>)object
-{
-    [[self repositoryStore] storeUrl:[resource url]
-                             forItem:object];
-    return resource;
-}
 
 -(ERNResource *)resourceForObject:(id<NSObject>)object
 {
@@ -63,12 +50,10 @@
 
 -(id)initWithAction:(id<ERNAction>)action
     resourceFactory:(id<ERNResourceFactory>)resourceFactory
-    repositoryStore:(id<ERNRepositoryStore>)repositoryStore
 {
     self = [super init];
     ERNCheckNil(self);
     _action = action;
-    _repositoryStore = repositoryStore;
     _resourceFactory = resourceFactory;
     return self;
 }

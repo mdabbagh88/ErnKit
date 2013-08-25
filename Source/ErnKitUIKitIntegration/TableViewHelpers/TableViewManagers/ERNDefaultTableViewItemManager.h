@@ -2,9 +2,9 @@
 #import "ERNTableViewItemManager.h"
 
 @protocol ERNTableViewCellFactory;
-@protocol ERNActionHandler;
+@protocol ERNObjectAction;
 
 @interface ERNDefaultTableViewItemManager : NSObject <ERNTableViewItemManager>
 +(instancetype)createWithCellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                       actionHandler:(id<ERNActionHandler>)actionHandler;
+                        objectAction:(id<ERNObjectAction>)objectAction;
 @end

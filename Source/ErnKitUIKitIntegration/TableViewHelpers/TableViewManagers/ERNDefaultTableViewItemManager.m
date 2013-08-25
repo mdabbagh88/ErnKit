@@ -1,12 +1,12 @@
 #import "ERNDefaultTableViewItemManager.h"
 #import "ERNErrorHandler.h"
-#import "ERNActionHandler.h"
+#import "ERNObjectAction.h"
 #import "ERNTableViewCellFactory.h"
 #import "ERNNullTableViewCellFactory.h"
 #import "ERNNullTableViewCell.h"
 
 @interface ERNDefaultTableViewItemManager ()
-@property (nonatomic, readonly) id<ERNActionHandler> actionHandler;
+@property (nonatomic, readonly) id<ERNObjectAction> objectAction;
 @property (nonatomic, readonly) id<ERNTableViewCellFactory> cellFactory;
 @end
 
@@ -17,10 +17,10 @@
 #pragma mark - public - constructors
 
 +(instancetype)createWithCellFactory:(id<ERNTableViewCellFactory>)cellFactory
-                       actionHandler:(id<ERNActionHandler>)actionHandler
+                        objectAction:(id<ERNObjectAction>)objectAction
 {
     return [[self alloc] initWithCellFactory:cellFactory
-                               actionHandler:actionHandler];
+                                objectAction:objectAction];
 }
 
 #pragma mark - ERNTableViewItemManager
@@ -28,7 +28,7 @@
 -(void)actionForObject:(id<NSObject>)object
 {
     ERNCheckNilNoReturn(object);
-    [[self actionHandler] actionForObject:object];
+    [[self objectAction] actionForObject:object];
 }
 
 -(UITableViewCell *)cellWithCellReuser:(UITableViewCell *(^)(NSString *identifier))block
@@ -59,12 +59,12 @@
 #pragma mark - private - initializers
 
 -(id)initWithCellFactory:(id<ERNTableViewCellFactory>)cellFactory
-           actionHandler:(id<ERNActionHandler>)actionHandler
+            objectAction:(id<ERNObjectAction>)objectAction
 {
     self = [super init];
     ERNCheckNil(self);
     _cellFactory = cellFactory;
-    _actionHandler = actionHandler;
+    _objectAction = objectAction;
     return self;
 }
 

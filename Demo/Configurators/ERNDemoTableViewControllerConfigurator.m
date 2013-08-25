@@ -35,7 +35,7 @@
 
     ERNDefaultTableViewItemManager *itemManager =
     [ERNDefaultTableViewItemManager createWithCellFactory:[ERNDefaultTableViewCellFactory create]
-                                            actionHandler:[ERNNullActionHandler create]];
+                                            objectAction:[ERNNullObjectAction create]];
     ERNAsyncItemsRepositoryTableViewManager *tableViewManager =
     [ERNAsyncItemsRepositoryTableViewManager createWithRepository:[self repository]
                                                       itemManager:itemManager];

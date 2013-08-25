@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
 
-@protocol ERNActionHandler <NSObject>
+@protocol ERNObjectAction <NSObject>
 -(void)actionForObject:(id<NSObject>)object;
 @end

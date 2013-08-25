@@ -1,10 +1,10 @@
 #import "ERNMapViewDelegate.h"
-#import "ERNActionHandler.h"
+#import "ERNObjectAction.h"
 #import "ERNMapViewAnnotationViewFactory.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNMapViewDelegate ()
-@property (nonatomic, readonly) id<ERNActionHandler> actionHandler;
+@property (nonatomic, readonly) id<ERNObjectAction> objectAction;
 @property (nonatomic, readonly) id<ERNMapViewAnnotationViewFactory> viewFactory;
 @end
 
@@ -13,10 +13,10 @@
 
 #pragma mark - public - constructors
 
-+(instancetype)createWithActionHandler:(id<ERNActionHandler>)actionHandler
-                           viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
++(instancetype)createWithObjectAction:(id<ERNObjectAction>)objectAction
+                          viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
-    return [[self alloc] initWithActionHandler:actionHandler
+    return [[self alloc] initWithActionHandler:objectAction
                                    viewFactory:viewFactory];
 }
 
@@ -45,17 +45,17 @@ didSelectAnnotationView:(MKAnnotationView *)view
 -(void)didSelectAnnotation:(id<MKAnnotation>)annotation
 {
     ERNCheckNilNoReturn(annotation);
-    [[self actionHandler] actionForObject:annotation];
+    [[self objectAction] actionForObject:annotation];
 }
 
 #pragma mark - private - initializers
 
--(id)initWithActionHandler:(id<ERNActionHandler>)actionHandler
+-(id)initWithActionHandler:(id<ERNObjectAction>)objectAction
                viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory
 {
     self = [super init];
     ERNCheckNil(self);
-    _actionHandler = actionHandler;
+    _objectAction = objectAction;
     _viewFactory = viewFactory;
     return self;
 }

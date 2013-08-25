@@ -1,4 +1,4 @@
-#import "ERNActionHandlerTest.h"
+#import "ERNObjectActionTest.h"
 #import "ERNActionTest.h"
 #import "ERNAsyncRepositoryTest.h"
 #import "ERNAsyncItemRepositoryTest.h"

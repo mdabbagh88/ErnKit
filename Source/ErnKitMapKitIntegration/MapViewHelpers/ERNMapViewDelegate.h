@@ -1,9 +1,9 @@
 #import <MapKit/MapKit.h>
 
-@protocol ERNActionHandler;
+@protocol ERNObjectAction;
 @protocol ERNMapViewAnnotationViewFactory;
 
 @interface ERNMapViewDelegate : NSObject <MKMapViewDelegate>
-+(instancetype)createWithActionHandler:(id<ERNActionHandler>)actionHandler
++(instancetype)createWithObjectAction:(id<ERNObjectAction>)objectAction
                            viewFactory:(id<ERNMapViewAnnotationViewFactory>)viewFactory;
 @end

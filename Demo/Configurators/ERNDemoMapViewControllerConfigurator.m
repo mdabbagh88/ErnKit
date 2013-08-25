@@ -45,7 +45,7 @@
 
     ERNMapViewMicroController *mapViewMicroController =
     [ERNMapViewMicroController createWithMapViewDelegate:
-     [ERNMapViewDelegate createWithActionHandler:[ERNNullActionHandler create]
+     [ERNMapViewDelegate createWithObjectAction:[ERNNullObjectAction create]
                                      viewFactory:[ERNDemoTweetMapViewAnnotationViewFactory create]]
                                                superView:[viewController view]];
 

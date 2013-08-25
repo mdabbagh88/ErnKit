@@ -6,7 +6,7 @@
 #import "ERNTableViewItemManagerTest.h"
 #import "ERNDefaultTableViewItemManager.h"
 #import "ERNNullTableViewCellFactory.h"
-#import "ERNNullActionHandler.h"
+#import "ERNNullObjectAction.h"
 
 @implementation ERNDefaultTableViewItemManagerTest {
 }
@@ -17,28 +17,28 @@
 {
     [ERNTableViewItemManagerTest testTableViewItemManager:
      [ERNDefaultTableViewItemManager createWithCellFactory:nil
-                                             actionHandler:nil]];
+                                             objectAction:nil]];
 }
 
 -(void)testTableViewItemManagerProtocolNilCellFactoryActionHandler
 {
     [ERNTableViewItemManagerTest testTableViewItemManager:
      [ERNDefaultTableViewItemManager createWithCellFactory:nil
-                                             actionHandler:[ERNNullActionHandler create]]];
+                                             objectAction:[ERNNullObjectAction create]]];
 }
 
 -(void)testTableViewItemManagerProtocolCellFactoryNilActionHandler
 {
     [ERNTableViewItemManagerTest testTableViewItemManager:
      [ERNDefaultTableViewItemManager createWithCellFactory:[ERNNullTableViewCellFactory create]
-                                             actionHandler:nil]];
+                                             objectAction:nil]];
 }
 
 -(void)testTableViewItemManagerProtocolCellFactoryActionHandler
 {
     [ERNTableViewItemManagerTest testTableViewItemManager:
      [ERNDefaultTableViewItemManager createWithCellFactory:[ERNNullTableViewCellFactory create]
-                                             actionHandler:[ERNNullActionHandler create]]];
+                                             objectAction:[ERNNullObjectAction create]]];
 }
 
 @end
