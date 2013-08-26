@@ -3,7 +3,7 @@
 #import "ERNErrorHandler.h"
 
 @interface ERNModalViewControllerTransitioner ()
-@property (nonatomic, readonly) UIViewController *sourceViewController;
+@property (nonatomic, readonly, weak) UIViewController *sourceViewController;
 @end
 
 @implementation ERNModalViewControllerTransitioner {
@@ -29,9 +29,10 @@
 -(void)transitionToViewController:(UIViewController *)destinationViewController
 {
     ERNCheckNilNoReturn(destinationViewController);
-    [[self sourceViewController] presentViewController:destinationViewController
-                                              animated:YES
-                                            completion:nil];
+    UIViewController *sourceViewController = [self sourceViewController];
+    [sourceViewController presentViewController:destinationViewController
+                                       animated:YES
+                                     completion:nil];
 }
 
 #pragma mark - private - initializers

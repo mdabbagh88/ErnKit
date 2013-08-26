@@ -3,7 +3,7 @@
 #import "ERNErrorHandler.h"
 
 @interface ERNNavigationViewControllerTransitioner ()
-@property (nonatomic, readonly) UINavigationController *navigationController;
+@property (nonatomic, readonly, weak) UINavigationController *navigationController;
 @end
 
 @implementation ERNNavigationViewControllerTransitioner {
@@ -20,7 +20,8 @@
 
 -(void)dismissViewController:(UIViewController *)__unused viewController
 {
-    [[self navigationController] popViewControllerAnimated:YES];
+    UINavigationController *navigationController = [self navigationController];
+    [navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - ERNViewControllerTransitioner
@@ -28,8 +29,9 @@
 -(void)transitionToViewController:(UIViewController *)destinationViewController
 {
     ERNCheckNilNoReturn(destinationViewController);
-    [[self navigationController] pushViewController:destinationViewController
-                                           animated:YES];
+    UINavigationController *navigationController = [self navigationController];
+    [navigationController pushViewController:destinationViewController
+                                    animated:YES];
 }
 
 #pragma mark - private - initializers
