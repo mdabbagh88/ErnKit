@@ -29,9 +29,9 @@ end
 
 desc "Coverage"
 task :coverage => [:test] do
-    sh "lcov -c -d #{OBJECT_FOLDER} -o #{COVERAGE_FILE}"
-    sh "lcov --remove #{COVERAGE_FILE} \"/Applications*\" -o #{COVERAGE_FILE}"
-    sh "genhtml #{COVERAGE_FILE} -o #{COVERAGE_FOLDER}"
+    sh "lcov -c -d #{OBJECT_FOLDER} -o #{COVERAGE_FILE} --rc lcov_branch_coverage=1"
+    sh "lcov --remove #{COVERAGE_FILE} \"/Applications*\" -o #{COVERAGE_FILE} --rc lcov_branch_coverage=1"
+    sh "genhtml #{COVERAGE_FILE} -o #{COVERAGE_FOLDER} --rc lcov_branch_coverage=1"
 end
 
 STUBSERVER_TMP_FOLDER = 'tmp'
