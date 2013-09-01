@@ -3,6 +3,6 @@
 @class UIActionSheet;
 @class ERNResource;
 
-@protocol ERNActionSheetConfigurator <NSObject>
+@protocol ERNActionSheetFactory <NSObject>
 -(UIActionSheet *)createActionSheetForResource:(ERNResource *)resource;
 @end

@@ -1,4 +1,4 @@
-#import "ERNRefreshableListConfigurator.h"
+#import "ERNRefreshableListFactory.h"
 #import "ERNRepositoryFactory.h"
 #import "ERNAsyncPaginatedItemsRepository.h"
 #import "ERNViewController.h"
@@ -13,13 +13,13 @@
 #import "UIViewController+ERNHelper.h"
 #import "ERNErrorHandler.h"
 
-@interface ERNRefreshableListConfigurator ()
+@interface ERNRefreshableListFactory ()
 @property (nonatomic, readonly) id<ERNRepositoryFactory> repositoryFactory;
 @property (nonatomic, readonly) id<ERNTableViewItemManager> itemManager;
 @property (nonatomic, readonly) NSString *title;
 @end
 
-@implementation ERNRefreshableListConfigurator {
+@implementation ERNRefreshableListFactory {
 }
 
 #pragma mark - public - constructors
@@ -33,7 +33,7 @@
                                        title:title];
 }
 
-#pragma mark - ERNViewControllerConfigurator
+#pragma mark - ERNViewControllerFactory
 
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>) __unused dismisser

@@ -1,11 +1,11 @@
 #import <UIKit/UIKit.h>
 #import "ERNDefaultAsyncPaginatedItemsRepository+ERNDemoTwitter.h"
-#import "ERNDemoApplicationConfigurator.h"
-#import "ERNDemoMapViewControllerConfigurator.h"
-#import "ERNDemoTableViewControllerConfigurator.h"
+#import "ERNDemoApplicationFactory.h"
+#import "ERNDemoMapViewControllerFactory.h"
+#import "ERNDemoTableViewControllerFactory.h"
 #import "ERNResource.h"
 
-@implementation ERNDemoApplicationConfigurator {
+@implementation ERNDemoApplicationFactory {
     id<ERNAsyncPaginatedItemsRepository> _repositorySecondFeed;
 }
 
@@ -16,7 +16,7 @@
     return [self new];
 }
 
-#pragma mark - ERNViewControllerConfigurator
+#pragma mark - ERNViewControllerFactory
 
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser
@@ -45,8 +45,8 @@
     ERNTogglingAsyncPaginatedItemsRepository *repository =
     [ERNTogglingAsyncPaginatedItemsRepository createWithRepositories:repositories];
 
-    id<ERNViewControllerConfigurator> tableConfigurator =
-    [ERNDemoTableViewControllerConfigurator createWithRepository:repository
+    id<ERNViewControllerFactory> tableFactory =
+    [ERNDemoTableViewControllerFactory createWithRepository:repository
                                                          toggler:repository];
 
     id<ERNViewControllerTransitioner> navigationTransitionerTableTab =
@@ -55,10 +55,10 @@
 
     id<ERNAction> tableAction =
     [ERNViewControllerAction createWithTransitioner:navigationTransitionerTableTab
-                                       configurator:tableConfigurator];
+                                       factory:tableFactory];
 
-    id<ERNViewControllerConfigurator> mapConfigurator =
-    [ERNDemoMapViewControllerConfigurator createWithRepository:repository
+    id<ERNViewControllerFactory> mapFactory =
+    [ERNDemoMapViewControllerFactory createWithRepository:repository
                                                        toggler:repository];
 
     id<ERNViewControllerTransitioner> navigationTransitionerMapTab =
@@ -66,7 +66,7 @@
 
     id<ERNAction> mapAction =
     [ERNViewControllerAction createWithTransitioner:navigationTransitionerMapTab
-                                       configurator:mapConfigurator];
+                                       factory:mapFactory];
 
     [mapAction actionForResource:resource];
     [tableAction actionForResource:resource];

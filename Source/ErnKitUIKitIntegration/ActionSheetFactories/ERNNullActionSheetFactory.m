@@ -1,9 +1,9 @@
-#import "ERNNullActionSheetConfigurator.h"
+#import "ERNNullActionSheetFactory.h"
 #import <UIKit/UIKit.h>
 
-static ERNNullActionSheetConfigurator *immutableSingleton;
+static ERNNullActionSheetFactory *immutableSingleton;
 
-@implementation ERNNullActionSheetConfigurator {
+@implementation ERNNullActionSheetFactory {
 }
 
 #pragma mark - public - constructors
@@ -13,7 +13,7 @@ static ERNNullActionSheetConfigurator *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNActionSheetConfigurator
+#pragma mark - ERNActionSheetFactory
 
 -(UIActionSheet *)createActionSheetForResource:(ERNResource *) __unused resource
 {

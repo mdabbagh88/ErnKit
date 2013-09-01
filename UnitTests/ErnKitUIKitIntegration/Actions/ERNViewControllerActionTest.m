@@ -5,7 +5,7 @@
 #import "ERNViewControllerActionTest.h"
 #import "ERNViewControllerAction.h"
 #import "ERNViewControllerTransitioner.h"
-#import "ERNViewControllerConfigurator.h"
+#import "ERNViewControllerFactory.h"
 #import "ERNActionTest.h"
 
 @implementation ERNViewControllerActionTest {
@@ -13,41 +13,41 @@
 
 #pragma mark - ERNAction protocol tests
 
--(void)testActionProtocolWithNilTransitionerNilConfigurator
+-(void)testActionProtocolWithNilTransitionerNilFactory
 {
     [ERNActionTest testAction:[ERNViewControllerAction createWithTransitioner:nil
-                                                                 configurator:nil]];
+                                                                 factory:nil]];
 }
 
--(void)testActionProtocolWithTransitionerNilConfigurator
+-(void)testActionProtocolWithTransitionerNilFactory
 {
     id mockTransitioner =
     [OCMockObject niceMockForProtocol:@protocol(ERNViewControllerTransitioner)];
     [ERNActionTest testAction:[ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                              configurator:nil]];
+                                                              factory:nil]];
 }
 
--(void)testActionProtocolWithNilTransitionerConfigurator
+-(void)testActionProtocolWithNilTransitionerFactory
 {
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNViewControllerFactory)];
     [ERNActionTest testAction:[ERNViewControllerAction createWithTransitioner:nil
-                                                                 configurator:mockConfigurator]];
+                                                                 factory:mockFactory]];
 }
 
--(void)testActionProtocolWithTransitionerConfigurator
+-(void)testActionProtocolWithTransitionerFactory
 {
     //given
     id mockTransitioner =
     [OCMockObject niceMockForProtocol:@protocol(ERNViewControllerTransitioner)];
-    id mockConfigurator =
-    [OCMockObject niceMockForProtocol:@protocol(ERNViewControllerConfigurator)];
+    id mockFactory =
+    [OCMockObject niceMockForProtocol:@protocol(ERNViewControllerFactory)];
     [ERNActionTest testAction:[ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                                 configurator:mockConfigurator]];
+                                                                 factory:mockFactory]];
 }
 
 #pragma mark - class tests
 
--(void)testActionTransitionerConfiguratorResource
+-(void)testActionTransitionerFactoryResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
@@ -56,19 +56,19 @@
                                                   mime:expectedMime];
     id mockViewController = [OCMockObject mockForClass:[UIViewController class]];
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNViewControllerTransitioner)];
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNViewControllerConfigurator)];
-    [[[mockConfigurator expect] andReturn:mockViewController]
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNViewControllerFactory)];
+    [[[mockFactory expect] andReturn:mockViewController]
      createViewControllerForResource:resource
      dismisser:mockTransitioner];
     [[mockTransitioner expect] transitionToViewController:mockViewController];
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:mockTransitioner
-                                                           configurator:mockConfigurator];
+                                                           factory:mockFactory];
 
     //when, then
     [action actionForResource:resource];
 
     //then
-    [mockConfigurator verify];
+    [mockFactory verify];
     [mockTransitioner verify];
 }
 

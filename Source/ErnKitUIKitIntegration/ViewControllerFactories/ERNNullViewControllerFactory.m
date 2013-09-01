@@ -1,9 +1,9 @@
-#import "ERNNullViewControllerConfigurator.h"
+#import "ERNNullViewControllerFactory.h"
 #import <UIKit/UIKit.h>
 
-static ERNNullViewControllerConfigurator *immutableSingleton;
+static ERNNullViewControllerFactory *immutableSingleton;
 
-@implementation ERNNullViewControllerConfigurator {
+@implementation ERNNullViewControllerFactory {
 }
 
 #pragma mark - public - constructors
@@ -13,7 +13,7 @@ static ERNNullViewControllerConfigurator *immutableSingleton;
     return immutableSingleton;
 }
 
-#pragma mark - ERNViewControllerConfigurator
+#pragma mark - ERNViewControllerFactory
 
 -(UIViewController *)createViewControllerForResource:(ERNResource *) __unused resource
                                            dismisser:(id<ERNViewControllerDismisser>)__unused dismisser

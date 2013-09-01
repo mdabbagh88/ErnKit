@@ -4,7 +4,7 @@
 @class ERNResource;
 @protocol ERNViewControllerDismisser;
 
-@protocol ERNViewControllerConfigurator <NSObject>
+@protocol ERNViewControllerFactory <NSObject>
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser;
 @end

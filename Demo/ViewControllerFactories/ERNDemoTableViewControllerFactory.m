@@ -1,11 +1,11 @@
-#import "ERNDemoTableViewControllerConfigurator.h"
+#import "ERNDemoTableViewControllerFactory.h"
 
-@interface ERNDemoTableViewControllerConfigurator ()
+@interface ERNDemoTableViewControllerFactory ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNToggler> toggler;
 @end
 
-@implementation ERNDemoTableViewControllerConfigurator {
+@implementation ERNDemoTableViewControllerFactory {
 }
 
 #pragma mark - public - constructors
@@ -17,7 +17,7 @@
                                     toggler:toggler];
 }
 
-#pragma mark - ERNViewControllerConfigurator
+#pragma mark - ERNViewControllerFactory
 
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser

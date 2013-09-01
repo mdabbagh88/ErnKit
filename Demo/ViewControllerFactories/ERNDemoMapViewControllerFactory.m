@@ -5,17 +5,17 @@
 #import <ErnKit/UIViewController+ERNHelper.h>
 #import <ErnKit/ERNErrorHandler.h>
 #import <ErnKit/ERNAsyncPaginatedItemsRepository.h>
-#import "ERNDemoMapViewControllerConfigurator.h"
+#import "ERNDemoMapViewControllerFactory.h"
 #import "ERNDemoTweetMapViewAnnotationViewFactory.h"
 #import "ERNHideNavigationBarOnUncaughtTapController.h"
 #import "UIViewController+ERNHelper.h"
 
-@interface ERNDemoMapViewControllerConfigurator ()
+@interface ERNDemoMapViewControllerFactory ()
 @property (nonatomic, readonly) id<ERNAsyncPaginatedItemsRepository> repository;
 @property (nonatomic, readonly) id<ERNToggler> toggler;
 @end
 
-@implementation ERNDemoMapViewControllerConfigurator {
+@implementation ERNDemoMapViewControllerFactory {
 }
 
 #pragma mark - public - constructors
@@ -27,7 +27,7 @@
                                     toggler:toggler];
 }
 
-#pragma mark - ERNViewControllerConfigurator
+#pragma mark - ERNViewControllerFactory
 
 -(UIViewController *)createViewControllerForResource:(ERNResource *)resource
                                            dismisser:(id<ERNViewControllerDismisser>)dismisser

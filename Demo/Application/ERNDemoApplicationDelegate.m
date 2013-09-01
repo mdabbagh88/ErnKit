@@ -1,7 +1,7 @@
 #import <ErnKit/ErnKit.h>
 #import <ErnKit/UIKitIntegration.h>
 #import "ERNDemoApplicationDelegate.h"
-#import "ERNDemoApplicationConfigurator.h"
+#import "ERNDemoApplicationFactory.h"
 
 @implementation ERNDemoApplicationDelegate {
 }
@@ -19,13 +19,13 @@
     id<ERNViewControllerTransitioner> transitioner =
     [ERNWindowViewControllerTransitioner createWithWindow:window];
 
-    // Create the app configurator
-    id<ERNViewControllerConfigurator> configurator =
-    [ERNDemoApplicationConfigurator create];
+    // Create the app factory
+    id<ERNViewControllerFactory> factory =
+    [ERNDemoApplicationFactory create];
 
-    // Create the first action, with the transitioner and configurator
+    // Create the first action, with the transitioner and factory
     id<ERNAction> action = [ERNViewControllerAction createWithTransitioner:transitioner
-                                                              configurator:configurator];
+                                                              factory:factory];
 
     // Run the application action, creating the app root view controller, pushing it to the window
     [action actionForResource:[ERNResource createWithUrl:[NSURL ERN_createNull]

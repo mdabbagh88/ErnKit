@@ -2,82 +2,82 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import <ErnKit/ErnKitUIKitIntegrationProtocolTest.h>
-#import "ERNRefreshableListConfiguratorTest.h"
-#import "ERNRefreshableListConfigurator.h"
+#import "ERNRefreshableListFactoryTest.h"
+#import "ERNRefreshableListFactory.h"
 
-@implementation ERNRefreshableListConfiguratorTest {
+@implementation ERNRefreshableListFactoryTest {
 }
 
-#pragma mark - ERNViewControllerConfigurator protocol tests
+#pragma mark - ERNViewControllerFactory protocol tests
 
--(void)testViewControllerConfiguratorProtocolWithNilActionHandlerNilRepositoryFactoryNilTitle
+-(void)testViewControllerFactoryProtocolWithNilActionHandlerNilRepositoryFactoryNilTitle
 {
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:nil
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:nil
                                          repositoryFactory:nil
                                                      title:nil]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithNilActionHandlerRepositoryFactoryNilTitle
+-(void)testViewControllerFactoryProtocolWithNilActionHandlerRepositoryFactoryNilTitle
 {
     id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:nil
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:nil
                                          repositoryFactory:mockRepositoryFactory
                                                      title:nil]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithActionHandlerNilRepositoryFactoryNilTitle
+-(void)testViewControllerFactoryProtocolWithActionHandlerNilRepositoryFactoryNilTitle
 {
     id mockItemManager = [OCMockObject mockForProtocol:@protocol(ERNTableViewItemManager)];
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:mockItemManager
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:mockItemManager
                                          repositoryFactory:nil
                                                      title:nil]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithActionHandlerRepositoryFactoryNilTitle
+-(void)testViewControllerFactoryProtocolWithActionHandlerRepositoryFactoryNilTitle
 {
     id mockItemManager = [OCMockObject mockForProtocol:@protocol(ERNTableViewItemManager)];
     id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:mockItemManager
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:mockItemManager
                                          repositoryFactory:mockRepositoryFactory
                                                      title:nil]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithNilActionHandlerNilRepositoryFactoryTitle
+-(void)testViewControllerFactoryProtocolWithNilActionHandlerNilRepositoryFactoryTitle
 {
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:nil
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:nil
                                          repositoryFactory:nil
                                                      title:@"title"]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithNilActionHandlerRepositoryFactoryTitle
+-(void)testViewControllerFactoryProtocolWithNilActionHandlerRepositoryFactoryTitle
 {
     id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:nil
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:nil
                                          repositoryFactory:mockRepositoryFactory
                                                      title:@"title"]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithActionHandlerNilRepositoryFactoryTitle
+-(void)testViewControllerFactoryProtocolWithActionHandlerNilRepositoryFactoryTitle
 {
     id mockItemManager = [OCMockObject mockForProtocol:@protocol(ERNTableViewItemManager)];
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:mockItemManager
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:mockItemManager
                                          repositoryFactory:nil
                                                      title:@"title"]];
 }
 
--(void)testViewControllerConfiguratorProtocolWithActionHandlerRepositoryFactoryTitle
+-(void)testViewControllerFactoryProtocolWithActionHandlerRepositoryFactoryTitle
 {
     id mockItemManager = [OCMockObject mockForProtocol:@protocol(ERNTableViewItemManager)];
     id mockRepositoryFactory = [OCMockObject niceMockForProtocol:@protocol(ERNRepositoryFactory)];
-    [ERNViewControllerConfiguratorTest testViewControllerConfigurator:
-     [ERNRefreshableListConfigurator createWithItemManager:mockItemManager
+    [ERNViewControllerFactoryTest testViewControllerFactory:
+     [ERNRefreshableListFactory createWithItemManager:mockItemManager
                                          repositoryFactory:mockRepositoryFactory
                                                      title:@"title"]];
 }

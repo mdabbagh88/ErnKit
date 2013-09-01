@@ -2,61 +2,61 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
-#import "ERNViewControllerConfiguratorTest.h"
+#import "ERNViewControllerFactoryTest.h"
 #import "ERNNullResource.h"
 
-@implementation ERNViewControllerConfiguratorTest {
+@implementation ERNViewControllerFactoryTest {
 }
 
-#pragma mark - ERNViewControllerConfigurator protocol test
+#pragma mark - ERNViewControllerFactory protocol test
 
-+(void)testViewControllerConfigurator:(id<ERNViewControllerConfigurator>)viewControllerConfigurator
++(void)testViewControllerFactory:(id<ERNViewControllerFactory>)viewControllerFactory
 {
-    [self testCreateViewControllerForNilResourceNilDismisser:viewControllerConfigurator];
-    [self testCreateViewControllerForNilResourceDismisser:viewControllerConfigurator];
-    [self testCreateViewControllerForResourceNilDismisser:viewControllerConfigurator];
-    [self testCreateViewControllerForResourceDismisser:viewControllerConfigurator];
+    [self testCreateViewControllerForNilResourceNilDismisser:viewControllerFactory];
+    [self testCreateViewControllerForNilResourceDismisser:viewControllerFactory];
+    [self testCreateViewControllerForResourceNilDismisser:viewControllerFactory];
+    [self testCreateViewControllerForResourceDismisser:viewControllerFactory];
 }
 
 +(void)testCreateViewControllerForNilResourceNilDismisser:
-(id<ERNViewControllerConfigurator>)viewControllerConfigurator
+(id<ERNViewControllerFactory>)viewControllerFactory
 {
     UIViewController *viewController =
-    [viewControllerConfigurator createViewControllerForResource:nil
+    [viewControllerFactory createViewControllerForResource:nil
                                                       dismisser:nil];
     assertThat(viewController, notNilValue());
 }
 
 +(void)testCreateViewControllerForNilResourceDismisser:
-(id<ERNViewControllerConfigurator>)viewControllerConfigurator
+(id<ERNViewControllerFactory>)viewControllerFactory
 {
     id<ERNViewControllerDismisser> mockDismisser =
     [OCMockObject mockForProtocol:@protocol(ERNViewControllerDismisser)];
     UIViewController *viewController =
-    [viewControllerConfigurator createViewControllerForResource:nil
+    [viewControllerFactory createViewControllerForResource:nil
                                                       dismisser:mockDismisser];
     assertThat(viewController, notNilValue());
 }
 
 +(void)testCreateViewControllerForResourceNilDismisser:
-(id<ERNViewControllerConfigurator>)viewControllerConfigurator
+(id<ERNViewControllerFactory>)viewControllerFactory
 {
     ERNResource *resource = [ERNNullResource create];
     UIViewController *viewController =
-    [viewControllerConfigurator createViewControllerForResource:resource
+    [viewControllerFactory createViewControllerForResource:resource
                                                       dismisser:nil];
     assertThat(viewController, notNilValue());
 }
 
 
 +(void)testCreateViewControllerForResourceDismisser:
-(id<ERNViewControllerConfigurator>)viewControllerConfigurator
+(id<ERNViewControllerFactory>)viewControllerFactory
 {
     ERNResource *resource = [ERNNullResource create];
     id<ERNViewControllerDismisser> mockDismisser =
     [OCMockObject mockForProtocol:@protocol(ERNViewControllerDismisser)];
     UIViewController *viewController =
-    [viewControllerConfigurator createViewControllerForResource:resource
+    [viewControllerFactory createViewControllerForResource:resource
                                                       dismisser:mockDismisser];
     assertThat(viewController, notNilValue());
 }

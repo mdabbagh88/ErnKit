@@ -4,7 +4,7 @@
 #import <UIKit/UIKit.h>
 #import "ERNActionSheetActionTest.h"
 #import "ERNActionSheetAction.h"
-#import "ERNActionSheetConfigurator.h"
+#import "ERNActionSheetFactory.h"
 #import "ERNActionSheetTransitioner.h"
 #import "ERNActionTest.h"
 
@@ -13,38 +13,38 @@
 
 #pragma mark - ERNAction protocol tests
 
--(void)testActionProtocolWithNilTransitionerNilConfigurator
+-(void)testActionProtocolWithNilTransitionerNilFactory
 {
     [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:nil
-                                                              configurator:nil]];
+                                                              factory:nil]];
 }
 
--(void)testActionProtocolWithTransitionerNilConfigurator
+-(void)testActionProtocolWithTransitionerNilFactory
 {
     id mockTransitioner = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetTransitioner)];
     [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:mockTransitioner
-                                                           configurator:nil]];
+                                                           factory:nil]];
 }
 
--(void)testActionProtocolWithNilTransitionerConfigurator
+-(void)testActionProtocolWithNilTransitionerFactory
 {
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNActionSheetFactory)];
     [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:nil
-                                                              configurator:mockConfigurator]];
+                                                              factory:mockFactory]];
 }
 
--(void)testActionProtocolWithTransitionerConfigurator
+-(void)testActionProtocolWithTransitionerFactory
 {
     //given
     id mockTransitioner = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetTransitioner)];
-    id mockConfigurator = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetConfigurator)];
+    id mockFactory = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetFactory)];
     [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:mockTransitioner
-                                                              configurator:mockConfigurator]];
+                                                              factory:mockFactory]];
 }
 
 #pragma mark - class tests
 
--(void)testActionTransitionerConfiguratorResource
+-(void)testActionTransitionerFactoryResource
 {
     //given
     NSURL *expectedUrl = [NSURL URLWithString:@"expectedUrl"];
@@ -52,18 +52,18 @@
     ERNResource *resource = [ERNResource createWithUrl:expectedUrl
                                                   mime:expectedMime];
     id mockActionSheet = [OCMockObject mockForClass:[UIActionSheet class]];
-    id mockConfigurator = [OCMockObject mockForProtocol:@protocol(ERNActionSheetConfigurator)];
-    [[[mockConfigurator expect] andReturn:mockActionSheet] createActionSheetForResource:resource];
+    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNActionSheetFactory)];
+    [[[mockFactory expect] andReturn:mockActionSheet] createActionSheetForResource:resource];
     id mockTransitioner = [OCMockObject mockForProtocol:@protocol(ERNActionSheetTransitioner)];
     [[mockTransitioner expect] transitionToActionSheet:mockActionSheet];
     id<ERNAction> action = [ERNActionSheetAction createWithTransitioner:mockTransitioner
-                                                           configurator:mockConfigurator];
+                                                           factory:mockFactory];
     
     //when, then
     [action actionForResource:resource];
     
     //then
-    [mockConfigurator verify];
+    [mockFactory verify];
     [mockTransitioner verify];
 }
 

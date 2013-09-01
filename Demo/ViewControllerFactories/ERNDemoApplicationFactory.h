@@ -2,6 +2,6 @@
 #import <ErnKit/ErnKit.h>
 #import <ErnKit/UIKitIntegration.h>
 
-@interface ERNDemoApplicationConfigurator : NSObject <ERNViewControllerConfigurator>
+@interface ERNDemoApplicationFactory : NSObject <ERNViewControllerFactory>
 +(instancetype)create;
 @end

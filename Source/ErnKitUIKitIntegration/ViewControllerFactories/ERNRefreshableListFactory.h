@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
-#import "ERNViewControllerConfigurator.h"
+#import "ERNViewControllerFactory.h"
 
 @protocol ERNTableViewItemManager;
 @protocol ERNRepositoryFactory;
 
-@interface ERNRefreshableListConfigurator : NSObject <ERNViewControllerConfigurator>
+@interface ERNRefreshableListFactory : NSObject <ERNViewControllerFactory>
 +(instancetype)createWithItemManager:(id<ERNTableViewItemManager>)itemManager
                    repositoryFactory:(id<ERNRepositoryFactory>)repositoryFactory
                                title:(NSString *)title;

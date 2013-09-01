@@ -1,5 +1,5 @@
-#import "ERNViewControllerConfiguratorTest.h"
-#import "ERNActionSheetConfiguratorTest.h"
+#import "ERNViewControllerFactoryTest.h"
+#import "ERNActionSheetFactoryTest.h"
 #import "ERNTableViewCellFactoryTest.h"
 #import "ERNTableViewManagerTest.h"
 #import "ERNTableViewItemManagerTest.h"

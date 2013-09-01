@@ -2,9 +2,9 @@
 #import "ERNAction.h"
 
 @protocol ERNActionSheetTransitioner;
-@protocol ERNActionSheetConfigurator;
+@protocol ERNActionSheetFactory;
 
 @interface ERNActionSheetAction : NSObject <ERNAction>
 +(instancetype)createWithTransitioner:(id<ERNActionSheetTransitioner>)transitioner
-                         configurator:(id<ERNActionSheetConfigurator>)configurator;
+                         factory:(id<ERNActionSheetFactory>)factory;
 @end

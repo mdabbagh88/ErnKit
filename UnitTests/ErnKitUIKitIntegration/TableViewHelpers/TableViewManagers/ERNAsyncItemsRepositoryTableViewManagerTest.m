@@ -2,6 +2,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
+#import "ERNTableViewItemManager.h"
 #import "ERNAsyncItemsRepositoryTableViewManagerTest.h"
 #import "ERNTableViewManagerTest.h"
 #import "ERNAsyncItemsRepositoryTableViewManager.h"
