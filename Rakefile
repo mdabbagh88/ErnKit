@@ -6,7 +6,8 @@ BUILD_FOLDER = 'Build'
 OBJECT_FOLDER = BUILD_FOLDER + '/' + PROJECT_NAME + '.build/Objects-normal/i386'
 COVERAGE_FILE = BUILD_FOLDER + '/coverage.info'
 COVERAGE_FOLDER = BUILD_FOLDER + '/Coverage'
-XCTOOL_COMMAND = "xctool -workspace #{WORKSPACE_NAME} -scheme #{SCHEME_NAME} -sdk #{SDK_VERSION} CONFIGURATION_TEMP_DIR='#{BUILD_FOLDER}'"
+TEST_REPORT_FILE = BUILD_FOLDER + '/junit-report.xml'
+XCTOOL_COMMAND = "xctool -workspace #{WORKSPACE_NAME} -scheme #{SCHEME_NAME} -sdk #{SDK_VERSION} -reporter junit:#{TEST_REPORT_FILE} -reporter pretty CONFIGURATION_TEMP_DIR='#{BUILD_FOLDER}'"
 
 task :default => [:clean, :test]
 
