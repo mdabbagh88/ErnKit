@@ -1,49 +1,60 @@
+PROJECT_NAME = 'ErnKit'
+WORKSPACE_NAME = PROJECT_NAME + '.xcworkspace'
+SDK_VERSION = 'iphonesimulator6.1'
+SCHEME_NAME = PROJECT_NAME
+BUILD_FOLDER = 'Build'
+OBJECT_FOLDER = BUILD_FOLDER + '/' + PROJECT_NAME + '.build/Objects-normal/i386'
+COVERAGE_FILE = BUILD_FOLDER + '/coverage.info'
+COVERAGE_FOLDER = BUILD_FOLDER + '/Coverage'
+XCTOOL_COMMAND = "xctool -workspace #{WORKSPACE_NAME} -scheme #{SCHEME_NAME} -sdk #{SDK_VERSION} CONFIGURATION_TEMP_DIR='#{BUILD_FOLDER}'"
 
-task :default => [:test]
+task :default => [:clean, :test]
 
-desc "Build libraries and demo app"
+desc "Build"
 task :build do
-    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator build"
+    sh "#{XCTOOL_COMMAND} build"
 end
 
-desc "Build libraries and run oclint"
-task :oclint do
-    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator -reporter json-compilation-database:compile_commands.json build;oclint-json-compilation-database"
-end
-
-desc "Run unit tests for libraries"
+desc "Test"
 task :test do
-    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator6.1 test CONFIGURATION_TEMP_DIR='Build'"
-end
-
-desc "Run unit tests with lcov for libraries"
-task :lcov => [:test] do
-    sh "lcov -c -d ./Build/ErnKit.build/Objects-normal/i386 -o ./Build/coverage.info"
-    sh "lcov --remove ./Build/coverage.info \"/Applications*\" -o ./Build/coverage.info"
-    sh "genhtml ./Build/coverage.info -o ./Build/Coverage"
+    sh "#{XCTOOL_COMMAND} test"
 end
 
 desc "Clean"
 task :clean do
-    sh "xctool -workspace ErnKit.xcworkspace -scheme ErnKit -sdk iphonesimulator clean"
+    sh "#{XCTOOL_COMMAND} clean"
+    FileUtils.rm_rf(BUILD_FOLDER)
 end
 
+desc "Coverage"
+task :coverage => [:test] do
+    sh "lcov -c -d #{OBJECT_FOLDER} -o #{COVERAGE_FILE}"
+    sh "lcov --remove #{COVERAGE_FILE} \"/Applications*\" -o #{COVERAGE_FILE}"
+    sh "genhtml #{COVERAGE_FILE} -o #{COVERAGE_FOLDER}"
+end
+
+STUBSERVER_TMP_FOLDER = 'tmp'
+STUBSERVER_LOG = STUBSERVER_TMP_FOLDER + '/stubServer.log'
+STUBSERVER_PORT = '3333'
+STUBSERVER_FOLDER = 'DemoServer'
+STUBSERVER_CONFIG = STUBSERVER_FOLDER + '/config.ru'
+
 namespace :server do
-    desc "Start demo server"
+    desc "Start server"
     task :start => :stop do
         puts 'Starting the demo server...'
-        system('thin start -p 3333 -a 127.0.0.1 -l tmp/stubServer.log -R DemoServer/config.ru -d')
+        system("thin start -p #{STUBSERVER_PORT} -a 127.0.0.1 -l #{STUBSERVER_LOG} -R #{STUBSERVER_CONFIG} -d")
     end
 
-    desc "Restart demo server"
+    desc "Restart server"
     task :restart do
-        exec('thin restart -R DemoServer/config.ru -d')
+        exec('thin restart -R #{STUBSERVER_CONFIG} -d')
     end
 
-    desc "Stop demo server"
+    desc "Stop server"
     task :stop do
         begin
-            puts 'Stopping the demo server...'
+            puts 'Stopping the server...'
             verbose(false) do
                 system('thin stop -q > /dev/null')
             end
@@ -51,4 +62,3 @@ namespace :server do
         end
     end
 end
-
