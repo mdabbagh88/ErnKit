@@ -1,8 +1,8 @@
 language: objective-c
 before_install:
     - brew update
-    - brew install xctool
-    - brew install python
+    - which -s xctool || brew link xctool || brew install xctool
+    - which -s pip || brew link python || brew install python
     - bundle install
     - pod install
     - sudo pip install cpp-coveralls --use-mirrors
