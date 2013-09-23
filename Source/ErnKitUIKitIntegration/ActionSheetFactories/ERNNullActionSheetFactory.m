@@ -1,7 +1,6 @@
 #import "ERNNullActionSheetFactory.h"
+#import "ERNErrorHandler.h"
 #import <UIKit/UIKit.h>
-
-static ERNNullActionSheetFactory *immutableSingleton;
 
 @implementation ERNNullActionSheetFactory {
 }
@@ -10,7 +9,7 @@ static ERNNullActionSheetFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNActionSheetFactory
@@ -18,13 +17,6 @@ static ERNNullActionSheetFactory *immutableSingleton;
 -(UIActionSheet *)createActionSheetForResource:(ERNResource *) __unused resource
 {
     return [UIActionSheet new];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

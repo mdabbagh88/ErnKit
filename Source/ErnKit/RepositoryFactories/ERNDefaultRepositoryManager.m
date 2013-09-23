@@ -49,19 +49,10 @@
              [[self objects] objectForKey:[resource url]]]];
 }
 
-#pragma mark - private
-
-static NSMapTable *createObjects(void)
-{
-    return [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
-                                 valueOptions:NSPointerFunctionsWeakMemory];
-}
-
 #pragma mark - private - accessors
 
--(NSMapTable *)objects
-{
-    return _objects = _objects ? _objects : createObjects();
-}
+ERNLazyLoadGetter(NSMapTable *, objects,
+                  [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
+                                        valueOptions:NSPointerFunctionsWeakMemory])
 
 @end

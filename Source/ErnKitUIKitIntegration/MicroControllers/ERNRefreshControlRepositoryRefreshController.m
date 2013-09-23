@@ -1,5 +1,6 @@
 #import "ERNRefreshControlRepositoryRefreshController.h"
 #import "ERNAsyncRepository.h"
+#import "ERNNullAsyncItemRepository.h"
 #import "ERNErrorHandler.h"
 #import <UIKit/UIKit.h>
 
@@ -9,6 +10,7 @@
 @end
 
 @implementation ERNRefreshControlRepositoryRefreshController {
+    id<ERNAsyncRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -31,6 +33,10 @@
 {
     [[self refreshControl] endRefreshing];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAsyncRepository>, repository, [ERNNullAsyncRepository create])
 
 #pragma mark - private - initializers
 

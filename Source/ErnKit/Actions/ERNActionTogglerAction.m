@@ -9,6 +9,7 @@
 @end
 
 @implementation ERNActionTogglerAction {
+    NSArray *_actions;
     NSUInteger _selectedIndex;
 }
 
@@ -59,6 +60,8 @@
     _currentAction = currentAction;
     [self notifyObservers];
 }
+
+ERNLazyLoadGetter(NSArray *, actions, @[])
 
 #pragma mark - private - initializers
 

@@ -7,6 +7,7 @@
 @end
 
 @implementation ERNWindowViewControllerTransitioner {
+    UIWindow *_window;
 }
 
 #pragma mark - public - constructors
@@ -30,6 +31,10 @@
     ERNCheckNilNoReturn(viewController);
     [[self window] setRootViewController:viewController];
 }
+
+#pragma mark - private - accesssors
+
+ERNLazyLoadGetter(UIWindow *, window, [UIWindow new])
 
 #pragma mark - private - initializers
 

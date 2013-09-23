@@ -1,7 +1,6 @@
 #import "ERNNullResource.h"
 #import "NSURL+ERNHelper.h"
-
-static ERNNullResource *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullResource {
     NSString *_mime;
@@ -10,26 +9,13 @@ static ERNNullResource *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - public - accessors
 
--(NSURL *)url
-{
-    return _url = _url ? _url : [NSURL ERN_createNull];
-}
+ERNLazyLoadGetter(NSURL *, url, [NSURL ERN_createNull])
 
--(NSString *)mime
-{
-    return _mime = _mime ? _mime : @"";
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
-}
+ERNLazyLoadGetter(NSString *, mime, @"")
 
 @end

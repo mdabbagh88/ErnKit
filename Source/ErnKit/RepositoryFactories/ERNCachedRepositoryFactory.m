@@ -44,17 +44,11 @@
 
 #pragma mark - private - accessors
 
--(id<ERNRepositoryFactory>)firstRepositoryFactory
-{
-    return _firstRepositoryFactory = _firstRepositoryFactory ? _firstRepositoryFactory :
-    [ERNNullRepositoryFactory create];
-}
+ERNLazyLoadGetter(id<ERNRepositoryFactory>,
+                  firstRepositoryFactory, [ERNNullRepositoryFactory create])
 
--(id<ERNRepositoryFactory>)restRepositoryFactory
-{
-    return _restRepositoryFactory = _restRepositoryFactory ? _restRepositoryFactory :
-    [ERNNullRepositoryFactory create];
-}
+ERNLazyLoadGetter(id<ERNRepositoryFactory>,
+                  restRepositoryFactory, [ERNNullRepositoryFactory create])
 
 #pragma mark - private - initializers
 

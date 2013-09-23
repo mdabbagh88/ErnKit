@@ -1,8 +1,7 @@
 #import "ERNDefaultResourceFactory.h"
 #import "ERNResource.h"
+#import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
-
-static ERNDefaultResourceFactory *immutableSingleton;
 
 @implementation ERNDefaultResourceFactory {
 }
@@ -11,7 +10,7 @@ static ERNDefaultResourceFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNResourceFactory
@@ -22,13 +21,6 @@ static ERNDefaultResourceFactory *immutableSingleton;
             [NSURL URLWithString:[NSString stringWithFormat:@"ernobject://%d", [object hash]]]
                                  mime:@""
                                object:object];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

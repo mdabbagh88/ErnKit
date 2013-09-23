@@ -1,4 +1,5 @@
 #import "NSURL+ERNHelper.h"
+#import "ERNErrorHandler.h"
 
 @implementation NSURL (ERNHelper)
 
@@ -6,12 +7,7 @@
 
 +(instancetype)ERN_createNull
 {
-    static NSURL *nullURL;
-    static dispatch_once_t pred;
-    dispatch_once(&pred, ^{
-        nullURL = [self URLWithString:@""];
-    });
-    return nullURL;
+    return ERNLazyLoadSingletonWithLoader([NSURL URLWithString:@""]);
 }
 
 -(BOOL)ERN_hasValue

@@ -99,6 +99,10 @@ static id<NSObject> validItem(id<NSObject>item)
     return @[validItem([[self repository] item])];
 }
 
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAsyncItemRepository>, repository, [ERNNullAsyncItemRepository create])
+
 #pragma mark - private - initializers
 
 -(id)initWithItemRepository:(id<ERNAsyncItemRepository>)repository

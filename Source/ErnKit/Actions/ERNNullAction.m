@@ -1,6 +1,5 @@
 #import "ERNNullAction.h"
-
-static ERNNullAction *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullAction {
 }
@@ -9,20 +8,13 @@ static ERNNullAction *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNAction
 
 -(void)actionForResource:(ERNResource *) __unused resource
 {
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

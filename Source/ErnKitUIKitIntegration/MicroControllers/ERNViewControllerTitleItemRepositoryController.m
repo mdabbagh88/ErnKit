@@ -1,5 +1,7 @@
 #import "ERNViewControllerTitleItemRepositoryController.h"
 #import "ERNAsyncItemRepository.h"
+#import "ERNNullAsyncItemRepository.h"
+#import "ERNErrorHandler.h"
 
 @interface ERNViewControllerTitleItemRepositoryController ()
 @property (nonatomic, readonly, weak) UIViewController *viewController;
@@ -7,6 +9,7 @@
 @end
 
 @implementation ERNViewControllerTitleItemRepositoryController {
+    id<ERNAsyncItemRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -37,12 +40,17 @@ static void setTitle(UIViewController *viewController, NSString *title)
     [viewController setTitle:title];
 }
 
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAsyncItemRepository>, repository, [ERNNullAsyncItemRepository create])
+
 #pragma mark - private - initializers
 
 -(id)initWithViewController:(UIViewController *)viewController
                  repository:(id<ERNAsyncItemRepository>)repository
 {
     self = [self init];
+    ERNCheckNil(self);
     _viewController = viewController;
     _repository = repository;
     [_repository addObserver:self

@@ -29,7 +29,7 @@
 
 -(void)testActionProtocolWithNilTransitionerFactory
 {
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNViewControllerFactory)];
+    id mockFactory = [OCMockObject niceMockForProtocol:@protocol(ERNViewControllerFactory)];
     [ERNActionTest testAction:[ERNViewControllerAction createWithTransitioner:nil
                                                                  factory:mockFactory]];
 }

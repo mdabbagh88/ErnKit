@@ -162,16 +162,9 @@ static id<ERNRepositoryPaginator> validatePaginator(id paginator)
 
 #pragma mark - private - accessors
 
--(ERNResource *)resource
-{
-    return _resource = _resource ? _resource : [ERNNullResource create];
-}
+ERNLazyLoadGetter(ERNResource *, resource, [ERNNullResource create])
 
--(id<ERNRepositoryFactory>)repositoryFactory
-{
-    return _repositoryFactory = _repositoryFactory ? _repositoryFactory :
-    [ERNNullRepositoryFactory create];
-}
+ERNLazyLoadGetter(id<ERNRepositoryFactory>, repositoryFactory, [ERNNullRepositoryFactory create])
 
 #pragma mark - private - initializers
 

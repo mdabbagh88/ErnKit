@@ -9,6 +9,7 @@
 
 @implementation ERNTogglingAsyncPaginatedItemsRepository {
     NSUInteger _selectedIndex;
+    NSArray *_repositories;
 }
 
 #pragma mark - public - constructor
@@ -157,6 +158,10 @@ static BOOL isValidRepository(id<ERNAsyncPaginatedItemsRepository> repository)
 {
     [self notifyObservers];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(NSArray *, repositories, @[])
 
 #pragma mark - private - initializers
 

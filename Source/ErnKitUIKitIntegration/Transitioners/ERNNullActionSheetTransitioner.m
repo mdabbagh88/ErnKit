@@ -1,6 +1,5 @@
 #import "ERNNullActionSheetTransitioner.h"
-
-static ERNNullActionSheetTransitioner *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullActionSheetTransitioner {
 }
@@ -9,20 +8,13 @@ static ERNNullActionSheetTransitioner *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNActionSheetTransitioner
 
 -(void)transitionToActionSheet:(UIActionSheet *) __unused actionSheet
 {
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

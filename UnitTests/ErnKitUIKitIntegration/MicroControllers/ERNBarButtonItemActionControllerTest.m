@@ -4,6 +4,7 @@
 #import <UIKit/UIKit.h>
 #import "ERNBarButtonItemActionControllerTest.h"
 #import "ERNBarButtonItemActionController.h"
+#import "ERNNullResource.h"
 #import "ERNAction.h"
 
 @interface ERNBarButtonItemActionController ()
@@ -71,6 +72,7 @@
     id mockButton = [OCMockObject mockForClass:[UIBarButtonItem class]];
     [(UIBarButtonItem *)[mockButton expect] setTarget:OCMOCK_ANY];
     [(UIBarButtonItem *)[mockButton expect] setAction:NSSelectorFromString(@"handleAction")];
+    [[mockAction expect] actionForResource:[ERNNullResource create]];
     ERNBarButtonItemActionController *controller =
     [ERNBarButtonItemActionController createWithBarButtonItem:mockButton
                                                        action:mockAction

@@ -12,6 +12,7 @@
 
 @implementation ERNTogglingTableViewManager {
     NSUInteger _selectedIndex;
+    NSArray *_tableViewManagers;
 }
 
 #pragma mark - public - constructors

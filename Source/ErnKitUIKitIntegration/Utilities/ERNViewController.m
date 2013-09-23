@@ -42,20 +42,11 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAction>)appearAction
-{
-    return _appearAction = _appearAction ? _appearAction : [ERNNullAction create];
-}
+ERNLazyLoadGetter(id<ERNAction>, appearAction, [ERNNullAction create])
 
--(id<ERNAction>)disappearAction
-{
-    return _disappearAction = _disappearAction ? _disappearAction : [ERNNullAction create];
-}
+ERNLazyLoadGetter(id<ERNAction>, disappearAction, [ERNNullAction create])
 
--(ERNResource *)resource
-{
-    return _resource = _resource ? _resource : [ERNNullResource create];
-}
+ERNLazyLoadGetter(ERNResource *, resource, [ERNNullResource create])
 
 #pragma mark - private - initializers
 

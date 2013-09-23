@@ -107,15 +107,9 @@ static RKObjectRequestOperation *requestOperation(NSURLRequest *request,
 
 #pragma mark - private - accessors
 
--(ERNResource *)resource
-{
-    return _resource = _resource ? _resource : [ERNNullResource create];
-}
+ERNLazyLoadGetter(ERNResource *, resource, [ERNNullResource create])
 
--(NSOperationQueue *)operationQueue
-{
-    return _operationQueue = _operationQueue ? _operationQueue : [NSOperationQueue new];
-}
+ERNLazyLoadGetter(NSOperationQueue *, operationQueue, [NSOperationQueue new])
 
 #pragma mark - private - initializers
 

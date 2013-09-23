@@ -1,7 +1,5 @@
-#import <UIKit/UIKit.h>
 #import "ERNNullViewControllerDismisser.h"
-
-static ERNNullViewControllerDismisser *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullViewControllerDismisser {
 }
@@ -10,20 +8,13 @@ static ERNNullViewControllerDismisser *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNViewControllerDismisser
 
 -(void)dismissViewController:(UIViewController *) __unused viewController
 {
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

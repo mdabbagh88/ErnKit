@@ -1,4 +1,5 @@
 #import "ERNRefreshAsyncRepositoryAction.h"
+#import "ERNNullAsyncRepository.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNRefreshAsyncRepositoryAction ()
@@ -6,6 +7,7 @@
 @end
 
 @implementation ERNRefreshAsyncRepositoryAction {
+    id<ERNAsyncRepository> _repository;
 }
 
 #pragma mark - public - constructors
@@ -21,6 +23,10 @@
 {
     [[self repository] refresh];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAsyncRepository>, repository, [ERNNullAsyncRepository create])
 
 #pragma mark - private - initializers
 

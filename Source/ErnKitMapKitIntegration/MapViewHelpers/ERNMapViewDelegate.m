@@ -1,6 +1,8 @@
 #import "ERNMapViewDelegate.h"
 #import "ERNObjectAction.h"
 #import "ERNMapViewAnnotationViewFactory.h"
+#import "ERNNullObjectAction.h"
+#import "ERNNullMapViewAnnotationViewFactory.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNMapViewDelegate ()
@@ -9,6 +11,8 @@
 @end
 
 @implementation ERNMapViewDelegate {
+    id<ERNObjectAction> _objectAction;
+    id<ERNMapViewAnnotationViewFactory> _viewFactory;
 }
 
 #pragma mark - public - constructors
@@ -47,6 +51,13 @@ didSelectAnnotationView:(MKAnnotationView *)view
     ERNCheckNilNoReturn(annotation);
     [[self objectAction] actionForObject:annotation];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNObjectAction>, objectAction, [ERNNullObjectAction create])
+
+ERNLazyLoadGetter(id<ERNMapViewAnnotationViewFactory>,
+                  viewFactory, [ERNNullMapViewAnnotationViewFactory create])
 
 #pragma mark - private - initializers
 

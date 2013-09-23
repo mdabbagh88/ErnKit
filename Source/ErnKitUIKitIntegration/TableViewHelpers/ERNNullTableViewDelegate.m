@@ -1,6 +1,5 @@
 #import "ERNNullTableViewDelegate.h"
-
-static ERNNullTableViewDelegate *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullTableViewDelegate {
 }
@@ -9,14 +8,7 @@ static ERNNullTableViewDelegate *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
+    return ERNLazyLoadSingleton();
 }
 
 @end

@@ -9,6 +9,7 @@
 
 @implementation ERNBinaryToggleAction {
     BOOL _selected;
+    id<ERNAction> _action;
 }
 
 #pragma mark - public - constructors
@@ -46,6 +47,8 @@
     [self notifyObservers];
 }
 
+ERNLazyLoadGetter(id<ERNAction>, action, [ERNNullAction create])
+
 #pragma mark - private - initializers
 
 -(id)initWithAction:(id<ERNAction>)action
@@ -53,7 +56,7 @@
     self = [super init];
     ERNCheckNil(self);
     _action = action;
-    [self setCurrentAction:action];
+    [self setCurrentAction:[self action]];
     return self;
 }
 

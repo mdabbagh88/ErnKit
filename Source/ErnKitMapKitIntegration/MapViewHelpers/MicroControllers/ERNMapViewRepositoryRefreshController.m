@@ -3,6 +3,7 @@
 #import "ERNAsyncItemsRepository.h"
 #import "MKMapView+ERNHelper.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAsyncItemsRepository.h"
 
 typedef const void(^ERNAnnotationZoomer)();
 
@@ -13,6 +14,8 @@ typedef const void(^ERNAnnotationZoomer)();
 @end
 
 @implementation ERNMapViewRepositoryRefreshController {
+    id<ERNAsyncItemsRepository> _repository;
+    ERNAnnotationZoomer _annotationZoomer;
 }
 
 #pragma mark - public - constructors
@@ -68,6 +71,12 @@ static NSPredicate *annotationFilterPredicate(void)
         return [evaluatedObject conformsToProtocol:@protocol(MKAnnotation)];
     }];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAsyncItemsRepository>, repository, [ERNNullAsyncItemsRepository create])
+
+ERNLazyLoadGetter(ERNAnnotationZoomer, annotationZoomer, (ERNAnnotationZoomer)^(){})
 
 #pragma mark - private - initializers
 

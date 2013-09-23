@@ -1,6 +1,7 @@
 #import "ERNRestKitAsyncItemRepositoryFactory.h"
 #import "ERNRestKitAsyncItemsRepository.h"
 #import "ERNItemsToAsyncPaginatedItemsRepository.h"
+#import "ERNNullAsyncPaginatedItemsRepository.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNRestKitAsyncItemRepositoryFactory ()
@@ -27,6 +28,7 @@
 
 -(id<ERNAsyncPaginatedItemsRepository>)repositoryForResource:(ERNResource *)resource
 {
+    ERNCheckNilAndReturn([self responseDescriptor], [ERNNullAsyncPaginatedItemsRepository create]);
     return [ERNItemsToAsyncPaginatedItemsRepository createWithRepository:
             [ERNRestKitAsyncItemsRepository createWithResource:resource
                                             responseDescriptor:[self responseDescriptor]]];

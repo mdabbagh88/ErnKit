@@ -1,7 +1,6 @@
 #import "ERNNullRepositoryPaginator.h"
+#import "ERNErrorHandler.h"
 #import "NSURL+ERNHelper.h"
-
-static ERNNullRepositoryPaginator *immutableSingleton;
 
 @implementation ERNNullRepositoryPaginator {
     NSNumber *_total;
@@ -14,36 +13,17 @@ static ERNNullRepositoryPaginator *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNRepositoryPaginator
 
--(NSNumber *)total
-{
-    return _total = _total ? _total : @0;
-}
+ERNLazyLoadGetter(NSNumber *, total, @0)
 
--(NSURL *)nextPage
-{
-    return _nextPage = _nextPage ? _nextPage : [NSURL ERN_createNull];
-}
+ERNLazyLoadGetter(NSURL *, nextPage, [NSURL ERN_createNull])
 
--(NSURL *)previousPage
-{
-    return _previousPage = _previousPage ? _previousPage : [NSURL ERN_createNull];
-}
+ERNLazyLoadGetter(NSURL *, previousPage, [NSURL ERN_createNull])
 
--(NSArray *)items
-{
-    return _items = _items ? _items : @[];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
-}
+ERNLazyLoadGetter(NSArray *, items, @[])
 
 @end

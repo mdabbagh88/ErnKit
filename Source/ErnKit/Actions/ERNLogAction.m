@@ -41,10 +41,7 @@ static NSString *validMime(NSString *mime)
 
 #pragma mark - private - accessors
 
--(NSString *)string
-{
-    return _string = _string ? _string : @"ERNLogAction";
-}
+ERNLazyLoadGetter(NSString *, string, @"ERNLogAction")
 
 #pragma mark - private - initializers
 

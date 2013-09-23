@@ -1,5 +1,6 @@
 #import "ERNDualAction.h"
 #import "ERNErrorHandler.h"
+#import "ERNNullAction.h"
 
 @interface ERNDualAction ()
 @property (nonatomic, readonly) id<ERNAction> firstAction;
@@ -7,6 +8,8 @@
 @end
 
 @implementation ERNDualAction {
+    id<ERNAction> _firstAction;
+    id<ERNAction> _secondAction;
 }
 
 #pragma mark - public - constructors
@@ -26,6 +29,12 @@
     [[self firstAction] actionForResource:resource];
     [[self secondAction] actionForResource:resource];
 }
+
+#pragma  mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAction>, firstAction, [ERNNullAction create])
+
+ERNLazyLoadGetter(id<ERNAction>, secondAction, [ERNNullAction create])
 
 #pragma mark - private - initializers
 

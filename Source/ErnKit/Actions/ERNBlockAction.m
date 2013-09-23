@@ -26,10 +26,7 @@
 
 #pragma mark - private - accessors
 
--(ERNActionBlock)block
-{
-    return _block  = _block ? _block : ^(ERNResource *__unused resource){};
-}
+ERNLazyLoadGetter(ERNActionBlock, block, ^(ERNResource *__unused resource){})
 
 #pragma mark - private - initializers
 

@@ -1,7 +1,6 @@
-#import "ERNNullViewControllerFactory.h"
 #import <UIKit/UIKit.h>
-
-static ERNNullViewControllerFactory *immutableSingleton;
+#import "ERNNullViewControllerFactory.h"
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullViewControllerFactory {
 }
@@ -10,7 +9,7 @@ static ERNNullViewControllerFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNViewControllerFactory
@@ -19,13 +18,6 @@ static ERNNullViewControllerFactory *immutableSingleton;
                                            dismisser:(id<ERNViewControllerDismisser>)__unused dismisser
 {
     return [UIViewController new];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

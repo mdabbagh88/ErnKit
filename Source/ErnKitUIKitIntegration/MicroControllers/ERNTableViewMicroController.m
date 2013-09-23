@@ -35,15 +35,9 @@
 
 #pragma mark - private - accessors
 
--(id<UITableViewDataSource>)dataSource
-{
-    return _dataSource = _dataSource ? _dataSource : [ERNNullTableViewDataSource create];
-}
+ERNLazyLoadGetter(id<UITableViewDataSource>, dataSource, [ERNNullTableViewDataSource create])
 
--(id<UITableViewDelegate>)delegate
-{
-    return _delegate = _delegate ? _delegate : [ERNNullTableViewDelegate create];
-}
+ERNLazyLoadGetter(id<UITableViewDelegate>, delegate, [ERNNullTableViewDelegate create])
 
 #pragma mark - private - initializers
 

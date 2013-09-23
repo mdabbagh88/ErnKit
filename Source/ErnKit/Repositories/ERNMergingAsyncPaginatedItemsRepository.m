@@ -170,17 +170,12 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAsyncPaginatedItemsRepository>)firstRepository
-{
-    return _firstRepository = _firstRepository ? _firstRepository :
-    [ERNNullAsyncPaginatedItemsRepository create];
-}
+ERNLazyLoadGetter(id<ERNAsyncPaginatedItemsRepository>,
+                  firstRepository, [ERNNullAsyncPaginatedItemsRepository create])
 
--(id<ERNAsyncPaginatedItemsRepository>)restRepository
-{
-    return _restRepository = _restRepository ? _restRepository :
-    [ERNNullAsyncPaginatedItemsRepository create];
-}
+ERNLazyLoadGetter(id<ERNAsyncPaginatedItemsRepository>,
+                  restRepository, [ERNNullAsyncPaginatedItemsRepository create])
+
 
 #pragma mark - private - initializers
 

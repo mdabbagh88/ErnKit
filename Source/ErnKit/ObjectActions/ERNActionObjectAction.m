@@ -41,10 +41,7 @@
 
 #pragma mark - private - accessors
 
--(id<ERNResourceFactory>)resourceFactory
-{
-    return _resourceFactory = _resourceFactory ? _resourceFactory : [ERNNullResourceFactory create];
-}
+ERNLazyLoadGetter(id<ERNResourceFactory>, resourceFactory, [ERNNullResourceFactory create])
 
 #pragma mark - private - initializers
 

@@ -51,10 +51,7 @@ static BOOL factoryIsValid(id<ERNResourceFactory> factory)
 
 #pragma mark - private - accessors
 
--(NSDictionary *)mappings
-{
-    return _mappings = _mappings ? _mappings : @{};
-}
+ERNLazyLoadGetter(NSDictionary *, mappings, @{})
 
 #pragma mark - private - initializers
 

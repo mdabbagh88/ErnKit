@@ -75,11 +75,7 @@ titleForHeaderInSection:(NSInteger)section
 
 #pragma mark - private - accessors
 
--(id<ERNTableViewManager>)tableViewManager
-{
-    return _tableViewManager = _tableViewManager ? _tableViewManager :
-    [ERNNullTableViewManager create];
-}
+ERNLazyLoadGetter(id<ERNTableViewManager>, tableViewManager, [ERNNullTableViewManager create])
 
 #pragma mark - private - initializers
 

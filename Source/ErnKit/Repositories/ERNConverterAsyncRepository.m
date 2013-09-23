@@ -51,9 +51,6 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAsyncRepository>)repository
-{
-    return _repository = _repository ? _repository : [ERNNullAsyncRepository create];
-}
+ERNLazyLoadGetter(id<ERNAsyncRepository>, repository, [ERNNullAsyncRepository create])
 
 @end

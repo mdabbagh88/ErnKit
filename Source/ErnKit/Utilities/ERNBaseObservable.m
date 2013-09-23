@@ -68,16 +68,8 @@
 
 #pragma mark - private - accessors
 
--(NSNotificationCenter *)notificationCenter
-{
-    return _notificationCenter = _notificationCenter ?
-    _notificationCenter :
-    [NSNotificationCenter new];
-}
+ERNLazyLoadGetter(NSNotificationCenter *, notificationCenter, [NSNotificationCenter new])
 
--(NSMapTable *)observers
-{
-    return _observers = _observers ? _observers : [NSMapTable weakToStrongObjectsMapTable];
-}
+ERNLazyLoadGetter(NSMapTable *, observers, [NSMapTable weakToStrongObjectsMapTable])
 
 @end

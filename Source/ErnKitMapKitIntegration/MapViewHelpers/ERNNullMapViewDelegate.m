@@ -1,6 +1,5 @@
 #import "ERNNullMapViewDelegate.h"
-
-ERNNullMapViewDelegate *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullMapViewDelegate
 
@@ -8,14 +7,7 @@ ERNNullMapViewDelegate *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
+    return ERNLazyLoadSingleton();
 }
 
 @end

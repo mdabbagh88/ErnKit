@@ -1,6 +1,7 @@
 #import "ERNTableViewRepositoryRefreshController.h"
 #import <UIKit/UIKit.h>
 #import "ERNAsyncRepository.h"
+#import "ERNNullAsyncRepository.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNTableViewRepositoryRefreshController ()
@@ -33,6 +34,10 @@
 {
     [[self tableView] reloadData];
 }
+
+#pragma mark - private- accessors
+
+ERNLazyLoadGetter(id<ERNAsyncRepository>, repository, [ERNNullAsyncRepository create])
 
 #pragma mark - private - initializers
 

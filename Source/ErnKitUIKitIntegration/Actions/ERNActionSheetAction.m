@@ -1,5 +1,7 @@
 #import "ERNActionSheetAction.h"
 #import "ERNActionSheetTransitioner.h"
+#import "ERNNullActionSheetFactory.h"
+#import "ERNNullActionSheetTransitioner.h"
 #import "ERNActionSheetFactory.h"
 #import "ERNErrorHandler.h"
 
@@ -9,6 +11,8 @@
 @end
 
 @implementation ERNActionSheetAction {
+    id<ERNActionSheetFactory> _factory;
+    id<ERNActionSheetTransitioner> _transitioner;
 }
 
 #pragma mark - public - constructors
@@ -24,12 +28,18 @@
 
 -(void)actionForResource:(ERNResource *)resource
 {
-    ERNCheckNilNoReturn([self factory]);
-    ERNCheckNilNoReturn([self transitioner]);
     ERNCheckNilNoReturn(resource);
     [[self transitioner] transitionToActionSheet:
      [[self factory] createActionSheetForResource:resource]];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNActionSheetTransitioner>,
+                  transitioner, [ERNNullActionSheetTransitioner create])
+
+ERNLazyLoadGetter(id<ERNActionSheetFactory>,
+                  factory, [ERNNullActionSheetFactory create])
 
 #pragma mark - private - initializers
 

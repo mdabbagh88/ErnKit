@@ -195,17 +195,11 @@ static NSInteger restSectionForSection(NSInteger section)
     return section - 1;
 }
 
--(id<ERNTableViewManager>)firstTableViewManager
-{
-    return _firstTableViewManager = _firstTableViewManager ? _firstTableViewManager :
-    [ERNNullTableViewManager create];
-}
+#pragma mark - private - accessors
 
--(id<ERNTableViewManager>)restTableViewManager
-{
-    return _restTableViewManager = _restTableViewManager ? _restTableViewManager :
-    [ERNNullTableViewManager create];
-}
+ERNLazyLoadGetter(id<ERNTableViewManager>, firstTableViewManager, [ERNNullTableViewManager create])
+
+ERNLazyLoadGetter(id<ERNTableViewManager>, restTableViewManager, [ERNNullTableViewManager create])
 
 #pragma mark - private - initializers
 

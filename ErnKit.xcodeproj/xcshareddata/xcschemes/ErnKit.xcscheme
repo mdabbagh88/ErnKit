@@ -14,7 +14,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E8D0B9F6E93432EBD4B1E0B"
+               BlueprintIdentifier = "290DBA70F5734A3AAA3843A8"
                BuildableName = "libPods-ErnKit.a"
                BlueprintName = "Pods-ErnKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "33E0769EA4F2423683992356"
+               BlueprintIdentifier = "F067D2B2B8F147D69FDBED67"
                BuildableName = "libPods-UnitTests.a"
                BlueprintName = "Pods-UnitTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "32E5659DD4944C29A1D694C0"
+               BlueprintIdentifier = "8515FB5BBA07494AA4EFA7C4"
                BuildableName = "libPods-Demo.a"
                BlueprintName = "Pods-Demo"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

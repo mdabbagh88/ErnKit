@@ -12,6 +12,7 @@
 @end
 
 @implementation ERNMimeRoutingRepositoryFactory {
+    NSDictionary *_repositoryFactories;
 }
 
 #pragma mark - public - constructors
@@ -59,6 +60,10 @@ static BOOL isValidFactory(id<ERNRepositoryFactory> repositoryFactory)
 {
     return repository ? repository : [ERNNullAsyncPaginatedItemsRepository create];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(NSDictionary *, repositoryFactories, @{})
 
 #pragma mark - private - initializers
 

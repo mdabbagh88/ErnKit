@@ -4,6 +4,7 @@
 #import "ERNAction.h"
 #import "ERNNullAction.h"
 #import "ERNResource.h"
+#import "ERNNullResource.h"
 #import "NSURL+ERNHelper.h"
 
 @interface ERNSegmentedControlActionController ()
@@ -52,16 +53,14 @@
 
 -(void)handleAction:(id<ERNAction>)action
 {
-    ERNCheckNilNoReturn([self resource]);
     [action actionForResource:[self resource]];
 }
 
 #pragma mark - private - accessors
 
--(NSArray *)actions
-{
-    return _actions = _actions ? _actions : @[];
-}
+ERNLazyLoadGetter(NSArray *, actions, @[])
+
+ERNLazyLoadGetter(ERNResource *, resource, [ERNNullResource create])
 
 #pragma mark - private - initializers
 

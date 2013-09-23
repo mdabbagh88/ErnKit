@@ -14,10 +14,7 @@
 
 #pragma mark - public - accessors
 
--(NSArray *)array
-{
-    return _array = _array ? _array : @[];
-}
+ERNLazyLoadGetter(NSArray *, array, @[])
 
 -(void)setArray:(NSArray *)array
 {

@@ -1,7 +1,6 @@
 #import "ERNNullRepositoryFactory.h"
 #import "ERNNullAsyncPaginatedItemsRepository.h"
-
-static ERNNullRepositoryFactory *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullRepositoryFactory {
 }
@@ -10,7 +9,7 @@ static ERNNullRepositoryFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNRepositoryFactory
@@ -23,13 +22,6 @@ static ERNNullRepositoryFactory *immutableSingleton;
 -(id<ERNAsyncRepository>)repositoryForResource:(ERNResource *)__unused resource
 {
     return [ERNNullAsyncPaginatedItemsRepository create];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

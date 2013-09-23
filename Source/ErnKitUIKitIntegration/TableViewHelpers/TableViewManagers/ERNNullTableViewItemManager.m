@@ -1,7 +1,6 @@
 #import "ERNNullTableViewItemManager.h"
 #import "ERNNullTableViewCell.h"
-
-static ERNNullTableViewItemManager *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullTableViewItemManager {
 }
@@ -10,7 +9,7 @@ static ERNNullTableViewItemManager *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNTableViewItemManager
@@ -29,13 +28,6 @@ static ERNNullTableViewItemManager *immutableSingleton;
                             fromObject:(id<NSObject>)__unused object
 {
     return [ERNNullTableViewCell create];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

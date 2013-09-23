@@ -14,10 +14,7 @@
 
 #pragma mark - public - accessors
 
--(id<NSObject>)item
-{
-    return _item = _item ? _item : [NSNull null];
-}
+ERNLazyLoadGetter(id<NSObject>, item, [NSNull null])
 
 #pragma mark - private - initializers
 

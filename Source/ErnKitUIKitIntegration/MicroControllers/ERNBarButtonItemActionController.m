@@ -2,6 +2,8 @@
 #import "ERNBarButtonItemActionController.h"
 #import "ERNErrorHandler.h"
 #import "ERNAction.h"
+#import "ERNNullAction.h"
+#import "ERNNullResource.h"
 #import "NSURL+ERNHelper.h"
 
 @interface ERNBarButtonItemActionController ()
@@ -10,8 +12,8 @@
 @end
 
 @implementation ERNBarButtonItemActionController {
-    NSURL *_url;
-    NSString *_mime;
+    ERNResource *_resource;
+    id<ERNAction> _action;
 }
 
 #pragma mark - public - constructors
@@ -29,9 +31,14 @@
 
 -(void)handleAction
 {
-    ERNCheckNilNoReturn([self resource]);
     [[self action] actionForResource:[self resource]];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNAction>, action, [ERNNullAction create])
+
+ERNLazyLoadGetter(ERNResource *, resource, [ERNNullResource create])
 
 #pragma mark - private - initializer
 

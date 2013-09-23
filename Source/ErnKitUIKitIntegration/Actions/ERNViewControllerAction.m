@@ -2,6 +2,8 @@
 #import "ERNViewControllerAction.h"
 #import "ERNViewControllerFactory.h"
 #import "ERNViewControllerTransitioner.h"
+#import "ERNNullViewControllerFactory.h"
+#import "ERNNullViewControllerTransitioner.h"
 #import "ERNErrorHandler.h"
 
 @interface ERNViewControllerAction ()
@@ -10,6 +12,8 @@
 @end
 
 @implementation ERNViewControllerAction {
+    id<ERNViewControllerFactory> _factory;
+    id<ERNViewControllerTransitioner> _transitioner;
 }
 
 #pragma mark - public - constructors
@@ -25,13 +29,19 @@
 
 -(void)actionForResource:(ERNResource *)resource
 {
-    ERNCheckNilNoReturn([self factory]);
-    ERNCheckNilNoReturn([self transitioner]);
     ERNCheckNilNoReturn(resource);
     [[self transitioner] transitionToViewController:
      [[self factory] createViewControllerForResource:resource
                                            dismisser:[self transitioner]]];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(id<ERNViewControllerTransitioner>,
+                  transitioner, [ERNNullViewControllerTransitioner create])
+
+ERNLazyLoadGetter(id<ERNViewControllerFactory>,
+                  factory, [ERNNullViewControllerFactory create])
 
 #pragma mark - private - initializers
 

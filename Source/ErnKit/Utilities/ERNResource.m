@@ -29,15 +29,9 @@
 
 #pragma mark - public - accessors
 
--(NSURL *)url
-{
-    return _url = _url ? _url : [NSURL ERN_createNull];
-}
+ERNLazyLoadGetter(NSURL *, url, [NSURL ERN_createNull])
 
--(NSString *)mime
-{
-    return _mime = _mime ? _mime : @"";
-}
+ERNLazyLoadGetter(NSString *, mime, @"")
 
 #pragma mark - private - initializers
 

@@ -7,6 +7,7 @@
 @end
 
 @implementation ERNViewActionSheetTransitioner {
+    UIView *_view;
 }
 
 #pragma mark - public - constructors
@@ -20,9 +21,12 @@
 
 -(void)transitionToActionSheet:(UIActionSheet *)actionSheet
 {
-    ERNCheckNilNoReturn([self view]);
     [actionSheet showInView:[self view]];
 }
+
+#pragma mark - accessors
+
+ERNLazyLoadGetter(UIView *, view, [UIView new])
 
 #pragma mark - private - initializers
 

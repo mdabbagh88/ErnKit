@@ -1,7 +1,6 @@
 #import "ERNNullTableViewCellFactory.h"
 #import "ERNNullTableViewCell.h"
-
-static ERNNullTableViewCellFactory *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullTableViewCellFactory {
 }
@@ -10,7 +9,7 @@ static ERNNullTableViewCellFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNTableViewCellFactory
@@ -25,13 +24,6 @@ static ERNNullTableViewCellFactory *immutableSingleton;
                 defaultHeight:(CGFloat)defaultHeight
 {
     return defaultHeight;
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

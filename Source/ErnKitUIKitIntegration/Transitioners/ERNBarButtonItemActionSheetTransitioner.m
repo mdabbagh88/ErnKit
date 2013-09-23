@@ -7,6 +7,7 @@
 @end
 
 @implementation ERNBarButtonItemActionSheetTransitioner {
+    UIBarButtonItem *_barButtonItem;
 }
 
 #pragma mark - public - constructors
@@ -20,10 +21,13 @@
 
 -(void)transitionToActionSheet:(UIActionSheet *)actionSheet
 {
-    ERNCheckNilNoReturn([self barButtonItem]);
     [actionSheet showFromBarButtonItem:[self barButtonItem]
                               animated:YES];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(UIBarButtonItem *, barButtonItem, [UIBarButtonItem new])
 
 #pragma mark - private - initializers
 

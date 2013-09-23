@@ -1,8 +1,7 @@
 #import "ERNNullResourceFactory.h"
 #import "ERNNullResource.h"
 #import "NSURL+ERNHelper.h"
-
-static ERNNullResourceFactory *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullResourceFactory {
 }
@@ -11,7 +10,7 @@ static ERNNullResourceFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNResourceFactory
@@ -19,13 +18,6 @@ static ERNNullResourceFactory *immutableSingleton;
 -(ERNResource *)resourceForObject:(id<NSObject>)__unused object
 {
     return [ERNNullResource create];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

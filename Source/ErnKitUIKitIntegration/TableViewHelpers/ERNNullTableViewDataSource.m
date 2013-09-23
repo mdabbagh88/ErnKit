@@ -1,7 +1,6 @@
 #import "ERNNullTableViewDataSource.h"
 #import "ERNNullTableViewCell.h"
-
-static ERNNullTableViewDataSource *immutableSingleton;
+#import "ERNErrorHandler.h"
 
 @implementation ERNNullTableViewDataSource {
 }
@@ -10,7 +9,7 @@ static ERNNullTableViewDataSource *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - UITableViewDataSource
@@ -25,13 +24,6 @@ numberOfRowsInSection:(NSInteger)__unused section
         cellForRowAtIndexPath:(NSIndexPath *)__unused indexPath
 {
     return [ERNNullTableViewCell create];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

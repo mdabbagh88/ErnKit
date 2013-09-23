@@ -80,10 +80,7 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAsyncItemsRepository>)repository
-{
-    return _repository = _repository ? _repository : [ERNNullAsyncItemsRepository create];
-}
+ERNLazyLoadGetter(id<ERNAsyncItemsRepository>, repository, [ERNNullAsyncItemsRepository create])
 
 #pragma mark - private - initializers
 

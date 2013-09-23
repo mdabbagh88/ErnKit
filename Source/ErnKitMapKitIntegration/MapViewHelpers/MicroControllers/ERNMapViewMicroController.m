@@ -31,10 +31,7 @@
 
 #pragma mark - private - accessors
 
--(id<MKMapViewDelegate>)delegate
-{
-    return _delegate = _delegate ? _delegate : [ERNNullMapViewDelegate create];
-}
+ERNLazyLoadGetter(id<MKMapViewDelegate>, delegate, [ERNNullMapViewDelegate create])
 
 #pragma mark - private - initializers
 

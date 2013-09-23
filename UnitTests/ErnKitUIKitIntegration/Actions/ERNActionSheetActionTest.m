@@ -28,7 +28,7 @@
 
 -(void)testActionProtocolWithNilTransitionerFactory
 {
-    id mockFactory = [OCMockObject mockForProtocol:@protocol(ERNActionSheetFactory)];
+    id mockFactory = [OCMockObject niceMockForProtocol:@protocol(ERNActionSheetFactory)];
     [ERNActionTest testAction:[ERNActionSheetAction createWithTransitioner:nil
                                                               factory:mockFactory]];
 }

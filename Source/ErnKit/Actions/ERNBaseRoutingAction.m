@@ -8,6 +8,7 @@
 @end
 
 @implementation ERNBaseRoutingAction {
+    NSDictionary *_actions;
 }
 
 #pragma mark - public
@@ -28,6 +29,10 @@
 {
     return [[self alloc] initWithActions:actions];
 }
+
+#pragma mark - private - accessors
+
+ERNLazyLoadGetter(NSDictionary *, actions, @{})
 
 #pragma mark - public - initializers
 

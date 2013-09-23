@@ -1,8 +1,7 @@
 #import "ERNNullMapViewAnnotationViewFactory.h"
 #import "ERNNullAnnotation.h"
+#import "ERNErrorHandler.h"
 #import <MapKit/MapKit.h>
-
-static ERNNullMapViewAnnotationViewFactory *immutableSingleton;
 
 @implementation ERNNullMapViewAnnotationViewFactory {
 }
@@ -11,7 +10,7 @@ static ERNNullMapViewAnnotationViewFactory *immutableSingleton;
 
 +(instancetype)create
 {
-    return immutableSingleton;
+    return ERNLazyLoadSingleton();
 }
 
 #pragma mark - ERNMapViewAnnotationViewFactory
@@ -21,13 +20,6 @@ static ERNNullMapViewAnnotationViewFactory *immutableSingleton;
 {
     return [[MKPinAnnotationView alloc] initWithAnnotation:[ERNNullAnnotation create]
                                            reuseIdentifier:NSStringFromClass([ERNNullAnnotation class])];
-}
-
-#pragma mark - NSObject
-
-+(void)initialize
-{
-    immutableSingleton = [self new];
 }
 
 @end

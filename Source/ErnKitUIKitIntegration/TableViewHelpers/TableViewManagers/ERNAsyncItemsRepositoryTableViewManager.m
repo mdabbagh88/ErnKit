@@ -90,16 +90,10 @@
 
 #pragma mark - private - accessors
 
--(id<ERNAsyncPaginatedItemsRepository>)repository
-{
-    return _repository = _repository ? _repository : [ERNNullAsyncPaginatedItemsRepository create];
-}
+ERNLazyLoadGetter(id<ERNAsyncPaginatedItemsRepository>,
+                  repository, [ERNNullAsyncPaginatedItemsRepository create])
 
--(id<ERNTableViewItemManager>)itemManager
-{
-    return _itemManager = _itemManager ? _itemManager :
-    [ERNNullTableViewItemManager create];
-}
+ERNLazyLoadGetter(id<ERNTableViewItemManager>, itemManager, [ERNNullTableViewItemManager create])
 
 #pragma mark - private - initializers
 

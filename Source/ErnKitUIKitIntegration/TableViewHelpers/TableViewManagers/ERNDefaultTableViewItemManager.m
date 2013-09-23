@@ -49,12 +49,7 @@
 
 #pragma mark - private - accessors
 
--(id<ERNTableViewCellFactory>)cellFactory
-{
-    return _cellFactory = _cellFactory ?
-    _cellFactory :
-    [ERNNullTableViewCellFactory create];
-}
+ERNLazyLoadGetter(id<ERNTableViewCellFactory>, cellFactory, [ERNNullTableViewCellFactory create])
 
 #pragma mark - private - initializers
 
