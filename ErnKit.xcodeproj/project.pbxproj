@@ -10,6 +10,7 @@
 		4277566D68864831803D8C16 /* libPods-ErnKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E1AE46EC494E588C12C94E /* libPods-ErnKit.a */; };
 		551CB70F4A9F468689771182 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FB2A2DCCAA419391FF6031 /* libPods-Demo.a */; };
 		A71C07411901417586A261D2 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */; };
+		BF87A471B96F0D5BAE4D3F07 /* ZZZCoverageFix.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87AC71CC7718EA6D0691F1 /* ZZZCoverageFix.m */; };
 		F703082E177F84CE00F39603 /* ERNCachedRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7030823177F84B100F39603 /* ERNCachedRepositoryFactory.m */; };
 		F703082F177F84CE00F39603 /* ERNDefaultRepositoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7030825177F84B100F39603 /* ERNDefaultRepositoryManager.m */; };
 		F7030830177F84CE00F39603 /* ERNDefaultRepositoryPaginator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7030827177F84B100F39603 /* ERNDefaultRepositoryPaginator.m */; };
@@ -264,6 +265,8 @@
 		6CCAABB354DF4589974BBDDB /* Pods-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.xcconfig"; path = "Pods/Pods-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		71C3F3D301DB497D835C19A8 /* libPods-UnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB2A764A64E4D56BADF841A /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF87A9302E98870A5A0FAC51 /* ZZZCoverageFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZZCoverageFix.h; sourceTree = "<group>"; };
+		BF87AC71CC7718EA6D0691F1 /* ZZZCoverageFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZZCoverageFix.m; sourceTree = "<group>"; };
 		F5965F03673546CD99133767 /* libPods-ErnKitRestKitIntegration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErnKitRestKitIntegration.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7030822177F84B100F39603 /* ERNCachedRepositoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERNCachedRepositoryFactory.h; sourceTree = "<group>"; };
 		F7030823177F84B100F39603 /* ERNCachedRepositoryFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERNCachedRepositoryFactory.m; sourceTree = "<group>"; };
@@ -1624,6 +1627,8 @@
 				F7416290177F8A1900720A8C /* RepositoryFactories */,
 				F71B936A173AFE7700F80B0F /* ResourceFactories */,
 				F74388D2173BF21C00676477 /* Utilities */,
+				BF87AC71CC7718EA6D0691F1 /* ZZZCoverageFix.m */,
+				BF87A9302E98870A5A0FAC51 /* ZZZCoverageFix.h */,
 			);
 			path = ErnKit;
 			sourceTree = "<group>";
@@ -2422,6 +2427,7 @@
 				F73D1E1E179A7E8B009D5DDF /* ERNNullViewControllerDismisserTest.m in Sources */,
 				F71182F11778275F00A94C6F /* ERNBinaryToggleActionTest.m in Sources */,
 				F73D1E41179B0F41009D5DDF /* ERNRoutingMapViewAnnotationViewFactoryTest.m in Sources */,
+				BF87A471B96F0D5BAE4D3F07 /* ZZZCoverageFix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2567,6 +2573,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-Wno-gnu";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2628,7 +2635,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LLVM_LTO = YES;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = "-Wno-gnu";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -8,13 +8,13 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "290DBA70F5734A3AAA3843A8"
+               BlueprintIdentifier = "0760AEA1DBDD4DC5B382974E"
                BuildableName = "libPods-ErnKit.a"
                BlueprintName = "Pods-ErnKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F067D2B2B8F147D69FDBED67"
+               BlueprintIdentifier = "88840FD0EFD1425B93245A6A"
                BuildableName = "libPods-UnitTests.a"
                BlueprintName = "Pods-UnitTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8515FB5BBA07494AA4EFA7C4"
+               BlueprintIdentifier = "C97F54FF3909461585C69C77"
                BuildableName = "libPods-Demo.a"
                BlueprintName = "Pods-Demo"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -151,6 +151,13 @@
             ReferencedContainer = "container:ErnKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "ERNKIT_DISABLE_PARAM_ERROR_LOG"
+            value = ""
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

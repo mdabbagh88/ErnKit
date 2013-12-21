@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #ifdef DEBUG
-#define ERNNilParamErrorLog NSLog(@"ERNNilParamError:%s:%d",__FILE__,__LINE__)
+#define ERNNilParamErrorLog if (!getenv("ERNKIT_DISABLE_PARAM_ERROR_LOG")) {NSLog(@"ERNNilParamError:%s:%d",__FILE__,__LINE__);}
 #else
 #define ERNNilParamErrorLog
 #endif

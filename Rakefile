@@ -1,6 +1,6 @@
 PROJECT_NAME = 'ErnKit'
 WORKSPACE_NAME = PROJECT_NAME + '.xcworkspace'
-SDK_VERSION = 'iphonesimulator6.1'
+SDK_VERSION = 'iphonesimulator'
 SCHEME_NAME = PROJECT_NAME
 BUILD_FOLDER = 'Build'
 OBJECT_FOLDER = BUILD_FOLDER + '/' + PROJECT_NAME + '.build/Objects-normal/i386'
